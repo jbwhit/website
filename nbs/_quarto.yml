@@ -20,6 +20,8 @@ website:
         href: index.html
       - text: About
         href: about.html
+      - text: Blog
+        href: blog.qmd
   sidebar:
     style: floating
 
