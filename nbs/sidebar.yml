@@ -3,9 +3,7 @@ website:
     contents:
       - index.ipynb
       - about.ipynb
-      - blog.qmd
-      - section: posts
+      - section: My Blog
         contents:
-          - section: 2024-06-28-my-first-post
-            contents: []
-            href: posts/2024-06-28-my-first-post/index.ipynb
+          - posts/2024-06-28-my-first-post/index.ipynb
+          - posts/2023-12-19-misusing-machine-learning/index.ipynb

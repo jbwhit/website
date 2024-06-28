@@ -9,6 +9,7 @@ format:
 
 website:
   title: "Jonathan Whitmore's Personal Website"
+  favicon: images/favicon.ico
   twitter-card: true
   open-graph: true
   repo-actions: [issue]
