@@ -2,7 +2,6 @@ website:
   sidebar:
     contents:
       - index.ipynb
-      - 00_core.ipynb
       - about.ipynb
       - blog.qmd
       - section: posts
