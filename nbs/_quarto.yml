@@ -8,9 +8,11 @@ format:
     toc: true
 
 website:
-  title: "Jonathan Whitmore's Personal Website"
+  title: "Jonathan Whitmore's Website"
   favicon: images/favicon.ico
-  twitter-card: true
+  twitter-card:
+    creator: "@jbwhitmore"
+    card-style: summary_large_image
   open-graph: true
   repo-actions: [issue]
   navbar:
