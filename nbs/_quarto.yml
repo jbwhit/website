@@ -27,5 +27,16 @@ website:
         href: blog.qmd
   sidebar:
     style: floating
+    contents:
+      - index.ipynb
+      - about.ipynb
+      - text: "Blog"
+        href: blog.qmd
+      - section: "Recent Posts"
+        contents:
+          - text: "Misusing Machine Learning"
+            href: posts/2023-12-19-misusing-machine-learning/index.ipynb
+          - text: "My First Post"
+            href: posts/2024-06-28-my-first-post/index.ipynb
 
-metadata-files: [nbdev.yml, sidebar.yml]
+metadata-files: [nbdev.yml]
