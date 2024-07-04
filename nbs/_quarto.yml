@@ -25,6 +25,9 @@ website:
         href: about.html
       - text: Blog
         href: blog.qmd
+    right:
+      - icon: rss
+        href: index.xml
   sidebar:
     style: floating
     contents:
