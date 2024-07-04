@@ -23,6 +23,15 @@ website:
         href: index.html
       - text: About
         href: about.html
+      - text: Checklists
+        menu:
+          - text: All Checklists
+            href: checklists.qmd
+          - text: ---
+          - text: Investing
+            href: checklists/investing.qmd
+          - text: Difference-in-Differences
+            href: checklists/difference-in-differences.qmd
       - text: Blog
         href: blog.qmd
     right:

@@ -4,6 +4,11 @@ website:
       - index.ipynb
       - about.ipynb
       - blog.qmd
+      - checklists.qmd
+      - section: checklists
+        contents:
+          - checklists/difference-in-differences.qmd
+          - checklists/investing.qmd
       - section: posts
         contents:
           - section: 2023-12-19-misusing-machine-learning
