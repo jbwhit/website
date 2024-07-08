@@ -12,9 +12,19 @@ format:
     code-summary: "Show the code"
 ---
 
-**Purpose:** To systematically evaluate potential investments by assessing key financial, operational, and strategic factors.
 
-**Background:** This checklist is inspired by a [tweet from @datarade](https://x.com/datarade/status/1808705176179462467) which shared an image of a checklist from a summary by [@sb9721p](https://x.com/sb9721p). It combines the investing wisdom of Charlie Munger, Warren Buffett, Joel Greenblatt, Bruce Berkowitz, David Einhorn, Lou Simpson, Bill Ackman, Tom Murphy, and Michael Porter. I've expanded on this to create an actionable checklist with the help of [Claude](https://claude.ai) and Google's [NotebookLM](https://notebooklm.google.com/).
+## Purpose
+
+To systematically evaluate potential investments by assessing key financial, operational, and strategic factors.
+
+## Background
+
+This checklist is inspired by a [tweet from @datarade](https://x.com/datarade/status/1808705176179462467) which shared an image of a checklist from a summary by [@sb9721p](https://x.com/sb9721p). It combines the investing wisdom of Charlie Munger, Warren Buffett, Joel Greenblatt, Bruce Berkowitz, David Einhorn, Lou Simpson, Bill Ackman, Tom Murphy, and Michael Porter. I've expanded on this to create an actionable checklist with the help of [Claude](https://claude.ai) and Google's [NotebookLM](https://notebooklm.google.com/).
+
+::: {.callout-note collapse="true"}
+## Disclaimer
+This checklist is for informational purposes only, not financial advice. Investing involves risks, including potential loss of principal. Consult a qualified financial advisor before making investment decisions. The creator is not responsible for any losses or damages from using this information. This checklist may not cover all factors relevant to your situation. By using it, you accept these limitations and risks.
+:::
 
 **Download:** You can [download this checklist as a Markdown file](investment_checklist.md) to use offline or integrate into your own tools.
 
@@ -82,4 +92,12 @@ format:
 - [ ] How does this investment fit with your overall investment strategy?
 - [ ] Make a final decision: Invest, Watch, or Pass
 
-**Action:** Discuss findings with your investment team. Document your analysis for each section to support your final decision.
+## How to Use This Checklist
+
+1. Work through each section systematically, answering all questions and completing all tasks.
+2. Document your findings and analysis for each point.
+3. Use your completed checklist as a basis for discussion with your investment team or advisor.
+4. Review your analysis holistically before making a final decision.
+5. Keep your completed checklist for future reference and to refine your investment process over time.
+
+Remember, this checklist is a tool to guide your thinking and ensure you've considered key factors. Your final investment decision should be based on a comprehensive analysis of all available information and your individual financial situation and goals.
