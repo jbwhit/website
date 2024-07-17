@@ -2,8 +2,8 @@ project:
   output-dir: _docs
 
 website:
-  title: "Jonathan Whitmore"
+  title: "website"
   site-url: "https://jbwhit.github.io/website"
-  description: "Thinking about the best way to think about things."
+  description: "My website."
   repo-branch: main
   repo-url: "https://github.com/jbwhit/website"
