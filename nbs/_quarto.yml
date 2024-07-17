@@ -3,7 +3,9 @@ project:
 
 format:
   html:
-    theme: solar
+    theme:
+        light: flatly
+        dark: darkly
     css: styles.css
     toc: true
 
