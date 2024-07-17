@@ -21,6 +21,8 @@ website:
     tools:
       - icon: twitter-x
         href: https://x.com/jbwhitmore
+      - icon: linkedin
+        href: https://www.linkedin.com/in/jonathanbwhitmore/
       - icon: github
         menu:
           - text: Source Code
@@ -41,6 +43,8 @@ website:
             href: checklists/investing.qmd
           - text: Difference-in-Differences
             href: checklists/difference-in-differences.qmd
+      - text: Jupyter Mastery (Course)
+        href: https://jbwhitmore.gumroad.com/l/jupytermastery
       - text: About
         href: about.html
     right:
