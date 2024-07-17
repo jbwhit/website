@@ -52,5 +52,6 @@ website:
       - section: All blog posts
         href: blog.qmd
         contents: posts
+        sort: "date desc"
 
 metadata-files: [nbdev.yml]
