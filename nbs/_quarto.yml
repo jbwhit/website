@@ -18,13 +18,20 @@ website:
   open-graph: true
   repo-actions: [issue]
   navbar:
+    tools:
+      - icon: twitter-x
+        href: https://x.com/jbwhitmore
+      - icon: github
+        menu:
+          - text: Source Code
+            href:  https://github.com/jbwhit/website
+          - text: Report a Bug
+            href:  https://github.com/jbwhit/website/issues/new
     background: primary
     search: true
     left:
       - text: Home
         href: index.html
-      - text: About
-        href: about.html
       - text: Checklists
         menu:
           - text: All Checklists
@@ -34,23 +41,16 @@ website:
             href: checklists/investing.qmd
           - text: Difference-in-Differences
             href: checklists/difference-in-differences.qmd
-      - text: Blog
-        href: blog.qmd
+      - text: About
+        href: about.html
     right:
       - icon: rss
         href: index.xml
   sidebar:
     style: floating
     contents:
-      - index.ipynb
-      - about.ipynb
-      - text: "Blog"
+      - section: All blog posts
         href: blog.qmd
-      - section: "Recent Posts"
-        contents:
-          - text: "[Solved] My Custom Domain keeps reverting on my GitHub Pages site"
-            href: posts/2024-07-11-cname-github-pages/index.ipynb
-          - text: "Misusing Machine Learning"
-            href: posts/2023-12-19-misusing-machine-learning/index.ipynb
+        contents: posts
 
 metadata-files: [nbdev.yml]
