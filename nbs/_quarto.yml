@@ -21,14 +21,18 @@ website:
     tools:
       - icon: twitter-x
         href: https://x.com/jbwhitmore
+      - icon: youtube
+        href: https://www.youtube.com/@JonathanWhitmore
       - icon: linkedin
         href: https://www.linkedin.com/in/jonathanbwhitmore/
       - icon: github
         menu:
           - text: Source Code
-            href:  https://github.com/jbwhit/website
+            href: https://github.com/jbwhit/website
           - text: Report a Bug
-            href:  https://github.com/jbwhit/website/issues/new
+            href: https://github.com/jbwhit/website/issues/new
+      - icon: rss
+        href: index.xml
     background: primary
     search: true
     left:
@@ -47,9 +51,6 @@ website:
         href: https://jbwhitmore.gumroad.com/l/jupytermastery
       - text: About
         href: about.html
-    right:
-      - icon: rss
-        href: index.xml
   sidebar:
     style: floating
     contents:
