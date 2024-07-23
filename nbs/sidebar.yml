@@ -1,0 +1,24 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - about.ipynb
+      - blog.qmd
+      - checklists.qmd
+      - section: checklists
+        contents:
+          - checklists/difference-in-differences.qmd
+          - checklists/investing.qmd
+      - section: physics
+        contents:
+          - section: physics-quals
+            contents: []
+            href: physics/physics-quals/index.qmd
+      - section: posts
+        contents:
+          - section: 2023-12-19-misusing-machine-learning
+            contents: []
+            href: posts/2023-12-19-misusing-machine-learning/index.ipynb
+          - section: 2024-07-11-cname-github-pages
+            contents: []
+            href: posts/2024-07-11-cname-github-pages/index.ipynb

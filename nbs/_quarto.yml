@@ -47,6 +47,10 @@ website:
             href: checklists/investing.qmd
           - text: Difference-in-Differences
             href: checklists/difference-in-differences.qmd
+      - text: Physics Quals
+        menu: 
+          - text: UCSD Physics Qualifying Exams
+            href: physics/physics-quals/index.qmd
       - text: Jupyter Mastery (Course)
         href: https://jbwhitmore.gumroad.com/l/jupytermastery
       - text: About
