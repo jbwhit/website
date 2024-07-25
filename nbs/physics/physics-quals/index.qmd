@@ -1,15 +1,29 @@
 ---
-title: "Physics Quals"
-description: "UC San Diego Physics PhD qualifying exams"
+title: "Physics PhD Qualifying Exams"
+description: "UC San Diego Physics PhD qualifying exams from 1987 through 2019."
 ---
 
-## Physics Quals Files
+# UCSD Physics Qualifying Exams Archive
+
+I've maintained the UCSD Physics Qualifying Exams Archive on my website since 2008! This page provides access to a comprehensive collection of past qualifying exams for physics graduate students. Note: UCSD stopped administering qualifying exams in 2019, so there are no newer exams. If you have an exam that I'm missing or a correction please let me know!
+
+## Download All PDFs by Year Range
+
+If you want to access multiple years at once here's bulk downloads:
+
+| Year Range | Download Link |
+|------------|---------------|
+| 2010 - 2019 | [Download](https://www.dropbox.com/scl/fi/c3kvhokov63wdo22wuvpp/2010_2019.tar.gz?rlkey=jda4tcu2xzkkjmfsn7x0mfvg8&dl=1) |
+| 2000 - 2009 | [Download](https://www.dropbox.com/scl/fi/sckazyxic4eptgni469cz/2000_2009.tar.gz?rlkey=zb4l2n31q6hghqdtp34avf2rb&dl=1) |
+| 1987 - 1999 | [Download](https://www.dropbox.com/scl/fi/sit3vk7lvig7pqhrd0op7/1987_1999.tar.gz?rlkey=48pqqkycm7b21ux3d2r7ilab6&dl=1) |
+
+## Individual Physics Qualifying Exams
 
 | Year | Fall | Spring |
 |------|------|--------|
-| 2019 |  | [2019 Spring](https://www.dropbox.com/scl/fi/u1d09hx5vs0ja856oy6v5/2019spring.pdf?rlkey=ksf6isuxldb7bqd80fktg1poz&dl=1) |
+| 2019 | - | [2019 Spring](https://www.dropbox.com/scl/fi/u1d09hx5vs0ja856oy6v5/2019spring.pdf?rlkey=ksf6isuxldb7bqd80fktg1poz&dl=1) |
 | 2018 | [2018 Fall](https://www.dropbox.com/scl/fi/zottdnxdq6mm5h4bv0ing/2018fall.pdf?rlkey=9hijyfwpyalvguqe1y352fgz8&dl=1) | [2018 Spring](https://www.dropbox.com/scl/fi/4j0bvyx1yr8y7e8kcrrx1/2018spring.pdf?rlkey=cswm9t7n02y74687tkp4pzj9o&dl=1) |
-| 2017 | [2017 Fall](https://www.dropbox.com/scl/fi/11y0vopjbiu5vgxbsgwvf/2017fall.pdf?rlkey=pgfgkmjmv2ac1fut6m477kkt0&dl=1) |  |
+| 2017 | [2017 Fall](https://www.dropbox.com/scl/fi/11y0vopjbiu5vgxbsgwvf/2017fall.pdf?rlkey=pgfgkmjmv2ac1fut6m477kkt0&dl=1) | - |
 | 2016 | [2016 Fall](https://www.dropbox.com/scl/fi/ufr29ge6v6k3xfkmqqy4k/2016fall.pdf?rlkey=hswij5ioi8ph4k8czdqjsh40g&dl=1) | [2016 Spring](https://www.dropbox.com/scl/fi/ac2q2cvixv95t7vt26vj9/2016spring.pdf?rlkey=i61q7gnhbthiw7dyucplvu6at&dl=1) |
 | 2015 | [2015 Fall](https://www.dropbox.com/scl/fi/scjbyu2k8kyzyoq5g55qs/2015fall.pdf?rlkey=hsztn6j4ml5sd8t2qvzmunid4&dl=1) | [2015 Spring](https://www.dropbox.com/scl/fi/5e6889ng4jl6chxg2cibu/2015spring.pdf?rlkey=bvske7jeyk9ywy9pq0u1elqye&dl=1) |
 | 2014 | [2014 Fall](https://www.dropbox.com/scl/fi/dtryk1yypp87j85560sd7/2014fall.pdf?rlkey=0vcazom3e4m8f844lhictv2sa&dl=1) | [2014 Spring](https://www.dropbox.com/scl/fi/m7n66ikf68ejh6z4c9b07/2014spring.pdf?rlkey=lsmisin3m5844qwu8rdwdudab&dl=1) |
@@ -39,5 +53,6 @@ description: "UC San Diego Physics PhD qualifying exams"
 | 1990 | [1990 Fall](https://www.dropbox.com/scl/fi/wh3wjpxhpy4yw2av34urc/1990fall.pdf?rlkey=iqbxzn8b8dfexpmd5e7vo9ewr&dl=1) | [1990 Spring](https://www.dropbox.com/scl/fi/h1kam5pu4mwon0wva0n1p/1990spring.pdf?rlkey=xej6ifdn5mt63j3frlp9wemnb&dl=1) |
 | 1989 | [1989 Fall](https://www.dropbox.com/scl/fi/1jkbbdp295oem9navyay2/1989fall.pdf?rlkey=tmbir0kulx3rm300hotkcfrzu&dl=1) | [1989 Spring](https://www.dropbox.com/scl/fi/wz2190ibywt8q5sn35cwv/1989spring.pdf?rlkey=lqvzfxr2kvaq84possnl14e76&dl=1) |
 | 1988 | [1988 Fall](https://www.dropbox.com/scl/fi/o7xtbpp0wwk8s1zafzs08/1988fall.pdf?rlkey=wbrjgbfa0weptnxzc9zsddon1&dl=1) | [1988 Spring](https://www.dropbox.com/scl/fi/rl2m80ardg1lr5a8qpahr/1988spring.pdf?rlkey=bxglzaysfq5ik4jdopan84yh2&dl=1) |
-| 1987 | [1987 Fall](https://www.dropbox.com/scl/fi/64v7uanvo5p485rlln34l/1987fall.pdf?rlkey=7w0s46hf9lgteh3gcz4c2yi1f&dl=1) |  |
+| 1987 | [1987 Fall](https://www.dropbox.com/scl/fi/64v7uanvo5p485rlln34l/1987fall.pdf?rlkey=7w0s46hf9lgteh3gcz4c2yi1f&dl=1) | - |
 
+I hope these resources prove useful in your physics studies!
