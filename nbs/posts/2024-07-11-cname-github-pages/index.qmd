@@ -1,6 +1,6 @@
 ---
-title: "[Solved] My Custom Domain keeps reverting on my GitHub Pages site"
-description: "How to fix the issue where a properly set up custom URL reverts when pushing new GitHub commits."
+title: "[Solved] Custom Domain Keeps Reverting to GitHub Pages"
+description: "How to fix the issue where a custom URL reverts when pushing new GitHub commits."
 author: "Jonathan Whitmore"
 date: "2024-07-11"
 code-annotations: hover
@@ -10,7 +10,7 @@ format:
     code-fold: true
 ---
 
-# [Solved] My Custom Domain keeps reverting on my GitHub Pages site
+# [Solved] Custom Domain Keeps Reverting on My GitHub Pages Site
 
 ## The Setup
 
@@ -20,20 +20,18 @@ The whole process went rather smoothly. I had my website up and running, and I c
 
 ## The Problem
 
-Whenever I made an update to my website, however, my URL broke. The GitHub pages page (github.io/jbwhit/...) worked, but the custom URL (jonathanwhitmore.com) just no longer pointed to the right spot.
+Whenever I made an update to my website, however, my URL broke. The GitHub Pages page (github.io/jbwhit/...) worked, but the custom URL (jonathanwhitmore.com) no longer pointed to the right spot.
 
 ## The Start of a Solution
 
-When I first added my Custom Domain, GitHub helpfully created a CNAME (Canonical Name) file in the top level of the repo on the `gh-pages` branch (if that's what you're using, and I was). 
+When I first added my Custom Domain, GitHub helpfully created a CNAME (Canonical Name) file in the top-level directory of the repo on the `gh-pages` branch (if that's what you're using, and I was). 
 
 ![CNAME file in GitHub](githubsettings.png)
-
-Nbdev, however, uses the `nbs` folder as the top level of the website repo in the main branch.
 
 
 ## The Fix
 
-All that I needed to do was to create a CNAME file and place it in the `nbs` folder, and then run `nbdev_prepare` and update as usual. I found that this completely solved the problem that occurred every single time I pushed a commit to github. 
+Simply move the CNAME file from the top level directory and place it in the `nbs` directory, and then run `nbdev_prepare` and update as usual. I found that this completely solved the problem that occurred every single time I pushed a commit to GitHub.
 
 ```bash
 # Directory structure of the GitHub website repo when using nbdev
@@ -48,11 +46,19 @@ All that I needed to do was to create a CNAME file and place it in the `nbs` fol
 ├── setup.py
 ```
 1. ❌ This CNAME file is created by GitHub and placed in the root directory of your git repo (one level above the `nbs` directory that nbdev uses). The red X indicates this is not the correct location.
-2. nbdev uses the `nbs` folder as the top-level of the website repo (this differs from what GitHub expects).
+2. nbdev uses the `nbs` directory as the top-level of the website repo (this differs from what GitHub expects).
 3. ✅ The correct place to put the CNAME file: under the `nbs` directory. The green checkmark indicates this is the proper location.
 
+## The Why
 
-## Other people with this problem
+Long story short: GitHub assumes that the git repository that you are turning into a website is using the top level directory as the directory for the website, and suggests the CNAME to be in the top level directory for that reason. 
+
+In contrast, Nbdev uses the `nbs` directory as the top-level of the website repo. This is why the fix is very simple -- move the CNAME to the top-level directory of the website, which for nbdev projects is the `nbs` directory.
+
+## Resources
 
 - [Nbdev issue: push to main branch removes custom domain from GitHub Pages settings](https://github.com/fastai/nbdev/issues/1033)
-
+- [Configuring a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
+- [Nbdev Documentation](https://nbdev.fast.ai/)
+- [Quarto Documentation](https://quarto.org/docs/websites/)
+- [Understanding CNAME records](https://en.wikipedia.org/wiki/CNAME_record)
