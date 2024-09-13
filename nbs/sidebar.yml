@@ -22,3 +22,10 @@ website:
           - section: 2024-07-11-cname-github-pages
             contents: []
             href: posts/2024-07-11-cname-github-pages/index.ipynb
+          - section: 2024-09-08-teaching-and-learning-physics
+            contents:
+              - posts/2024-09-08-teaching-and-learning-physics/index 2.qmd
+            href: posts/2024-09-08-teaching-and-learning-physics/index.qmd
+          - section: 2024-09-10-MathAcademy-after-2000-points
+            contents: []
+            href: posts/2024-09-10-MathAcademy-after-2000-points/index.qmd
