@@ -21,7 +21,7 @@ website:
             href: posts/2023-12-19-misusing-machine-learning/index.ipynb
           - section: 2024-07-11-cname-github-pages
             contents: []
-            href: posts/2024-07-11-cname-github-pages/index.ipynb
+            href: posts/2024-07-11-cname-github-pages/index.qmd
           - section: 2024-09-08-teaching-and-learning-physics
             contents:
               - posts/2024-09-08-teaching-and-learning-physics/index 2.qmd
