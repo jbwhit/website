@@ -20,7 +20,7 @@ execute:
 
 # Introduction
 
-For the past two months, I've dedicated daily practice to [MathAcademy.com](https://MathAcademy.com), accumulating 2,000 experience points (~40 hours of total work).
+For the past two months, I've dedicated daily practice to [MathAcademy.com](https://MathAcademy.com), accumulating more than 2,000 experience points (~40 hours of total work).
 
 [Main takeaway](https://en.wikipedia.org/wiki/BLUF_(communication)): **MathAcademy is extraordinary**.
 
@@ -36,8 +36,11 @@ MathAcademy is an innovative online learning platform that goes beyond tradition
 
 It has offerings for students in 4th grade through university level mathematics (pretty deep into a standard math major curriculum). It has a couple of other paths for different student needs. The Mathematics Foundations series is tailored to adult students who, like me, are mostly re-learning content they "learned" 20 years ago. See this [list of courses](https://mathacademy.com/courses/) for a better explanation.
 
-Two courses that draw my attention (and are on my list to be completed) are the [Mathematics for Machine Learning](https://mathacademy.com/courses/mathematics-for-machine-learning) and the [Methods of Proof](https://mathacademy.com/courses/methods-of-proof) classes.
+::: {.column-margin}
+Here's [a tweet](https://x.com/ninja_maths/status/1834324698663915551) from one of the content authors ([@ninja_maths](https://x.com/ninja_maths)) at MathAcademy with more on the Foundations series.
+:::
 
+Two more courses that have drawn my attention are the [Mathematics for Machine Learning](https://mathacademy.com/courses/mathematics-for-machine-learning) and the [Methods of Proof](https://mathacademy.com/courses/methods-of-proof) classes. Soon.
 
 # The Challenge: Knowledge Retention
 
@@ -55,8 +58,7 @@ Years ago, I went to graduate school to get a PhD in physics. One of the signifi
 The physics department at UC San Diego no longer requires "the qual". I've maintained the qualifying exams from 1987--2019 on my personal website since about 2008: [UC San Diego, Physics PhD Qualifying Exams](https://jonathanwhitmore.com/physics/physics-quals/).
 :::
 
-
-I felt that losing all that knowledge was incredibly sad. And I knew that all it would take is some dedicated and persistent effort from my side. But I had no idea how much time and effort it would cost. 
+I felt that losing all that knowledge was incredibly sad. And I knew that all it would take is some dedicated and persistent effort from my side. But I had no idea how much time and effort it would take.
 
 ## The Cost/Benefit Tradeoff of Knowledge Retention
 
@@ -113,7 +115,6 @@ Further, they aren't usually paired (as MathAcademy is) in a tight feedback loop
 :::
 
 Over my 40 hours of learning, I have completed the Mathematics [Foundations II](https://mathacademy.com/courses/mathematical-foundations-ii) course. I've started Mathematics [Foundations III](https://mathacademy.com/courses/mathematical-foundations-iii), and again, a nice aspect of the site is that it gives an estimate of how many "experience points" it will take me to complete it. It, like Anki, turns a goal that I want to accomplish into something like "turn the effort-crank X times and you'll have re-learned Linear Algebra to a deep level". 
-
 
 This approach directly addresses the Cost/Benefit tradeoff we discussed earlier. By optimizing the learning process and providing clear metrics, MathAcademy helps minimize the "cost" side of the equation while maximizing the "benefit" through efficient, targeted learning.
 
