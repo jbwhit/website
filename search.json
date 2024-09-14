@@ -1,0 +1,491 @@
+[
+  {
+    "objectID": "posts/2023-12-19-misusing-machine-learning/index.html",
+    "href": "posts/2023-12-19-misusing-machine-learning/index.html",
+    "title": "Misusing Machine Learning",
+    "section": "",
+    "text": "You can use a Decision Tree to compress an image. There are libraries to do this kind of thing properly, but I wanted to see what a Decision Tree “sees” when it looks at an image.\nThe training input is each pixel’s x, y position, and the channel number. The target is the value for that pixel and channel. I am not doing a test/train split because I’m not looking to build a model to predict anything, I’m looking to compress something.\nAnd it worked. Here’s what it looks like for the black and white image:\n\n\n\nVan Gogh’s self portrait as seen by a decision tree.\n\n\nAnd if you want to see a video where I go through a bit more of an explanation check it out here:",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Misusing Machine Learning"
+    ]
+  },
+  {
+    "objectID": "posts/2024-07-11-cname-github-pages/index.html",
+    "href": "posts/2024-07-11-cname-github-pages/index.html",
+    "title": "[Solved] Custom Domain Keeps Reverting to GitHub Pages",
+    "section": "",
+    "text": "I used Quarto and nbdev to create my website and a blog on a custom URL.\nThe whole process went rather smoothly. I had my website up and running, and I changed my hosting to point to the right place. My website appeared, and the DNS checks on GitHub’s side all passed. I had my website on the custom URL and enforced HTTPS.\n\n\n\nWhenever I made an update to my website, however, my URL broke. The GitHub Pages page (github.io/jbwhit/…) worked, but the custom URL (jonathanwhitmore.com) no longer pointed to the right spot.\n\n\n\nWhen I first added my Custom Domain, GitHub helpfully created a CNAME (Canonical Name) file in the top-level directory of the repo on the gh-pages branch (if that’s what you’re using, and I was).\n\n\n\nCNAME file in GitHub\n\n\n\n\n\nSimply move the CNAME file from the top level directory and place it in the nbs directory, and then run nbdev_prepare and update as usual. I found that this completely solved the problem that occurred every single time I pushed a commit to GitHub.\n# Directory structure of the GitHub website repo when using nbdev\n1├── ❌ CNAME\n2├── nbs\n│  ├── _quarto.yml\n3│  ├── ✅ CNAME\n│  ├── sidebar.yml\n│  └── styles.css\n├── README.md\n├── settings.ini\n├── setup.py\n\n1\n\n❌ This CNAME file is created by GitHub and placed in the root directory of your git repo (one level above the nbs directory that nbdev uses). The red X indicates this is not the correct location.\n\n2\n\nnbdev uses the nbs directory as the top-level of the website repo (this differs from what GitHub expects).\n\n3\n\n✅ The correct place to put the CNAME file: under the nbs directory. The green checkmark indicates this is the proper location.\n\n\n\n\n\nLong story short: GitHub assumes that the git repository that you are turning into a website is using the top level directory as the directory for the website, and suggests the CNAME to be in the top level directory for that reason.\nIn contrast, Nbdev uses the nbs directory as the top-level of the website repo. This is why the fix is very simple – move the CNAME to the top-level directory of the website, which for nbdev projects is the nbs directory.\n\n\n\n\nNbdev issue: push to main branch removes custom domain from GitHub Pages settings\nConfiguring a custom domain for your GitHub Pages site\nNbdev Documentation\nQuarto Documentation\nUnderstanding CNAME records",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "[Solved] Custom Domain Keeps Reverting to GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "posts/2024-07-11-cname-github-pages/index.html#the-setup",
+    "href": "posts/2024-07-11-cname-github-pages/index.html#the-setup",
+    "title": "[Solved] Custom Domain Keeps Reverting to GitHub Pages",
+    "section": "",
+    "text": "I used Quarto and nbdev to create my website and a blog on a custom URL.\nThe whole process went rather smoothly. I had my website up and running, and I changed my hosting to point to the right place. My website appeared, and the DNS checks on GitHub’s side all passed. I had my website on the custom URL and enforced HTTPS.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "[Solved] Custom Domain Keeps Reverting to GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "posts/2024-07-11-cname-github-pages/index.html#the-problem",
+    "href": "posts/2024-07-11-cname-github-pages/index.html#the-problem",
+    "title": "[Solved] Custom Domain Keeps Reverting to GitHub Pages",
+    "section": "",
+    "text": "Whenever I made an update to my website, however, my URL broke. The GitHub Pages page (github.io/jbwhit/…) worked, but the custom URL (jonathanwhitmore.com) no longer pointed to the right spot.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "[Solved] Custom Domain Keeps Reverting to GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "posts/2024-07-11-cname-github-pages/index.html#the-start-of-a-solution",
+    "href": "posts/2024-07-11-cname-github-pages/index.html#the-start-of-a-solution",
+    "title": "[Solved] Custom Domain Keeps Reverting to GitHub Pages",
+    "section": "",
+    "text": "When I first added my Custom Domain, GitHub helpfully created a CNAME (Canonical Name) file in the top-level directory of the repo on the gh-pages branch (if that’s what you’re using, and I was).\n\n\n\nCNAME file in GitHub",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "[Solved] Custom Domain Keeps Reverting to GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "posts/2024-07-11-cname-github-pages/index.html#the-fix",
+    "href": "posts/2024-07-11-cname-github-pages/index.html#the-fix",
+    "title": "[Solved] Custom Domain Keeps Reverting to GitHub Pages",
+    "section": "",
+    "text": "Simply move the CNAME file from the top level directory and place it in the nbs directory, and then run nbdev_prepare and update as usual. I found that this completely solved the problem that occurred every single time I pushed a commit to GitHub.\n# Directory structure of the GitHub website repo when using nbdev\n1├── ❌ CNAME\n2├── nbs\n│  ├── _quarto.yml\n3│  ├── ✅ CNAME\n│  ├── sidebar.yml\n│  └── styles.css\n├── README.md\n├── settings.ini\n├── setup.py\n\n1\n\n❌ This CNAME file is created by GitHub and placed in the root directory of your git repo (one level above the nbs directory that nbdev uses). The red X indicates this is not the correct location.\n\n2\n\nnbdev uses the nbs directory as the top-level of the website repo (this differs from what GitHub expects).\n\n3\n\n✅ The correct place to put the CNAME file: under the nbs directory. The green checkmark indicates this is the proper location.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "[Solved] Custom Domain Keeps Reverting to GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "posts/2024-07-11-cname-github-pages/index.html#the-why",
+    "href": "posts/2024-07-11-cname-github-pages/index.html#the-why",
+    "title": "[Solved] Custom Domain Keeps Reverting to GitHub Pages",
+    "section": "",
+    "text": "Long story short: GitHub assumes that the git repository that you are turning into a website is using the top level directory as the directory for the website, and suggests the CNAME to be in the top level directory for that reason.\nIn contrast, Nbdev uses the nbs directory as the top-level of the website repo. This is why the fix is very simple – move the CNAME to the top-level directory of the website, which for nbdev projects is the nbs directory.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "[Solved] Custom Domain Keeps Reverting to GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "posts/2024-07-11-cname-github-pages/index.html#resources",
+    "href": "posts/2024-07-11-cname-github-pages/index.html#resources",
+    "title": "[Solved] Custom Domain Keeps Reverting to GitHub Pages",
+    "section": "",
+    "text": "Nbdev issue: push to main branch removes custom domain from GitHub Pages settings\nConfiguring a custom domain for your GitHub Pages site\nNbdev Documentation\nQuarto Documentation\nUnderstanding CNAME records",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "[Solved] Custom Domain Keeps Reverting to GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "My Blog",
+    "section": "",
+    "text": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)\n\n\n\n\n\n\nmath education\n\n\nlearning\n\n\ncognitive science\n\n\n\nMy review after ~40 hours of dedicated learning on the platform.\n\n\n\n\n\nSep 10, 2024\n\n\nJonathan Whitmore\n\n\n\n\n\n\n\n\n\n\n\n\n[Solved] Custom Domain Keeps Reverting to GitHub Pages\n\n\n\n\n\n\nquarto\n\n\nnbdev\n\n\nGitHub\n\n\n\nHow to fix the issue where a custom URL reverts when pushing new GitHub commits.\n\n\n\n\n\nJul 11, 2024\n\n\nJonathan Whitmore\n\n\n\n\n\n\n\n\n\n\n\n\nMisusing Machine Learning\n\n\n\n\n\n\nmachine learning\n\n\n\nDeep dive into what a decision tree is doing.\n\n\n\n\n\nDec 19, 2023\n\n\nJonathan Whitmore\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Home",
+      "All blog posts"
+    ]
+  },
+  {
+    "objectID": "checklists/investing.html",
+    "href": "checklists/investing.html",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "To systematically evaluate potential investments by assessing key financial, operational, and strategic factors."
+  },
+  {
+    "objectID": "checklists/investing.html#purpose",
+    "href": "checklists/investing.html#purpose",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "To systematically evaluate potential investments by assessing key financial, operational, and strategic factors."
+  },
+  {
+    "objectID": "checklists/investing.html#background",
+    "href": "checklists/investing.html#background",
+    "title": "Investment Evaluation Checklist",
+    "section": "Background",
+    "text": "Background\nThis checklist is inspired by a tweet from @datarade which shared an image of a checklist from a summary by @sb9721p. It combines the investing wisdom of Charlie Munger, Warren Buffett, Joel Greenblatt, Bruce Berkowitz, David Einhorn, Lou Simpson, Bill Ackman, Tom Murphy, and Michael Porter. I’ve expanded on this to create an actionable checklist with the help of Claude and Google’s NotebookLM.\n\n\n\n\n\n\nDisclaimer\n\n\n\n\n\nThis checklist is for informational purposes only, not financial advice. Investing involves risks, including potential loss of principal. Consult a qualified financial advisor before making investment decisions. The creator is not responsible for any losses or damages from using this information. This checklist may not cover all factors relevant to your situation. By using it, you accept these limitations and risks.\n\n\n\nDownload: You can download this checklist as a Markdown file to use offline or integrate into your own tools."
+  },
+  {
+    "objectID": "checklists/investing.html#initial-screening",
+    "href": "checklists/investing.html#initial-screening",
+    "title": "Investment Evaluation Checklist",
+    "section": "1. Initial Screening",
+    "text": "1. Initial Screening\n\nIs the business within your circle of competence?\nCan you explain the business model in one sentence?\nDoes the company operate in a stable or growing industry?\nIs the industry free from significant regulatory uncertainty?\nIs the business resilient to economic cycles?"
+  },
+  {
+    "objectID": "checklists/investing.html#financial-health-and-performance",
+    "href": "checklists/investing.html#financial-health-and-performance",
+    "title": "Investment Evaluation Checklist",
+    "section": "2. Financial Health and Performance",
+    "text": "2. Financial Health and Performance\n\nCalculate and assess: EBIT/EV ratio\nCalculate and assess: Normalized EBIT/(NWC + Net Equipment) ratio\nReview debt levels: Is the balance sheet healthy?\nAnalyze free cash flow generation over the past 5 years\nCalculate owner earnings (adjusted free cash flow)"
+  },
+  {
+    "objectID": "checklists/investing.html#companys-competitive-position",
+    "href": "checklists/investing.html#companys-competitive-position",
+    "title": "Investment Evaluation Checklist",
+    "section": "3. Company’s Competitive Position",
+    "text": "3. Company’s Competitive Position\n\nIdentify the company’s primary competitive advantage (moat)\nAssess the company’s market share within its industry\nEvaluate the company’s pricing power: Strong, Moderate, or Weak?\nAnalyze the company’s brand strength or customer loyalty\nReview the company’s operational efficiency compared to peers"
+  },
+  {
+    "objectID": "checklists/investing.html#industry-competitive-landscape",
+    "href": "checklists/investing.html#industry-competitive-landscape",
+    "title": "Investment Evaluation Checklist",
+    "section": "4. Industry Competitive Landscape",
+    "text": "4. Industry Competitive Landscape\n\nThreat of new entrants: High, Medium, or Low?\nThreat of substitute products or services: High, Medium, or Low?\nBargaining power of customers (buyers): High, Medium, or Low?\nBargaining power of suppliers: High, Medium, or Low?\nIntensity of competitive rivalry: High, Medium, or Low?"
+  },
+  {
+    "objectID": "checklists/investing.html#management-quality",
+    "href": "checklists/investing.html#management-quality",
+    "title": "Investment Evaluation Checklist",
+    "section": "5. Management Quality",
+    "text": "5. Management Quality\n\nVerify management’s ownership stake\nReview past shareholder communications for honesty\nAssess capital allocation decisions over the past 3-5 years\nCheck for any history of unprofitable expansions or acquisitions\nEvaluate the use of excess cash (e.g., dividends, buybacks)"
+  },
+  {
+    "objectID": "checklists/investing.html#growth-prospects",
+    "href": "checklists/investing.html#growth-prospects",
+    "title": "Investment Evaluation Checklist",
+    "section": "6. Growth Prospects",
+    "text": "6. Growth Prospects\n\nProject normalized EBIT for the next 3 years\nIdentify specific growth opportunities or new markets\nAssess alignment with long-term industry trends\nEvaluate the scalability of the current business model\nReview the company’s R&D or innovation pipeline"
+  },
+  {
+    "objectID": "checklists/investing.html#risks-and-valuation",
+    "href": "checklists/investing.html#risks-and-valuation",
+    "title": "Investment Evaluation Checklist",
+    "section": "7. Risks and Valuation",
+    "text": "7. Risks and Valuation\n\nList top 3 risks that could significantly impact the business\nCalculate the margin of safety in the current stock price\nCompare key valuation multiples to industry peers\nReview accounting practices for any red flags\nAssess your comfort level with a 5-10 year holding period"
+  },
+  {
+    "objectID": "checklists/investing.html#final-assessment",
+    "href": "checklists/investing.html#final-assessment",
+    "title": "Investment Evaluation Checklist",
+    "section": "Final Assessment",
+    "text": "Final Assessment\n\nDoes this investment improve portfolio diversification?\nRate your confidence in the business (1-10 scale)\nIs the potential return worth the identified risks?\nHow does this investment fit with your overall investment strategy?\nMake a final decision: Invest, Watch, or Pass"
+  },
+  {
+    "objectID": "checklists/investing.html#how-to-use-this-checklist",
+    "href": "checklists/investing.html#how-to-use-this-checklist",
+    "title": "Investment Evaluation Checklist",
+    "section": "How to Use This Checklist",
+    "text": "How to Use This Checklist\n\nWork through each section systematically, answering all questions and completing all tasks.\nDocument your findings and analysis for each point.\nUse your completed checklist as a basis for discussion with your investment team or advisor.\nReview your analysis holistically before making a final decision.\nKeep your completed checklist for future reference and to refine your investment process over time.\n\nRemember, this checklist is a tool to guide your thinking and ensure you’ve considered key factors. Your final investment decision should be based on a comprehensive analysis of all available information and your individual financial situation and goals."
+  },
+  {
+    "objectID": "checklists/difference-in-differences.html",
+    "href": "checklists/difference-in-differences.html",
+    "title": "Difference-in-Differences (DiD) Checklist",
+    "section": "",
+    "text": "Purpose: To systematically guide researchers through the process of conducting a Difference-in-Differences analysis, ensuring key steps and considerations are addressed.\nBackground: This checklist is inspired by a tweet from @pedrohcgs, which outlined essential steps in DiD analysis. I’ve expanded on this to create a more comprehensive, actionable checklist for researchers and analysts.\nDownload: You can download this checklist as a Markdown file to use offline or integrate into your own research workflow."
+  },
+  {
+    "objectID": "checklists/difference-in-differences.html#checklist",
+    "href": "checklists/difference-in-differences.html#checklist",
+    "title": "Difference-in-Differences (DiD) Checklist",
+    "section": "Checklist",
+    "text": "Checklist\n\nPrepare Data and Visualize Treatment\n\nPlot treatment rollout (use panelView R package)\nRecord number of units treated per cohort\nPlot average outcomes over time by cohort\n\nSelect Comparison Groups\n\nAssess Parallel Trends assumption\nConsider who decides treatment and what they know\nDetermine allowable types of selection\n\nConduct Initial Analysis\n\nPerform event study (no covariates) to assess Parallel Trends\n\nRefine Analysis with Covariates\n\nIf needed, add covariates affecting untreated outcome growth\nCheck for overlap in covariates\nUse regression adjustment DiD if extrapolating\nRerun event study with covariates to reassess Parallel Trends\n\nSensitivity Analysis\n\nPerform sensitivity analysis for Parallel Trends violations\nConsider using honestDiD R package\n\nAlternative Methods\n\nExplore other methods if Parallel Trends remains implausible"
+  },
+  {
+    "objectID": "checklists/difference-in-differences.html#additional-resources",
+    "href": "checklists/difference-in-differences.html#additional-resources",
+    "title": "Difference-in-Differences (DiD) Checklist",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nDifference-in-Differences (NBER)\nA Practical Guide to Difference-in-Differences (World Bank)\n\nAction: Use this checklist to ensure a thorough and methodologically sound Difference-in-Differences analysis. Document your decisions and findings at each step to support your research conclusions."
+  },
+  {
+    "objectID": "checklists.html",
+    "href": "checklists.html",
+    "title": "Checklists for Decision Making and Analysis",
+    "section": "",
+    "text": "Checklists are powerful tools for ensuring consistency, completeness, and quality in complex processes. They help reduce errors, improve efficiency, and provide a systematic approach to decision-making and analysis. This page serves as an index for various checklists I’ve compiled and refined over time.\n\n\n\n\n\n\n\n\nEach checklist is designed to be:\n\nComprehensive: Covering all major aspects of the task at hand.\nFlexible: Adaptable to various scenarios within its domain.\nUser-friendly: Easy to follow and implement in your workflow.\n\nFeel free to use these checklists as they are, or adapt them to your specific needs. Each checklist page provides a downloadable Markdown version for easy integration into your own tools and processes.\n\n\n\nIf you have suggestions for improving these checklists or ideas for new ones, please feel free to open an issue on the GitHub repository for this website."
+  },
+  {
+    "objectID": "checklists.html#using-these-checklists",
+    "href": "checklists.html#using-these-checklists",
+    "title": "Checklists for Decision Making and Analysis",
+    "section": "",
+    "text": "Each checklist is designed to be:\n\nComprehensive: Covering all major aspects of the task at hand.\nFlexible: Adaptable to various scenarios within its domain.\nUser-friendly: Easy to follow and implement in your workflow.\n\nFeel free to use these checklists as they are, or adapt them to your specific needs. Each checklist page provides a downloadable Markdown version for easy integration into your own tools and processes."
+  },
+  {
+    "objectID": "checklists.html#contributing",
+    "href": "checklists.html#contributing",
+    "title": "Checklists for Decision Making and Analysis",
+    "section": "",
+    "text": "If you have suggestions for improving these checklists or ideas for new ones, please feel free to open an issue on the GitHub repository for this website."
+  },
+  {
+    "objectID": "checklists/did_checklist.html",
+    "href": "checklists/did_checklist.html",
+    "title": "Difference-in-Differences (DiD) Checklist",
+    "section": "",
+    "text": "Purpose: To systematically guide researchers through the process of conducting a Difference-in-Differences analysis, ensuring key steps and considerations are addressed.\nBackground: This checklist is inspired by a tweet from @pedrohcgs, which outlined essential steps in DiD analysis. It has been expanded to create a more comprehensive, actionable checklist for researchers and analysts.\n\n\n\nPrepare Data and Visualize Treatment\n\nPlot treatment rollout (use panelView R package)\nRecord number of units treated per cohort\nPlot average outcomes over time by cohort\n\nSelect Comparison Groups\n\nAssess Parallel Trends assumption\nConsider who decides treatment and what they know\nDetermine allowable types of selection\n\nConduct Initial Analysis\n\nPerform event study (no covariates) to assess Parallel Trends\n\nRefine Analysis with Covariates\n\nIf needed, add covariates affecting untreated outcome growth\nCheck for overlap in covariates\nUse regression adjustment DiD if extrapolating\nRerun event study with covariates to reassess Parallel Trends\n\nSensitivity Analysis\n\nPerform sensitivity analysis for Parallel Trends violations\nConsider using honestDiD R package\n\nAlternative Methods\n\nExplore other methods if Parallel Trends remains implausible\n\n\nAction: Use this checklist to ensure a thorough and methodologically sound Difference-in-Differences analysis. Document your decisions and findings at each step to support your research conclusions."
+  },
+  {
+    "objectID": "checklists/did_checklist.html#checklist",
+    "href": "checklists/did_checklist.html#checklist",
+    "title": "Difference-in-Differences (DiD) Checklist",
+    "section": "",
+    "text": "Prepare Data and Visualize Treatment\n\nPlot treatment rollout (use panelView R package)\nRecord number of units treated per cohort\nPlot average outcomes over time by cohort\n\nSelect Comparison Groups\n\nAssess Parallel Trends assumption\nConsider who decides treatment and what they know\nDetermine allowable types of selection\n\nConduct Initial Analysis\n\nPerform event study (no covariates) to assess Parallel Trends\n\nRefine Analysis with Covariates\n\nIf needed, add covariates affecting untreated outcome growth\nCheck for overlap in covariates\nUse regression adjustment DiD if extrapolating\nRerun event study with covariates to reassess Parallel Trends\n\nSensitivity Analysis\n\nPerform sensitivity analysis for Parallel Trends violations\nConsider using honestDiD R package\n\nAlternative Methods\n\nExplore other methods if Parallel Trends remains implausible\n\n\nAction: Use this checklist to ensure a thorough and methodologically sound Difference-in-Differences analysis. Document your decisions and findings at each step to support your research conclusions."
+  },
+  {
+    "objectID": "checklists/investment_checklist.html",
+    "href": "checklists/investment_checklist.html",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "Is the business within your circle of competence?\nCan you explain the business model in one sentence?\nDoes the company operate in a stable or growing industry?\nIs the industry free from significant regulatory uncertainty?\nIs the business resilient to economic cycles?\n\n\n\n\n\nCalculate and assess: EBIT/EV ratio\nCalculate and assess: Normalized EBIT/(NWC + Net Equipment) ratio\nReview debt levels: Is the balance sheet healthy?\nAnalyze free cash flow generation over the past 5 years\nCalculate owner earnings (adjusted free cash flow)\n\n\n\n\n\nIdentify the company’s primary competitive advantage (moat)\nAssess the company’s market share within its industry\nEvaluate the company’s pricing power: Strong, Moderate, or Weak?\nAnalyze the company’s brand strength or customer loyalty\nReview the company’s operational efficiency compared to peers\n\n\n\n\n\nThreat of new entrants: High, Medium, or Low?\nThreat of substitute products or services: High, Medium, or Low?\nBargaining power of customers (buyers): High, Medium, or Low?\nBargaining power of suppliers: High, Medium, or Low?\nIntensity of competitive rivalry: High, Medium, or Low?\n\n\n\n\n\nVerify management’s ownership stake\nReview past shareholder communications for honesty\nAssess capital allocation decisions over the past 3-5 years\nCheck for any history of unprofitable expansions or acquisitions\nEvaluate the use of excess cash (e.g., dividends, buybacks)\n\n\n\n\n\nProject normalized EBIT for the next 3 years\nIdentify specific growth opportunities or new markets\nAssess alignment with long-term industry trends\nEvaluate the scalability of the current business model\nReview the company’s R&D or innovation pipeline\n\n\n\n\n\nList top 3 risks that could significantly impact the business\nCalculate the margin of safety in the current stock price\nCompare key valuation multiples to industry peers\nReview accounting practices for any red flags\nAssess your comfort level with a 5-10 year holding period\n\n\n\n\n\nDoes this investment improve portfolio diversification?\nRate your confidence in the business (1-10 scale)\nIs the potential return worth the identified risks?\nHow does this investment fit with your overall investment strategy?\nMake a final decision: Invest, Watch, or Pass\n\nAction: Discuss findings with your investment team. Document your analysis for each section to support your final decision."
+  },
+  {
+    "objectID": "checklists/investment_checklist.html#initial-screening",
+    "href": "checklists/investment_checklist.html#initial-screening",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "Is the business within your circle of competence?\nCan you explain the business model in one sentence?\nDoes the company operate in a stable or growing industry?\nIs the industry free from significant regulatory uncertainty?\nIs the business resilient to economic cycles?"
+  },
+  {
+    "objectID": "checklists/investment_checklist.html#financial-health-and-performance",
+    "href": "checklists/investment_checklist.html#financial-health-and-performance",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "Calculate and assess: EBIT/EV ratio\nCalculate and assess: Normalized EBIT/(NWC + Net Equipment) ratio\nReview debt levels: Is the balance sheet healthy?\nAnalyze free cash flow generation over the past 5 years\nCalculate owner earnings (adjusted free cash flow)"
+  },
+  {
+    "objectID": "checklists/investment_checklist.html#companys-competitive-position",
+    "href": "checklists/investment_checklist.html#companys-competitive-position",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "Identify the company’s primary competitive advantage (moat)\nAssess the company’s market share within its industry\nEvaluate the company’s pricing power: Strong, Moderate, or Weak?\nAnalyze the company’s brand strength or customer loyalty\nReview the company’s operational efficiency compared to peers"
+  },
+  {
+    "objectID": "checklists/investment_checklist.html#industry-competitive-landscape",
+    "href": "checklists/investment_checklist.html#industry-competitive-landscape",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "Threat of new entrants: High, Medium, or Low?\nThreat of substitute products or services: High, Medium, or Low?\nBargaining power of customers (buyers): High, Medium, or Low?\nBargaining power of suppliers: High, Medium, or Low?\nIntensity of competitive rivalry: High, Medium, or Low?"
+  },
+  {
+    "objectID": "checklists/investment_checklist.html#management-quality",
+    "href": "checklists/investment_checklist.html#management-quality",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "Verify management’s ownership stake\nReview past shareholder communications for honesty\nAssess capital allocation decisions over the past 3-5 years\nCheck for any history of unprofitable expansions or acquisitions\nEvaluate the use of excess cash (e.g., dividends, buybacks)"
+  },
+  {
+    "objectID": "checklists/investment_checklist.html#growth-prospects",
+    "href": "checklists/investment_checklist.html#growth-prospects",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "Project normalized EBIT for the next 3 years\nIdentify specific growth opportunities or new markets\nAssess alignment with long-term industry trends\nEvaluate the scalability of the current business model\nReview the company’s R&D or innovation pipeline"
+  },
+  {
+    "objectID": "checklists/investment_checklist.html#risks-and-valuation",
+    "href": "checklists/investment_checklist.html#risks-and-valuation",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "List top 3 risks that could significantly impact the business\nCalculate the margin of safety in the current stock price\nCompare key valuation multiples to industry peers\nReview accounting practices for any red flags\nAssess your comfort level with a 5-10 year holding period"
+  },
+  {
+    "objectID": "checklists/investment_checklist.html#final-assessment",
+    "href": "checklists/investment_checklist.html#final-assessment",
+    "title": "Investment Evaluation Checklist",
+    "section": "",
+    "text": "Does this investment improve portfolio diversification?\nRate your confidence in the business (1-10 scale)\nIs the potential return worth the identified risks?\nHow does this investment fit with your overall investment strategy?\nMake a final decision: Invest, Watch, or Pass\n\nAction: Discuss findings with your investment team. Document your analysis for each section to support your final decision."
+  },
+  {
+    "objectID": "physics/physics-quals/index.html",
+    "href": "physics/physics-quals/index.html",
+    "title": "Physics PhD Qualifying Exams",
+    "section": "",
+    "text": "I’ve maintained the UCSD Physics Qualifying Exams Archive on my website since 2008! This page provides access to a comprehensive collection of past qualifying exams for physics graduate students. Note: UCSD stopped administering qualifying exams in 2019, so there are no newer exams. If you have an exam that I’m missing or a correction please let me know!\n\n\nIf you want to access multiple years at once here’s bulk downloads:\n\n\n\nYear Range\nDownload Link\n\n\n\n\n2010 - 2019\nDownload\n\n\n2000 - 2009\nDownload\n\n\n1987 - 1999\nDownload\n\n\n\n\n\n\n\n\n\nYear\nFall\nSpring\n\n\n\n\n2019\n-\n2019 Spring\n\n\n2018\n2018 Fall\n2018 Spring\n\n\n2017\n2017 Fall\n-\n\n\n2016\n2016 Fall\n2016 Spring\n\n\n2015\n2015 Fall\n2015 Spring\n\n\n2014\n2014 Fall\n2014 Spring\n\n\n2013\n2013 Fall\n2013 Spring\n\n\n2012\n2012 Fall\n2012 Spring\n\n\n2011\n2011 Fall\n2011 Spring\n\n\n2010\n2010 Fall\n2010 Spring\n\n\n2009\n2009 Fall\n2009 Spring\n\n\n2008\n2008 Fall\n2008 Spring\n\n\n2007\n2007 Fall\n2007 Spring\n\n\n2006\n2006 Fall\n2006 Spring\n\n\n2005\n2005 Fall\n2005 Spring\n\n\n2004\n2004 Fall\n2004 Spring\n\n\n2003\n2003 Fall\n2003 Spring\n\n\n2002\n2002 Fall\n2002 Spring\n\n\n2001\n2001 Fall\n2001 Spring\n\n\n2000\n2000 Fall\n2000 Spring\n\n\n1999\n1999 Fall\n1999 Spring\n\n\n1998\n1998 Fall\n1998 Spring\n\n\n1997\n1997 Fall\n1997 Spring\n\n\n1996\n1996 Fall\n1996 Spring\n\n\n1995\n1995 Fall\n1995 Spring\n\n\n1994\n1994 Fall\n1994 Spring\n\n\n1993\n1993 Fall\n1993 Spring\n\n\n1992\n1992 Fall\n1992 Spring\n\n\n1991\n1991 Fall\n1991 Spring\n\n\n1990\n1990 Fall\n1990 Spring\n\n\n1989\n1989 Fall\n1989 Spring\n\n\n1988\n1988 Fall\n1988 Spring\n\n\n1987\n1987 Fall\n-\n\n\n\nI hope these resources prove useful in your physics studies!"
+  },
+  {
+    "objectID": "physics/physics-quals/index.html#download-all-pdfs-by-year-range",
+    "href": "physics/physics-quals/index.html#download-all-pdfs-by-year-range",
+    "title": "Physics PhD Qualifying Exams",
+    "section": "",
+    "text": "If you want to access multiple years at once here’s bulk downloads:\n\n\n\nYear Range\nDownload Link\n\n\n\n\n2010 - 2019\nDownload\n\n\n2000 - 2009\nDownload\n\n\n1987 - 1999\nDownload"
+  },
+  {
+    "objectID": "physics/physics-quals/index.html#individual-physics-qualifying-exams",
+    "href": "physics/physics-quals/index.html#individual-physics-qualifying-exams",
+    "title": "Physics PhD Qualifying Exams",
+    "section": "",
+    "text": "Year\nFall\nSpring\n\n\n\n\n2019\n-\n2019 Spring\n\n\n2018\n2018 Fall\n2018 Spring\n\n\n2017\n2017 Fall\n-\n\n\n2016\n2016 Fall\n2016 Spring\n\n\n2015\n2015 Fall\n2015 Spring\n\n\n2014\n2014 Fall\n2014 Spring\n\n\n2013\n2013 Fall\n2013 Spring\n\n\n2012\n2012 Fall\n2012 Spring\n\n\n2011\n2011 Fall\n2011 Spring\n\n\n2010\n2010 Fall\n2010 Spring\n\n\n2009\n2009 Fall\n2009 Spring\n\n\n2008\n2008 Fall\n2008 Spring\n\n\n2007\n2007 Fall\n2007 Spring\n\n\n2006\n2006 Fall\n2006 Spring\n\n\n2005\n2005 Fall\n2005 Spring\n\n\n2004\n2004 Fall\n2004 Spring\n\n\n2003\n2003 Fall\n2003 Spring\n\n\n2002\n2002 Fall\n2002 Spring\n\n\n2001\n2001 Fall\n2001 Spring\n\n\n2000\n2000 Fall\n2000 Spring\n\n\n1999\n1999 Fall\n1999 Spring\n\n\n1998\n1998 Fall\n1998 Spring\n\n\n1997\n1997 Fall\n1997 Spring\n\n\n1996\n1996 Fall\n1996 Spring\n\n\n1995\n1995 Fall\n1995 Spring\n\n\n1994\n1994 Fall\n1994 Spring\n\n\n1993\n1993 Fall\n1993 Spring\n\n\n1992\n1992 Fall\n1992 Spring\n\n\n1991\n1991 Fall\n1991 Spring\n\n\n1990\n1990 Fall\n1990 Spring\n\n\n1989\n1989 Fall\n1989 Spring\n\n\n1988\n1988 Fall\n1988 Spring\n\n\n1987\n1987 Fall\n-\n\n\n\nI hope these resources prove useful in your physics studies!"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About me",
+    "section": "",
+    "text": "Placeholder for now."
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "",
+    "text": "For the past two months, I’ve dedicated daily practice to MathAcademy.com, accumulating more than 2,000 experience points (~40 hours of total work).\nMain takeaway: MathAcademy is extraordinary.\n\n\nMathAcademy.com is an online platform that adapts to each student’s learning pace and style, ensuring mastery of mathematical concepts through scientifically-backed methods. Currently ~$50 per month.\nIn this post, I’ll explore the concept of knowledge retention, introduce you to MathAcademy, and share my personal experience with the platform. I’ll also cover how MathAcademy addresses the challenges of efficient learning and long-term knowledge retention, and why I believe it’s a game-changer for motivated individuals with the goal of learning math.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#the-costbenefit-tradeoff-of-knowledge-retention",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#the-costbenefit-tradeoff-of-knowledge-retention",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "The Cost/Benefit Tradeoff of Knowledge Retention",
+    "text": "The Cost/Benefit Tradeoff of Knowledge Retention\nI wanted to have a good estimate of what the Cost/Benefit tradeoff looked like. If I wanted to retain 90% of my physics knowledge, was it closer to the optimistic or pessimistic curve?\n\n\n\n\n\n\nFigure 1: Cost Benefit Tradeoff\n\n\n\nIf it really was only 5 minutes of daily practice (optimistic curve) to maintain 90% of my physics knowledge and problem-solving skills, I’d easily commit to working on this while drinking my tea in the morning and keep myself 90% sharp. Conversely, if it required 47 minutes per day (pessimistic curve), realistically it wouldn’t be worth it.\nBut I didn’t have an answer to the question: What is the actual cost for maintaining different levels of knowledge?\nThis question is crucial because it directly impacts how we approach learning and knowledge retention. If the cost is low, we might be more inclined to maintain a broader range of knowledge. If it’s high, we might need to be more selective about what we choose to retain.\nThe efficiency of practice is another critical factor. If you could identify the skills that were about to leave your mind and get lost in the abyss*, you could potentially optimize your retention efforts.\n\n\n*The abyss is not real.\nI’ve studied numerous technologies and learning strategies over the years. I’ve used Anki, a popular SRS (Spaced-Repetition Software or Spaced-Retrieval System) program, for years. One of the best mental reframes that I’ve had about Anki comes from Michael Nielsen when he writes, “Anki makes memory a choice.” While Anki is a powerful tool, it’s not the focus of this post.\n\n\nAnki is a free program (the iOS app is not free) that makes remembering things easy.\n\nBecause it’s a lot more efficient than traditional study methods, you can either greatly decrease your time spent studying, or greatly increase the amount you learn. – Anki website.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#going-beyond-retention",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#going-beyond-retention",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "Going beyond retention",
+    "text": "Going beyond retention\nI set this up as a retention focused problem. But the problem is actually much larger. If you can create a system that both teaches and helps you retain what you’ve learned you’ve done something special.\nThis is where MathAcademy comes back in, offering a solution that addresses both the efficiency of learning and the challenge of long-term retention.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#adaptive-learning-and-progress-tracking",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#adaptive-learning-and-progress-tracking",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "Adaptive Learning and Progress Tracking",
+    "text": "Adaptive Learning and Progress Tracking\nOne of the most striking aspects of my MathAcademy experience has been its ability to adapt to my current knowledge level. I began with a diagnostic that identifies areas where I needed more practice, and areas that I already comfortably knew. After the diagnostic I was placed at something like 99% done with Foundations I, and 76% done with the Foundations II course. This personalized approach meant that I was always working at the edge of my abilities, maximizing my learning efficiency.\nThis point is important so I’ll state it another way. There are many free and high-quality math courses that exist on the internet right now. However, these lectures and videos are aimed at an audience that has a different background knowledge than me. There’s stuff that I already know, and probably things that the lecturer assumes that I know that I might not. So even with high quality courses, I have to spend significant time and effort in filtering the content so that I can actually get to the topics that are actually new to me (or look up something that I was supposed to have learned).\n\n\nIt’s even more cool than that. They’ve developed a way of giving partial credit to lower level skills if you’ve just demonstrated a skill that relies on it. As I understand it, for example, if you do a higher level problem that requires a lower level skill to complete, you get partial reinforcement for that lower level skill. For more details, see: this blog post on Fractional Implicit Repetition.\nFurther, they aren’t usually paired (as MathAcademy is) in a tight feedback loop with questions that test whether you could apply what you just learned. And finally, there is spaced-repetition built in, so it ensures that as your knowledge is elevated into the heavenly quintessence* before they fade away.\n\n\n*The heavenly quintessence is not real.\nOver my 40 hours of learning, I have completed the Mathematics Foundations II course. I’ve started Mathematics Foundations III, and again, a nice aspect of the site is that it gives an estimate of how many “experience points” it will take me to complete it. It, like Anki, turns a goal that I want to accomplish into something like “turn the effort-crank X times and you’ll have re-learned Linear Algebra to a deep level”.\nThis approach directly addresses the Cost/Benefit tradeoff we discussed earlier. By optimizing the learning process and providing clear metrics, MathAcademy helps minimize the “cost” side of the equation while maximizing the “benefit” through efficient, targeted learning.\nIt’s hard to give a good sense of how important that experience is. It’s a similar point that Rory Sutherland has made many times, including here, where he says that the innovation of Uber is not the calling of a cab, but in showing you a real-time map of where your cab is while it’s on your way to pick you up. The act of reducing uncertainty is a very big effect, but it’s hard to appreciate if you’ve just read about it. I think a similar thing is happening with MathAcademy (whether by accident or by design); you know how much effort or time it is until you’ve learned your next goal. It seems like a small thing, but it’s not, it’s really important. And I’ve noticed a number of these things that really make a difference to the student’s experience.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#one-final-thought",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#one-final-thought",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "One final thought",
+    "text": "One final thought\nI am very interested in seeing if the MathAcademy team is thinking about expanding to math-adjacent topics like Physics. If so, I have a person in mind who is knowledgeable about physics, has enthusiastically bought into your overall approach, and has lots of ideas for problems and problem-types.",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#mathacademy-resources",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#mathacademy-resources",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "MathAcademy Resources",
+    "text": "MathAcademy Resources\n\nMathAcademy.com\nList of courses\nMathematics for Machine Learning\nMethods of Proof\nFoundations II\nFoundations III\nThe MathAcademy Way\nHow to get from high school math to cutting-edge ML/AI",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#learning-and-memory",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#learning-and-memory",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "Learning and Memory",
+    "text": "Learning and Memory\n\nAnki\nAnki makes memory a choice\nFractional Implicit Repetition",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#physics-and-academia",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#physics-and-academia",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "Physics and Academia",
+    "text": "Physics and Academia\n\nUC San Diego, Physics PhD Qualifying Exams",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#concepts-and-theories",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#concepts-and-theories",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "Concepts and Theories",
+    "text": "Concepts and Theories\n\nBLUF (communication)\nAether\nAbyss\nQuintessence",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#people-and-profiles",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#people-and-profiles",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "People and Profiles",
+    "text": "People and Profiles\n\nMichael Nielsen\nRory Sutherland\nJonathan Whitmore LinkedIn",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  },
+  {
+    "objectID": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#articles-and-discussions",
+    "href": "posts/2024-09-10-MathAcademy-after-2000-points/index.html#articles-and-discussions",
+    "title": "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)",
+    "section": "Articles and Discussions",
+    "text": "Articles and Discussions\n\nThis Thing For Which We Have No Name",
+    "crumbs": [
+      "Home",
+      "All blog posts",
+      "Posts",
+      "Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)"
+    ]
+  }
+]

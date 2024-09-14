@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Jonathan Whitmore</title>
+<link>https://jbwhit.github.io/website/blog.html</link>
+<atom:link href="https://jbwhit.github.io/website/blog.xml" rel="self" type="application/rss+xml"/>
+<description>My website.</description>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Tue, 10 Sep 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Is MathAcademy Worth It? Thoughts After 2,000 Experience Points (XP)</title>
+  <dc:creator>Jonathan Whitmore</dc:creator>
+  <link>https://jbwhit.github.io/website/posts/2024-09-10-MathAcademy-after-2000-points/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="introduction" class="level1 page-columns page-full">
+<h1>Introduction</h1>
+<p>For the past two months, I’ve dedicated daily practice to <a href="https://MathAcademy.com">MathAcademy.com</a>, accumulating more than 2,000 experience points (~40 hours of total work).</p>
+<p><a href="https://en.wikipedia.org/wiki/BLUF_(communication)">Main takeaway</a>: <strong>MathAcademy is extraordinary</strong>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><a href="https://MathAcademy.com">MathAcademy.com</a> is an online platform that adapts to each student’s learning pace and style, ensuring mastery of mathematical concepts through scientifically-backed methods. Currently ~$50 per month.</p>
+</div></div><p>In this post, I’ll explore the concept of knowledge retention, introduce you to MathAcademy, and share my personal experience with the platform. I’ll also cover how MathAcademy addresses the challenges of efficient learning and long-term knowledge retention, and why I believe it’s a game-changer for motivated individuals with the goal of learning math.</p>
+</section>
+<section id="what-is-mathacademy" class="level1 page-columns page-full">
+<h1>What is MathAcademy?</h1>
+<p>MathAcademy is an innovative online learning platform that goes beyond traditional math education methods. It uses adaptive learning algorithms to tailor the learning experience to each student’s current knowledge. Unlike many other platforms, MathAcademy focuses on efficiently teaching true mastery of concepts.</p>
+<p>It has offerings for students in 4th grade through university level mathematics (pretty deep into a standard math major curriculum). It has a couple of other paths for different student needs. The Mathematics Foundations series is tailored to adult students who, like me, are mostly re-learning content they “learned” 20 years ago. See this <a href="https://mathacademy.com/courses/">list of courses</a> for a better explanation.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Here’s <a href="https://x.com/ninja_maths/status/1834324698663915551">a tweet</a> from one of the content authors (<a href="https://x.com/ninja_maths"><span class="citation" data-cites="ninja_maths">@ninja_maths</span></a>) at MathAcademy with more on the Foundations series.</p>
+</div></div><p>Two more courses that have drawn my attention are the <a href="https://mathacademy.com/courses/mathematics-for-machine-learning">Mathematics for Machine Learning</a> and the <a href="https://mathacademy.com/courses/methods-of-proof">Methods of Proof</a> classes. Soon.</p>
+</section>
+<section id="the-challenge-knowledge-retention" class="level1 page-columns page-full">
+<h1>The Challenge: Knowledge Retention</h1>
+<p>Throughout our lives, we’ve gathered countless bits of knowledge, only to watch some of them drift away. Take the rivers of Texas, for example—I once knew them, but now I can’t quite recall which one is the Brazos. And perhaps, like me, you’re perfectly content letting such details fade into the aether*.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>*The <a href="https://en.wikipedia.org/wiki/Aether_theories">aether</a> is not real.</p>
+</div></div><p>But what if the knowledge that slipped away was something you truly cared about?</p>
+<p>Years ago, I went to graduate school to get a PhD in physics. One of the significant hurdles along the way was the qualifying exam, known simply as “the qual”. Fast forward a few years, and when the topic of “the qual” came up with my fellow graduate students, we’d lament the skills that we had lost, and wonder if we could still pass it. Some were confident they still had the chops, while others—myself included—suspected we’d need a fair bit of luck.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>The physics department at UC San Diego no longer requires “the qual”. I’ve maintained the qualifying exams from 1987–2019 on my personal website since about 2008: <a href="https://jonathanwhitmore.com/physics/physics-quals/">UC San Diego, Physics PhD Qualifying Exams</a>.</p>
+</div></div><p>I felt that losing all that knowledge was incredibly sad. And I knew that all it would take is some dedicated and persistent effort from my side. But I had no idea how much time and effort it would take.</p>
+<section id="the-costbenefit-tradeoff-of-knowledge-retention" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-costbenefit-tradeoff-of-knowledge-retention">The Cost/Benefit Tradeoff of Knowledge Retention</h2>
+<p>I wanted to have a good estimate of what the Cost/Benefit tradeoff looked like. If I wanted to retain 90% of my physics knowledge, was it closer to the optimistic or pessimistic curve?</p>
+<div id="fig-tradeoff" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tradeoff-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://jbwhit.github.io/website/posts/2024-09-10-MathAcademy-after-2000-points/tradeoff.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tradeoff-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Cost Benefit Tradeoff
+</figcaption>
+</figure>
+</div>
+<p>If it really was only 5 minutes of daily practice (optimistic curve) to maintain 90% of my physics knowledge and problem-solving skills, I’d easily commit to working on this while drinking my tea in the morning and keep myself 90% sharp. Conversely, if it required 47 minutes per day (pessimistic curve), realistically it wouldn’t be worth it.</p>
+<p>But I didn’t have an answer to the question: <strong>What is the actual cost for maintaining different levels of knowledge?</strong></p>
+<p>This question is crucial because it directly impacts how we approach learning and knowledge retention. If the cost is low, we might be more inclined to maintain a broader range of knowledge. If it’s high, we might need to be more selective about what we choose to retain.</p>
+<p>The efficiency of practice is another critical factor. If you could identify the skills that were about to leave your mind and get lost in the abyss*, you could potentially optimize your retention efforts.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>*The <a href="https://en.wikipedia.org/wiki/Abyss_(Thelema)">abyss</a> is not real.</p>
+</div></div><p>I’ve studied numerous technologies and learning strategies over the years. I’ve used Anki, a popular SRS (Spaced-Repetition Software or Spaced-Retrieval System) program, for years. One of the best mental reframes that I’ve had about Anki comes from <a href="https://michaelnielsen.org/">Michael Nielsen</a> when he writes, “<a href="https://augmentingcognition.com/ltm.html">Anki makes memory a choice</a>.” While Anki is a powerful tool, it’s not the focus of this post.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><a href="https://apps.ankiweb.net/">Anki</a> is a free program (the iOS app is not free) that makes remembering things easy.</p>
+<blockquote class="blockquote">
+<p>Because it’s a lot more efficient than traditional study methods, you can either greatly decrease your time spent studying, or greatly increase the amount you learn. – <a href="https://apps.ankiweb.net/">Anki website</a>.</p>
+</blockquote>
+</div></div></section>
+<section id="going-beyond-retention" class="level2">
+<h2 class="anchored" data-anchor-id="going-beyond-retention">Going beyond retention</h2>
+<p>I set this up as a retention focused problem. But the problem is actually much larger. If you can create a system that both teaches and helps you retain what you’ve learned you’ve done something special.</p>
+<p>This is where MathAcademy comes back in, offering a solution that addresses both the efficiency of learning and the challenge of long-term retention.</p>
+</section>
+</section>
+<section id="my-experience-with-mathacademy" class="level1 page-columns page-full">
+<h1>My Experience with MathAcademy</h1>
+<p>I’ve live-streamed myself working through a few practice sessions, so if you want to see what it looks like (and what I look like while working on it) here’s the session where I completed the <a href="https://mathacademy.com/courses/mathematical-foundations-ii">Foundations II</a> course:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/xdhGvv3LYQI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="adaptive-learning-and-progress-tracking" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="adaptive-learning-and-progress-tracking">Adaptive Learning and Progress Tracking</h2>
+<p>One of the most striking aspects of my MathAcademy experience has been its ability to adapt to my current knowledge level. I began with a diagnostic that identifies areas where I needed more practice, and areas that I already comfortably knew. After the diagnostic I was placed at something like 99% done with Foundations I, and 76% done with the Foundations II course. This personalized approach meant that I was always working at the edge of my abilities, maximizing my learning efficiency.</p>
+<p>This point is important so I’ll state it another way. There are many free and high-quality math courses that exist on the internet right now. However, these lectures and videos are aimed at an audience that has a different background knowledge than me. There’s stuff that I already know, and probably things that the lecturer assumes that I know that I might not. So even with high quality courses, I have to spend significant time and effort in filtering the content so that I can actually get to the topics that are actually new to me (or look up something that I was supposed to have learned).</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>It’s even more cool than that. They’ve developed a way of giving partial credit to lower level skills if you’ve just demonstrated a skill that relies on it. As I understand it, for example, if you do a higher level problem that requires a lower level skill to complete, you get partial reinforcement for that lower level skill. For more details, see: <a href="https://www.justinmath.com/individualized-spaced-repetition-in-hierarchical-knowledge-structures/">this blog post on Fractional Implicit Repetition</a>.</p>
+</div></div><p>Further, they aren’t usually paired (as MathAcademy is) in a tight feedback loop with questions that test whether you could apply what you just learned. And finally, there is spaced-repetition built in, so it ensures that as your knowledge is elevated into the heavenly quintessence* before they fade away.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>*The <a href="https://en.wikipedia.org/wiki/Aether_(classical_element)">heavenly quintessence</a> is not real.</p>
+</div></div><p>Over my 40 hours of learning, I have completed the Mathematics <a href="https://mathacademy.com/courses/mathematical-foundations-ii">Foundations II</a> course. I’ve started Mathematics <a href="https://mathacademy.com/courses/mathematical-foundations-iii">Foundations III</a>, and again, a nice aspect of the site is that it gives an estimate of how many “experience points” it will take me to complete it. It, like Anki, turns a goal that I want to accomplish into something like “turn the effort-crank X times and you’ll have re-learned Linear Algebra to a deep level”.</p>
+<p>This approach directly addresses the Cost/Benefit tradeoff we discussed earlier. By optimizing the learning process and providing clear metrics, MathAcademy helps minimize the “cost” side of the equation while maximizing the “benefit” through efficient, targeted learning.</p>
+<p>It’s hard to give a good sense of how important that experience is. It’s a similar point that <a href="https://x.com/rorysutherland">Rory Sutherland</a> has made many times, including <a href="https://www.edge.org/conversation/rory_sutherland-this-thing-for-which-we-have-no-name">here</a>, where he says that the innovation of Uber is not the calling of a cab, but in showing you a real-time map of where your cab is while it’s on your way to pick you up. The act of reducing uncertainty is a very big effect, but it’s hard to appreciate if you’ve just read about it. I think a similar thing is happening with MathAcademy (whether by accident or by design); you know how much effort or time it is until you’ve learned your next goal. It seems like a small thing, but it’s not, it’s really important. And I’ve noticed a number of these things that really make a difference to the student’s experience.</p>
+</section>
+</section>
+<section id="conclusion-is-it-worth-it" class="level1">
+<h1>Conclusion: Is it worth it?</h1>
+<p>After spending two months with MathAcademy, accumulating 2,000 experience points over about 40 hours of learning, I can confidently say that the $50 monthly subscription fee is well worth the investment. Here’s why:</p>
+<ol type="1">
+<li><strong>A Tireless Expert Tutor</strong>: For less than the cost of a single hour with a private math tutor, MathAcademy provides you with 24/7 access to what is essentially a tireless, expert math tutor. This AI-driven platform doesn’t get fatigued, lose patience, or have scheduling conflicts.</li>
+<li><strong>Personalized Learning Path</strong>: MathAcademy excels at identifying exactly what you need to work on, zeroing in on your weak spots and areas for improvement.</li>
+<li><strong>Mastery Through Practice</strong>: The platform provides a seemingly endless supply of practice problems tailored to your skill level, challenging you until you demonstrate true mastery of a concept.</li>
+<li><strong>Structured Progression</strong>: It creates a clear path forward, eliminating the guesswork and potential gaps in knowledge that can occur with self-directed study.</li>
+<li><strong>Long-Term Retention Focus</strong>: The platform’s use of spaced repetition and adaptive review ensures that you’re building lasting mathematical knowledge and skills.</li>
+</ol>
+<p>MathAcademy has not only helped me relearn and solidify mathematical concepts, but it’s also changed my perspective on what effective learning can look like. It addresses the question of knowledge retention in a way that balances efficiency and thoroughness, making it possible to maintain a high level of skill with manageable daily practice.</p>
+<p>When you consider the depth of content, the adaptive technology, and the personalized attention you receive, MathAcademy offers exceptional value. For anyone serious about improving their math skills - whether you’re a student looking to excel in your classes, a professional aiming to enhance your quantitative abilities, or simply someone who wants to reconnect with mathematics - MathAcademy provides a level of instruction and practice that would cost hundreds or even thousands of dollars per month to replicate with traditional tutoring.</p>
+<p>Returning to our initial question about the cost of maintaining knowledge, MathAcademy seems to offer a solution that leans towards the optimistic end of the spectrum. While it may not be as quick as “5 minutes a day,” the efficiency and effectiveness of the platform make the time investment highly worthwhile. It transforms the daunting tasks of learning and retaining complex mathematical knowledge into a manageable, even enjoyable, daily practice.</p>
+<p>As I continue my journey with MathAcademy, I’m excited to see how much further I can progress and how well I’ll retain this knowledge in the long term. For anyone looking to learn or relearn mathematics, I can’t recommend MathAcademy highly enough. It’s not just a learning tool; it’s a new paradigm in education that makes mathematical mastery achievable for everyone.</p>
+<section id="one-final-thought" class="level2">
+<h2 class="anchored" data-anchor-id="one-final-thought">One final thought</h2>
+<p>I am very interested in seeing if the MathAcademy team is thinking about expanding to math-adjacent topics like Physics. If so, I have a <a href="https://www.linkedin.com/in/jonathanbwhitmore/">person in mind</a> who is knowledgeable about physics, has enthusiastically bought into your overall approach, and has lots of ideas for problems and problem-types.</p>
+</section>
+</section>
+<section id="acknowledgements" class="level1">
+<h1>Acknowledgements</h1>
+<p>Thank you to <a href="https://x.com/one_extra_j">Julija Whitmore</a> for reading early drafts of this.</p>
+</section>
+<section id="reference-links" class="level1">
+<h1>Reference Links</h1>
+<section id="mathacademy-resources" class="level2">
+<h2 class="anchored" data-anchor-id="mathacademy-resources">MathAcademy Resources</h2>
+<ul>
+<li><a href="https://MathAcademy.com">MathAcademy.com</a></li>
+<li><a href="https://mathacademy.com/courses/">List of courses</a></li>
+<li><a href="https://mathacademy.com/courses/mathematics-for-machine-learning">Mathematics for Machine Learning</a></li>
+<li><a href="https://mathacademy.com/courses/methods-of-proof">Methods of Proof</a></li>
+<li><a href="https://mathacademy.com/courses/mathematical-foundations-ii">Foundations II</a></li>
+<li><a href="https://mathacademy.com/courses/mathematical-foundations-iii">Foundations III</a></li>
+<li><a href="https://www.bit.ly/ma-way">The MathAcademy Way</a></li>
+<li><a href="https://www.justinmath.com/how-to-get-from-high-school-math-to-cutting-edge-ml-ai/">How to get from high school math to cutting-edge ML/AI</a></li>
+</ul>
+</section>
+<section id="learning-and-memory" class="level2">
+<h2 class="anchored" data-anchor-id="learning-and-memory">Learning and Memory</h2>
+<ul>
+<li><a href="https://apps.ankiweb.net/">Anki</a></li>
+<li><a href="https://augmentingcognition.com/ltm.html">Anki makes memory a choice</a></li>
+<li><a href="https://www.justinmath.com/individualized-spaced-repetition-in-hierarchical-knowledge-structures/">Fractional Implicit Repetition</a></li>
+</ul>
+</section>
+<section id="physics-and-academia" class="level2">
+<h2 class="anchored" data-anchor-id="physics-and-academia">Physics and Academia</h2>
+<ul>
+<li><a href="https://jonathanwhitmore.com/physics/physics-quals/">UC San Diego, Physics PhD Qualifying Exams</a></li>
+</ul>
+</section>
+<section id="concepts-and-theories" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-and-theories">Concepts and Theories</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/BLUF_(communication)">BLUF (communication)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Aether_theories">Aether</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Abyss_(Thelema)">Abyss</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Aether_(classical_element)">Quintessence</a></li>
+</ul>
+</section>
+<section id="people-and-profiles" class="level2">
+<h2 class="anchored" data-anchor-id="people-and-profiles">People and Profiles</h2>
+<ul>
+<li><a href="https://michaelnielsen.org/">Michael Nielsen</a></li>
+<li><a href="https://x.com/rorysutherland">Rory Sutherland</a></li>
+<li><a href="https://www.linkedin.com/in/jonathanbwhitmore/">Jonathan Whitmore LinkedIn</a></li>
+</ul>
+</section>
+<section id="articles-and-discussions" class="level2">
+<h2 class="anchored" data-anchor-id="articles-and-discussions">Articles and Discussions</h2>
+<ul>
+<li><a href="https://www.edge.org/conversation/rory_sutherland-this-thing-for-which-we-have-no-name">This Thing For Which We Have No Name</a></li>
+</ul>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>math education</category>
+  <category>learning</category>
+  <category>cognitive science</category>
+  <guid>https://jbwhit.github.io/website/posts/2024-09-10-MathAcademy-after-2000-points/</guid>
+  <pubDate>Tue, 10 Sep 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>[Solved] Custom Domain Keeps Reverting to GitHub Pages</title>
+  <dc:creator>Jonathan Whitmore</dc:creator>
+  <link>https://jbwhit.github.io/website/posts/2024-07-11-cname-github-pages/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="solved-custom-domain-keeps-reverting-on-my-github-pages-site" class="level1">
+<h1>[Solved] Custom Domain Keeps Reverting on My GitHub Pages Site</h1>
+<section id="the-setup" class="level2">
+<h2 class="anchored" data-anchor-id="the-setup">The Setup</h2>
+<p>I used <a href="https://quarto.org/">Quarto</a> and <a href="https://nbdev.fast.ai/">nbdev</a> to create my website and a blog on a custom URL.</p>
+<p>The whole process went rather smoothly. I had my website up and running, and I changed my hosting to point to the right place. My website appeared, and the DNS checks on GitHub’s side all passed. I had my website on the custom URL and enforced HTTPS.</p>
+</section>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>Whenever I made an update to my website, however, my URL broke. The GitHub Pages page (github.io/jbwhit/…) worked, but the custom URL (jonathanwhitmore.com) no longer pointed to the right spot.</p>
+</section>
+<section id="the-start-of-a-solution" class="level2">
+<h2 class="anchored" data-anchor-id="the-start-of-a-solution">The Start of a Solution</h2>
+<p>When I first added my Custom Domain, GitHub helpfully created a CNAME (Canonical Name) file in the top-level directory of the repo on the <code>gh-pages</code> branch (if that’s what you’re using, and I was).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://jbwhit.github.io/website/posts/2024-07-11-cname-github-pages/githubsettings.png" class="img-fluid figure-img"></p>
+<figcaption>CNAME file in GitHub</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-fix" class="level2">
+<h2 class="anchored" data-anchor-id="the-fix">The Fix</h2>
+<p>Simply move the CNAME file from the top level directory and place it in the <code>nbs</code> directory, and then run <code>nbdev_prepare</code> and update as usual. I found that this completely solved the problem that occurred every single time I pushed a commit to GitHub.</p>
+<div class="sourceCode" id="annotated-cell-1" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Directory structure of the GitHub website repo when using nbdev</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-2" class="code-annotation-target"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> ❌ CNAME</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-3" class="code-annotation-target"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> nbs</span>
+<span id="annotated-cell-1-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>  ├── _quarto.yml</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-5" class="code-annotation-target"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>  ├── ✅ CNAME</span>
+<span id="annotated-cell-1-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>  ├── sidebar.yml</span>
+<span id="annotated-cell-1-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>  └── styles.css</span>
+<span id="annotated-cell-1-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> README.md</span>
+<span id="annotated-cell-1-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> settings.ini</span>
+<span id="annotated-cell-1-10"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> setup.py</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="2" data-code-annotation="1">❌ This CNAME file is created by GitHub and placed in the root directory of your git repo (one level above the <code>nbs</code> directory that nbdev uses). The red X indicates this is not the correct location.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="3" data-code-annotation="2">nbdev uses the <code>nbs</code> directory as the top-level of the website repo (this differs from what GitHub expects).</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="5" data-code-annotation="3">✅ The correct place to put the CNAME file: under the <code>nbs</code> directory. The green checkmark indicates this is the proper location.</span>
+</dd>
+</dl>
+</section>
+<section id="the-why" class="level2">
+<h2 class="anchored" data-anchor-id="the-why">The Why</h2>
+<p>Long story short: GitHub assumes that the git repository that you are turning into a website is using the top level directory as the directory for the website, and suggests the CNAME to be in the top level directory for that reason.</p>
+<p>In contrast, Nbdev uses the <code>nbs</code> directory as the top-level of the website repo. This is why the fix is very simple – move the CNAME to the top-level directory of the website, which for nbdev projects is the <code>nbs</code> directory.</p>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><a href="https://github.com/fastai/nbdev/issues/1033">Nbdev issue: push to main branch removes custom domain from GitHub Pages settings</a></li>
+<li><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">Configuring a custom domain for your GitHub Pages site</a></li>
+<li><a href="https://nbdev.fast.ai/">Nbdev Documentation</a></li>
+<li><a href="https://quarto.org/docs/websites/">Quarto Documentation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CNAME_record">Understanding CNAME records</a></li>
+</ul>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>quarto</category>
+  <category>nbdev</category>
+  <category>GitHub</category>
+  <guid>https://jbwhit.github.io/website/posts/2024-07-11-cname-github-pages/</guid>
+  <pubDate>Thu, 11 Jul 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Misusing Machine Learning</title>
+  <dc:creator>Jonathan Whitmore</dc:creator>
+  <link>https://jbwhit.github.io/website/posts/2023-12-19-misusing-machine-learning/</link>
+  <description><![CDATA[ 
+
+
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<p>You can use a Decision Tree to compress an image. There are libraries to do this kind of thing properly, but I wanted to see what a Decision Tree “sees” when it looks at an image.</p>
+<p>The training input is each pixel’s x, y position, and the channel number. The target is the value for that pixel and channel. I am not doing a test/train split because I’m not looking to build a model to predict anything, I’m looking to compress something.</p>
+<p>And it worked. Here’s what it looks like for the black and white image:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://jbwhit.github.io/website/posts/2023-12-19-misusing-machine-learning/animated_bw_small.gif" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Van Gogh’s self portrait as seen by a decision tree.</figcaption>
+</figure>
+</div>
+<p>And if you want to see a video where I go through a bit more of an explanation check it out here:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/pjmgdC6-lSo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+
+
+ ]]></description>
+  <category>machine learning</category>
+  <guid>https://jbwhit.github.io/website/posts/2023-12-19-misusing-machine-learning/</guid>
+  <pubDate>Tue, 19 Dec 2023 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
