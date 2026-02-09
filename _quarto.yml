@@ -57,7 +57,7 @@ website:
         href: blog.xml
 
   page-footer:
-    left: "&copy; <span id='footer-year'>2024</span> Jonathan Whitmore"
+    left: "&copy; 2024–present Jonathan Whitmore"
 
 format:
   html:
@@ -69,4 +69,3 @@ format:
     code-fold: true
     code-copy: true
     link-external-newwindow: true
-    include-after-body: footer-year.html
