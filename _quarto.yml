@@ -1,6 +1,16 @@
 project:
   type: website
   output-dir: _site
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "posts/**"
+    - "projects/**"
+    - "!nbs/"
+    - "!_proc/"
+    - "!website/"
+    - "!_extensions/"
+    - "!Untitled.ipynb"
 
 website:
   title: "Jonathan Whitmore"

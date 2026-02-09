@@ -1,0 +1,174 @@
+---
+title: "Revolutionizing Physics Education: Innovative Problem Types Inspired by Math Academy"
+description: "Exploring two novel physics problem types: 'Possibly Wrong Physics' and 'Strategic Information Gathering', inspired by cognitive science principles."
+author: "Jonathan Whitmore"
+date: "2024-09-08"
+categories: [physics education, problem-solving, cognitive science]
+format:
+  html:
+    grid:
+      margin-width: 350px
+    code-fold: true
+    toc: true
+    toc-depth: 2
+reference-location: margin
+citation-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+# Introduction
+
+In the rapidly evolving landscape of science education, educators are constantly seeking effective methods to engage students and foster deep, lasting understanding. As a physics educator, I've recently been inspired by my experience with Math Academy, an adaptive learning platform that has helped me sharpen my own mathematical skills. Math Academy's approach, detailed in their book "The Math Academy Way," offers valuable insights that can be applied to physics education[@mathAcademyWay].
+
+::: {.column-margin}
+Math Academy is an innovative online platform that adapts to each student's individual learning pace and style, ensuring mastery of mathematical concepts through scientifically-backed methods.
+:::
+
+## The Math Academy Approach
+
+Math Academy's platform is built on a foundation of cognitive science research, emphasizing several key principles:
+
+1. **Science-Based Learning**: By grounding their methodology in established cognitive science, Math Academy ensures that their practices are evidence-based and effective.
+
+2. **Individualized Learning**: Recognizing that each student learns at their own pace, the platform tailors content to individual needs through adaptive diagnostics and personalized learning paths.
+
+3. **Mastery Learning and Spaced Repetition**: Rather than rushing through topics, Math Academy prioritizes deep understanding. Their approach ensures proficiency in prerequisite topics before progression and utilizes spaced repetition to optimize long-term retention.
+
+4. **Addressing Misconceptions**: The platform tackles common "neuromyths" in education, emphasizing scientifically-backed practices over popular but ineffective methods.
+
+::: {.column-margin}
+One particularly intriguing aspect of Math Academy's approach is their novel spaced repetition algorithm, Fractional Implicit Repetition (FIRe). This algorithm optimizes review schedules by considering the hierarchical structure of mathematics, accounting for implicit practice gained from working on more complex topics.
+:::
+
+## Bridging the Gap: From Math to Physics
+
+While Math Academy focuses on mathematics, many of its principles are directly applicable to physics education. Both subjects require strong foundational knowledge, benefit from spaced repetition, and involve complex, interconnected concepts. However, physics presents unique challenges, particularly in developing students' problem-solving skills and physical intuition.
+
+Inspired by Math Academy's innovative approach, I've developed two novel problem types for physics education that aim to enhance critical thinking, deepen understanding, and address common misconceptions:
+
+1. **"Possibly Wrong Physics"**: This problem type challenges students to identify errors in seemingly correct solutions, encouraging critical analysis and deepening conceptual understanding.
+
+2. **"Strategic Information Gathering"**: This type simulates real-world problem-solving by requiring students to strategically choose which information to "purchase," developing their ability to identify relevant variables and approach problems efficiently.
+
+In the following sections, we'll explore these problem types in detail, discussing their implementation, benefits, and alignment with educational standards.
+
+# Problem Type 1: "Possibly Wrong Physics"
+
+## Concept and Benefits
+
+"Possibly Wrong Physics" problems present students with a complete solution to a physics problem, which may contain errors. Students must critically analyze the solution to identify if and where errors occur.
+
+::: {.column-margin}
+This approach is inspired by the concept of "productive failure" in education, which suggests that struggling with complex problems before instruction can lead to deeper learning[@kapur2016].
+:::
+
+Benefits of this approach include:
+
+- Encouraging critical thinking
+- Improving error detection skills
+- Reinforcing step-by-step problem-solving
+
+## Example: Block on an Inclined Plane with Friction
+
+Let's consider an example of a block on an inclined plane with friction.
+
+::: {.column-page-right}
+![Comparison of Incorrect and Correct Force Diagrams](images/inclined_plane_comparison.png){#fig-inclined-plane}
+
+Figure 1: Comparison of incorrect (left) and correct (right) force diagrams for a block on an inclined plane.
+:::
+
+In Figure 1, we see two force diagrams side by side. The left diagram contains an error: the weight force (mg) is incorrectly drawn parallel to the incline. In the correct diagram on the right, the weight force is properly represented as acting vertically downward, with dashed lines showing its components along and perpendicular to the incline surface.
+
+Students encountering the incorrect diagram would need to recognize that the orientation of the weight force is incorrect, demonstrating their understanding of how gravity acts on objects regardless of the surface they rest on.
+
+## Potential Variations
+
+To further enhance the effectiveness of "Possibly Wrong Physics" problems, consider:
+
+- Varying the complexity of errors, from obvious mistakes to subtle conceptual misunderstandings.
+- Including problems with multiple errors or no errors to keep students vigilant.
+- Applying this approach to different physics topics, such as thermodynamics or electromagnetism.
+
+# Problem Type 2: "Strategic Information Gathering"
+
+## Concept and Benefits
+
+"Strategic Information Gathering" problems simulate real-world scenarios where information comes at a cost. Students must decide which pieces of information are necessary to solve the problem efficiently.
+
+::: {.column-margin}
+This problem type draws inspiration from the concept of "information economics" in decision theory, encouraging students to think critically about the value of information[@stigler1961].
+:::
+
+Benefits of this approach include:
+
+- Teaching students to identify relevant variables
+- Introducing cost-benefit analysis in problem-solving
+- Mimicking real-world scenarios
+
+## Example: Projectile Motion
+
+Consider the following scenario:
+
+> A ball is launched from a cliff. You need to determine where it will land. Each piece of information costs "research points":
+> 
+> - Initial velocity magnitude: 3 points
+> - Launch angle: 2 points
+> - Cliff height: 2 points
+> - Time of flight: 5 points
+> - Horizontal distance traveled: 4 points
+>
+> Students have 7 points to spend and must determine which information to purchase to solve the problem most efficiently.
+
+This problem challenges students to think critically about which pieces of information are truly necessary to solve the projectile motion problem, rather than simply plugging numbers into a formula.
+
+## Potential Variations
+
+To further develop this problem type:
+
+- Adjust the point system to emphasize different aspects of problem-solving.
+- Include irrelevant information at a lower cost to test students' ability to discern necessary data.
+- Apply this concept to more complex physics scenarios, such as circuit analysis or optics problems.
+
+# Implementation in the Classroom
+
+To successfully introduce these problem types in the classroom:
+
+1. Begin with simpler versions of each problem type, gradually increasing complexity as students become comfortable with the formats.
+2. Provide ample practice and encourage peer discussions to build confidence.
+3. Develop rubrics that reward critical thinking and efficient problem-solving strategies, not just correct final answers.
+
+::: {.column-margin}
+Consider using a think-pair-share approach when introducing these new problem types. This allows students to grapple with the problems individually before discussing their strategies with peers.
+:::
+
+# Alignment with Educational Standards
+
+These innovative problem types support specific physics learning objectives and align with common high school physics standards by:
+
+- Enhancing conceptual understanding
+- Promoting critical thinking
+- Developing real-world problem-solving skills
+- Supporting standards related to scientific practices, such as analyzing and interpreting data, and constructing explanations
+
+# Conclusion
+
+By incorporating "Possibly Wrong Physics" and "Strategic Information Gathering" problems into physics education, we can create a more engaging and effective learning environment that better prepares students for future challenges. These approaches offer innovative ways to deepen students' understanding of physics concepts and enhance their problem-solving skills.
+
+As we continue to refine these approaches, we encourage educators to share their experiences and contribute to the ongoing evolution of physics education. Together, we can revolutionize how physics is taught and learned, inspiring the next generation of scientists and critical thinkers.
+
+## Next Steps
+
+To further develop and implement these innovative problem types:
+
+1. Develop a series of problems for each type across various physics topics.
+2. Create accompanying lesson plans and grading rubrics.
+3. Conduct pilot studies to assess the effectiveness of these problem types in real classroom settings.
+
+::: {.column-margin}
+If you're interested in collaborating on the development of these problem types or sharing your experiences, please reach out. Let's work together to advance physics education!
+:::
+
+# References

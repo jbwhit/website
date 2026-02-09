@@ -1,0 +1,22 @@
+---
+title: "Misusing Machine Learning"
+description: "Deep dive into what a decision tree is doing."
+author: "Jonathan Whitmore"
+date: "2023-12-19"
+categories: [machine learning]
+format:
+  html:
+    code-fold: true
+---
+
+You can use a Decision Tree to compress an image. There are libraries to do this kind of thing properly, but I wanted to see what a Decision Tree "sees" when it looks at an image.
+
+The training input is each pixel's x, y position, and the channel number. The target is the value for that pixel and channel. I am not doing a test/train split because I'm not looking to build a model to predict anything, I'm looking to compress something.
+
+And it worked. Here's what it looks like for the black and white image:
+
+![Van Gogh's self portrait as seen by a decision tree.](./animated_bw_small.gif){width=50%}
+
+And if you want to see a video where I go through a bit more of an explanation check it out here:
+
+{{< video https://www.youtube.com/embed/pjmgdC6-lSo >}}
