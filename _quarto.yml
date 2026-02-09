@@ -44,6 +44,8 @@ website:
       - text: About
         href: about.qmd
     tools:
+      - icon: palette
+        href: https://www.jbwhitmoreart.com/
       - icon: twitter-x
         href: https://x.com/jbwhitmore
       - icon: youtube
