@@ -67,8 +67,8 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, custom.scss]
-      dark: [cosmo, custom-dark.scss]
+      light: [flatly, custom.scss]
+      dark: [darkly, custom-dark.scss]
     css: styles.css
     toc: true
     code-fold: true
