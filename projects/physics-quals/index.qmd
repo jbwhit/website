@@ -1,6 +1,9 @@
 ---
 title: "Physics PhD Qualifying Exams"
 description: "UC San Diego Physics PhD qualifying exams from 1987 through 2019."
+aliases:
+  - /physics/physics-quals/
+  - /physics/physics-quals/index.html
 ---
 
 # UCSD Physics Qualifying Exams Archive

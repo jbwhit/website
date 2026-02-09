@@ -24,3 +24,4 @@ Browse all posts on the [Blog](blog.qmd) page.
 
 - [Checklists](projects/checklists/index.qmd) — Decision-making checklists for investing and causal inference
 - [UCSD Physics Qualifying Exams](projects/physics-quals/index.qmd) — Archive of physics PhD qualifying exams (1987–2019)
+- [Generative Art](https://www.jbwhitmoreart.com/) — Algorithmic explorations of motion, form, and color

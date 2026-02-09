@@ -4,6 +4,8 @@ description: "Deep dive into what a decision tree is doing."
 author: "Jonathan Whitmore"
 date: "2023-12-19"
 categories: [machine learning]
+aliases:
+  - /posts/2023-12-19-misusing-machine-learning/
 format:
   html:
     code-fold: true

@@ -4,6 +4,8 @@ description: "My review after ~40 hours of dedicated learning on the platform."
 author: "Jonathan Whitmore"
 date: "2024-09-10"
 categories: [math education, learning, cognitive science]
+aliases:
+  - /posts/2024-09-10-MathAcademy-after-2000-points/
 format:
   html:
     grid:

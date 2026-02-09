@@ -3,6 +3,8 @@ title: "Investment Evaluation Checklist"
 description: "A systematic checklist to evaluate potential investments by assessing key financial, operational, and strategic factors."
 date: 2024-07-04
 categories: [Investing, Finance]
+aliases:
+  - /checklists/investing.html
 toc: true
 toc-title: Checklist Sections
 toc-location: left

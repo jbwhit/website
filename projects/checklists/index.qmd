@@ -2,6 +2,8 @@
 title: "Checklists for Decision Making and Analysis"
 description: "A collection of curated checklists for various domains including investing and research methodologies."
 date: 2024-07-04
+aliases:
+  - /checklists.html
 categories: [Checklists, Decision Making, Analysis]
 toc: true
 toc-location: left

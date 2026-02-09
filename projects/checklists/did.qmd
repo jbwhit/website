@@ -3,6 +3,8 @@ title: "Difference-in-Differences (DiD) Checklist"
 description: "A comprehensive checklist for conducting Difference-in-Differences analysis in econometrics and causal inference."
 date: 2024-07-04
 categories: [Econometrics, Causal Inference, Research Methods]
+aliases:
+  - /checklists/difference-in-differences.html
 toc: true
 toc-title: Checklist Sections
 toc-location: left

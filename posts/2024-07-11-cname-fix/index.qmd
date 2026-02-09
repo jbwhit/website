@@ -5,6 +5,8 @@ author: "Jonathan Whitmore"
 date: "2024-07-11"
 code-annotations: hover
 categories: [quarto, nbdev, GitHub]
+aliases:
+  - /posts/2024-07-11-cname-github-pages/
 format:
   html:
     code-fold: true

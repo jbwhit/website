@@ -4,9 +4,9 @@ title: "About"
 
 I'm Jonathan Whitmore — a physicist and data scientist interested in machine learning, causal inference, effective learning systems, and investing.
 
-I studied physics at UC San Diego, where I also taught and maintained the [Physics PhD Qualifying Exams archive](projects/physics-quals/index.qmd) since 2008.
+I studied physics at UC San Diego, and have maintained the [UCSD Physics PhD Qualifying Exams archive](projects/physics-quals/index.qmd) since 2008.
 
-I also make [generative art](https://www.jbwhitmoreart.com/) — algorithmic explorations of motion, form, and color.
+I also make [generative art](https://www.jbwhitmoreart.com/) — algorithmic explorations of motion, form, and color. On my [YouTube channel](https://www.youtube.com/@JonathanWhitmore), I share walkthroughs and live coding sessions.
 
 This site is where I write about topics I find interesting, share checklists and tools I've built, and occasionally misuse machine learning.
 
