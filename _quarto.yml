@@ -39,6 +39,8 @@ website:
             href: projects/checklists/index.qmd
           - text: UCSD Physics Qualifying Exams
             href: projects/physics-quals/index.qmd
+      - text: Courses
+        href: https://jbwhitmore.gumroad.com/l/jupytermastery
       - text: About
         href: about.qmd
     tools:
