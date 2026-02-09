@@ -1,5 +1,58 @@
 ---
-title: "UCSD Physics Qualifying Exams"
+title: "Physics PhD Qualifying Exams"
+description: "UC San Diego Physics PhD qualifying exams from 1987 through 2019."
 ---
 
-Physics qualifying exam archive — to be migrated.
+# UCSD Physics Qualifying Exams Archive
+
+I've maintained the UCSD Physics Qualifying Exams Archive on my website since 2008! This page provides access to a comprehensive collection of past qualifying exams for physics graduate students. Note: UCSD stopped administering qualifying exams in 2019, so there are no newer exams. If you have an exam that I'm missing or a correction please let me know!
+
+## Download All PDFs by Year Range
+
+If you want to access multiple years at once here's bulk downloads:
+
+| Year Range | Download Link |
+|------------|---------------|
+| 2010 - 2019 | [Download](https://www.dropbox.com/scl/fi/c3kvhokov63wdo22wuvpp/2010_2019.tar.gz?rlkey=jda4tcu2xzkkjmfsn7x0mfvg8&dl=1) |
+| 2000 - 2009 | [Download](https://www.dropbox.com/scl/fi/sckazyxic4eptgni469cz/2000_2009.tar.gz?rlkey=zb4l2n31q6hghqdtp34avf2rb&dl=1) |
+| 1987 - 1999 | [Download](https://www.dropbox.com/scl/fi/sit3vk7lvig7pqhrd0op7/1987_1999.tar.gz?rlkey=48pqqkycm7b21ux3d2r7ilab6&dl=1) |
+
+## Individual Physics Qualifying Exams
+
+| Year | Fall | Spring |
+|------|------|--------|
+| 2019 | - | [2019 Spring](https://www.dropbox.com/scl/fi/u1d09hx5vs0ja856oy6v5/2019spring.pdf?rlkey=ksf6isuxldb7bqd80fktg1poz&dl=1) |
+| 2018 | [2018 Fall](https://www.dropbox.com/scl/fi/zottdnxdq6mm5h4bv0ing/2018fall.pdf?rlkey=9hijyfwpyalvguqe1y352fgz8&dl=1) | [2018 Spring](https://www.dropbox.com/scl/fi/4j0bvyx1yr8y7e8kcrrx1/2018spring.pdf?rlkey=cswm9t7n02y74687tkp4pzj9o&dl=1) |
+| 2017 | [2017 Fall](https://www.dropbox.com/scl/fi/11y0vopjbiu5vgxbsgwvf/2017fall.pdf?rlkey=pgfgkmjmv2ac1fut6m477kkt0&dl=1) | - |
+| 2016 | [2016 Fall](https://www.dropbox.com/scl/fi/ufr29ge6v6k3xfkmqqy4k/2016fall.pdf?rlkey=hswij5ioi8ph4k8czdqjsh40g&dl=1) | [2016 Spring](https://www.dropbox.com/scl/fi/ac2q2cvixv95t7vt26vj9/2016spring.pdf?rlkey=i61q7gnhbthiw7dyucplvu6at&dl=1) |
+| 2015 | [2015 Fall](https://www.dropbox.com/scl/fi/scjbyu2k8kyzyoq5g55qs/2015fall.pdf?rlkey=hsztn6j4ml5sd8t2qvzmunid4&dl=1) | [2015 Spring](https://www.dropbox.com/scl/fi/5e6889ng4jl6chxg2cibu/2015spring.pdf?rlkey=bvske7jeyk9ywy9pq0u1elqye&dl=1) |
+| 2014 | [2014 Fall](https://www.dropbox.com/scl/fi/dtryk1yypp87j85560sd7/2014fall.pdf?rlkey=0vcazom3e4m8f844lhictv2sa&dl=1) | [2014 Spring](https://www.dropbox.com/scl/fi/m7n66ikf68ejh6z4c9b07/2014spring.pdf?rlkey=lsmisin3m5844qwu8rdwdudab&dl=1) |
+| 2013 | [2013 Fall](https://www.dropbox.com/scl/fi/bx6q085ohl8ii4yt284ge/2013fall.pdf?rlkey=ws2jawxdfstoyj6e9q3o58kd7&dl=1) | [2013 Spring](https://www.dropbox.com/scl/fi/q1f9y5ysqbi18izfzeovk/2013spring.pdf?rlkey=81ha4dv8pc38q1imamej9zmsu&dl=1) |
+| 2012 | [2012 Fall](https://www.dropbox.com/scl/fi/fnvw13bcle8regb1bna63/2012fall.pdf?rlkey=b890ohy1n6r5br5aosc5zhebq&dl=1) | [2012 Spring](https://www.dropbox.com/scl/fi/umpifedc4ren9655y9yll/2012spring.pdf?rlkey=d8opkz74pcambmeofro1gq1ly&dl=1) |
+| 2011 | [2011 Fall](https://www.dropbox.com/scl/fi/5v1cyystbbddbudd5suqk/2011fall.pdf?rlkey=gw3bfd2gsmiglyppzrjbdxhre&dl=1) | [2011 Spring](https://www.dropbox.com/scl/fi/vmr8m2824x3gsqkpz1734/2011spring.pdf?rlkey=v4dg3lh80qn0rakg1yx7128eg&dl=1) |
+| 2010 | [2010 Fall](https://www.dropbox.com/scl/fi/st0luzno0c9dp9kokl96h/2010fall.pdf?rlkey=0tttfkp6qz03dn7n2zvix7dqk&dl=1) | [2010 Spring](https://www.dropbox.com/scl/fi/elfoslk3s37ugsk0759u3/2010spring.pdf?rlkey=6yyr2ugttxkup78r1eurswaqx&dl=1) |
+| 2009 | [2009 Fall](https://www.dropbox.com/scl/fi/tmhphiavo0w8nkagdeu4p/2009fall.pdf?rlkey=go0rd67v08ycbbrcptmdy69h4&dl=1) | [2009 Spring](https://www.dropbox.com/scl/fi/vydfspeuqxp1j393coyoe/2009spring.pdf?rlkey=e5ri0yd95ahvm1etd0fpmr9mx&dl=1) |
+| 2008 | [2008 Fall](https://www.dropbox.com/scl/fi/cibzqixmjp4p8msakv6qt/2008fall.pdf?rlkey=zqrs18hydsl24xlteqjivtcxo&dl=1) | [2008 Spring](https://www.dropbox.com/scl/fi/h913vjpgoz5jzb8t3fkr1/2008spring.pdf?rlkey=839ag38giq34h83yrafbosvmw&dl=1) |
+| 2007 | [2007 Fall](https://www.dropbox.com/scl/fi/b37em7rnpjih49vho14dx/2007fall.pdf?rlkey=zwwnwn64g1vb41ypg1ig3w129&dl=1) | [2007 Spring](https://www.dropbox.com/scl/fi/zthpdy9xgslmapbcggatc/2007spring.pdf?rlkey=r0taar9e2t9im4fc2pxljn01r&dl=1) |
+| 2006 | [2006 Fall](https://www.dropbox.com/scl/fi/ur5m95os0g982p78m1bpu/2006fall.pdf?rlkey=yb28oqk7qfnrvvjryj6kdugnk&dl=1) | [2006 Spring](https://www.dropbox.com/scl/fi/mhpwfh6ury2np50vmopvv/2006spring.pdf?rlkey=4z6anvkauilzghh8fxsliyhat&dl=1) |
+| 2005 | [2005 Fall](https://www.dropbox.com/scl/fi/8h94jazsi8jjjn7md854m/2005fall.pdf?rlkey=8jyxso8gkklxoq97jl8u67ls0&dl=1) | [2005 Spring](https://www.dropbox.com/scl/fi/dumh9kz90u0oug2y6f126/2005spring.pdf?rlkey=kchzmycg1bcgno6hmg607uafp&dl=1) |
+| 2004 | [2004 Fall](https://www.dropbox.com/scl/fi/c2mds4kjo098tnl36pkau/2004fall.pdf?rlkey=to0lavbu68spr5hv411g97ct9&dl=1) | [2004 Spring](https://www.dropbox.com/scl/fi/sphj9iydrk4pvif9nq8tl/2004spring.pdf?rlkey=5b4s22prkul4pkaulk3t2xrso&dl=1) |
+| 2003 | [2003 Fall](https://www.dropbox.com/scl/fi/euz6dsldc7rbedcdac35v/2003fall.pdf?rlkey=f3i2c9ul5rezm6acfv1zwuua8&dl=1) | [2003 Spring](https://www.dropbox.com/scl/fi/kydolejgdg5hw4ya86bm0/2003spring.pdf?rlkey=xslwaik2r076gml4q1fhnzsfz&dl=1) |
+| 2002 | [2002 Fall](https://www.dropbox.com/scl/fi/hjibvrjg46kmfpib5q4ku/2002fall.pdf?rlkey=kwf2v6ngxd9kzlqkqyfrcc3rl&dl=1) | [2002 Spring](https://www.dropbox.com/scl/fi/6vozhne9mueftqia0nsiw/2002spring.pdf?rlkey=sqa5jq1rhz8r9pc6emomzph06&dl=1) |
+| 2001 | [2001 Fall](https://www.dropbox.com/scl/fi/ax9qcece547v5mmnpxsoi/2001fall.pdf?rlkey=04nxun0wg8v7iyif0mqyy6i88&dl=1) | [2001 Spring](https://www.dropbox.com/scl/fi/861xy1jhqj7a95vz6aocs/2001spring.pdf?rlkey=o4nlnbz0m29z1sv7mj0y5ry0b&dl=1) |
+| 2000 | [2000 Fall](https://www.dropbox.com/scl/fi/gsp4tvapprsydxkkyfuvz/2000fall.pdf?rlkey=0hytyxr91py2hyow215zuem6h&dl=1) | [2000 Spring](https://www.dropbox.com/scl/fi/16t9wpv5odg58pnye862v/2000spring.pdf?rlkey=02cai4ll2nduv58e88goijsf1&dl=1) |
+| 1999 | [1999 Fall](https://www.dropbox.com/scl/fi/7vh03guoqy6lzw3fra4pw/1999fall.pdf?rlkey=0nvgp1ff0nsn0a4oudcj6l1ro&dl=1) | [1999 Spring](https://www.dropbox.com/scl/fi/egy1vsnv47m7igl4cre83/1999spring.pdf?rlkey=cw6oagcmub1y8tq7i1h9bk6h6&dl=1) |
+| 1998 | [1998 Fall](https://www.dropbox.com/scl/fi/bapsrr4apptwcitkb767b/1998fall.pdf?rlkey=7lfto5lkvwr3aunwzhu9a89jm&dl=1) | [1998 Spring](https://www.dropbox.com/scl/fi/zkeoxamo1akb6yqae55bx/1998spring.pdf?rlkey=n91mg9t7qu2poiyt2s1lim1a7&dl=1) |
+| 1997 | [1997 Fall](https://www.dropbox.com/scl/fi/luq3xpkd7nujfv9pk8be4/1997fall.pdf?rlkey=0mbevjarbem1yzshnvvslkr46&dl=1) | [1997 Spring](https://www.dropbox.com/scl/fi/lbimcm31tvrz3ufbdo8dz/1997spring.pdf?rlkey=i0kn5q5hatqbly2gqbauw4764&dl=1) |
+| 1996 | [1996 Fall](https://www.dropbox.com/scl/fi/rv300vb23k23l8j4636d4/1996fall.pdf?rlkey=rjm45yivq6sdur4l1td2yc98o&dl=1) | [1996 Spring](https://www.dropbox.com/scl/fi/84xpzlh2367kdx5bw6fh1/1996spring.pdf?rlkey=nh3z8urbsm8sivw97jzne6066&dl=1) |
+| 1995 | [1995 Fall](https://www.dropbox.com/scl/fi/t6i319lc0mk0wn8xsmce8/1995fall.pdf?rlkey=f4aum2nbg6h52z759izps6dnh&dl=1) | [1995 Spring](https://www.dropbox.com/scl/fi/z1r61rf0ztre8kt91e9a6/1995spring.pdf?rlkey=6jjb90v1yp9ar6extiuhn2o5b&dl=1) |
+| 1994 | [1994 Fall](https://www.dropbox.com/scl/fi/7u8anajt36ifpjgyhldq7/1994fall.pdf?rlkey=1aayf88quz9e7hmr5ykdefpml&dl=1) | [1994 Spring](https://www.dropbox.com/scl/fi/tve2w8t95g88rk6nbh2wq/1994spring.pdf?rlkey=4b34diuiwsybto5x0zm50rzce&dl=1) |
+| 1993 | [1993 Fall](https://www.dropbox.com/scl/fi/ooraqn3tplkfiw9wgxpz6/1993fall.pdf?rlkey=9urcuuuh9wwhy8qlzv9guika7&dl=1) | [1993 Spring](https://www.dropbox.com/scl/fi/boqlcvtnrwv1u7wyfo40p/1993spring.pdf?rlkey=jhk1hre354ohz8fxq32wwhobe&dl=1) |
+| 1992 | [1992 Fall](https://www.dropbox.com/scl/fi/jofkluw3g7rg7lnlqqj4c/1992fall.pdf?rlkey=1piu768jft5qh04e2n9r3ca8a&dl=1) | [1992 Spring](https://www.dropbox.com/scl/fi/odsshd7byrfekw10zc1u1/1992spring.pdf?rlkey=kquy7u99gqesr22uqyr8dc513&dl=1) |
+| 1991 | [1991 Fall](https://www.dropbox.com/scl/fi/6nau5ay93w7m86bxe3v8l/1991fall.pdf?rlkey=dak2scxr7u127rroc33x6b9uz&dl=1) | [1991 Spring](https://www.dropbox.com/scl/fi/1ifptvhj4i5jqfqral56j/1991spring.pdf?rlkey=03fw8sy93nc9ifaiznavz5c6v&dl=1) |
+| 1990 | [1990 Fall](https://www.dropbox.com/scl/fi/wh3wjpxhpy4yw2av34urc/1990fall.pdf?rlkey=iqbxzn8b8dfexpmd5e7vo9ewr&dl=1) | [1990 Spring](https://www.dropbox.com/scl/fi/h1kam5pu4mwon0wva0n1p/1990spring.pdf?rlkey=xej6ifdn5mt63j3frlp9wemnb&dl=1) |
+| 1989 | [1989 Fall](https://www.dropbox.com/scl/fi/1jkbbdp295oem9navyay2/1989fall.pdf?rlkey=tmbir0kulx3rm300hotkcfrzu&dl=1) | [1989 Spring](https://www.dropbox.com/scl/fi/wz2190ibywt8q5sn35cwv/1989spring.pdf?rlkey=lqvzfxr2kvaq84possnl14e76&dl=1) |
+| 1988 | [1988 Fall](https://www.dropbox.com/scl/fi/o7xtbpp0wwk8s1zafzs08/1988fall.pdf?rlkey=wbrjgbfa0weptnxzc9zsddon1&dl=1) | [1988 Spring](https://www.dropbox.com/scl/fi/rl2m80ardg1lr5a8qpahr/1988spring.pdf?rlkey=bxglzaysfq5ik4jdopan84yh2&dl=1) |
+| 1987 | [1987 Fall](https://www.dropbox.com/scl/fi/64v7uanvo5p485rlln34l/1987fall.pdf?rlkey=7w0s46hf9lgteh3gcz4c2yi1f&dl=1) | - |
+
+I hope these resources prove useful in your physics studies!
