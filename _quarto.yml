@@ -5,7 +5,7 @@ project:
     - "*.qmd"
     - "*.ipynb"
     - "posts/**"
-    - "projects/**"
+    - "projects/**/*.qmd"
     - "!nbs/"
     - "!_proc/"
     - "!website/"
