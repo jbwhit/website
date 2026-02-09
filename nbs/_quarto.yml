@@ -4,10 +4,14 @@ project:
 format:
   html:
     theme:
-        light: flatly
-        dark: darkly
+      light: flatly
+      dark: darkly
     css: styles.css
     toc: true
+    # Enable additional features
+    code-fold: true  # Allow folding of code blocks
+    footnotes: true  # Enable footnotes for better content
+    citations: true  # Support for citations if you have academic content
 
 website:
   title: "Jonathan Whitmore's Website"
@@ -37,28 +41,27 @@ website:
     search: true
     left:
       - text: Home
-        href: index.html
+        href: index.qmd  # Use consistent file extensions
       - text: Checklists
         menu:
           - text: All Checklists
             href: checklists.qmd
-          - text: ---
           - text: Investing
             href: checklists/investing.qmd
           - text: Difference-in-Differences
             href: checklists/difference-in-differences.qmd
-      - text: Physics Quals
-        menu: 
+      - text: Physics
+        menu:
           - text: UCSD Physics Qualifying Exams
             href: physics/physics-quals/index.qmd
       - text: Jupyter Mastery (Course)
         href: https://jbwhitmore.gumroad.com/l/jupytermastery
       - text: About
-        href: about.html
+        href: about.qmd  # Use consistent file extensions
   sidebar:
     style: floating
     contents:
-      - section: All blog posts
+      - section: Blog Posts
         href: blog.qmd
         contents: posts
         sort: "date desc"

@@ -1,0 +1,13 @@
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, monospace;
+
+/*-- scss:rules --*/
+
+// Cell output styling for dark mode
+.cell-output > pre,
+.cell-output > .sourceCode > pre,
+.cell-output-stdout > pre {
+  border-left-color: #e07050;
+}

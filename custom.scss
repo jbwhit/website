@@ -1,0 +1,41 @@
+/*-- scss:defaults --*/
+
+// Clean, minimal typography
+$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, monospace;
+
+$body-bg: #ffffff;
+$body-color: #333333;
+$link-color: #2780e3;
+
+/*-- scss:rules --*/
+
+// Cell output styling (preserved from original site)
+.cell {
+  margin-bottom: 1rem;
+}
+
+.cell > .sourceCode {
+  margin-bottom: 0;
+}
+
+.cell-output > pre {
+  margin-bottom: 0;
+}
+
+.cell-output > pre,
+.cell-output > .sourceCode > pre,
+.cell-output-stdout > pre {
+  margin-left: 0.8rem;
+  margin-top: 0;
+  background: none;
+  border-left: 2px solid lightsalmon;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.cell-output > .sourceCode {
+  border: none;
+  background: none;
+  margin-top: 0;
+}

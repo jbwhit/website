@@ -1,0 +1,7 @@
+---
+title: "Jonathan Whitmore"
+subtitle: "Personal website and blog"
+page-layout: full
+---
+
+Welcome to my website.

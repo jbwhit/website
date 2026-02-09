@@ -1,31 +1,20 @@
 website:
   sidebar:
     contents:
-      - index.ipynb
-      - about.ipynb
+      - index.qmd  # Use consistent file extensions
+      - about.qmd
       - blog.qmd
       - checklists.qmd
-      - section: checklists
+      - section: Checklists
         contents:
           - checklists/difference-in-differences.qmd
           - checklists/investing.qmd
-      - section: physics
+      - section: Physics
         contents:
-          - section: physics-quals
-            contents: []
-            href: physics/physics-quals/index.qmd
-      - section: posts
+          - physics/physics-quals/index.qmd  # Removed empty contents
+      - section: Blog Posts
         contents:
-          - section: 2023-12-19-misusing-machine-learning
-            contents: []
-            href: posts/2023-12-19-misusing-machine-learning/index.ipynb
-          - section: 2024-07-11-cname-github-pages
-            contents: []
-            href: posts/2024-07-11-cname-github-pages/index.qmd
-          - section: 2024-09-08-teaching-and-learning-physics
-            contents:
-              - posts/2024-09-08-teaching-and-learning-physics/index 2.qmd
-            href: posts/2024-09-08-teaching-and-learning-physics/index.qmd
-          - section: 2024-09-10-MathAcademy-after-2000-points
-            contents: []
-            href: posts/2024-09-10-MathAcademy-after-2000-points/index.qmd
+          - posts/2023-12-19-misusing-machine-learning/index.ipynb
+          - posts/2024-07-11-cname-github-pages/index.qmd
+          - posts/2024-09-08-teaching-and-learning-physics/index.qmd  # Fixed filename
+          - posts/2024-09-10-mathacademy-after-2000-points/index.qmd

@@ -1,0 +1,62 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Jonathan Whitmore"
+  description: "Personal website and blog"
+  site-url: https://jonathanwhitmore.com
+  repo-url: https://github.com/jbwhit/website
+  repo-actions: [issue]
+  open-graph: true
+  twitter-card:
+    creator: "@jbwhitmore"
+    card-style: summary_large_image
+  page-navigation: true
+  search: true
+
+  navbar:
+    background: primary
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Blog
+        href: blog.qmd
+      - text: Projects
+        menu:
+          - text: Checklists
+            href: projects/checklists/index.qmd
+          - text: UCSD Physics Qualifying Exams
+            href: projects/physics-quals/index.qmd
+      - text: About
+        href: about.qmd
+    tools:
+      - icon: twitter-x
+        href: https://x.com/jbwhitmore
+      - icon: youtube
+        href: https://www.youtube.com/@JonathanWhitmore
+      - icon: linkedin
+        href: https://www.linkedin.com/in/jonathanbwhitmore/
+      - icon: github
+        menu:
+          - text: Source Code
+            href: https://github.com/jbwhit/website
+          - text: Report a Bug
+            href: https://github.com/jbwhit/website/issues/new
+      - icon: rss
+        href: blog.xml
+
+  page-footer:
+    left: "&copy; 2024 Jonathan Whitmore"
+    right: "Built with [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+      dark: [cosmo, custom-dark.scss]
+    css: styles.css
+    toc: true
+    code-fold: true
+    code-copy: true
+    link-external-newwindow: true

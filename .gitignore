@@ -1,5 +1,7 @@
 _docs/
 _proc/
+_site/
+_freeze/
 
 *.bak
 .gitattributes
@@ -150,3 +152,6 @@ checklink/cookies.txt
 
 # Quarto
 .quarto
+
+/.quarto/
+**/*.quarto_ipynb
