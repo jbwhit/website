@@ -2,4 +2,15 @@
 title: "About"
 ---
 
-About page — to be filled in.
+I'm Jonathan Whitmore — a physicist and data scientist interested in machine learning, causal inference, effective learning systems, and investing.
+
+I studied physics at UC San Diego, where I also taught and maintained the [Physics PhD Qualifying Exams archive](projects/physics-quals/index.qmd) since 2008.
+
+This site is where I write about topics I find interesting, share checklists and tools I've built, and occasionally misuse machine learning.
+
+## Links
+
+- [Twitter/X](https://x.com/jbwhitmore)
+- [LinkedIn](https://www.linkedin.com/in/jonathanbwhitmore/)
+- [YouTube](https://www.youtube.com/@JonathanWhitmore)
+- [GitHub](https://github.com/jbwhit)

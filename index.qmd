@@ -1,7 +1,26 @@
 ---
 title: "Jonathan Whitmore"
-subtitle: "Personal website and blog"
+subtitle: "Physics, data science, and learning systems"
 page-layout: full
+listing:
+  id: recent-posts
+  contents: posts
+  sort: "date desc"
+  type: default
+  max-items: 3
+  fields: [date, title, description]
 ---
 
-Welcome to my website.
+Welcome to my website — a collection of my thoughts on machine learning, physics education, data analysis, and effective learning strategies.
+
+## Recent Posts
+
+::: {#recent-posts}
+:::
+
+Browse all posts on the [Blog](blog.qmd) page.
+
+## Projects
+
+- [Checklists](projects/checklists/index.qmd) — Decision-making checklists for investing and causal inference
+- [UCSD Physics Qualifying Exams](projects/physics-quals/index.qmd) — Archive of physics PhD qualifying exams (1987–2019)
