@@ -59,7 +59,6 @@ website:
 
   page-footer:
     left: "&copy; 2024 Jonathan Whitmore"
-    right: "Built with [Quarto](https://quarto.org)"
 
 format:
   html:
