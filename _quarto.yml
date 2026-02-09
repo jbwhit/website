@@ -15,6 +15,7 @@ project:
 website:
   title: "Jonathan Whitmore"
   description: "Personal website and blog"
+  favicon: assets/images/favicon.ico
   site-url: https://jonathanwhitmore.com
   repo-url: https://github.com/jbwhit/website
   repo-actions: [issue]
