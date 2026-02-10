@@ -4,8 +4,10 @@ project:
   render:
     - "*.qmd"
     - "*.ipynb"
-    - "posts/**"
+    - "posts/**/*.qmd"
+    - "posts/**/*.ipynb"
     - "projects/**/*.qmd"
+    - "!strategy/"
 
 website:
   title: "Jonathan Whitmore"

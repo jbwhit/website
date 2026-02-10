@@ -1,0 +1,415 @@
+---
+title: "A 3-Year Self-Directed Program in Military Strategy and War"
+description: "A comprehensive graduate-level reading program for mastering strategic evaluation, military theory, and the human dimensions of warfare."
+author: "Jonathan Whitmore"
+date: "2025-02-08"
+draft: true
+categories: [strategy, military history, reading list, self-education]
+resources:
+  - reading-journal-template.md
+  - strategy-evaluation-worksheet.md
+  - plan-v4.md
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+reference-location: margin
+citation-location: margin
+---
+
+# Introduction
+
+Strategy is not what most people think it is. It's not about designing brilliant master plans or predicting the future. Real strategic competence means sitting in a room, hearing a confident proposal, and being able to say:
+
+> "This will fail—and here is exactly where, why, and how."
+
+This article presents a 3-year, 48-book reading program designed to build that capability. It's not about accumulating knowledge—it's about developing the tools to evaluate strategies, identify failure modes, and recognize implementation constraints before they become disasters.
+
+## What Makes This Program Different
+
+Most military strategy reading lists are either:
+1. **Inspirational**: A collection of "great books" that leave you cultured but not capable
+2. **Encyclopedic**: Comprehensive surveys that cover everything but develop nothing
+3. **Ideological**: Designed to produce disciples of a particular school of thought
+
+This program is different. It's designed around **evaluation over construction**—the ability to diagnose, critique, and falsify strategies rather than merely design them.
+
+### Core Design Principles
+
+1. **Respects intellectual genealogy** – Ideas appear before their descendants
+2. **Integrates human evidence** – Literature does epistemic work, not cultural enrichment
+3. **Treats strategy as a system** – Explicit attention to how instruments of power connect
+4. **Builds analytical tools early** – Frameworks appear when most useful, not as capstones
+5. **Maintains intellectual tension** – Countervailing perspectives prevent single-school capture
+6. **Privileges failure modes over success narratives** – Evaluation requires understanding how strategies break
+
+## Program Statistics
+
+- **Total**: 48 core books over 3 years (~16 per year, ~1.3 per month)
+- **Year 1**: 12 books (methodology + theory foundations + 2 literature)
+- **Year 2**: 19 books (grand strategy + operational art + framework tools + 3 literature)
+- **Year 3**: 17 books (contemporary challenges + synthesis + 3 literature)
+
+Each text is mapped to the **DIME Framework** (Diplomatic, Informational, Military, Economic instruments of national power).
+
+# The Evaluator's Mindset
+
+## Building Capability, Not Just Knowledge
+
+This program comes with two companion documents (available for download):
+
+1. **Reading Journal Template** – Complete after each book to extract tools and force decision-relevant thinking
+2. **Strategy Evaluation Worksheet** – Apply to readings and real-world cases to practice diagnosis and falsification
+
+The goal is not to finish this program able to design brilliant strategies. The goal is to develop the ability to:
+
+- **Hunt assumptions**: What must be true for this to work?
+- **Conduct sensitivity analysis**: Where does the strategy break under stress?
+- **Reason counterfactually**: What would the adversary do? What if conditions change?
+- **Assess implementation realism**: How will bureaucracies distort this?
+
+## Reading Critically, Not Reverentially
+
+Read classics **critically, not reverentially**. For every book, ask:
+
+- What was the author's context and what problem were they solving?
+- What has changed since this was written?
+- Where is the author's argument weakest?
+- What counterfactuals would challenge their conclusions?
+
+## Monthly Review Practice
+
+- **Compare**: How do different authors approach the same problem?
+- **Synthesize**: What themes recur across theory, history, and literature?
+- **Apply**: Find a current strategic challenge and analyze it using tools from recent readings
+- **Question**: Which authors would disagree with each other, and why?
+
+# Year 1: Foundations & Classical Roots
+
+## Year 1 Philosophy
+
+Year 1 establishes the **methodological and theoretical foundations** necessary for sophisticated strategic thinking. You begin with Heuser's framework *before* diving into classics, ensuring you read Thucydides and Clausewitz through a critical lens rather than as scripture.
+
+The year balances:
+- Ancient wisdom (Thucydides, Sun Tzu)
+- Modern realist statecraft (Machiavelli, Kissinger, Kennan)
+- Initial Clausewitzian concepts
+- Literature that anchors abstract theory in human reality
+
+## Year 1 Reading List
+
+| Track | Title | Author | Core Concept | DIME |
+|-------|-------|--------|--------------|------|
+| **Methodology** | The Evolution of Strategy | Beatrice Heuser | Critical framework for the strategic canon | I |
+| **Classical** | History of the Peloponnesian War | Thucydides | Security dilemma, limits of power | M/D |
+| **Classical** | The Outbreak of the Peloponnesian War | Donald Kagan | Causation analysis; modern historical method | D/M |
+| **Classical** | The Art of War | Sun Tzu | Indirect approach, economy of force | M/I |
+| **Theory** | Strategy: The Logic of War and Peace | Edward Luttwak | Paradoxical logic of strategy | M/D |
+| **Theory** | The Prince | Niccolò Machiavelli | Realpolitik; statecraft as it is | D |
+| **Theory** | On War (Book 1) | Carl von Clausewitz | War as continuation of policy; friction | M/D |
+| **Diplomacy** | Diplomacy | Henry Kissinger | Balance of power, Concert of Europe | D |
+| **Diplomacy** | American Diplomacy / Long Telegram | George Kennan | Realism in U.S. statecraft | D/I |
+| **Case Study** | The Defeat of the Spanish Armada | Garrett Mattingly | Integration of intelligence, diplomacy, naval operations | D/M/I |
+| **Literature** | The Iliad | Homer | Human cost of war; honor and mortality | Human |
+| **Literature** | Storm of Steel | Ernst Jünger | Warrior ethos; industrial warfare | Human |
+
+## Year 1 Milestones
+
+By the end of Year 1, you should be able to:
+
+- Apply Heuser's framework to critically analyze any strategic text
+- Identify security dilemmas in contemporary great power competition
+- Distinguish between direct and indirect approaches to strategy
+- Recognize the paradoxical logic inherent in strategic action
+- Understand Machiavellian realism vs. idealist approaches
+- Grasp basic Clausewitzian concepts (trinity, friction, fog, war as politics)
+- Analyze diplomatic history through balance-of-power logic
+- See the gap between strategic theory and human experience of war
+
+# Year 2: Grand Strategy, Operational Art & Framework Building
+
+## Year 2 Philosophy
+
+Year 2 is the **heaviest intellectual load** but provides the most powerful analytical tools. The sequencing is deliberate:
+
+1. **Clausewitz (complete)** – Defines what strategy *is*
+2. **Gray** – Provides the ends-ways-means-risk evaluation framework
+3. **Schelling** – Defines how force and coercion *actually work*
+4. **Allison** – Explains why even good strategies degrade in execution
+
+Only *then* does grand strategy literature become diagnostic rather than inspirational.
+
+### Critical Insight: Gray's Strategy Bridge as Red-Team Instrument
+
+Gray's *Strategy Bridge* functions as a **red-team instrument**, not a synthesis text. For every case or proposal, ask:
+
+- Are the **ends** politically legitimate and stable?
+- Are the **ways** logically connected to those ends?
+- Are the **means** adequate, sustainable, and politically tolerable?
+- Is **risk** acknowledged, bounded, and owned?
+
+## Year 2 Reading List
+
+| Track | Title | Author | Core Concept | DIME |
+|-------|-------|--------|--------------|------|
+| **Core Theory** | On War (Books 2-8) | Carl von Clausewitz | The trinity; center of gravity | M/D |
+| **Framework** | **The Strategy Bridge** | **Colin Gray** | **Ends-ways-means-risk framework** | **M/D** |
+| **Core Theory** | Arms and Influence | Thomas Schelling | Coercion vs. brute force; deterrence | M/I |
+| **Implementation** | **Essence of Decision** | **Graham Allison & Philip Zelikow** | **Three models; bureaucratic constraints** | **D/M/I** |
+| **Grand Strategy** | The Rise and Fall of the Great Powers | Paul Kennedy | Economic foundations of military power | E/M |
+| **Grand Strategy** | Why Nations Fail | Daron Acemoglu & James Robinson | Institutional foundations of state power | E/D |
+| **Grand Strategy** | The Twenty Years' Crisis | E.H. Carr | Realism vs. idealism | D |
+| **Grand Strategy** | The Struggle for Mastery in Europe | A.J.P. Taylor | Balance of power 1848-1918 | D/M |
+| **Grand Strategy** | On Grand Strategy | John Lewis Gaddis | Historical strategic lessons | D/M |
+| **Anthology** | Makers of Modern Strategy | Peter Paret (ed.) | Evolution of strategic thought | M/D/I |
+| **Nuclear** | The Evolution of Nuclear Strategy | Lawrence Freedman | Deterrence theory; MAD | M/I |
+| **Operational** | Soviet Military Operational Art | David Glantz | Deep operations; echelonment | M |
+| **Operational** | The Influence of Sea Power Upon History | Alfred Thayer Mahan | Naval power and commerce | M/E |
+| **Operational** | Some Principles of Maritime Strategy | Julian Corbett | Limited war; sea control | M/D |
+| **Operational** | Foundations of the Science of War | J.F.C. Fuller | Combined arms; concentration of force | M |
+| **Operational** | The Air Campaign | John Warden | Airpower theory; five rings model | M |
+| **Innovation** | Military Innovation in the Interwar Period | Murray & Millett | How military organizations adapt | M |
+| **Literature** | War and Peace | Leo Tolstoy | Grand strategy through human complexity | Human |
+| **Literature** | Dispatches | Michael Herr | Sensory reality of Vietnam | Human |
+| **Literature** | Matterhorn | Karl Marlantes | Tactical realism with moral complexity | Human |
+
+## Year 2 Milestones
+
+By the end of Year 2, you should be able to:
+
+- Apply the Clausewitzian trinity to analyze any conflict
+- Use Gray's ends-ways-means-risk framework as an automatic red-team tool
+- Distinguish coercion from brute force and understand strategic signaling
+- Analyze grand strategy through economic and institutional lenses
+- Apply Allison's three models to understand policy implementation failures
+- Understand how nuclear weapons changed strategic logic
+- Analyze campaigns at the operational level across domains (land, sea, air)
+- Recognize organizational barriers to military innovation
+
+# Year 3: Contemporary Challenges, Critique & Synthesis
+
+## Year 3 Philosophy
+
+Year 3 applies your toolkit to **contemporary strategic challenges** while introducing critical perspectives and non-Western traditions. You begin with powerful analytical frameworks already internalized (Gray, Allison, Schelling), allowing you to critically engage contemporary debates rather than passively absorb them.
+
+### Critical Structure: Intellectual Tension
+
+The irregular warfare section embeds **intellectual tension**:
+
+- **Kilcullen** = the best version of population-centric COIN doctrine
+- **Gentile** = direct critique of COIN logic itself
+- **Horne** = empirical referee (Algeria case study)
+
+This triangulation trains evaluative thinking: Is the problem tactical, operational, or political? Is adaptation occurring at the right level? Is success being defined militarily when it is actually political?
+
+## Year 3 Reading List
+
+| Track | Title | Author | Core Concept | DIME |
+|-------|-------|--------|--------------|------|
+| **Irregular** | Counterinsurgency | David Kilcullen | Modern COIN theory; population-centric | M/I |
+| **Irregular** | The Dragons and the Snakes | David Kilcullen | Adversary adaptation post-Cold War | M/I |
+| **Irregular - Critique** | **Wrong Turn** | **Gian Gentile** | **Critique of population-centric COIN** | **M/D** |
+| **Irregular** | A Savage War of Peace | Alistair Horne | Algeria 1954-1962 COIN case study | M/D/I |
+| **Irregular** | Inside Al Qaeda | Rohan Gunaratna | Adversary strategy and organization | I/M |
+| **Non-Western** | Unrestricted Warfare | Qiao Liang & Wang Xiangsui | Chinese hybrid warfare | M/I/E |
+| **Non-Western** | Grand Strategy of the Byzantine Empire | Edward Luttwak | Patient, indirect statecraft | D/I |
+| **Information** | Active Measures | Thomas Rid | History of information warfare | I |
+| **Economic** | War by Other Means | Blackwill & Harris | Geoeconomics; economic coercion | E/D |
+| **Failure** | The March of Folly | Barbara Tuchman | Strategic failure from Troy to Vietnam | D/M |
+| **Intelligence** | Strategic Surprise | Richard Betts | Intelligence failures; organizational blindspots | I/M |
+| **Ethics** | Just and Unjust Wars | Michael Walzer | Just war theory; intervention ethics | D/M |
+| **Civil-Military** | The Soldier and the State | Samuel Huntington | Professional military in democracy | D/M |
+| **Literature** | The Things They Carried | Tim O'Brien | Psychological toll of Vietnam | Human |
+| **Literature** | Blood Meridian | Cormac McCarthy | Extreme violence; imperialism | Human |
+| **Literature** | Generation Kill | Evan Wright | Iraq 2003; gap between doctrine and reality | Human |
+
+## Year 3 Milestones
+
+By the end of Year 3, you should be able to:
+
+- Analyze irregular warfare from multiple theoretical perspectives
+- Understand non-Western strategic traditions and their distinct logic
+- Recognize information operations and their historical antecedents
+- Apply economic instruments of power strategically
+- Identify common patterns in strategic failure and intelligence pathology
+- Reason through ethical dimensions of war and intervention
+- Understand civil-military dynamics and their strategic implications
+- Synthesize insights across Western and non-Western, historical and contemporary domains
+
+# Thematic Cross-Cutting Sequences
+
+While the year-by-year structure is primary, track these themes across all three years:
+
+## The Coercion Thread
+1. Sun Tzu (Year 1) – Indirect approach
+2. Schelling (Year 2) – Coercion theory
+3. Rid (Year 3) – Information warfare
+4. Liang/Xiangsui (Year 3) – Unrestricted warfare
+
+## The Implementation Gap Thread
+1. Clausewitz (Years 1-2) – Friction and fog
+2. Allison (Year 2) – Bureaucratic politics
+3. Tuchman (Year 3) – Policy failure
+4. Huntington (Year 3) – Civil-military relations
+
+## The Grand Strategy Thread
+1. Thucydides (Year 1) – Athens/Sparta competition
+2. Kissinger (Year 1) – Balance of power diplomacy
+3. Kennedy (Year 2) – Economic foundations
+4. Gaddis (Year 2) – Historical synthesis
+5. Luttwak (Year 3) – Byzantine long game
+
+## The Irregular Warfare Thread
+1. Sun Tzu (Year 1) – Asymmetry and deception
+2. Kilcullen (Year 3) – Modern COIN theory
+3. Gentile (Year 3) – COIN critique
+4. Horne (Year 3) – Algeria case study
+5. Gunaratna (Year 3) – Networked terrorism
+
+## The Literature of Violence Thread
+1. Homer (Year 1) – Glory and death in war
+2. Jünger (Year 1) – Warrior experience, WWI
+3. Tolstoy (Year 2) – War's chaos vs. historical forces
+4. Herr (Year 2) – Sensory reality, Vietnam
+5. Marlantes (Year 2) – Moral complexity, Vietnam
+6. O'Brien (Year 3) – Truth and memory
+7. McCarthy (Year 3) – Violence as metaphysics
+8. Wright (Year 3) – Modern combat reality
+
+# Pacing Guidelines
+
+## Suggested Monthly Pace
+
+**Light Months (~3-4 hours/week):**
+- Single long book (Tolstoy, Clausewitz complete)
+- Or two shorter books
+- Or anthology selections (Paret's *Makers*)
+
+**Medium Months (~5-6 hours/week):**
+- One major theory text + one literature selection
+- Or two substantial works
+
+**Heavy Months (~7-10 hours/week):**
+- Complex theory + case study + literature
+- Or completing Clausewitz Books 2-8
+
+## Flexibility Options
+
+**If you need to compress to 2 years:**
+Focus on bolded texts in each section; move appendix material to "Year 3."
+
+**If you want to extend to 4 years:**
+Add appendix materials based on emerged interests.
+
+# The Meta-Skill You're Building
+
+More important than any individual book:
+
+**You're learning to evaluate strategies—to identify failure modes, question assumptions, and recognize implementation constraints before they become disasters.**
+
+This is the difference between:
+- Knowing Clausewitz's trinity
+- And seeing why a proposed strategy will break at the seams before it's executed
+
+## The Evaluator's Questions
+
+Carry these through every reading:
+
+1. **What would have to be true for this strategy to succeed—and are those conditions realistic?**
+2. **Where does the strategy assume voluntary cooperation, and will it get it?**
+3. **How does the strategy degrade under delay, partial compliance, or political turnover?**
+4. **What would a smart adversary do after initial losses?**
+
+# Getting Started
+
+## Download Companion Materials
+
+Two documents operationalize this program:
+
+1. **[Reading Journal Template](reading-journal-template.md)** – Complete after each book to extract tools and force decision-relevant thinking
+2. **[Strategy Evaluation Worksheet](strategy-evaluation-worksheet.md)** – Apply to readings and real-world cases to practice diagnosis and falsification
+
+## Parting Advice
+
+1. **Start, don't optimize forever.** This plan is 95%+ optimal. Begin.
+2. **Maintain journal discipline.** If you can't articulate what tool you extracted, you absorbed culture, not capability.
+3. **Adjust based on reality.** If a book isn't working, skip it and note why.
+4. **Apply continuously.** Use current events as case studies.
+5. **Literature isn't optional.** When theory gets dense, literature keeps you grounded.
+6. **Teach others.** Best way to cement learning.
+
+# Complete Reading List Reference
+
+## Year 1 (12 books)
+1. Heuser – *The Evolution of Strategy*
+2. Thucydides – *History of the Peloponnesian War*
+3. Kagan – *The Outbreak of the Peloponnesian War*
+4. Sun Tzu – *The Art of War*
+5. Luttwak – *Strategy: The Logic of War and Peace*
+6. Machiavelli – *The Prince*
+7. Clausewitz – *On War* (Book 1)
+8. Kissinger – *Diplomacy*
+9. Kennan – *American Diplomacy* / *Long Telegram*
+10. Mattingly – *The Defeat of the Spanish Armada*
+11. Homer – *The Iliad*
+12. Jünger – *Storm of Steel*
+
+## Year 2 (19 books)
+13. Clausewitz – *On War* (Books 2-8)
+14. Gray – *The Strategy Bridge*
+15. Schelling – *Arms and Influence*
+16. Allison & Zelikow – *Essence of Decision*
+17. Kennedy – *The Rise and Fall of the Great Powers*
+18. Acemoglu & Robinson – *Why Nations Fail*
+19. Carr – *The Twenty Years' Crisis*
+20. Taylor – *The Struggle for Mastery in Europe*
+21. Gaddis – *On Grand Strategy*
+22. Paret (ed.) – *Makers of Modern Strategy*
+23. Freedman – *The Evolution of Nuclear Strategy*
+24. Glantz – *Soviet Military Operational Art*
+25. Mahan – *The Influence of Sea Power Upon History*
+26. Corbett – *Some Principles of Maritime Strategy*
+27. Fuller – *Foundations of the Science of War*
+28. Warden – *The Air Campaign*
+29. Murray & Millett – *Military Innovation in the Interwar Period*
+30. Tolstoy – *War and Peace*
+31. Herr – *Dispatches*
+32. Marlantes – *Matterhorn*
+
+## Year 3 (17 books)
+33. Kilcullen – *Counterinsurgency*
+34. Kilcullen – *The Dragons and the Snakes*
+35. Gentile – *Wrong Turn*
+36. Horne – *A Savage War of Peace*
+37. Gunaratna – *Inside Al Qaeda*
+38. Liang & Xiangsui – *Unrestricted Warfare*
+39. Luttwak – *Grand Strategy of the Byzantine Empire*
+40. Rid – *Active Measures*
+41. Blackwill & Harris – *War by Other Means*
+42. Tuchman – *The March of Folly*
+43. Betts – *Strategic Surprise*
+44. Walzer – *Just and Unjust Wars*
+45. Huntington – *The Soldier and the State*
+46. O'Brien – *The Things They Carried*
+47. McCarthy – *Blood Meridian*
+48. Wright – *Generation Kill*
+
+---
+
+**Begin with Heuser. End with capability.**
+
+---
+
+## Acknowledgments
+
+This reading program represents years of iteration, informed by practitioners, historians, and strategists. Special thanks to those who have stress-tested earlier versions and provided critical feedback.
+
+## Further Resources
+
+- [Full syllabus with appendix materials](plan-v4.md)
+- [Reading Journal Template](reading-journal-template.md)
+- [Strategy Evaluation Worksheet](strategy-evaluation-worksheet.md)
+
+*Program Version 4.0*  
+*Last updated: February 2025*

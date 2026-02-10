@@ -8,7 +8,7 @@ I studied physics at UC San Diego, and have maintained the [UCSD Physics PhD Qua
 
 I also make [generative art](https://www.jbwhitmoreart.com/) — algorithmic explorations of motion, form, and color. On [YouTube](https://www.youtube.com/@JonathanWhitmore), I share educational videos, live coding sessions, and streams where I [work through math homework](./posts/2024-09-10-mathacademy/).
 
-This site is where I write about topics I find interesting, share checklists and tools I've built, and occasionally misuse machine learning.
+This site is where I write about topics I find interesting, share checklists and tools I've built, and occasionally misuse machine learning for fun and profit.
 
 ## Links
 

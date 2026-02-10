@@ -2,9 +2,9 @@
 
 ## Content
 
-- [ ] Review and finalize About page bio
 - [ ] Fix missing image in draft post (`posts/2024-09-08-teaching-and-learning-physics/images/inclined_plane_comparison.png`)
 - [ ] Publish draft physics education post when ready (remove `draft: true` from frontmatter)
+- [ ] Create a draft article based on the strategy files.
 
 ## Future Ideas
 
