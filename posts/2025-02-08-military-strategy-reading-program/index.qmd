@@ -3,14 +3,14 @@ title: "A 3-Year Self-Directed Reading Program in Military Strategy and War"
 description: "48 books across military theory, grand strategy, operational art, and the literature of war."
 author: "Jonathan Whitmore"
 date: "2025-02-08"
-draft: true
+draft: false
 categories: [strategy, military history, reading list, self-education]
 format:
   html:
     toc: true
 ---
 
-A 3-year, 48-book reading program covering military theory, grand strategy, operational art, and the human dimensions of warfare. Books are sequenced so that foundational ideas appear before their descendants, and each is mapped to the **DIME framework** (Diplomatic, Informational, Military, Economic instruments of national power).
+I created this reading program with the help of Claude, ChatGPT, and Gemini working together. It's a 3-year, 48-book reading program covering military theory, grand strategy, operational art, and the human dimensions of warfare. Books are sequenced so that foundational ideas appear before their descendants, and each is mapped to the **DIME framework** (Diplomatic, Informational, Military, Economic instruments of national power).
 
 ## Year 1: Foundations & Classical Roots (12 books)
 

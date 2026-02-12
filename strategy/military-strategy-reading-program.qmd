@@ -9,7 +9,7 @@ format:
     toc: true
 ---
 
-A 3-year, 48-book reading program covering military theory, grand strategy, operational art, and the human dimensions of warfare. Books are sequenced so that foundational ideas appear before their descendants, and each is mapped to the **DIME framework** (Diplomatic, Informational, Military, Economic instruments of national power).
+I created this reading program with the help of Claude, ChatGPT, and Gemini working together. It's a 3-year, 48-book reading program covering military theory, grand strategy, operational art, and the human dimensions of warfare. Books are sequenced so that foundational ideas appear before their descendants, and each is mapped to the **DIME framework** (Diplomatic, Informational, Military, Economic instruments of national power).
 
 ## Year 1: Foundations & Classical Roots (12 books)
 
