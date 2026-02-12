@@ -5,6 +5,9 @@ author: "Jonathan Whitmore"
 date: "2025-02-08"
 draft: false
 categories: [strategy, military history, reading list, self-education]
+image: "daumier-preview.webp"
+image-width: "1200"
+image-height: "630"
 format:
   html:
     toc: true
