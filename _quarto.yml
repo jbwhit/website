@@ -36,6 +36,8 @@ website:
             href: projects/checklists/index.qmd
           - text: UCSD Physics Qualifying Exams
             href: projects/physics-quals/index.qmd
+          - text: Lithuanian Practice
+            href: https://lithuanian-practice.com/
       - text: Courses
         href: https://jbwhitmore.gumroad.com/l/jupytermastery
       - text: About
