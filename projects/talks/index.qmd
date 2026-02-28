@@ -1,0 +1,205 @@
+---
+title: "Talks"
+description: "Conference talks, tutorials, seminars, and public lectures (2011–2019)"
+toc: true
+---
+
+## 2019
+
+- **2019-01-17** — [Insight Data Science](http://insightdatascience.com) — [Productive Jupyter Notebook](https://github.com/jbwhit/jupyter-tips-and-tricks)
+  Insight Office, San Francisco, CA, USA.
+
+---
+
+## 2018
+
+- **2018-09-26** — [Grace Hopper Conference](https://ghc.anitab.org/2018-attend/schedule-overview/) — Hands-On Exploratory Data Analysis (co-presenting with [Chloe Mawer](https://twitter.com/chloemawer))
+  2:30pm–3:30pm · George R. Brown Convention Center, GRB Grand Ballroom C · Houston, TX, USA.
+
+- **2018-09-17** — [Insight Data Science](http://insightdatascience.com) — [Productive Jupyter Notebook](https://github.com/jbwhit/jupyter-tips-and-tricks)
+  Insight Office, San Francisco, CA, USA.
+
+- **2018-06-06** — [Insight Data Science](http://insightdatascience.com) — [Productive Jupyter Notebook Use](https://github.com/jbwhit/jupyter-tips-and-tricks)
+  Insight Office, Palo Alto, CA, USA.
+
+- **2018-01-10** — [Insight Data Science](http://insightdatascience.com) — [Productive Jupyter Notebook Use](https://github.com/jbwhit/jupyter-tips-and-tricks)
+  Insight Office, Palo Alto, CA, USA.
+
+---
+
+## 2017
+
+- **2017-09-11** — [Insight Data Science](http://insightdatascience.com) — [Productive Jupyter Notebook Use](https://github.com/jbwhit/jupyter-tips-and-tricks)
+  Insight Office, Palo Alto, CA, USA.
+
+- **2017-06-05** — [Spark Summit](https://spark-summit.org/) — [Architecting a Data Platform](https://spark-summit.org/2017/apache-spark-training/#data-platform)
+  Moscone West Convention Center, San Francisco, CA, USA.
+
+- **2017-05-31** — [Insight Data Science](http://insightdatascience.com) — [Productive Jupyter Notebook Use](https://github.com/jbwhit/jupyter-tips-and-tricks)
+  Insight Office, Palo Alto, CA, USA.
+
+- **2017-05-17** — PyCon — Tutorial: [Exploratory Data Analysis in Python](https://us.pycon.org/2017/schedule/presentation/170/) · [Repo](https://github.com/cmawer/pycon-2017-eda-tutorial)
+  9:00 a.m.–12:20 p.m., Room C123, Portland, OR, USA.
+
+{{< video https://www.youtube.com/embed/W5WE9Db2RLU >}}
+
+- **2017-04-29** — [Stanford Continuing Studies](https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/tips-and-tricks-for-data-scientists-optimizing-your-workflow/20163_WSP-312) — Tips and Tricks for Data Scientists: Optimizing Your Workflow
+  10:00 a.m.–4:00 p.m., Stanford Campus, Stanford, CA, USA.
+
+- **2017-04-03** — [TDWI Accelerate Boston](https://tdwi.org/events/accelerate/boston/information/speakers.aspx) — Navigating the Jupyter Ecosystem for Data Science Teams
+  The Boston Marriott Copley Place, Boston, MA, USA.
+
+- **2017-03-28** — [Keynote: The Utility and Futility of Planning Your Career](https://youtu.be/FZwHQVzzKiQ)
+  [Beyond the PhD](https://careers.usc.edu/students/discover-resources/graduate-and-doctoral-student-resources/beyond-the-phd-home/beyond-the-phd-keynote-speakers-2017/) · [Supplementary materials](http://bit.ly/2017-usc-whitmore)
+  6th Annual PhD and Postdoctoral Career Conference, Radisson Midtown, USC University Park.
+
+{{< video https://www.youtube.com/embed/FZwHQVzzKiQ >}}
+
+- **2017-01-23** — [Insight Data Science](http://insightdatascience.com) — [Jupyter Notebook Tips and Tricks](https://github.com/jbwhit/jupyter-tips-and-tricks)
+  Insight Office, Palo Alto, CA, USA.
+
+---
+
+## 2016
+
+- **2016-09-07** — [Insight Data Science](http://insightdatascience.com) — [Jupyter Notebook Tips and Tricks](https://github.com/jbwhit/jupyter-tips-and-tricks)
+  Insight Office, Palo Alto, CA, USA.
+
+- **2016-08-29–09-02** — [AstroHackWeek](http://astrohackweek.org/)
+  Berkeley Institute for Data Science (BIDS), UC Berkeley.
+
+- **2016-08-14** — [Mental Models to Use and Avoid as a Data Scientist](http://bit.ly/2016-pydata-whitmore) · [YouTube](https://www.youtube.com/watch?v=oj7kKE3zKig)
+  [PyData San Francisco 2016](http://pydata.org/sfo2016/schedule/presentation/34/), Galvanize, San Francisco, CA, USA.
+
+{{< video https://www.youtube.com/embed/oj7kKE3zKig >}}
+
+- **2016-06-08** — [Insight Data Science (IDX)](http://insightdatascience.com) — Jupyter Notebook Exploratory Data Analysis
+  Online seminar.
+
+- **2016-06-01** — [Insight Data Science](http://insightdatascience.com) — Jupyter Notebook Tips and Tricks for Exploratory Data Analysis
+  Insight Office, Palo Alto, CA, USA.
+
+- **2016-05-14** — [UC San Diego's 8th Annual PhD Career Conference](https://career.ucsd.edu/phd-and-masters-students/phd-conf.html) — [Panelist](http://career.ucsd.edu/phd-and-masters-students/speakers.html)
+  University of California, San Diego, San Diego, CA, USA.
+
+- **2016-05-13** — How to Jupyter Notebook like a Professional Data Scientist
+  3:30 PM, Mayer Hall, University of California, San Diego, San Diego, CA, USA.
+
+- **2016-01-20** — [UC Berkeley's Master of Information and Data Science](https://datascience.berkeley.edu/) — Jupyter Notebook for Data Scientists
+  Online seminar.
+
+- **2016-01-18** — [Insight Data Science (IDX)](http://insightdatascience.com) — Jupyter Notebook Exploratory Data Analysis
+  Online seminar.
+
+- **2016-01-13** — [Insight Data Science](http://insightdatascience.com) — Jupyter Notebook Tips and Tricks for Exploratory Data Analysis
+  Insight Office, Palo Alto, CA, USA.
+
+---
+
+## 2015
+
+- **2015-09-09** — [Insight Data Science](http://insightdatascience.com) — Jupyter Notebook Tips and Tricks for Exploratory Data Analysis
+  Insight Office, Palo Alto, CA, USA.
+
+- **2015-07-24** — [OSCON 2015](http://www.oscon.com/open-source-2015/public/schedule/detail/42315) — IPython Notebook Best Practices for Data Science
+  10:00–10:40 AM, Foundations 256, Portland, OR, USA.
+
+{{< video https://www.youtube.com/embed/JI1HWUAyJHE >}}
+
+- **2015-06-02** — [Insight Data Science](http://insightdatascience.com) — Jupyter Notebook Tips and Tricks for Exploratory Data Analysis
+  Insight Office, Palo Alto, CA, USA.
+
+---
+
+## 2014
+
+- **2014-07-18** — [Full-stack science workflow += the IPython notebook](http://hwws.asnevents.com.au/speaker-abstracts/) · [Materials](http://jonathanwhitmore.com/2014/07/2014-harley-wood-winter-school-invited-talk)
+  Harley Wood Winter School, Collaroy, NSW, AUS.
+
+- **2014-06-24** — Possible Variation of Fundamental Constants: the Impact of Wavelength Calibration Errors
+  Institute for Physics and Astronomy, Potsdam University, Potsdam, DEU.
+
+- **2014-06-20** — [Possible Variation of Fundamental Constants: the Impact of Wavelength Calibration Errors](http://www.talks.cam.ac.uk/talk/index/52527)
+  Institute of Astronomy, Cambridge University, Cambridge, GBR.
+
+- **2014-06-17** — [Public IMAX Q&A](http://www.glasgowsciencecentre.org/special-events/to-infinity.html)
+  Glasgow Science Centre, Glasgow, GBR.
+
+- **2014-06-10** — Possible Variation of Fundamental Constants: the Impact of Wavelength Errors
+  Vrije Universiteit, Amsterdam, NLD.
+
+- **2014-06-02** — [Possible Variation of Fundamental Constants: the Impact of Recently Uncovered Systematic Errors](http://www.iap.fr/activites/seminaires/GReCO/2014/resumes/whitmore.html)
+  GReCO, Institut d'Astrophysique de Paris, Paris, FRA.
+
+- **2014-03-17** — IPython Notebook + astroML + code review
+  Centre for Astrophysics and Supercomputing, Swinburne University, Melbourne, VIC, AUS.
+
+- **2014-02-12** — Variation of Fundamental Constants; Impact of Wavelength Miscalibrations
+  Centre for Astrophysics and Supercomputing, Swinburne University, Melbourne, VIC, AUS.
+
+- **2014-01-28** — Rationality
+  Secular Student Alliance, University of California, San Diego, San Diego, CA, USA.
+
+- **2014-01-22** — Precision Measurements of Fundamental Constants with Quasar Spectroscopy
+  Center for Astrophysics and Space Sciences, University of California, San Diego, San Diego, CA, USA.
+
+- **2014-01-06** — Conference Talk #223
+  American Astronomical Society, Washington, D.C., USA.
+
+---
+
+## 2013
+
+- **2013-07-30** — Precision Measurements of Fundamental Constants with Quasar Spectroscopy
+  [Max Planck Institute for Astronomy](http://www.mpia.de/en), Heidelberg, DEU.
+
+- **2013-07-09** — Varying Fundamental Constants and Dynamical Dark Energy · [Slides (pdf)](http://www.sexten-cfa.eu/images/stories/conferenze2013/varying/presentazioni%20molaro/whitmore.pdf)
+  [Sexten Astrophysics — Varying Fundamental Constants Conference](http://www.sexten-cfa.eu/en/varying-fundamental-constants-and-dynamical-dark-energy), Sexten, ITA.
+
+- **2013-06-05** — IPython Notebook Coding for Fun and Profit
+  Centre for Astrophysics and Supercomputing, Swinburne University, Melbourne, VIC, AUS.
+
+- **2013-05-17** — Understanding our Weird Universe: Common Sense Won't Save You (Public Lecture) · [Audio](https://commons.swinburne.edu.au/items/2215b737-34d0-4542-a64e-ad4ebf080cd6/1/)
+  CAS, Swinburne University, Melbourne, VIC, AUS.
+
+- **2013-04** — How to Write a Thesis (Panel Participant)
+  Centre for Astrophysics and Supercomputing, Swinburne University, Melbourne, VIC, AUS.
+
+- **2013-01-09** — Press Conference · [Video](http://youtu.be/Yo4fWwJ9m9g)
+  AAS #221, Long Beach, CA, USA.
+
+- **2013-01-08** — Fine-structure Constancy Measurements in QSO Absorption Lines
+  AAS #221, Long Beach, CA, USA.
+
+---
+
+## 2012
+
+- **2012-09-24** — Texas (Lunch Talk)
+  Centre for Astrophysics and Supercomputing, Swinburne University, Melbourne, VIC, AUS.
+
+- **2012-03-26** — Conference Talk, Keck Science Meeting
+  Centre for Astrophysics and Supercomputing, Swinburne University, Melbourne, VIC, AUS.
+
+- **2012-03-19** — Glassblowing (Lunch Talk)
+  Centre for Astrophysics and Supercomputing, Swinburne University, Melbourne, VIC, AUS.
+
+- **2012-02-01** — Fine-structure 'Constant' (Seminar Talk)
+  Centre for Astrophysics and Supercomputing, Swinburne University, Melbourne, VIC, AUS.
+
+---
+
+## 2011
+
+- **2011-11-30** — The Fine-Structure 'Constant' and VLT-UVES and Keck-HIRES Wavelength Calibration (Colloquium Talk)
+  ATNF/AAO Joint Colloquium, Sydney, AUS.
+
+- **2011-11-07** — Wavelength Calibration Surprises on VLT-UVES and Keck-HIRES (Seminar Talk)
+  European Southern Observatory (ESO), Santiago, CHL.
+
+- **2011-01-13** — Wavelength Calibration Errors in Keck-HIRES/VLT-UVES and Variation in the Fine-Structure (Conference Talk)
+  Thesis Presentation No. 412.01D, AAS #217, Seattle, WA, USA.
+
+---
+
+*Talks prior to 2011 not included.*
