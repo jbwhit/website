@@ -1,0 +1,65 @@
+---
+title: "How I Keep My GitIgnore Updated"
+date: 2011-03-02
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+The bash script that keeps my gitignore file up to date — I store it in `~/Dropbox/scripts/git`.
+
+```bash
+#!/bin/bash
+# gitignore.bash
+# Created 2011-03-02 by Jonathan Whitmore
+# JonathanWhitmore.com
+# If you find a smarter way of doing this, please let me know.
+
+GITIGNOREFILE=.gitignore   # the global git-ignore reference file
+CALENDARDATE=$(date "+%Y.%m.%d")
+
+PACKAGES="Python
+LaTeX" # Packages in the git-ignore repository
+
+GLOBALPACKAGES="TextMate
+OSX
+Vi
+vim
+Linux" # They also have "global" packages -- not sure why they are in different locations
+
+cd ~/gitignore # Make sure in the git repository
+git pull # Get everything up to date
+cd # Go back to home directory
+
+# Record date file updated
+if [ -f $GITIGNOREFILE ]
+  then
+  echo "Moving $GITIGNOREFILE to $GITIGNOREFILE.$CALENDARDATE"
+  mv $GITIGNOREFILE $GITIGNOREFILE.$CALENDARDATE
+fi
+
+echo -n "Updated: " >> $GITIGNOREFILE
+date "+%Y-%m-%d %R" >> $GITIGNOREFILE
+
+function commentbanner {
+  echo
+  echo "# =========="
+  echo "# = $1"
+  echo "# =========="
+  echo
+}
+
+for package in $PACKAGES
+do
+  echo Installing $package
+  commentbanner $package >> $GITIGNOREFILE
+  cat gitignore/$package.gitignore >> $GITIGNOREFILE
+done
+
+for global in $GLOBALPACKAGES
+do
+  echo Installing $global
+  commentbanner $global >> $GITIGNOREFILE
+  cat gitignore/Global/$global.gitignore >> $GITIGNOREFILE
+done
+```

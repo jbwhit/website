@@ -1,0 +1,95 @@
+---
+title: "Installing VPFIT"
+date: 2011-04-01
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+If you want to install [VPFIT](http://www.ast.cam.ac.uk/~rfc/vpfit.html) on Ubuntu 11.04, doing the following I have a 50% success rate.
+
+```bash
+mkdir vpfitInstall
+cd vpfitInstall
+tar -xvzf ../vpfit10.tar.gz # Or whatever version you have
+```
+
+I would like to thank [Martin Sparre](http://www.logx.dk) for sending me an additional flag to add to the makefile to let VPFIT compile on more recent versions of Ubuntu.
+
+For VPFIT version 10, the documentation is in the docs folder. There is also a README file named `00README` which is worth taking a look at.
+
+```bash
+sudo apt-get install libcfitsio3 libcfitsio3-dev -y
+sudo apt-get install libx11-dev -y
+sudo apt-get install libxext-dev libxext6-dbg -y
+sudo apt-get install libpng12-dev -y
+sudo apt-get install pgplot5 -y
+sudo apt-get install gfortran -y
+```
+
+Change in makefile:
+
+```
+cfitsx = /usr/lib/libcfitsio.a
+pgpltx = /usr/lib/libpgplot.a
+```
+
+Add flags `-lpng -lpthread` in makefile like so:
+
+```
+vpflx: vpgti.o $(vpobj)
+  $(LINK.f) -o vpfit vpgti.o $(vpobj) \
+  $(pgpltx) $(cfitsx) \
+  -L/usr/X11R6/lib -lX11 -lXext \
+  -L/usr/lib -ldl -lm -lnsl -lpng -lpthread
+
+rdglx: rd_gen.o $(rdobj)
+  $(LINK.f) -o rdgen rd_gen.o $(rdobj) \
+  $(cfitsx) $(pgpltx) \
+  -L/usr/X11R6/lib -lX11 -lXext \
+  -L/usr/lib -ldl -lm -lnsl -lpng -lpthread
+```
+
+*2014-04-22 Edit:* [Pasquier Noterdaeme](http://www2.iap.fr/users/noterdae/) notes that the following changes let him compile vpfit 10 on Ubuntu 14.04 64-bit:
+
+```
+cfitsx = /usr/lib/x86_64-linux-gnu/libcfitsio.a
+pgpltx = /usr/lib/libpgplot.a
+```
+
+Also changed `/X11R6/lib` to `/usr/lib/x86_64-linux-gnu` then added `-lz` at the end of the commands:
+
+```
+vpflu: vpgti.o $(vpobj)
+    $(LINK.f) -o vpfit vpgti.o $(vpobj) \
+    $(pgpltx)   $(cfitsx) \
+    -L/usr/lib/x86_64-linux-gnu -lX11 -lXext \
+    -L/usr/lib -ldl -lm -lnsl -lpng -lpthread -lz
+
+rdglu: rd_gen.o $(rdobj)
+    $(LINK.f) -o rdgen rd_gen.o $(rdobj) \
+    $(cfitsx) $(pgpltx) \
+        -L/usr/lib/x86_64-linux-gnu -lX11 -lXext \
+        -L/usr/lib -ldl -lm -lnsl -lpng -lpthread -lz
+```
+
+```bash
+make vpflx
+make rdglx
+```
+
+The following is how I move the directory into place:
+
+```bash
+VPVAR=/usr/local/vpfit-10.0-2011-05-05
+
+sudo mkdir $VPVAR # Make directory for vpfit
+sudo cp vpfit $VPVAR
+sudo cp rdgen $VPVAR
+sudo cp rd_prhelp.dat $VPVAR
+sudo mkdir $VPVAR/Setup
+sudo cp vp_setup.dat $VPVAR/Setup
+sudo cp atom.dat $VPVAR/Setup
+```
+
+Then add a symbolic link from the executable to `/usr/local/bin/vpfit` and add the relevant shell variables.
