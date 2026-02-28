@@ -1,0 +1,15 @@
+---
+title: "I am now an O'Reilly Author!"
+date: 2016-04-03
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+My O'Reilly screencast course is now available: [Jupyter Notebook for Data Science Teams](http://shop.oreilly.com/product/0636920044260.do)! I've been working on this project for many months, and I'm so happy that it has finally completed.
+
+## Jupyter notebook data science usage tips
+
+You might have seen me give an interactive talk on some tips and tricks in how to use the Jupyter notebook (either at [OSCON 2015](http://jonathanwhitmore.com/2015/07/jupyter-notebook-best-practices-for-data-science), at UC Berkeley's [Master of Information and Data Science](https://datascience.berkeley.edu/) program, [Insight Data Science](http://insightdatascience.com) or elsewhere). These talks focused on the exploratory data science and general Jupyter notebook usage patterns. This screencasting course has some of how to use the Jupyter notebook efficiently and tips for using a bunch of useful extensions. However, there's also a lot about using a Jupyter notebook with other data scientists collaboratively/version control. There's also some focus on sharing notebooks w/ project managers or others who might not have python installed.
+
+Please let me know if you end up getting [Jupyter Notebook for Data Science Teams](http://shop.oreilly.com/product/0636920044260.do) or recommending it to your companies for internal training! I'd love to hear what you think of it!

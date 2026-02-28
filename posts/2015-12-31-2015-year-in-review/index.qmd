@@ -1,0 +1,103 @@
+---
+title: "2015 Year in Review"
+date: 2015-12-31
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+Another post to reflect on all that's happened in the past year! I'm beginning writing this post while on a flight to Maui for my honeymoon with my lovely wife sleeping next to me. What a difference a year makes!
+
+### Some of my major life events:
+
+
+- Got married to [Julija Bagdonaite](http://www.bagdonaite.com/) in August!!
+
+- Finished my first year at [SVDS](http://svds.com/) as a [Data Scientist](http://en.wikipedia.org/wiki/Data_science)!
+
+- Julija completed the [Insight Data Science](http://insightdatascience.com/)  Fellowship and accepted an offer at Facebook (she starts working in January).
+
+
+## Books read that I'd recommend -- with Amazon affiliate links
+
+### Fiction
+
+
+- [The Martian](http://www.amazon.com/gp/product/B00EMXBDMA/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00EMXBDMA&linkCode=as2&tag=jonatwhitm-20&linkId=K5PPMOIONR7DB7TH) by Andy Weir
+
+
+A well-paced and excellent story + lots of science. The audiobook edition is great.
+
+
+- [The City & The City](http://www.amazon.com/gp/product/B001NLKYQ0/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001NLKYQ0&linkCode=as2&tag=jonatwhitm-20&linkId=CN6K3IT7C4MQQ3LZ) by China Mieville
+
+
+Recommended to me by [Eric White](https://twitter.com/E_J_White). A very different but imaginative detective story.
+
+
+### Non-fiction
+
+
+- [Diplomacy](http://www.amazon.com/gp/product/B006ID6UAW/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B006ID6UAW&linkCode=as2&tag=jonatwhitm-20&linkId=CP7BY3RYMHCKQNH3) by Henry Kissenger
+
+
+A serious read. Such an interesting take on the history of diplomacy in European history right up through the early 90s. The twists and turns of Kissenger's read on Americans from before WWI through today is very thought provoking.
+
+
+- [Islam and the Future of Tolerance](http://www.amazon.com/gp/product/B0163EHLRQ/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0163EHLRQ&linkCode=as2&tag=jonatwhitm-20&linkId=LZZNQ7JPOSIE7XNO) by Sam Harris and Majid Nawaz
+
+
+An important discussion that needs to be had more frequently and more publicly.
+
+
+- [Superforecasting](http://www.amazon.com/gp/product/B00RKO6MS8/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00RKO6MS8&linkCode=as2&tag=jonatwhitm-20&linkId=YOOW7JHKRYXMJYDC) by Philip Tetlock and Dan Gardner
+
+
+Fascinating read on how everyday people can become much better at predicting future events (think questions like: will Assad give up power by April 3, 2016). I wish it was a bit more how-to in the end.
+
+
+- [The $12 Million Stuffed Shark](http://www.amazon.com/gp/product/B0077QZ208/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0077QZ208&linkCode=as2&tag=jonatwhitm-20&linkId=FFFIYOZ2NYL3QBNA) by Don Thompson 
+
+
+A good read with the next book about the high-end art world. It's almost too incredible to believe. 
+
+
+- [Seven Days in the Art World Kindle Edition](http://www.amazon.com/gp/product/B001FA0NK6/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001FA0NK6&linkCode=as2&tag=jonatwhitm-20&linkId=VFEKIDQJASYWNMTX) by Sarah Thornton
+
+
+Same as above. If you're interested in how the art world works, in broad strokes, read these two books together.
+
+
+### Places that I visited
+
+
+- Dallas, TX, USA -- (family/friends)
+
+- Mountain View, CA, USA -- where I live and work
+
+- Portland, OR, USA -- first consulting trip 
+
+- Amsterdam, NLD -- (week in Amsterdam to watch Julija get her PhD cum laude and meet her family!)
+
+- Austin, TX, USA -- SciPy 2015 conference (poster)
+
+- Portland, OR, USA -- OSCON 2015 conference (talk)
+
+- San Francisco, CA, USA -- Got married!
+
+- Yosemite, CA, USA -- Upper Yosemite falls is quite the hike.
+
+- Maui, HI, USA & Kauai, HI, USA -- Honeymoon!
+
+
+### Side projects
+
+
+- Finished recording a screencast video course on Jupyter Notebook for Data Science Teams with [O'Reilly Publishing](http://www.oreilly.com/) (in final editing stages now).
+
+- Technical reviewer of [Mastering SciPy (Packt Publishing)](https://www.packtpub.com/big-data-and-business-intelligence/mastering-scipy).
+
+
+Looking forward to what the next year will have in store! The initial plans call for my first trip to Lithuania!
+
+ 2015-12-30-year-in-review.html -->

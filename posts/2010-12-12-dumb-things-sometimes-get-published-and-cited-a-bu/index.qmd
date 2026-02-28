@@ -1,0 +1,35 @@
+---
+title: "Dumb things Sometimes get Published and Cited a Bunch"
+date: 2010-12-12
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+[![Trapezoidal rule illustration](http://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Trapezoidal_rule_illustration_small.svg/300px-Trapezoidal_rule_illustration_small.svg.png)](http://commons.wikipedia.org/wiki/File:Trapezoidal_rule_illustration_small.svg) Image via [Wikipedia](http://commons.wikipedia.org/wiki/File:Trapezoidal_rule_illustration_small.svg) 
+
+The world of peer-reviewed journal publishing can be a tough place. Reviewers can delay and reject even the best papers.
+
+Occasionally, it's the opposite.
+
+My friend shared a link to a journal article abstract that he came across the other day. Apparently, it derives a basic calculus concept -- that's it.
+
+The article is titled, "[A mathematical model for the determination of total area under glucose tolerance and other metabolic curves](http://care.diabetesjournals.org/content/17/2/152.abstract)" by M M Tai, and is published in the [American Diabetes Association](http://www.diabetes.org/)'s peer reviewed journal Diabetes Care. Lest you think this is some slacker journal, "The impact factor of the journal is 7.349 (2008), ranking fifth in the field of Endocrinology/Metabolism out of 93 journals" ([wikipedia](http://en.wikipedia.org/wiki/Diabetes_Care)).
+
+I recommend reading the abstract [here](http://www.ncbi.nlm.nih.gov/pubmed/8137688) as the formatting is nicer. A few highlights are as follows:
+> In Tai's Model, the total area under a curve is computed by dividing the area under the curve between two designated values on the X-axis (abscissas) into small segments (rectangles and triangles) whose areas can be accurately calculated from their respective geometrical formulas.
+> 
+> ...
+> 
+> Other formulas widely applied by researchers under- or overestimated total area under a metabolic curve by a great margin.
+
+It has been [cited 137 times](http://scholar.google.com/scholar?hl=en&lr=&cites=11558421187325432206&um=1&ie=UTF-8&ei=-l35TOuhKIvksQP_tNmjBA&sa=X&oi=science_links&ct=sl-citedby&resnum=2&ved=0CCAQzgIwAQ)!
+
+Before you even learn what integration is, you are forced to draw graphs and to shade in rectangles to find the area under curves. This is generally called something descriptive like the [Rectangle Method](http://en.wikipedia.org/wiki/Rectangle_method). Eventually, you get to the [Trapezoidal rule](http://en.wikipedia.org/wiki/Trapezoidal_rule) -- which sounds like what Tai's describing in his paper almost exactly.
+
+**Biggest concern**: what methods are researchers widely using that incorrectly estimate the area under a curve by a great margin? I could not come up with a simpler/dumber method than what Tai's proposing to calculate the area under the curve -- except maybe "by just guessing". I guess it's possible that this paper did need to be written and published, but that makes me sadder about the fate of humanity than the scenario where this paper just slipped through the cracks.
+
+Even if you invent a method that's new and useful, are you allowed to name it after yourself in the same paper?
+
+Shake your head and marvel.
+[![Enhanced by Zemanta](http://img.zemanta.com/zemified_e.png?x-id=ab2af006-8dac-4471-b50a-3abdf86c329d)](http://www.zemanta.com/)

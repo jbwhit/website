@@ -1,0 +1,31 @@
+---
+title: "A few LaTeX tricks"
+date: 2010-09-20
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+I learned several neat LaTeX tricks in the past few days. The first is how to write LaTeX in my wordpress blog entry:
+
+[latex]e^{\i \pi} + 1 = 0[/latex] or $latex e^{\i \pi} + 1 = 0$ syntax.
+
+To write it, you enclose the mathtype you want like: [tag] e^{\i \pi} + 1 = 0 [/tag] (but replace tag with the word: latex). 
+
+`[latex]e^{\i \pi} + 1 = 0[/latex] or $latex e^{\i \pi} + 1 = 0$ syntax.`
+Using the plugin: [WP LaTeX](http://wordpress.org/extend/plugins/wp-latex/)
+
+The second trick came from trying to set my paper in twocolumn mode and getting the figures to plot correctly. I used to scale by hand, when I was told that you can set the width using a multiple of textwidth (in the following example, one half of the textwidth):
+
+```
+\includegraphics[angle=-90,width=0.5\textwidth]{figvshiftu.eps}
+```
+
+The third and final thing I learned was that while adding a * to equations will keep them from being numbered, if you add it to figure, it breaks out of double column mode for that figure *only*.
+
+```
+\begin{figure*}
+\end{figure*}
+```
+
+It even works (for emulateapj) with deluxetables.

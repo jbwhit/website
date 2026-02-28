@@ -1,0 +1,30 @@
+---
+title: "The Future of Education"
+date: 2011-03-11
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+I think that the future of education is an amazingly interesting idea to kick around. To begin with, I fully recommend watching the video of Salman Khan at TED where he talks about his [Khan academy](http://www.khanacademy.org/) (I've embedded the talk below). This Khan academy is a nonprofit that he started after several tutorial videos that he made for his cousins on youtube started garnering an intense interest and following. He currently has over 2,000 videos that he has uploaded that teach a whole range of topics: from mathematics to biology to history.
+
+He also has hired people to help him develop software that help to test students on what they are supposed to be learning. For example, to get through a module on simple addition, you have to answer ten questions right in a row -- and you can ask for hints, or jump back to see a video on the concept you are having difficulty with. Also, once you get that done, you can go on from there to another subject.
+
+The data is already impressive; in a few years, there are about one million students participating in the Khan academy and traditional teachers using the lectures to supplement the classroom. In most cases, the videos do the lectures, and the teacher looks at the dashboard for the class and figures out who is having trouble with what concept, and where. Further, she can see that another student has mastered the subject, and can use other students to help teach each other about the subject.
+
+I've written about my thoughts on the future of education before, and I didn't have a clear concept of exactly what the teachers would be doing if there was an adaptive computer model that instructed students based on their history and current understanding. Khan argues that this humanizes the classroom experience; I am surprised but I think he is correct.
+
+
+{{< video http://www.youtube.com/embed/nTFEUsudhfs >}}
+
+
+I think Khan is missing one piece (or at least, I haven't heard that it has the following piece): I think he needs to open up the possibility for videos from people besides himself. Now, this doesn't mean that he has to accept any, and hell, I think he's earned the title of Benevolent Dictator for Life on what is displayed by the Khan Academy. But there are a number of subjects that can be pressed into and teachers who are willing to contribute in useful ways that simply cannot be implemented by Khan himself.
+
+Let's just stick with physics, since I know physics. Let's say that I thought I could explain the difference between electrical potential and electrical potential energy in a different/better way that Khan -- so I create my own youtube video and submit it to the site. Does my 10 minute video module teach it better than Khan's? I don't know, perhaps yes, perhaps no. But the nice thing about having a million students, is that random testing can be easily implemented to display one video or the other to different students and to see what results come from it. Perhaps there's not one video explanation that's better than the other -- just that people who are more auditory learners learn better from one video, while the opposite happens for the other students. There doesn't have to be only one "right" video.
+
+If people were allowed to submit videos, they'd clearly have to pass a minimum quality level, but after that level is reached, it would be interesting to be able to test and eventually implement the best video instruction over time.
+
+In fact, I'm sure they have statistics on the videos that would make it easy to determine which video segments taught the concept they were aiming to the best, and which video segments students had the most trouble with. The Khan academy could have a "help us with your version of these 5 videos" that get put up for a week at a time, and as the new videos get cycled through, the bottom of the feeder gets filled with the "most need for improvement" videos. I think replacing from the bottom would be the simplest and most effective way for this kind of a thing to be implemented.
+
+Finally, it would be awesome to have the courses like this be involved through the graduate level in all subjects that can be taught in this way -- and I simply don't think there's time for Khan to be able to learn and regurgitate all that there is to learn in physics/math/history/biology/everything else. I understand that his goal might be to fully develop K-12, but there's no reason to limit the benefits of the video database infrastructure to those levels and subjects.
+[![Enhanced by Zemanta](http://img.zemanta.com/zemified_e.png?x-id=90d9e05c-e2bb-4926-802d-67c9c74d1489)](http://www.zemanta.com/)

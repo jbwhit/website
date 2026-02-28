@@ -1,0 +1,149 @@
+---
+title: "2014 Harley Wood Winter School Invited Talk"
+date: 2014-07-26
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+# Reproducible Open Notebook Science
+
+This past weekend I gave an invited talk at the [Harley Wood Winter School](http://hwws.asnevents.com.au/) in Collaroy, New South Wales, AUS. It was an excellent conference at a beautiful location, and definitely a treat to be asked to speak about scientific computing, the future of reproducible open science.
+
+
+Here's the abstract from my talk:
+
+> ## Full-stack science workflow += the IPython notebook
+> 
+My talk will range from setting up a bashrc, to how you spend your time on a day to day basis, to the ultimate goal of clearly communicating reproducible scientific results. I'll have many examples of common pitfalls to avoid and a few tactics that can get you series of small wins in the battle that we call research. Finally, I will demonstrate the IPython notebook which I think will become a game changer for sharing reproducible science. I will make my slides and my code publically available after the talk.
+
+
+
+I was a bit nervous because the talk was going to include me doing interactive coding and demonstrations -- which is always dangerous -- but I think that it ended up going rather smoothly. As promised, I am making my slides and random examples available. It also gave me the opportunity to talk about where I hope to see science heading into the future. Reproducible code, shared and open data and notebooks. The ability to reproduce the exact plots in a paper is now easily upon us, and we should strive to have this be the standard going forward.
+
+
+It was also my last talk that I will give as an astrophysicist because I'm starting the [Insight Data Science Fellowship](http://insightdatascience.com/) program in September! I'm very excited about that, and I also wanted to share with the audience about so-called 'Plan B' careers trajectories out of academia.
+
+## First my (interactive) slides
+
+My first [set of slides](http://nbviewer.IPython.org/gist/jbwhit/9e92102baf89fca350cf) -- I tried to export into a reveal.js slideshow, but I failed, so it's one long (downloadable) IPython notebook.
+
+
+Second [set of slides](http://nbviewer.IPython.org/gist/jbwhit/39e744be42b5c3c07a3f) which includes the Bayesian Blocks example from the [AstroML: Machine Learning and Data Mining for Astronomy](http://www.astroml.org/) library.
+
+## Example of the future of science
+
+A possible flow of events
+
+
+
+- Read an interesting [arxiv paper](http://arxiv.org/abs/1303.2690)
+
+- discussion with advisor
+
+- download the IPython notebook code (from github) + data; play with it.
+
+- Play with it in your own [IPython notebook](http://IPython.org/notebook.html).
+
+- Paste your final notebook (text file) into a [github gist](http://gist.github.com)
+
+- Paste link into the [IPython notebook viewer](http://nbviewer.IPython.org/) (remember to remove the .git at the end of the URL).
+
+- Now you have an [nbviewer URL](http://nbviewer.IPython.org/gist/jbwhit/effabf41318c61f69dcd).
+
+
+
+You can now email that link to anyone in the world who has a browser. No python, no IPython, nothing needs to be installed. The barrier to sharing the analysis here is about as close to zero as we can get.
+
+## Workflow
+
+I repeatedly tried to make the case to think about your workflow -- the more often you do an action, the more you should think about optimizing it.
+
+
+
+- A couple of useful .bashrc commands to make life easier: [bashrc](https://gist.github.com/jbwhit/ccc7d6f04431360f3370)
+
+- This includes the save function which allows you to simply `cd example` and return to the saved directory (stored for future use as well).
+
+- [Sublime Text](http://www.sublimetext.com/2) -- A text editor worth getting to know (Available OS X/Linux/Windows)
+
+How to get LaTeX installed -- excellent [blog post](http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2).
+
+- And this [blog post](http://sam.bitmorse.com/posts/easy-and-fast-latex-editing-with-sublime-text-2-and-skim-pdf-viewer/) as well.
+
+- Finally, but most importantly, [this series of screencasts](http://courses.tutsplus.com/courses/perfect-workflow-in-sublime-text-2) of how to effectively use Sublime Text. Worth watching all the way through once, using Sublime Text for ~ 1 month, then rewatching.
+
+
+
+- [Divvy](http://mizage.com/divvy/) -- keyboard shortcut call up a window and resize to custom sizes (Available for OS X/Windows).
+
+
+### Python
+
+Currently recommenidng getting `python`, IPython, IPython notebook through the [Anaconda](https://store.continuum.io/cshop/anaconda/) installation method.
+
+
+A list of a few python tutorials:
+
+
+
+- [Lectures on scientific computing with Python](https://github.com/jrjohansson/scientific-python-lectures)
+
+- [Learn Python the Hard Way](http://learnpythonthehardway.org/)
+
+- [Kaggle's tutorial](https://www.kaggle.com/wiki/GettingStartedWithPythonForDataScience)
+
+
+
+IPython notebook links
+
+
+
+- [Notebook Viewer](http://nbviewer.IPython.org/)
+
+- The IPython notebook is moving to the [Project Jupyter](http://jupyter.org/) in the near future. Don't worry this is the same old IPython notebook thing, but it's rebranding because it now supports R, Julia and other languages.
+
+
+### Bash
+
+Besides the few lines I recommend adding to your `.bashrc` [above](https://gist.github.com/jbwhit/ccc7d6f04431360f3370), these are a couple of handy snippets that can be used in bash:
+
+
+```
+# iterate over numbers from 1 to 12
+for index in {1..12}
+do
+    echo example.$index.name
+done
+
+
+# iterate over all command line arguments
+# Save this in a file called demo.bash then run the command
+# bash demo.bash hi this works
+# to see what happens.
+for name in $@
+do
+    echo $name
+done
+```
+
+### Recommended actions
+
+
+- Get a [github](http://github.com/) account (it's free)
+
+- Do the excellent short [git tutorial](https://try.github.io/levels/1/challenges/1) to start to get a feel for git.
+
+- [Github Gists](https://gist.github.com/) is where you are going to copy and paste the text from your IPython notebook that you'd like to share. Remember gists are updatable, and the nbviewer link will show the most recent version (after a few minute delay).
+
+- Get a [stackoverflow](http://stackoverflow.com/) account (it's free).
+
+- Learn about [Data Drive Documents](http://d3js.org/)
+
+- Created by: [Mike Bostock](http://bl.ocks.org/mbostock) (with tons of amazing examples).
+
+- My example: [My Life Trajectory (so far)](http://bl.ocks.org/jbwhit/d03db0ca560da7c445f7) based off of this [example](http://bl.ocks.org/mbostock/5851933)
+
+
+
+Let me know if you saw the talk and what you thought of it! Or if I forgot to put a link to something that I mentioned.

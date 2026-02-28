@@ -1,0 +1,15 @@
+---
+title: "Jonathan plays the piano..."
+date: 2011-03-01
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+I was messing around and recorded myself playing Gershwin's Prelude 2 (which is still under copyright, funny enough).
+
+{{< video http://www.youtube.com/embed/m5FHZZem2mw >}}
+
+
+I've been meaning to force myself to record and post myself playing piano more frequently in an effort to publicly shame myself into practicing more... It's only working a little. As always, I welcome constructive criticism!
+[![Enhanced by Zemanta](http://img.zemanta.com/zemified_e.png?x-id=0ff9f62b-de05-4434-9d39-051bc34462c3)](http://www.zemanta.com/)

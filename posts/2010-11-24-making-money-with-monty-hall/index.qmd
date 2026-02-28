@@ -1,0 +1,167 @@
+---
+title: "Making Money with Monty Hall"
+date: 2010-11-24
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+There's a fun and notorious probability problem known as the Monty Hall problem. It's notorious for tons of reasons. The setup is simple.
+
+You're on a game show and are presented with three closed doors; a prize behind 1 of the doors; non-prizes behind 2 of the doors. Usually it's something like, a car behind one of the doors and a goat behind each of the other doors.
+
+The rules of the situation are that once you choose a door, one of the goat-doors from the remaining doors will be revealed. After the reveal, you are allowed to switch your choice, or keep it the same.
+
+Assuming you want the prize, what strategy should you adopt? Should you stay or should you switch?
+
+Turns out, you should switch. You have a 2/3 chance of getting the prize over the long run by switching, while a 1/3 chance of getting the prize if you stay.
+
+It's a notorious problem because most people -- especially somewhat math-inclined people -- are generally tempted to reject the answer. They will insist that the odds are 50-50.
+
+There's a YouTube video that mentions the Monty Hall problem, and the correct solution. A person left a comment saying that the real odds are 50-50 -- and confronted with the possibility that [someone is wrong on the internet](http://xkcd.com/386/) -- I engaged with YouTube user: [adolthitler](http://www.youtube.com/user/adolthitler).
+
+I tried several ways to explain the reasoning behind the correct answer, and after a lot of back and forth, the last volley is (currently)
+
+jbwhitmore (me) writes:
+> @adolthitler I don't forget that the door is removed -- and it isn't just removed, it's revealed -- and that is crucial to why a person should switch.
+> 
+> (a) If you happened to have picked a door with a goat, when the only other goat in the situation is revealed, you are guaranteed to win the car IF YOU SWITCH.
+> 
+> (b) And since you agree that 2/3 of the time you will pick the door with﻿ a goat, it follows by necessity that switching will win you the car 2/3 of the time.
+> 
+> It's not opinion, it's math.
+
+adolthitler (other guy) writes:
+> @jbwhitmore its opinioinated math. There are two doors left. NOT THREE. Its﻿ now 50% chnace the car is behind door 1, and 50% its behind door 3, thats simple math.
+> 
+> Who cares when you made the choice? It does not affect the outcome.
+> 
+> You have fallen prey to a fallacy. Count the doors before you switch. 2 doors, and there is nothing magical making one more likely. Its simple logic. Your maths works fine, your logic is shit.
+> 
+> 2/3 of the time you chose a door with a goat, and 1 goat is revealed, so its now 1/2 times you chose a goat. Got it you removed one door, you did not﻿ alter your math. Redo the math based on the current situation, not the historical situation.
+> 
+> 2 doors, not three the removed door boosts your choice just as much as the alternate door.
+
+Right, so adolthitler is both wrong and impervious to being corrected -- and publicly proclaiming that he's correct at my expense. The way I generally deal with these situations in real life is to make a bet with the person. That way, even if he won't change his mind, he'll get punished monetarily for holding false and uncorrectable beliefs, and I'll benefit. It's win-win as far as I'm concerned.
+
+The conundrum was -- how do I set the terms of the bet in such a way that I can actually make the bet and win?
+
+Here's part of what I've come up with -- since adolthitler resolutely thinks that the odds are 50-50 whether you switch or stay with your first choice, and I resolutely think that the odds are 66-33 for switching -- we could pay each other depending on whose strategy wins.
+
+Every time staying wins -- I'd pay adolthitler $1.08.
+Every time switching wins -- adolthitler would pay me $1.00.
+
+That's an 8% payout difference on what adolthitler thinks is a 50-50 outcome, and if he's got conviction he should really want to take this bet -- and to play as many times as possible.
+### How the Bet is Set Up
+Using a random number generator to determine which door holds the prize. ([Here is a way](http://www.random.org/integers/?num=1000&min=1&max=3&col=1&base=10&format=html&rnd=new) to choose one number from [1,2,3] randomly a thousand times).
+
+Step 1: We always choose the same door to start with -- let's just say we choose Door 1 every time.
+Step 2: One goat is revealed (from behind Door 2 or 3).
+I am forced to always switch to the other closed door.
+adolthitler is forced to always stays with Door 1.
+Step 3: Whoever ends up picking the right door gets paid by the other person. (The going rate is $1.08 that I would have to adolthitler; and $1.00 that adolthitler would pay me).
+
+Here's how the first 10 rounds would play out by picking the first 10 random prize placements:
+
+Round 1
+Prize is behind Door 2
+Step 1: We both choose Door 1
+Step 2: Door 3 is revealed to hold the other goat (this is forced)
+Step 3: I am forced to switch to Door 2 (this forces me to win)
+
+
+Result: I win $1.00 (My total: +$1.00)
+
+
+Round 2
+Prize is behind Door 3
+Step 1: We both choose Door 1
+Step 2: Door 2 is revealed to hold the other goat (this is forced)
+Step 3: I am forced to switch to Door 3 (this forces me to win)
+
+
+Result: I win $1.00 (My total: +$2.00)
+
+
+Round 3
+Prize is behind Door 1
+Step 1: We both choose Door 1
+Step 2: Door 2 or 3 is revealed to hold a different goat (choice)
+Step 3: I am forced to switch to either 2 or 3 (this forces me to lose)
+
+
+Result: I lose $1.08 (My total: +$0.92)
+
+
+Round 4
+Prize is behind Door 2
+Step 1: We both choose Door 1
+Step 2: Door 3 is revealed to hold the other goat (this is forced)
+Step 3: I am forced to switch to Door 2 (this forces me to win)
+
+
+Result: I win $1.00 (My total: +$1.92)
+
+
+Round 5
+Prize is behind Door 3
+Step 1: We both choose Door 1
+Step 2: Door 2 is revealed to hold the other goat (this is forced)
+Step 3: I am forced to switch to Door 3 (this forces me to win)
+
+
+Result: I win $1.00 (My total: +$2.92)
+
+
+Round 6
+Prize is behind Door 1
+Step 1: We both choose Door 1
+Step 2: Door 2 or 3 is revealed to hold a different goat (choice)
+Step 3: I am forced to switch to either 2 or 3 (this forces me to lose)
+
+
+Result: I lose $1.08 (My total: +$1.84)
+
+
+Round 7
+Prize is behind Door 3
+Step 1: We both choose Door 1
+Step 2: Door 2 is revealed to hold the other goat (this is forced)
+Step 3: I am forced to switch to Door 3 (this forces me to win)
+
+
+Result: I win $1.00 (My total: +$2.84)
+
+
+Round 8
+Prize is behind Door 1
+Step 1: We both choose Door 1
+Step 2: Door 2 or 3 is revealed to hold a different goat (choice)
+Step 3: I am forced to switch to either 2 or 3 (this forces me to lose)
+
+
+Result: I lose $1.08 (My total: +$1.76)
+
+
+Round 9
+Prize is behind Door 3
+Step 1: We both choose Door 1
+Step 2: Door 2 is revealed to hold the other goat (this is forced)
+Step 3: I am forced to switch to Door 3 (this forces me to win)
+
+
+Result: I win $1.00 (My total: +$2.76)
+
+
+Round 10
+Prize is behind Door 1
+Step 1: We both choose Door 1
+Step 2: Door 2 or 3 is revealed to hold a different goat (choice)
+Step 3: I am forced to switch to either 2 or 3 (this forces me to lose)
+
+
+Result: I lose $1.08 (My total: +$1.68)
+
+How many rounds would you like to play? A thousand? A million? Ten million? I'll play until someone goes bankrupt.
+
+Side-bet to any interested readers: How long before adolthitler gives up?

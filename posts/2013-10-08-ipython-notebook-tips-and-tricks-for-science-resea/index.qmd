@@ -1,0 +1,27 @@
+---
+title: "ipython notebook tips and tricks for science research"
+date: 2013-10-08
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+David Lagattuta and I gave a seminar at CAS about using [python](http://www.python.org/), [ipython](http://ipython.org/) and the [ipython notebook](http://ipython.org/notebook.html). At the end of it we made 3 of our ipython notebooks available to all.
+
+These notebooks have embedded in them examples of images, text, LaTeX, and even embedded YouTube screencasts that explain aspects of the notebook within the notebook itself.
+
+	
+- **ipython notebook: Future of Science**: [http://nbviewer.ipython.org/5742826](http://nbviewer.ipython.org/5742826)
+	
+- **Clean Code; Clear Code**: [http://nbviewer.ipython.org/5742829](http://nbviewer.ipython.org/5742829)
+	
+- **The Future of Science -- EXTRAS**: [http://nbviewer.ipython.org/5742830](http://nbviewer.ipython.org/5742830)
+
+
+Here's a screencast that we embedded which shows some neat ipython notebook features:
+
+{{< video //www.youtube.com/embed/1HSclOlW3nQ >}}
+
+As always, I'm looking to improve my coding (and presentation) skills, so constructive criticism is requested.
+
+Thanks!

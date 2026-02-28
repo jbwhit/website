@@ -1,0 +1,37 @@
+---
+title: "A few more LaTeX tricks"
+date: 2010-09-24
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+Just happened to be a week where I figured out a lot of LaTeX things at once -- and I wanted to get them down before they are lost forever.
+
+I have wanted to know how to do an automatically variable height "evaluated at" symbol in LaTeX for a long time. Yesterday, I stopped waiting. First a couple of wrong ways:
+
+```
+\frac{x^2}{2} |_a^b
+
+\frac{x^2}{2} \right |_a^b
+
+\frac{x^2}{2} \Big |_a^b
+```
+
+The right way to do it is to use the \left \right tags -- but I'd only used those when I had matching symbols, i.e.:
+
+```
+\left ( x^2 \right )
+```
+
+Turns out, you need both tags written like the following:
+
+```
+\left. \frac{x^2}{2} \right |_a^b
+```
+
+I found out how to do this by looking at someone else's code, and curiously, they had a "\left." -- a "left" with a period after it -- the period didn't show up, so I didn't know why, and my LaTeX compiled fine both including and removing the period. But the engine that typesets this page NEEDED "\left." for it to parse properly!
+
+[latex] \displaystyle
+\left. \frac{x^2}{2} \right |_a^b
+[/latex]

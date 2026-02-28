@@ -1,0 +1,19 @@
+---
+title: "One chapter closes; a new chapter opens"
+date: 2014-08-01
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+As of this week, I am officially no longer an astrophysicist. I start my next career as a data scientist in about a month. It's been a fantastic experience for me both personally and professionally. Michael Murphy was an incredibly patient and encouraging boss from whom I learned more than I hoped.
+
+Coming into this job I hoped to learn a ton, and I have, but many opportunities and experiences were completely unexpected. From observing at observatories like ESO's VLT in Chile and Keck in Hawaii, to being in an IMAX film. Finally, the amazing amount of travel that my position granted me was life altering. 
+
+This is not my big farewell post, as I still have a week and a bit in Australia, but I had trouble sleeping last night so I decided to make a fun [D3](http://d3js.org/) map of all of the flights that I've taken during my time as a postdoc -- starting with the flights from DFW (Dallas-Forth Worth) to LAX (Los Angeles) to MEL (Melbourne) in August 2011! 
+
+{{< video http://bl.ocks.org/jbwhit/raw/05f41642412c4622a85d/ >}}
+
+The code that I used to make this is available at [this link](http://bl.ocks.org/jbwhit/05f41642412c4622a85d).
+
+Ok future, let's see where we go from here.

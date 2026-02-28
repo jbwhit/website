@@ -1,0 +1,97 @@
+---
+title: "Using Dropbox and Git to write LaTeX papers"
+date: 2011-03-02
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+First things first -- [Dropbox](http://db.tt/xRUtJza) is awesome. (Also, if you signup through that link, we both get extra free space... so do it). It's a service that syncs a folder on your computer with a central server -- and any other computers you have Dropbox installed on. But it does much more than that -- you can share subfolders with other Dropbox users. For example, if I want to give my roommate a directory full of PDFs, I can just drag the directory into our shared folder, and Dropbox will automatically sync it so that he gets all the files without doing anything. Also, the files are on your computer -- so if you lose internet or are on an airplane, you interact w/ the files just like any others on your computer.
+
+Writing anything with LaTeX can be a trying experience. Writing an academic paper with multiple authors in LaTeX can be especially tricky. Dropbox comes in handy -- but so does being able to use version control to track who changed what and when. Since Dropbox syncs files (and keeps a record of how the file looked in the past) it can sorta do the version control thing on its own.
+
+Let's just say you have the desire to use [git](http://git-scm.com/) (the fast version control system).
+#### EDIT 1: Hannes (comment below) has warned that this is probably a bad way of doing these things.
+#### Instead of Dropbox, use something like github to sync git repositories.
+One trick I've found handy is to write LaTeX papers with each sentence on a new line -- rather than putting returns on some number of characters. This way, diff and version control finds changes between sentences instead of just lines, which makes everything much easier to understand.
+#### EDIT 2: Lelio (comment below) has suggested that this trick is unnecessary, instead use: git diff --word-diff. I haven't tried it yet, but it seems reasonable enough to mention in the post itself.
+I wanted for git to ignore a number of the helper files that get created when compiling LaTeX and found a useful repository of gitignore flags [here](https://github.com/github/gitignore). (Read the gitignore manual page [here](http://www.kernel.org/pub/software/scm/git/docs/gitignore.html)).
+
+Easy enough to setup -- I put it in my home directory, so keep that in mind if you put it somewhere else -- so I did the following:
+
+```
+cd 
+git clone git://github.com/github/gitignore.git
+```
+
+Now, I was actually confused about what to do at this point. After playing around with it for a while, I ended up making a bash script that keeps the git-ignore repository updated and referenced for my laptop. You can find the bash script [here](http://jonathanwhitmore.com/computer-code/how-i-keep-my-gitignore-updated).
+
+```
+bash ~/Dropbox/scripts/git/gitignore.bash
+```
+
+Assuming you have my bash script in that location, that should create the .gitignore in your home directory. Next, you have to tell git that you want it to use the .gitignore file that the bash script created at ~/.gitignore for everything.
+
+```
+git config --global core.excludesfile ~/.gitignore
+```
+
+Here's how I have cobbled together how I work with
+
+On my laptop:
+
+```
+cd ~/Dropbox/Writing/
+mkdir New-Project.git
+cd New-Project.git
+git --bare init
+cd Project/location
+git init
+git add .
+git status
+git commit -m "First commit"
+git remote add dropbox ~/Dropbox/Papers/2011-02-17-Whitmore-KeckCalibration.git
+git push dropbox master
+```
+
+On another computer with a Dropbox account:
+
+```
+cd 
+mkdir Papers; cd Papers/
+git clone -o dropbox ~/Dropbox/Papers/2011-02-17-Whitmore-KeckCalibration.git
+```
+
+change some file
+
+```
+git commit -a 
+  "First other computer edit"
+git push dropbox master
+```
+
+Back on my laptop:
+
+```
+git pull dropbox master
+```
+
+work work work
+
+```
+git push dropbox master
+```
+
+Back on other computer the destination isn't required:
+
+```
+git pull
+```
+
+work work work
+
+```
+git push
+```
+
+That should do it. If you have a better way of accomplishing the same thing, please let me know, I'm always on the lookout for doing things the right way.

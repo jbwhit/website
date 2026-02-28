@@ -1,0 +1,104 @@
+---
+title: "2016 Year in Review"
+date: 2017-01-08
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+## Some of my major life highlights:
+
+As I look back on 2016, I'm amazed at both how quickly the year went and yet how much happened.
+
+### Personal
+
+
+- Julija and I celebrated our marriage with a reception in beautiful Vilnius, Lithuania.
+
+- Thanksgiving with my parents + Jax/Derek in Monterey, CA. 
+
+- Spent Christmas holidays with Julija's family in Lithuania.
+
+- Spent New Year's in New York City.
+
+
+### Professional
+
+
+- Finished my second year at [SVDS](http://svds.com/) as a Senior Data Scientist.
+
+- My screencast video course: [Jupyter Notebook for Data Science Teams](http://shop.oreilly.com/product/0636920044260.do) went on sale!
+
+
+### Creative
+
+
+- Had [my art](http://www.jbwhitmoreart.com/) selected and shown in a [gallery](http://www.sparkarts.com/).
+
+- Showed [my art](http://www.jbwhitmoreart.com/) at [SF Open Studios](http://www.shared-sf.com/2016/09/02/2016-sf-open-studios-october-21-23/).
+
+
+## Recommended Books Read This Year
+
+### Fiction
+
+
+- [The Goldfinch](http://amzn.to/23SH2ij) by Donna Tartt
+
+- [The Invisible Life of Ivan Isaenko](http://amzn.to/2ct0MTL) by Scott Stambach
+
+- [Hum](http://amzn.to/2fO0wNm) by Jamaal May
+
+
+### Non-fiction
+
+
+- [Lawrence in Arabia](http://amzn.to/2jjeDwj) by Scott Anderson
+
+- [Lean In](http://amzn.to/2b5JrwJ) by Sheryl Sandberg
+
+- [Algorithms to Live By](http://amzn.to/2gXg3Ne) by Brian Christian
+
+
+## Places that I spent time this year
+
+![flight animation](http://jonathanwhitmore.com/wp-content/uploads/2016/12/animated-opt.gif)
+
+
+- Dallas, TX, USA -- (family/friends)
+
+- Mountain View, CA, USA -- where I live and work
+
+- San Diego, CA, USA -- SVDS client that took me there throughout the year
+
+- Berkeley, CA, USA -- AstroHackWeek
+
+- Maui, HI, USA & Kauai, HI, USA -- Honeymoon!
+
+- Salt Lake City, UT, USA -- First time to visit! Met up with Lauri and Vaiva and their brand new kid WHATSHISNAME.
+
+- Copenhagen, DNK -- Day trip on the way to Vilnius.
+
+- Vilnius, LTU -- Our wedding reception.
+
+- Riga, LVA -- Xmas eve and day.
+
+- NYC, USA for New Year's Eve, Rockettes Christmas Spectacular, The Present 
+
+- Jacksonville, FL, USA -- Katie/Alex Mendez wedding.
+
+- Monterey, CA, USA -- Thanksgiving w/ my parents, and Jax & Derek.
+
+
+## Looking forward to in the new year
+
+![concentric circles](http://jonathanwhitmore.com/wp-content/uploads/2017/01/Whitmore_MJFWNKRD.jpg)
+
+
+- The above artwork MJFWNKRD (2017) was selected for a juried art show at the [Arc Gallery](http://www.arc-sf.com/) at the end of January.
+
+- Trip to the Netherlands to celebrate my wife winning [Best Physics Thesis](https://www.fom.nl/en/news/press-releases/2016/10/31/fom-prizes-for-valorisation-and-best-physics-thesis-award/) published in the Netherlands last year.
+
+- A keynote speaker engagement for the [PhD Career Conference at USC](https://careers.usc.edu/students/discover-resources/graduate-and-doctoral-student-resources/beyond-the-phd-home/).
+
+- Teaching a workshop for [Stanford Continuing Studies](https://continuingstudies.stanford.edu/) during the Spring quarter.

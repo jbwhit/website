@@ -1,0 +1,113 @@
+---
+title: "So you wanna Data Science..."
+date: 2018-01-23
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+There are a number of blog posts that will describe what a person thinks is useful to know about getting into Data Science. And this is mine.
+
+This is aimed at people who are outside of the tech industry, so tailor my advice to your own situation. For my own history, I went through the [Insight Data Science Fellowship](http://insightdatascience.com/), which I highly recommend, but it isn't feasible for many people for different reasons (including the limited number of slots available).
+
+I tried to limit the number of links to resources to keep my suggestions manageable. If you feel that I have missed an incredible resource that is worthy of dislodging a link on this post, please let me know (both your link and what you think it should replace). Almost everything that I link below has a free option (for example, you can audit the online courses). Finally, this blog post is organized into two overarching sections: things to focus on, and a section of things to avoid.
+
+# Things to focus on
+
+Each of the following subsections in this post are worth spending enough time to get good enough at each one. Think of your overall Data Scientist score as being roughly a multiplication of each of these skills -- a zero anywhere will kill you, and it doesn't take years of effort to get to some minimal level in each of these skills.
+
+## A Data Science Blog
+
+I don't have a Data Science blog, so don't look at this website as an example. However, if you are not currently working in Data Science, I recommend starting a Data Science blog that chronicles your journey as you learn about the many aspects of this field. I found an [article that argues this point very nicely](http://varianceexplained.org/r/start-blog/), and I agree with most everything David writes in that post.
+
+My short version: grab a data set, do some analysis, and post it on Github pages in a transparent and reproducible manner. Here are two links that look like they have good advice about how to technically set up just such a thing: [JupyterSite](https://github.com/ChrisRackauckas/JupyterSite) and [DataQuest's how to set up a data science blog](https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/).
+
+Aim for posting a new analysis once a month. After 6 months, you will look up and have 6 posts to show for your work. Ask for critical feedback on your analysis (feel free to ping me). This will tighten the feedback loop and help you get better, faster. You also practice many aspects of the skills of Data Science by doing this exercise.
+
+## Coding/Computer Science
+
+Many interviewers revert to what they know to interview you. For example, a statistician or a computer scientist might ask you questions that they find trivial or foundational to their work while being almost impossible for you to know. It's likely, in a tech environment, you'll get someone at some point in your interview process who is (or was) a software engineer.
+
+The long and the short of it, you need to know how to program and code. To write and read programs that other people use and consume.
+
+### What programming language should I learn? Python or R or something else?
+
+The short answer: if you already know either Python or R pretty well, it's probably better to strengthen the one you already know. Don't pick another language outside of Python and R. If you're a C/C++/Java/Matlab you'll probably have a better time of it with Python. If you still haven't decided between them, I'd suggest Python. For computer science/programming interviews, I definitely recommend Python over R. That being said, there are times when R is the correct choice for an analysis. Again, it's more important to pick one and get strong at it, than to pick the "right one". Finally, don't try to level up on both at the same time, it's not a good use of your time at this stage (or the next stage).
+
+The following courses are what I recommend going through:
+
+
+    
+- Jake VanderPlas - [Python Data Science Handbook](https://github.com/jakevdp/PythonDataScienceHandbook) -- Has excellent explanatory Jupyter Notebooks. Work through the whole thing.
+    
+- Peter Norvig's course on [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212) -- what to say except: reading Norvig's treatment of almost any problem is a worthwhile way to spend your time. He has many Notebooks on many different kinds of problems that he solves.
+    
+- Jupyter Notebooks in general. Might not be super-useful on its own, but check out the notebooks in my free Github repo here: [Jupyter Notebook Tips and Tricks](https://github.com/jbwhit/jupyter-tips-and-tricks). Or my older and somewhat dated O'Reilly course (not free) here: [Jupyter Notebook for Data Science Teams](http://shop.oreilly.com/product/0636920044260.do).
+    
+- **Algorithms**: [Khan Academy's course](https://www.khanacademy.org/computing/computer-science/algorithms), and [Coursera's course](https://www.coursera.org/learn/algorithms-part1).
+    
+- Learn to semi-competently use version control [git](http://www.learnenough.com/git-tutorial).
+
+
+## Machine Learning
+
+A field of study that has many useful techniques for solving Data Science problems. It's very useful to know the breadth of what's available so you know what to reach for when confronted with a problem.
+
+
+    
+- [Machine Learning course - Andrew Ng](https://www.coursera.org/learn/machine-learning) at Coursera. He does the class in Octave, feel free to do that, or challenge yourself to do as much of it in python as you can.
+    
+- [Introduction to Machine Learning with Python](https://github.com/amueller/introduction_to_ml_with_python) by Andreas Mueller and Sarah Guido.
+    
+- I've heard good things about [Machine Learning - Paisley](https://www.edx.org/course/machine-learning-columbiax-csmm-102x-0) but haven't taken it myself.
+
+
+## Statistics
+
+A field of study that is foundational to many aspects of Data Science. Unfortunately, I don't feel that I have an extensive list of statistics resources to choose from, but these two are good and useful:
+
+
+    
+- [Khan Academy Statistics](https://www.khanacademy.org/math/statistics-probability) -- I recommend signing up so you can track your progress, and going through all of the statistics modules.
+    
+- [Coursera -- Mathematical Biostatistics Boot Camp](https://www.coursera.org/learn/biostatistics).
+
+
+## SQL
+
+SQL is simply required. If you have spent a fair bit of time programming in python, the first time you encounter SQL it feels like a bit of a mind-bending language; it certainly was for me. I recommend the following tutorials:
+
+
+    
+- [Mode analytics sql tutorial](https://sqlschool.modeanalytics.com/) -- do everything.
+    
+- Learn and test yourself (work through all of it, I'm just linking to the beginning of the exercises): [Lagunita Stanford](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/courseware/ch-sql/seq-exercise-sql_movie_query_core/).
+
+
+## Interview Preparation
+
+Practice on a physical whiteboard. Seriously practice answering questions, on a whiteboard out loud to someone else. Have a friend quiz you with the SQL Lagunita exercises and have them type what you've written into the answer box to check your answers. Explaining aloud while writing code on a whiteboard is a weird but quickly learnable skill.
+
+## What to look for in your first Data Science job
+
+Look for an experienced data science team to make you a much better data scientist. That is, make sure that they will provide feedback and mentorship as a key part of how they work. You want to optimize your learning rate in the first couple of years.
+
+A final recommendation, the book [Lean Analytics](https://www.amazon.com/Lean-Analytics-Better-Startup-Faster-ebook/dp/B00AG66LTM/) to help you get your head around the kinds of questions you should be asking in business.
+
+# Things to avoid working on
+
+Here are a few things that you should either avoid entirely or limit your time severely. Each of the things that I list here are very valuable subjects and that's what makes them dangerous, tempting, and hard to know to avoid. The long and the short of it: these things are very tempting ways to spend your way too much of your time that can be better spent on the above. Once you have your first Data Science job, feel free to indulge.
+
+## Don't spend time on Deep Learning
+
+There are awesome tutorials for deep learning. I'm not going to put links here because this should wait in my opinion until you have the breadth of things above covered. It's a tool to add to your toolbelt once you start working at your first Data Science job.
+
+## Don't spend much time on Kaggle Competitions
+
+Spend at most 20% of your preparation time on them. You can learn a lot about one aspect of Data Science through Kaggle competitions, but you need much more than Kaggle experience.
+
+## Learning hard (not python/R based) visualization libraries (D3, etc)
+
+I made this mistake myself when I was a postdoc preparing for my future Data Science career. I had heard, and saw with my own eyes, the amazing visualizations that D3 lets you create. I spent a couple of months of time trying to get up to speed with this, and I think it was pretty much entirely a waste. Only exception to this rule is if you are more interested in becoming a Data Visualization Engineer and not Data Science.
+
+Hope that helps! If you find your experience is different or you find other resources that you like better please let me know! Best of luck.

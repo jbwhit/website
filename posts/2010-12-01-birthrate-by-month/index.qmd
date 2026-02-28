@@ -1,0 +1,20 @@
+---
+title: "Birthrate by Month"
+date: 2010-12-01
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+I was in a discussion about horoscopes and how they're wrong, when a possibly crazy claim came up: most people are born in one half of the year instead of another.
+
+Because it's trivially true if all you need is 50% + 1 to make it "most" -- I pressed the guy making the claim for some numbers behind it. He claimed that the six months that has the highest birthrate had 10% more people born than the six months that has the lowest birthrate. This sounded way too large, so we made a $20 bet.
+
+Turns out it is simple to find the month that most people are born in -- but getting month-by-month data was kinda tricky. You can find 1995-2002 data for the US birthrate by month [here](http://abcnews.go.com/Health/Science/story?id=990641).
+
+I've embedded the analysis below -- turns out it was a closer bet than I was expecting.
+
+{{< video https://spreadsheets.google.com/pub?key=0AvXJxrIkj-8jdF9Gdm5WUzFhOHRsdkNkZll4M3k0TUE&hl=en&output=html&widget=true >}}
+
+
+Turns out there's roughly a 6% difference between the most ... birthy half of the year relative to the least birthy half of the year. If birthy isn't a word, I'm inventing it now. I would have guess about half of the real answer.

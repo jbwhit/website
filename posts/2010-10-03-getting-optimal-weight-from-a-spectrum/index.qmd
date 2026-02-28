@@ -1,0 +1,40 @@
+---
+title: "Getting Optimal Weight from a Spectrum"
+date: 2010-10-03
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+To derive the equation for the information one can get from a spectrum.
+
+Doppler shift:
+
+[latex]\displaystyle
+\frac{\delta v}{c} = \frac{\delta \lambda}{\lambda}
+[/latex]
+
+Assuming that the Doppler shift is small compared to absorption line width, the observable intensity change at a given pixel:
+
+[latex]\displaystyle
+F \left ( i \right) -F_0 \left ( i \right) =  \frac{\partial F_0  \left ( i \right)}{\partial \lambda} \delta \lambda \left ( i \right)
+[/latex]
+
+
+[latex]\displaystyle
+F \left ( i \right) -F_0 \left ( i \right) = \frac{\partial F_0  \left ( i \right)}{\partial \lambda}\frac{\delta v\left ( i \right)}{c} \lambda \left ( i \right)
+[/latex]
+
+Doppler shift restated:
+
+[latex]\displaystyle
+\frac{\delta v\left ( i \right)}{c} = \frac{F \left ( i \right) -F_0 \left ( i \right) }{\lambda\left ( i \right) \left [ \partial F_0 \left ( i \right) / \partial \lambda \left ( i \right)\right ]}
+[/latex]
+
+Add over available spectrum. Each pixel contributes according to the optimal weight:
+
+[latex]\displaystyle
+W\left ( i \right) = \frac{1}{\left (  \frac{\delta v_{RMS}\left ( i \right)}{c}\right)^2}
+[/latex]
+
+citation: [http://adsabs.harvard.edu/abs/2007PhRvL..99w9001M](http://adsabs.harvard.edu/abs/2007PhRvL..99w9001M)

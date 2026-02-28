@@ -1,0 +1,25 @@
+---
+title: "Show Hidden Files on a Mac"
+date: 2010-11-16
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+How to show hidden files on a Mac:
+
+Terminal:
+
+```
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
+```
+
+The killall command kills and refreshes all open Finder windows.
+
+If you would like to turn it back off:
+
+```
+defaults write com.apple.finder AppleShowAllFiles FALSE
+killall Finder
+```

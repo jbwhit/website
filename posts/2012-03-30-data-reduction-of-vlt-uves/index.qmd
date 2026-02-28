@@ -1,0 +1,126 @@
+---
+title: "Data Reduction of VLT-UVES"
+date: 2012-03-30
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+The end goal will be to run [UVES_headsort](http://astronomy.swin.edu.au/~mmurphy/UVES_headsort.html) to correctly setup the reduction scripts to reduce science exposures. Let's look at reducing the VLT-UVES science exposures for a single object: vesta.
+
+Start with a bunch of raw UVES data files in a folder (let's call it raw) that are named things like: 
+UVES.2011-11-01T23:57:47.608.fits. 
+
+In this mess of files, there exist all manner of calibration and science exposures for the spectrograph in different settings. It's a mess, so the first order of business is to organize this into something that can be used. It isn't pretty, but here's how I do this first step: 
+
+
+```
+# I'm going to make this into a proper script one day, but here it is as it currently stands
+# Replace OBJECTNAME with the object name in the exposures
+ls /raw/UVES.2010*.fits > raw.list.all.1
+dfits `cat raw.list.all.1` | fitsort DPR.TYPE DPR.CATG EXPTIME OBJECT INS.MODE DPR.TECH | \
+grep -v "SLIT" | grep -v "CDALIGN" | grep -v "SimCal" | grep -v "DARK" | grep -v "DFLAT" | grep -v "TEST" | grep -v "FIBRE" | \
+awk 'NR > 1 {if ($3!="SCIENCE" || ($3=="SCIENCE" && $4>0.1)) print $0}' | \
+awk '{if ($4>=300.0 || $3!="SCIENCE" || ($4 raw.list.1
+grep -f raw.list.1 -v raw.list.all.1 > raw.list.exclude.1
+```
+
+
+What should happen at this point is a file is made: raw.list.1 which has all of the science and their associated files that need to be reduced. An important point here -- you have to **use the full path names**.
+
+(I've never used the helpreduce.py script at this stage, so you can try it (let me know how it goes), or just use the following command). 
+
+
+```
+$ UVES_headsort raw.list.1 -info raw.info -list -c 45 45 -d
+```
+
+
+If the object name is correctly filled out in the science exposures (a genuine "if"), you'll have a file named vesta.list which looks like: 
+
+
+```
+$ head vesta.list 
+/raw/UVES.2011-11-01T23:57:47.608.fits
+/raw/UVES.2011-11-02T00:01:56.739.fits
+/raw/UVES.2011-11-02T11:13:03.809.fits
+/raw/UVES.2011-11-02T11:11:10.079.fits
+/raw/UVES.2011-11-02T11:14:42.258.fits
+```
+
+
+I've written a really simple python script that helps set up the reduction scripts -- it's not well-commented but it's also not too complicated. 
+
+
+```
+#!/bin/python
+# 2011-11-16 helpreduce.py
+
+import sys
+import os
+import subprocess
+import argparse
+
+parser = argparse.ArgumentParser(description="filename")
+parser.add_argument('infile', action='store', type=str, help='grabs commandline filename')
+
+args = parser.parse_args()
+stem = args.infile
+
+if args.infile.split('.')[-1] == 'list':
+  stem = args.infile.split('.')[0]
+
+basecommand = 'UVES_headsort ' +  stem + '.list -info ' + stem + '.info -c '
+
+hours = 0
+warning = 10
+maxhours = 200
+while warning > 5 and hours  maxhours:
+  sys.exit()
+
+print "Correct hours: ", hours
+print "Final command: ", basecommand + str(hours) + ' ' + str(hours)
+commandfile = open(stem + '.command','w')
+print "Making command file."
+print >>commandfile, basecommand + str(hours) + ' ' + str(hours)
+commandfile.close()
+```
+
+
+The basic usage:
+
+
+```
+$ helpreduce.py vesta.list
+```
+
+
+It will run UVES_headsort in debug mode with an increasing range of hours around the exposures until it includes the files it needs -- it will crap out if you don't have the right (or enough) calibration files. When it runs properly, this script at the end produces two files: vesta.info and vesta.command. Run
+
+
+```
+$ source vesta.command
+```
+
+
+and you should have a directory vesta/ which, if you cd into it should reduction scripts named things like: 
+
+
+```
+$ cd vesta; ls reduce*
+
+reduce_564_03.cpl
+reduce_564_03.sof
+reduce_master.cpl
+```
+
+
+If you're feeling lucky, you can run:
+
+
+```
+$ source reduce_master.cpl
+```
+
+
+and it will go through all of the reduction scripts one at a time and do all of the magic.

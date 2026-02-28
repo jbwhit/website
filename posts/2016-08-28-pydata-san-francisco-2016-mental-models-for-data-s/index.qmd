@@ -1,0 +1,21 @@
+---
+title: "PyData San Francisco 2016 -- Mental Models for Data Science"
+date: 2016-08-28
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+I gave a [talk](http://pydata.org/sfo2016/schedule/presentation/34/) this month at [PyData San Francisco 2016](http://pydata.org/sfo2016/). The title of my talk was [Mental Models to Use and Avoid as a Data Scientist](http://pydata.org/sfo2016/schedule/presentation/34/)
+
+A highlight of my week was Travis Oliphant (creator of scipy/author of numpy/CEO of Continuum) tweeting about it:
+
+[![@teoliphant](http://jonathanwhitmore.com/wp-content/uploads/2016/08/Screenshot-2016-08-28-12.02.18.png)](https://twitter.com/teoliphant/status/769038253852876807)
+
+## My talk
+
+{{< video https://www.youtube.com/embed/oj7kKE3zKig >}}
+
+## Extra Materials
+
+The source material and some code links can be found [here](http://bit.ly/2016-pydata-whitmore), and the slides can be found [here](http://www.svds.com/event/pydata-san-francisco-2016/).

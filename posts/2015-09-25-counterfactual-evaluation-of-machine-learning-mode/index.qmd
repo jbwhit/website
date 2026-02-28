@@ -1,0 +1,15 @@
+---
+title: "Counterfactual evaluation of machine learning models (PyData Talk)"
+date: 2015-09-25
+author: Jonathan Whitmore
+draft: true
+categories: []
+---
+
+Here is an excellent talk by Michael Manapat at the [PyData Seattle 2015](http://seattle.pydata.org/) conference. I wish that this style of talk -- of really digging deep with specific examples -- becomes more common!
+
+## Michael Manapat: Counterfactual evaluation of machine learning models
+
+{{< video https://www.youtube.com/embed/QWCSxAKR-h0 >}}
+
+The slides can be found [here](http://www.slideshare.net/MichaelManapat/counterfactual-evaluation-of-machine-learning-models), and the paper that it's partially based on is [here](http://arxiv.org/abs/1403.1891).
