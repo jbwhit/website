@@ -5,7 +5,12 @@ author: Jonathan Whitmore
 draft: true
 description: "A reflection on finishing a three-year astrophysics postdoc in Australia and transitioning to a career in data science, with a D3 visualization of all flights taken during the postdoc."
 categories: [personal, astronomy, data-science]
+status: needs-major-surgery
 ---
+
+:::{.callout-important title="Needs major surgery before publishing"}
+Dead visualization: the bl.ocks.org D3 flight map embed is deprecated (service shut down). Archive or recreate the visualization elsewhere, or replace with a static image.
+:::
 
 As of this week, I am officially no longer an astrophysicist. I start my next career as a data scientist in about a month. It's been a fantastic experience for me both personally and professionally. Michael Murphy was an incredibly patient and encouraging boss from whom I learned more than I hoped.
 

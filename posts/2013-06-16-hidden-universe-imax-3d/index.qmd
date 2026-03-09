@@ -6,7 +6,12 @@ author: Jonathan Whitmore
 draft: true
 description: "A brief post about involvement in the Hidden Universe 3D IMAX film, with a trailer and behind-the-scenes photos from the filming location in Chile."
 categories: [astronomy, science, personal]
+status: needs-major-surgery
 ---
+
+:::{.callout-important title="Needs major surgery before publishing"}
+Dead embed: the Picasa/Google Photos album embed no longer works. Replace with direct image links or find the original photos and host them in `assets/`.
+:::
 
 I've been involved ([http://hiddenuniversemovie.com/the-film/the-astronomers/](http://hiddenuniversemovie.com/the-film/the-astronomers/)) with the production of a 3D IMAX film called Hidden Universe.
 {{< video http://www.youtube.com/embed/0yap2gSYTlM >}}

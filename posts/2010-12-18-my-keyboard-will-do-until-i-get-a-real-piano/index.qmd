@@ -6,7 +6,12 @@ author: Jonathan Whitmore
 draft: true
 description: "A lifelong classical pianist settles on the Casio PX-130 as an affordable apartment-friendly keyboard, and reflects on what to look for when choosing an electric piano."
 categories: [music, personal]
+status: needs-major-surgery
 ---
+
+:::{.callout-important title="Needs major surgery before publishing"}
+Dead image: the Amazon affiliate product image is broken. Replace with a freely-licensed image (e.g. from Wikimedia Commons) or remove.
+:::
 
 [![Casio PX 130](http://jonathanwhitmore.com/wp-content/uploads/2010/12/41MTfCvM7VL._SL160_.jpg)](http://www.amazon.com/gp/product/B002IVK0FE?ie=UTF8&tag=religdebat-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=B002IVK0FE)I've played classical piano since I was 5 years old. The piano that I love playing the most is at my parent's house -- it's a [Mason & Hamlin](http://en.wikipedia.org/wiki/Mason_and_Hamlin) grand piano. When I did my undergrad at Vanderbilt, I lived about 150 yards from the music building and had card access 24 hours a day. I could go and play in the practice rooms whenever I wanted.  At grad school, I didn't have such easy access at all, and so for a few years I played intermittently.
 
