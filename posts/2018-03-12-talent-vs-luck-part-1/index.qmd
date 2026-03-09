@@ -96,3 +96,31 @@ print(f"Mean final capital:    {np.mean(final_capital):.3f}")
 print(f"Max final capital:     {np.max(final_capital):.1f}")
 print(f"Fraction who grew:     {(final_capital > STARTING_CAPITAL).mean():.1%}")
 ```
+
+## What Does Talent Actually Do?
+
+Because the probability of each outcome is determined analytically (not just by simulation), we can compute it directly for any talent quantile.
+
+```{python}
+#| label: tvl-probabilities
+#| code-summary: "Analytical per-timestep probabilities"
+def tvl_probabilities(quantile, talent_mean=TALENT_MEAN, talent_sd=TALENT_SD,
+                      p_event=P_EVENT, p_lucky=P_LUCKY):
+    """Return (p_halve, p_same, p_double) for a person at a given talent quantile."""
+    p_halve  = p_event * (1.0 - p_lucky)
+    talent   = np.clip(ss.norm.ppf(quantile, loc=talent_mean, scale=talent_sd), 0, 1)
+    p_double = p_event * p_lucky * talent
+    p_same   = 1.0 - p_halve - p_double
+    return p_halve, p_same, p_double
+
+# Compare extremes
+for q, label in [(0.05, "5th percentile"), (0.50, "50th percentile"), (0.95, "95th percentile")]:
+    ph, ps, pd = tvl_probabilities(q)
+    print(f"{label:20s}  p_double={pd:.4f}  p_same={ps:.4f}  p_halve={ph:.4f}")
+
+ph_95, _, pd_95 = tvl_probabilities(0.95)
+ph_05, _, pd_05 = tvl_probabilities(0.05)
+print(f"\nDifference in p_double (95th − 5th): {pd_95 - pd_05:.4f}  ({(pd_95 - pd_05)*100:.2f} pp)")
+```
+
+The difference in the probability of doubling between the 95th and 5th percentile is only **~2.6 percentage points**. The probability of *halving* is identical for everyone — talent offers no protection from bad luck at all.
