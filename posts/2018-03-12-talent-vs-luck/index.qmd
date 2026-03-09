@@ -12,7 +12,7 @@ execute:
   warning: false
 ---
 
-The paper [Talent vs Luck: the role of randomness in success and failure](https://arxiv.org/abs/1802.07068) by Pluchino, Biondo, and Rapisarda was covered in [MIT Technology Review](https://www.technologyreview.com/s/610395/if-youre-so-smart-why-arent-you-rich-turns-out-its-just-chance/) and [Scientific American](https://www.scientificamerican.com/article/why-success-is-based-on-more-than-talent-and-work/). The authors build a simulation — the Talent vs Luck model (TvL) — and conclude:
+The paper [Talent vs Luck: the role of randomness in success and failure](https://arxiv.org/abs/1802.07068) by Pluchino, Biondo, and Rapisarda was covered in [MIT Technology Review](https://www.technologyreview.com/s/610395/if-youre-so-smart-why-arent-you-rich-turns-out-its-just-chance/) and [Scientific American](https://www.scientificamerican.com/article/why-success-is-based-on-more-than-talent-and-work/), and later won the [2022 Ig Nobel Prize in Economics](https://improbable.com/ig/winners/#ig2022). The authors build a simulation — the Talent vs Luck model (TvL) — and conclude:
 
 > We can conclude that, if there is not an exceptional talent behind the enormous success of some people, another factor is probably at work. Our simulation clearly shows that such a factor is just pure luck.
 > — Pluchino, Biondo, Rapisarda
@@ -21,7 +21,7 @@ We argue this conclusion is **baked into the structure of the model from the sta
 
 In the TvL model a person in the 95th percentile of talent has roughly a 6.1% chance of doubling their capital each timestep; a person in the 5th percentile has 3.4%. The difference between extreme outliers is only **~2.6 percentage points per timestep**. Starting from such a small difference between talent levels essentially guarantees the conclusion before the simulation even runs.
 
-What makes the model's outcome inevitable is its multiplicative structure. While the *average* capital grows slightly for talented people, the geometric-mean growth rate — which governs typical long-run paths — is negative for everyone with talent below 1. A few lucky individuals capture enormous gains, pulling the arithmetic mean up, while most people lose capital regardless of how talented they are. This asymmetry is baked into the model by construction: talent can help you capitalize on lucky events, but it offers zero protection against unlucky ones.
+What makes the model's outcome inevitable is its multiplicative structure. While the *average* capital grows slightly for talented people, the geometric-mean growth rate — which governs typical long-run paths — is negative for everyone with talent below 1. A few lucky individuals capture enormous gains, pulling the arithmetic mean up, while for realistic talent levels in this model, most people lose capital. This asymmetry is baked into the model by construction: talent can help you capitalize on lucky events, but it offers zero protection against unlucky ones.
 
 ## The TvL Model
 
@@ -181,6 +181,8 @@ The mean and the geometric-mean path tell completely different stories. The mean
 
 This is the signature of a multiplicative process. A few people get lucky runs — several doublings without any halvings — and their enormous gains pull the arithmetic mean far above what most people actually experience. The mean is dominated by rare winners; the geometric mean reflects typical long-run growth.
 
+A caveat: over a finite horizon like 80 steps, variance is high enough that extremely talented individuals still have a meaningful chance of coming out ahead. The geometric mean governs the long-run typical path, but at 80 steps we're not yet in the long run — the distribution of outcomes is wide, and luck can easily overcome the downward drift for any individual. This doesn't rescue the model's claim, though: it just means that *which* talented people succeed is still driven by luck.
+
 ```{python}
 #| label: fig-mean-vs-median
 #| fig-cap: "Mean (dashed) vs geometric-mean path (solid) after 80 timesteps. The arithmetic mean grows with talent, but the geometric-mean path — reflecting typical long-run growth — stays well below starting capital for all realistic talent levels. Only perfect talent (T = 1) breaks even."
@@ -214,6 +216,14 @@ The TvL paper's conclusion — that luck dominates talent — is essentially a r
 2. **Asymmetric multipliers.** Unlucky events halve your capital regardless of talent, but lucky events only help if you're talented enough to capitalize. In a multiplicative process, this asymmetry means the *typical* person loses capital over time even though the *average* grows — the gains are concentrated in a lucky few.
 
 These are modeling choices, not discoveries about the world. The simulation doesn't *demonstrate* that luck dominates talent — it *assumes* a structure where that outcome is nearly inevitable. This is not to say luck is unimportant in real life; it may well dominate. But this particular model can't tell us that.
+
+## Further Reading
+
+- [ArcheoThoughts: "Luck is very important, but just how insignificant is talent?"](https://archeothoughts.wordpress.com/2019/09/03/luck-is-very-important-but-just-how-insignificant-is-talent-a-comment-on-pluchino-et-al-2018/) — another critique identifying the downward pressure on capital in the TvL model.
+- [Ergodicity Economics](https://ergodicityeconomics.com/) by Ole Peters — the formal mathematical framework for why geometric means diverge from arithmetic means in multiplicative processes.
+- [The Kelly Criterion](https://en.wikipedia.org/wiki/Kelly_criterion) — the classic solution for maximizing geometric growth under uncertainty.
+- *The Success Equation* by Michael Mauboussin — on how luck becomes dominant when skill levels converge ("the Paradox of Skill").
+- [Naval Ravikant on the four kinds of luck](https://www.navalmanack.com/almanack-of-naval-ravikant/how-to-get-lucky) — challenges the assumption that luck is purely external by explaining how talent and agency can increase the *frequency* of lucky events.
 
 ## Appendix: Estimating `p_event`
 
