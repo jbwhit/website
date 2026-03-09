@@ -14,15 +14,15 @@ format:
     toc: true
     toc-depth: 2
 reference-location: margin
-
-:::{.callout-important title="Needs major surgery before publishing"}
-Missing image file: `images/inclined_plane_comparison.png` — post will not render without it. Create or add this diagram.
-:::
 citation-location: margin
 execute:
   echo: false
   warning: false
 ---
+
+:::{.callout-important title="Needs major surgery before publishing"}
+Missing image file: `images/inclined_plane_comparison.png` — post will not render without it. Create or add this diagram.
+:::
 
 # Introduction
 

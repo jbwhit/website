@@ -5,6 +5,22 @@ $font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, monosp
 
 /*-- scss:rules --*/
 
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.quarto-listing-default .quarto-post {
+  border-bottom-color: rgba(255, 255, 255, 0.07);
+}
+
 // Cell output styling for dark mode
 .cell-output > pre,
 .cell-output > .sourceCode > pre,

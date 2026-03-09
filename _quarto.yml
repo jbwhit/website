@@ -75,3 +75,4 @@ format:
     code-fold: true
     code-copy: true
     link-external-newwindow: true
+    include-in-header: includes/fonts.html
