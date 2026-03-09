@@ -19,7 +19,9 @@ The paper [Talent vs Luck: the role of randomness in success and failure](https:
 
 We argue this conclusion is **baked into the structure of the model from the start**.
 
-In the TvL model a person in the 95th percentile of talent has roughly a 6.1% chance of doubling their capital each timestep; a person in the 5th percentile has 3.4%. The difference between extreme outliers is only **~2.6 percentage points per timestep**. Starting from such a small difference between talent levels essentially guarantees the conclusion before the simulation even runs. Even granting someone god-like talent yields an expected final capital *lower* than what they started with after 80 rounds.
+In the TvL model a person in the 95th percentile of talent has roughly a 6.1% chance of doubling their capital each timestep; a person in the 5th percentile has 3.4%. The difference between extreme outliers is only **~2.6 percentage points per timestep**. Starting from such a small difference between talent levels essentially guarantees the conclusion before the simulation even runs.
+
+What makes the model's outcome inevitable is its multiplicative structure. While the *average* capital grows slightly for talented people, the *typical* (median) outcome is a loss for everyone — even at the 99.9th percentile of talent. A few lucky individuals capture enormous gains, pulling the mean up, while most people lose capital regardless of how talented they are. Only someone with literally perfect talent ($T = 1$) breaks even on the median. This asymmetry is baked into the model by construction: talent can help you capitalize on lucky events, but it offers zero protection against unlucky ones.
 
 ## The TvL Model
 
@@ -149,41 +151,54 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Expected Value: God-Like Talent Cannot Save You
+## Mean vs Median: The Multiplicative Trap
 
-Because we have analytical probabilities, we can compute the expected final capital exactly for any talent quantile and any number of timesteps. No simulation needed.
+Because we have analytical probabilities, we can compute both the expected (mean) and typical (median) final capital exactly for any talent quantile. No simulation needed.
+
+The expected value of each timestep multiplier is $E[m] = 2 p_\text{double} + 1 \cdot p_\text{same} + 0.5 \cdot p_\text{halve}$, which is above 1 for talent > 0.5. But capital is a *multiplicative* process — what matters for the typical person is the *geometric* mean: $\exp(p_\text{double} \ln 2 + p_\text{halve} \ln 0.5)$. The geometric mean is below 1 for all talent < 1.
 
 ```{python}
-#| label: expected-value
-#| code-summary: "Expected value calculation"
+#| label: mean-vs-median
+#| code-summary: "Mean and median capital calculations"
 def expected_value(quantile, starting_capital=STARTING_CAPITAL, n_timesteps=N_TIMESTEPS):
     p_halve, p_same, p_double = tvl_probabilities(quantile)
     per_step_ev_multiplier = p_double * 2.0 + p_same * 1.0 + p_halve * 0.5
     return starting_capital * per_step_ev_multiplier ** n_timesteps
 
-# Even the 99.999th percentile
+def median_value(quantile, starting_capital=STARTING_CAPITAL, n_timesteps=N_TIMESTEPS):
+    p_halve, p_same, p_double = tvl_probabilities(quantile)
+    geo_multiplier = np.exp(p_double * np.log(2) + p_halve * np.log(0.5))
+    return starting_capital * geo_multiplier ** n_timesteps
+
 for q, label in [(0.5, "50th"), (0.95, "95th"), (0.999, "99.9th"), (0.99999, "99.999th")]:
     ev = expected_value(q)
-    print(f"{label:10s} percentile → expected final capital: {ev:.4f}  (started at {STARTING_CAPITAL})")
+    med = median_value(q)
+    print(f"{label:10s} percentile → mean: {ev:8.2f}   median: {med:7.4f}  (started at {STARTING_CAPITAL})")
 ```
 
-Every talent level ends up with an expected capital *below* its starting value. Even someone with asymptotically perfect talent has a negative expected return over 80 rounds. The variance in outcomes is enormous — a few people do very well — but that variance is driven by luck, not talent differences.
+The mean and median tell completely different stories. The mean grows — a 95th-percentile person has an expected final capital over 50. But the *median* shrinks for every talent level below perfect: a 95th-percentile person's typical outcome is about 3.5, down from 10. Only someone with literally perfect talent ($T = 1$) breaks even on the median.
+
+This is the signature of a multiplicative process. A few people get lucky runs — several doublings without any halvings — and their enormous gains pull the mean far above the median. The mean is dominated by rare winners; the median reflects what happens to most people.
 
 ```{python}
-#| label: fig-expected-value
-#| fig-cap: "Expected final capital by talent quantile after 1 and 80 timesteps. Starting capital is 10 — both curves stay below that for all quantiles."
+#| label: fig-mean-vs-median
+#| fig-cap: "Mean (dashed) vs median (solid) final capital after 80 timesteps. The mean grows with talent, but the median — the typical outcome — stays well below starting capital for all realistic talent levels. Only perfect talent (T = 1) breaks even on the median."
 quantiles = np.linspace(0.001, 0.999, 300)
 
 fig, ax = plt.subplots(figsize=(7, 5))
-for t, ls in [(1, "--"), (80, "-")]:
-    evs = [expected_value(q, n_timesteps=t) for q in quantiles]
-    ax.plot(quantiles, evs, ls=ls, lw=2, label=f"{t} timestep{'s' if t > 1 else ''}")
-
+evs = [expected_value(q) for q in quantiles]
+meds = [median_value(q) for q in quantiles]
+ax.plot(quantiles, evs, ls="--", lw=2, color="#2196F3", label="Mean (expected value)")
+ax.plot(quantiles, meds, ls="-", lw=2, color="#F44336", label="Median (typical outcome)")
 ax.axhline(STARTING_CAPITAL, color="black", lw=0.8, ls=":", alpha=0.5, label="Starting capital")
+
+for q in (0.05, 0.95):
+    ax.axvline(q, color="black", lw=0.8, ls="--", alpha=0.4)
+
 ax.set_xlim(0, 1)
-ax.set_ylim(0, STARTING_CAPITAL + 1)
 ax.set_xlabel("Talent quantile")
-ax.set_ylabel("Expected final capital")
+ax.set_ylabel("Final capital after 80 timesteps")
+ax.set_yscale("log")
 ax.legend()
 plt.tight_layout()
 plt.show()
@@ -191,9 +206,13 @@ plt.show()
 
 ## Concluding Thoughts
 
-The TvL paper's conclusion — that luck dominates talent — is essentially a restatement of its inputs. With only a ~2.6 percentage-point difference in doubling probability between the most and least talented people, and with even perfect talent yielding a negative expected return, the model has almost no sensitivity to talent by construction.
+The TvL paper's conclusion — that luck dominates talent — is essentially a restatement of its inputs. Two design choices do most of the work:
 
-This is not to say luck is unimportant in real life. It may well dominate. But this particular simulation doesn't demonstrate that — it assumes it. Conclusions drawn from the TvL model should be understood as properties of the model's design choices, not discoveries about the world.
+1. **Tiny talent bandwidth.** The difference in doubling probability between the 5th and 95th percentile of talent is only ~2.6 percentage points. With such narrow dynamic range, talent can barely move the needle.
+
+2. **Asymmetric multipliers.** Unlucky events halve your capital regardless of talent, but lucky events only help if you're talented enough to capitalize. In a multiplicative process, this asymmetry means the *typical* person loses capital over time even though the *average* grows — the gains are concentrated in a lucky few.
+
+These are modeling choices, not discoveries about the world. The simulation doesn't *demonstrate* that luck dominates talent — it *assumes* a structure where that outcome is nearly inevitable. This is not to say luck is unimportant in real life; it may well dominate. But this particular model can't tell us that.
 
 We plan to continue this analysis and welcome corrections and feedback.
 
