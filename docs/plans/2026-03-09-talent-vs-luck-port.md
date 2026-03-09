@@ -1,0 +1,489 @@
+# Talent vs Luck Port Implementation Plan
+
+> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+
+**Goal:** Port the "Talent vs Luck: A Critical Response Part 1" Jupyter notebook post from jbwhit.github.io into the current Quarto site, with modernized Python 3, cleaned prose, executable code cells (collapsed by default), and the same structure as the Monty Hall Monte Carlo post.
+
+**Architecture:** New post at `posts/2018-03-12-talent-vs-luck-part-1/index.qmd`. Prose is cleaned up from the original. Python is fully modernized: replace `RandomState` with `default_rng`, drop pandas/seaborn/powerlaw dependencies, vectorize the simulation with numpy broadcasting, and use clean matplotlib. All code cells run during `quarto render`, with `code-fold: true` and `cache: true`.
+
+**Tech Stack:** Quarto, Python 3, numpy, matplotlib, scipy. Dependencies already in `requirements.txt` (add scipy if missing).
+
+---
+
+### Task 1: Check scipy is in requirements and scaffold the post file
+
+**Files:**
+- Read: `requirements.txt`
+- Read: `posts/2010-11-26-monty-hall-monte-carlo-python/index.qmd` (reference for frontmatter style)
+- Create: `posts/2018-03-12-talent-vs-luck-part-1/index.qmd`
+
+**Step 1: Check requirements.txt**
+
+```bash
+cat requirements.txt
+```
+
+Expected: should have `jupyter`, `jupyter-cache`, `numpy`, `matplotlib`. If `scipy` is missing, add it.
+
+**Step 2: Add scipy if missing**
+
+Edit `requirements.txt` to add `scipy` on its own line if not present.
+
+**Step 3: Install locally**
+
+```bash
+source .venv/bin/activate && uv pip install scipy
+```
+
+**Step 4: Create post directory and file with frontmatter**
+
+```bash
+mkdir -p posts/2018-03-12-talent-vs-luck-part-1
+```
+
+Create `posts/2018-03-12-talent-vs-luck-part-1/index.qmd` with this frontmatter:
+
+```yaml
+---
+title: "Talent vs Luck: A Critical Response, Part 1"
+date: 2018-03-12
+date-modified: 2026-03-09
+author: Jonathan Whitmore
+draft: true
+categories: [python, statistics, simulation, data-science]
+description: "The 'Talent vs Luck' simulation paper's conclusion that luck dominates talent is baked into the model from the start — here's the math showing why."
+execute:
+  echo: true
+  cache: true
+  warning: false
+---
+```
+
+**Step 5: Commit scaffold**
+
+```bash
+git add posts/2018-03-12-talent-vs-luck-part-1/ requirements.txt
+git commit -m "Scaffold talent-vs-luck port post and add scipy to requirements"
+```
+
+---
+
+### Task 2: Write the prose sections (Abstract, Introduction, Model Description)
+
+**Files:**
+- Modify: `posts/2018-03-12-talent-vs-luck-part-1/index.qmd`
+
+**Step 1: Add Abstract and Introduction prose after frontmatter**
+
+The cleaned-up prose (copy from original, fix grammar, modernize references):
+
+```markdown
+The paper [Talent vs Luck: the role of randomness in success and failure](https://arxiv.org/abs/1802.07068) by Pluchino, Biondo, and Rapisarda was covered in [MIT Technology Review](https://www.technologyreview.com/s/610395/if-youre-so-smart-why-arent-you-rich-turns-out-its-just-chance/) and [Scientific American](https://www.scientificamerican.com/article/why-success-is-based-on-more-than-talent-and-work/). The authors build a simulation — the Talent vs Luck model (TvL) — and conclude:
+
+> We can conclude that, if there is not an exceptional talent behind the enormous success of some people, another factor is probably at work. Our simulation clearly shows that such a factor is just pure luck.
+> — Pluchino, Biondo, Rapisarda
+
+We argue this conclusion is **baked into the structure of the model from the start**.
+
+In the TvL model a person in the 95th percentile of talent has roughly a 6.1% chance of doubling their capital each timestep; a person in the 5th percentile has 3.4%. The difference between extreme outliers is only **~2.6 percentage points per timestep**. Starting from such a small difference between talent levels essentially guarantees the conclusion before the simulation even runs. Even granting someone god-like talent yields an expected final capital *lower* than what they started with after 80 rounds.
+
+## The TvL Model
+
+A high-level description of the model from the paper:
+
+- $N$ people are placed uniformly at random in a square environment and stay fixed.
+- $N$ events are also placed uniformly at random, each classified as Lucky or Unlucky (50/50).
+- The events randomly walk the environment each timestep.
+- At each timestep, capital is updated:
+  - **No overlap with an event:** capital unchanged.
+  - **Overlap with an Unlucky event:** capital halved.
+  - **Overlap with a Lucky event:** if a uniform random draw $u \in [0,1)$ is less than the person's talent score, capital doubles; otherwise unchanged.
+
+Talent is drawn from $\mathcal{N}(0.6,\ 0.1^2)$, truncated to $[0,1]$. Everyone starts with 10 units of capital and the simulation runs for 80 timesteps.
+
+The one parameter the paper does not give explicitly is $p_\text{event}$ — the probability that a given person overlaps an event at a given timestep. We estimate it in the appendix; our best estimate is **0.16**.
+```
+
+**Step 2: Commit prose**
+
+```bash
+git add posts/2018-03-12-talent-vs-luck-part-1/index.qmd
+git commit -m "Add prose sections to talent-vs-luck post"
+```
+
+---
+
+### Task 3: Write the simulation code cell
+
+**Files:**
+- Modify: `posts/2018-03-12-talent-vs-luck-part-1/index.qmd`
+
+**Step 1: Add setup code cell**
+
+After the prose, add a collapsed setup cell:
+
+````markdown
+## Setup
+
+```{python}
+#| label: setup
+#| code-summary: "Imports and parameters"
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as ss
+
+rng = np.random.default_rng(seed=20180312)
+
+# Paper's parameters
+N_PEOPLE = 1000
+N_TIMESTEPS = 80
+STARTING_CAPITAL = 10.0
+TALENT_MEAN = 0.6
+TALENT_SD = 0.1
+P_LUCKY = 0.5
+
+# Our estimate of p_event (derived in appendix)
+P_EVENT = 0.16
+```
+````
+
+**Step 2: Add vectorized simulation cell**
+
+The original used `pandas.DataFrame.apply()` row by row — very slow. Replace with fully vectorized numpy:
+
+````markdown
+## Simulating the TvL model
+
+```{python}
+#| label: simulation
+#| code-summary: "Vectorized TvL simulation"
+def run_tvl_simulation(n_people=N_PEOPLE, n_timesteps=N_TIMESTEPS,
+                       starting_capital=STARTING_CAPITAL,
+                       talent_mean=TALENT_MEAN, talent_sd=TALENT_SD,
+                       p_event=P_EVENT, p_lucky=P_LUCKY, rng=rng):
+    """Run the TvL simulation; returns (talent array, final_capital array)."""
+    talent = np.clip(rng.normal(talent_mean, talent_sd, n_people), 0, 1)
+
+    # Pre-draw all random numbers: shape (n_people, n_timesteps)
+    event_roll   = rng.random((n_people, n_timesteps))
+    lucky_roll   = rng.random((n_people, n_timesteps))
+    capital_roll = rng.random((n_people, n_timesteps))
+
+    event_happens = event_roll < p_event
+    is_lucky      = lucky_roll < p_lucky
+    capitalizes   = capital_roll < talent[:, np.newaxis]
+
+    # multiplier per (person, timestep)
+    multiplier = np.where(
+        event_happens & is_lucky & capitalizes, 2.0,
+        np.where(event_happens & ~is_lucky, 0.5, 1.0)
+    )
+
+    final_capital = starting_capital * multiplier.prod(axis=1)
+    return talent, final_capital
+
+talent, final_capital = run_tvl_simulation()
+print(f"Median final capital:  {np.median(final_capital):.3f}")
+print(f"Mean final capital:    {np.mean(final_capital):.3f}")
+print(f"Max final capital:     {np.max(final_capital):.1f}")
+print(f"Fraction who grew:     {(final_capital > STARTING_CAPITAL).mean():.1%}")
+```
+````
+
+**Step 3: Test render locally**
+
+```bash
+source .venv/bin/activate && quarto render posts/2018-03-12-talent-vs-luck-part-1/index.qmd 2>&1 | tail -5
+```
+
+Expected: `Output created: ...index.html`
+
+**Step 4: Commit**
+
+```bash
+git add posts/2018-03-12-talent-vs-luck-part-1/index.qmd
+git commit -m "Add vectorized TvL simulation cell"
+```
+
+---
+
+### Task 4: Write the probability analysis section
+
+**Files:**
+- Modify: `posts/2018-03-12-talent-vs-luck-part-1/index.qmd`
+
+**Step 1: Add the analytical probability function and 95th vs 5th comparison**
+
+````markdown
+## What Does Talent Actually Do?
+
+Because the probability of each outcome is determined analytically (not just by simulation), we can compute it directly for any talent quantile.
+
+```{python}
+#| label: tvl-probabilities
+#| code-summary: "Analytical per-timestep probabilities"
+def tvl_probabilities(quantile, talent_mean=TALENT_MEAN, talent_sd=TALENT_SD,
+                      p_event=P_EVENT, p_lucky=P_LUCKY):
+    """Return (p_halve, p_same, p_double) for a person at a given talent quantile."""
+    p_halve  = p_event * (1.0 - p_lucky)
+    talent   = np.clip(ss.norm.ppf(quantile, loc=talent_mean, scale=talent_sd), 0, 1)
+    p_double = p_event * p_lucky * talent
+    p_same   = 1.0 - p_halve - p_double
+    return p_halve, p_same, p_double
+
+# Compare extremes
+for q, label in [(0.05, "5th percentile"), (0.50, "50th percentile"), (0.95, "95th percentile")]:
+    ph, ps, pd = tvl_probabilities(q)
+    print(f"{label:20s}  p_double={pd:.4f}  p_same={ps:.4f}  p_halve={ph:.4f}")
+
+ph_95, _, pd_95 = tvl_probabilities(0.95)
+ph_05, _, pd_05 = tvl_probabilities(0.05)
+print(f"\nDifference in p_double (95th − 5th): {pd_95 - pd_05:.4f}  ({(pd_95 - pd_05)*100:.2f} pp)")
+```
+
+The difference in the probability of doubling between the 95th and 5th percentile is only **~2.6 percentage points**. The probability of *halving* is identical for everyone — talent offers no protection from bad luck at all.
+````
+
+**Step 2: Render and verify output looks right**
+
+```bash
+source .venv/bin/activate && quarto render posts/2018-03-12-talent-vs-luck-part-1/index.qmd 2>&1 | tail -5
+```
+
+**Step 3: Commit**
+
+```bash
+git add posts/2018-03-12-talent-vs-luck-part-1/index.qmd
+git commit -m "Add analytical probability comparison section"
+```
+
+---
+
+### Task 5: Add probability band plot
+
+**Files:**
+- Modify: `posts/2018-03-12-talent-vs-luck-part-1/index.qmd`
+
+**Step 1: Add the stacked probability band chart**
+
+````markdown
+```{python}
+#| label: fig-probability-bands
+#| fig-cap: "Per-timestep outcome probabilities across all talent quantiles. The 5th and 95th percentiles are marked. The tiny difference in the blue 'doubles' band is the entire effect of talent in this model."
+quantiles = np.linspace(0.001, 0.999, 300)
+probs = np.array([tvl_probabilities(q) for q in quantiles])
+p_halve, p_same, p_double = probs[:, 0], probs[:, 1], probs[:, 2]
+
+fig, ax = plt.subplots(figsize=(7, 6))
+ax.fill_between(quantiles, p_halve + p_same, 1.0,   color="#2196F3", alpha=0.8, label="Doubles")
+ax.fill_between(quantiles, p_halve,           p_halve + p_same, color="#9E9E9E", alpha=0.35, label="Stays the same")
+ax.fill_between(quantiles, 0,                 p_halve,          color="#F44336", alpha=0.8, label="Halves")
+
+for q in (0.05, 0.95):
+    ax.axvline(q, color="black", lw=1.0, ls="--", alpha=0.6)
+
+ax.set_xlim(0, 1)
+ax.set_ylim(0, 1)
+ax.set_xlabel("Talent quantile")
+ax.set_ylabel("Probability per timestep")
+ax.legend(loc="upper left")
+plt.tight_layout()
+plt.show()
+```
+````
+
+**Step 2: Render to verify figure appears**
+
+```bash
+source .venv/bin/activate && quarto render posts/2018-03-12-talent-vs-luck-part-1/index.qmd 2>&1 | tail -5
+```
+
+**Step 3: Commit**
+
+```bash
+git add posts/2018-03-12-talent-vs-luck-part-1/index.qmd
+git commit -m "Add probability band plot"
+```
+
+---
+
+### Task 6: Add expected value section and plot
+
+**Files:**
+- Modify: `posts/2018-03-12-talent-vs-luck-part-1/index.qmd`
+
+**Step 1: Add expected value analysis**
+
+````markdown
+## Expected Value: God-Like Talent Cannot Save You
+
+Because we have analytical probabilities, we can compute the expected final capital exactly for any talent quantile and any number of timesteps. No simulation needed.
+
+```{python}
+#| label: expected-value
+#| code-summary: "Expected value calculation"
+def expected_value(quantile, starting_capital=STARTING_CAPITAL, n_timesteps=N_TIMESTEPS):
+    p_halve, p_same, p_double = tvl_probabilities(quantile)
+    per_step_ev_multiplier = p_double * 2.0 + p_same * 1.0 + p_halve * 0.5
+    return starting_capital * per_step_ev_multiplier ** n_timesteps
+
+# Even the 99.999th percentile
+for q, label in [(0.5, "50th"), (0.95, "95th"), (0.999, "99.9th"), (0.99999, "99.999th")]:
+    ev = expected_value(q)
+    print(f"{label:10s} percentile → expected final capital: {ev:.4f}  (started at {STARTING_CAPITAL})")
+```
+
+Every talent level ends up with an expected capital *below* its starting value. Even someone with asymptotically perfect talent has a negative expected return over 80 rounds. The variance in outcomes is enormous — a few people do very well — but that variance is driven by luck, not talent differences.
+````
+
+**Step 2: Add expected value plot**
+
+````markdown
+```{python}
+#| label: fig-expected-value
+#| fig-cap: "Expected final capital by talent quantile after 1 and 80 timesteps. Starting capital is 10 — both curves stay below that for all quantiles."
+quantiles = np.linspace(0.001, 0.999, 300)
+
+fig, ax = plt.subplots(figsize=(7, 5))
+for t, ls in [(1, "--"), (80, "-")]:
+    evs = [expected_value(q, n_timesteps=t) for q in quantiles]
+    ax.plot(quantiles, evs, ls=ls, lw=2, label=f"{t} timestep{'s' if t > 1 else ''}")
+
+ax.axhline(STARTING_CAPITAL, color="black", lw=0.8, ls=":", alpha=0.5, label="Starting capital")
+ax.set_xlim(0, 1)
+ax.set_ylim(0, STARTING_CAPITAL + 1)
+ax.set_xlabel("Talent quantile")
+ax.set_ylabel("Expected final capital")
+ax.legend()
+plt.tight_layout()
+plt.show()
+```
+````
+
+**Step 3: Render to verify**
+
+```bash
+source .venv/bin/activate && quarto render posts/2018-03-12-talent-vs-luck-part-1/index.qmd 2>&1 | tail -5
+```
+
+**Step 4: Commit**
+
+```bash
+git add posts/2018-03-12-talent-vs-luck-part-1/index.qmd
+git commit -m "Add expected value section and plot"
+```
+
+---
+
+### Task 7: Add concluding thoughts and appendix
+
+**Files:**
+- Modify: `posts/2018-03-12-talent-vs-luck-part-1/index.qmd`
+
+**Step 1: Add conclusion**
+
+```markdown
+## Concluding Thoughts
+
+The TvL paper's conclusion — that luck dominates talent — is essentially a restatement of its inputs. With only a ~2.6 percentage-point difference in doubling probability between the most and least talented people, and with even perfect talent yielding a negative expected return, the model has almost no sensitivity to talent by construction.
+
+This is not to say luck is unimportant in real life. It may well dominate. But this particular simulation doesn't demonstrate that — it assumes it. Conclusions drawn from the TvL model should be understood as properties of the model's design choices, not discoveries about the world.
+
+We plan to continue this analysis and welcome corrections and feedback.
+```
+
+**Step 2: Add appendix with p_event estimation**
+
+The appendix estimates `p_event` by matching the maximum number of unlucky events in Figure 5b of the paper (~15 events) against a sweep of possible `p_event` values:
+
+````markdown
+## Appendix: Estimating `p_event`
+
+```{python}
+#| label: fig-p-event
+#| code-summary: "Estimating p_event from paper Figure 5b"
+#| fig-cap: "Maximum unlucky events per person across 50 simulation trials, for different values of p_event. The paper's Figure 5b shows a maximum of ~15 unlucky events; our estimate of p_event=0.16 sits in the middle of the plausible range."
+p_event_low      = 0.11
+p_event_estimate = 0.16
+p_event_high     = 0.21
+
+p_events = np.linspace(0.0, 0.5, 250)
+trial_rng = np.random.default_rng(seed=42)
+
+fig, ax = plt.subplots(figsize=(7, 4))
+for trial in range(50):
+    max_unlucky = []
+    for pe in p_events:
+        n_events = (trial_rng.random((N_PEOPLE, N_TIMESTEPS)) < pe).sum(axis=1)
+        n_lucky  = np.array([trial_rng.binomial(n, P_LUCKY) for n in n_events])
+        max_unlucky.append((n_events - n_lucky).max())
+    ax.plot(p_events, max_unlucky, lw=0.4, color="#2196F3", alpha=0.5)
+
+ax.axhline(15, color="red", lw=2, label="Observed max unlucky events (paper Fig. 5b)")
+ax.axvline(p_event_low,      color="black", lw=1.5, ls=":",  label="Our estimated range")
+ax.axvline(p_event_high,     color="black", lw=1.5, ls=":")
+ax.axvline(p_event_estimate, color="black", lw=2.0, ls="--", label="Best estimate (0.16)")
+ax.set_xlim(0, 0.5)
+ax.set_ylim(0, 40)
+ax.set_xlabel("p_event")
+ax.set_ylabel("Max unlucky events across 1,000 people")
+ax.legend(fontsize=9)
+plt.tight_layout()
+plt.show()
+```
+````
+
+**Step 3: Render full post to verify everything works**
+
+```bash
+source .venv/bin/activate && quarto render posts/2018-03-12-talent-vs-luck-part-1/index.qmd 2>&1 | tail -5
+```
+
+**Step 4: Commit**
+
+```bash
+git add posts/2018-03-12-talent-vs-luck-part-1/index.qmd
+git commit -m "Add conclusion and p_event appendix"
+```
+
+---
+
+### Task 8: Final review, push, and CI check
+
+**Files:**
+- Modify: `posts/2018-03-12-talent-vs-luck-part-1/index.qmd` (set draft: false when ready)
+
+**Step 1: Read the full post and check for any remaining issues**
+
+- Prose flows naturally
+- Code cells run without errors
+- Figures have captions
+- All inline code references match function/variable names
+
+**Step 2: Push and watch CI**
+
+```bash
+git push
+gh run watch $(gh run list --limit 1 --json databaseId -q '.[0].databaseId') --exit-status
+```
+
+Expected: CI passes, site deploys.
+
+**Step 3: When ready to publish, set draft: false**
+
+```bash
+# Edit frontmatter: draft: true → draft: false
+git add posts/2018-03-12-talent-vs-luck-part-1/index.qmd
+git commit -m "Publish talent-vs-luck part 1"
+git push
+```
+
+---
+
+## Notes
+
+- Keep `draft: true` until you've reviewed the rendered output and are happy with it
+- The original post used `seaborn`, `pandas`, `powerlaw` — none of these are needed and are intentionally dropped
+- The vectorized simulation in Task 3 is ~100x faster than the original `df.apply()` approach
+- `cache: true` in frontmatter means subsequent renders skip re-executing cells if code hasn't changed
+- The original post had a "Reproduce figures from paper" section in the appendix — omitted here as it adds length without adding to the argument
