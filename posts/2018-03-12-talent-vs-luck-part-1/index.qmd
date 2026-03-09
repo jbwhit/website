@@ -11,3 +11,28 @@ execute:
   cache: true
   warning: false
 ---
+
+The paper [Talent vs Luck: the role of randomness in success and failure](https://arxiv.org/abs/1802.07068) by Pluchino, Biondo, and Rapisarda was covered in [MIT Technology Review](https://www.technologyreview.com/s/610395/if-youre-so-smart-why-arent-you-rich-turns-out-its-just-chance/) and [Scientific American](https://www.scientificamerican.com/article/why-success-is-based-on-more-than-talent-and-work/). The authors build a simulation — the Talent vs Luck model (TvL) — and conclude:
+
+> We can conclude that, if there is not an exceptional talent behind the enormous success of some people, another factor is probably at work. Our simulation clearly shows that such a factor is just pure luck.
+> — Pluchino, Biondo, Rapisarda
+
+We argue this conclusion is **baked into the structure of the model from the start**.
+
+In the TvL model a person in the 95th percentile of talent has roughly a 6.1% chance of doubling their capital each timestep; a person in the 5th percentile has 3.4%. The difference between extreme outliers is only **~2.6 percentage points per timestep**. Starting from such a small difference between talent levels essentially guarantees the conclusion before the simulation even runs. Even granting someone god-like talent yields an expected final capital *lower* than what they started with after 80 rounds.
+
+## The TvL Model
+
+A high-level description of the model from the paper:
+
+- $N$ people are placed uniformly at random in a square environment and stay fixed.
+- $N$ events are also placed uniformly at random, each classified as Lucky or Unlucky (50/50).
+- The events randomly walk the environment each timestep.
+- At each timestep, capital is updated:
+  - **No overlap with an event:** capital unchanged.
+  - **Overlap with an Unlucky event:** capital halved.
+  - **Overlap with a Lucky event:** if a uniform random draw $u \in [0,1)$ is less than the person's talent score, capital doubles; otherwise unchanged.
+
+Talent is drawn from $\mathcal{N}(0.6,\ 0.1^2)$, truncated to $[0,1]$. Everyone starts with 10 units of capital and the simulation runs for 80 timesteps.
+
+The one parameter the paper does not give explicitly is $p_\text{event}$ — the probability that a given person overlaps an event at a given timestep. We estimate it in the appendix; our best estimate is **0.16**.
