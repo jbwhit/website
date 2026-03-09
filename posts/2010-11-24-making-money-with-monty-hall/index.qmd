@@ -9,7 +9,7 @@ description: "The Monty Hall problem is notorious for tripping up smart people. 
 
 ---
 
-There's a fun and notorious probability problem known as the [Monty Hall problem](https://en.wikipedia.org/wiki/Monty_Hall_problem). It's notorious for tons of reasons. The setup is simple.
+There's a fun and notorious probability problem known as the [Monty Hall problem](https://en.wikipedia.org/wiki/Monty_Hall_problem). It's famous for tripping up smart people. The setup is simple.
 
 You're on a game show and are presented with three closed doors: a prize behind 1 of the doors and non-prizes behind the other 2. Usually it's a car behind one door and a goat behind each of the other two.
 

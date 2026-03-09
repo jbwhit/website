@@ -78,7 +78,7 @@ I've studied numerous technologies and learning strategies over the years. I've 
 
 ## Going beyond retention
 
-I set this up as a retention focused problem. But the problem is actually much larger. If you can create a system that both teaches and helps you retain what you've learned you've done something special. 
+I set this up as a retention focused problem. But the problem is actually much larger. If you can create a system that both teaches and helps you retain what you've learned, you've done something special.
 
 This is where MathAcademy comes back in, offering a solution that addresses both the efficiency of learning and the challenge of long-term retention.
 
@@ -98,7 +98,7 @@ This point is important so I'll state it another way. There are many free and hi
 It's even more cool than that. They've developed a way of giving partial credit to lower level skills if you've just demonstrated a skill that relies on it. As I understand it, for example, if you do a higher level problem that requires a lower level skill to complete, you get partial reinforcement for that lower level skill. For more details, see: [this blog post on Fractional Implicit Repetition](https://www.justinmath.com/individualized-spaced-repetition-in-hierarchical-knowledge-structures/).
 :::
 
-Further, they aren't usually paired (as MathAcademy is) in a tight feedback loop with questions that test whether you could apply what you just learned. And finally, there is spaced-repetition built in, so it ensures that as your knowledge is elevated into the heavenly quintessence* before they fade away.
+Further, they aren't usually paired (as MathAcademy is) in a tight feedback loop with questions that test whether you could apply what you just learned. And finally, there is spaced-repetition built in, so it ensures that your knowledge is elevated into the heavenly quintessence* before it fades away.
 
 ::: {.column-margin}
 *The [heavenly quintessence](https://en.wikipedia.org/wiki/Aether_(classical_element)) is not real.

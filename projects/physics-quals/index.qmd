@@ -8,11 +8,11 @@ aliases:
 
 # UCSD Physics Qualifying Exams Archive
 
-I've maintained the UCSD Physics Qualifying Exams Archive on my website since 2008! This page provides access to a comprehensive collection of past qualifying exams for physics graduate students. Note: UCSD stopped administering qualifying exams in 2019, so there are no newer exams. If you have an exam that I'm missing or a correction please let me know!
+I've maintained the UCSD Physics Qualifying Exams Archive on my website since 2008! This page provides access to a comprehensive collection of past qualifying exams for physics graduate students. Note: UCSD stopped administering qualifying exams in 2019, so there are no newer exams. If you have an exam that I'm missing or a correction, please let me know!
 
 ## Download All PDFs by Year Range
 
-If you want to access multiple years at once here's bulk downloads:
+If you want to access multiple years at once, here are bulk downloads:
 
 | Year Range | Download Link |
 |------------|---------------|
