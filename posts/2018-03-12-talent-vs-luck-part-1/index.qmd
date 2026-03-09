@@ -36,3 +36,63 @@ A high-level description of the model from the paper:
 Talent is drawn from $\mathcal{N}(0.6,\ 0.1^2)$, truncated to $[0,1]$. Everyone starts with 10 units of capital and the simulation runs for 80 timesteps.
 
 The one parameter the paper does not give explicitly is $p_\text{event}$ — the probability that a given person overlaps an event at a given timestep. We estimate it in the appendix; our best estimate is **0.16**.
+
+## Setup
+
+```{python}
+#| label: setup
+#| code-summary: "Imports and parameters"
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as ss
+
+rng = np.random.default_rng(seed=20180312)
+
+# Paper's parameters
+N_PEOPLE = 1000
+N_TIMESTEPS = 80
+STARTING_CAPITAL = 10.0
+TALENT_MEAN = 0.6
+TALENT_SD = 0.1
+P_LUCKY = 0.5
+
+# Our estimate of p_event (derived in appendix)
+P_EVENT = 0.16
+```
+
+## Simulating the TvL model
+
+```{python}
+#| label: simulation
+#| code-summary: "Vectorized TvL simulation"
+def run_tvl_simulation(n_people=N_PEOPLE, n_timesteps=N_TIMESTEPS,
+                       starting_capital=STARTING_CAPITAL,
+                       talent_mean=TALENT_MEAN, talent_sd=TALENT_SD,
+                       p_event=P_EVENT, p_lucky=P_LUCKY, rng=rng):
+    """Run the TvL simulation; returns (talent array, final_capital array)."""
+    talent = np.clip(rng.normal(talent_mean, talent_sd, n_people), 0, 1)
+
+    # Pre-draw all random numbers: shape (n_people, n_timesteps)
+    event_roll   = rng.random((n_people, n_timesteps))
+    lucky_roll   = rng.random((n_people, n_timesteps))
+    capital_roll = rng.random((n_people, n_timesteps))
+
+    event_happens = event_roll < p_event
+    is_lucky      = lucky_roll < p_lucky
+    capitalizes   = capital_roll < talent[:, np.newaxis]
+
+    # multiplier per (person, timestep)
+    multiplier = np.where(
+        event_happens & is_lucky & capitalizes, 2.0,
+        np.where(event_happens & ~is_lucky, 0.5, 1.0)
+    )
+
+    final_capital = starting_capital * multiplier.prod(axis=1)
+    return talent, final_capital
+
+talent, final_capital = run_tvl_simulation()
+print(f"Median final capital:  {np.median(final_capital):.3f}")
+print(f"Mean final capital:    {np.mean(final_capital):.3f}")
+print(f"Max final capital:     {np.max(final_capital):.1f}")
+print(f"Fraction who grew:     {(final_capital > STARTING_CAPITAL).mean():.1%}")
+```
