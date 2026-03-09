@@ -8,6 +8,7 @@ categories: [probability, python]
 description: "A Monte Carlo simulation of the Monty Hall bet — ten million rounds of switching vs. staying, with Python code you can run yourself."
 execute:
   echo: true
+  cache: true
 ---
 
 In [my previous post](../2010-11-24-making-money-with-monty-hall/), I proposed a bet to a YouTube commenter who insisted the Monty Hall problem is a 50-50 coin flip. He declined to put money on it — so let's let the computer settle things instead.

@@ -29,6 +29,13 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
+      - name: Cache Quarto cell output
+        uses: actions/cache@v4
+        with:
+          path: posts/**/_cache
+          key: quarto-cache-${{ hashFiles('posts/**/*.qmd') }}
+          restore-keys: quarto-cache-
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
