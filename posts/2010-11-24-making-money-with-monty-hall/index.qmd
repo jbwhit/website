@@ -19,6 +19,8 @@ Assuming you want the prize, what strategy should you adopt? Should you stay or 
 
 ![The Monty Hall problem: you picked Door 1, the host reveals a goat behind Door 3. Do you switch to Door 2?](monty_open_door.svg){fig-alt="Three doors: Door 1 chosen by contestant, Door 3 opened showing a goat, Door 2 remaining closed." width=80% fig-align="center"}
 
+<p class="figure-caption text-muted" style="text-align:center; font-size:0.8rem;">Illustration by <a href="https://commons.wikimedia.org/wiki/User:Cepheus~commonswiki">Cepheus</a>, via <a href="https://commons.wikimedia.org/wiki/File:Monty_open_door.svg">Wikimedia Commons</a>. Public domain.</p>
+
 ::: {.column-margin}
 A common source of confusion is that the problem only works as stated because the host **knows** where the car is and **always** deliberately reveals a goat. This is part of the rules. The host is not opening a random door and getting lucky — the reveal is always informative about the other doors, never about yours. If the host opened doors randomly and happened to show a goat, the odds really would be 50-50.
 :::
