@@ -90,4 +90,3 @@ $ export PATH=/home/[your-username]/epd-7.0-1-rh5-x86_64/bin:$PATH
 
 
 Hopefully that helped!
-[![Enhanced by Zemanta](http://img.zemanta.com/zemified_e.png?x-id=f3b10ec6-abe4-4611-b2d7-6f49bd9b92c5)](http://www.zemanta.com/)

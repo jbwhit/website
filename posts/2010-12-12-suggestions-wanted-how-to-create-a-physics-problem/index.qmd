@@ -90,4 +90,3 @@ Now, I think it would be very useful to be able to store the problem and solutio
 
 
 Any suggestions or comments on how best to do this project would be greatly appreciated!
-[![Enhanced by Zemanta](http://img.zemanta.com/zemified_e.png?x-id=b155e9d4-a5fa-4fbe-a060-7bde99a941c9)](http://www.zemanta.com/)
