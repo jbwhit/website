@@ -148,3 +148,43 @@ ax.legend(loc="upper left")
 plt.tight_layout()
 plt.show()
 ```
+
+## Expected Value: God-Like Talent Cannot Save You
+
+Because we have analytical probabilities, we can compute the expected final capital exactly for any talent quantile and any number of timesteps. No simulation needed.
+
+```{python}
+#| label: expected-value
+#| code-summary: "Expected value calculation"
+def expected_value(quantile, starting_capital=STARTING_CAPITAL, n_timesteps=N_TIMESTEPS):
+    p_halve, p_same, p_double = tvl_probabilities(quantile)
+    per_step_ev_multiplier = p_double * 2.0 + p_same * 1.0 + p_halve * 0.5
+    return starting_capital * per_step_ev_multiplier ** n_timesteps
+
+# Even the 99.999th percentile
+for q, label in [(0.5, "50th"), (0.95, "95th"), (0.999, "99.9th"), (0.99999, "99.999th")]:
+    ev = expected_value(q)
+    print(f"{label:10s} percentile → expected final capital: {ev:.4f}  (started at {STARTING_CAPITAL})")
+```
+
+Every talent level ends up with an expected capital *below* its starting value. Even someone with asymptotically perfect talent has a negative expected return over 80 rounds. The variance in outcomes is enormous — a few people do very well — but that variance is driven by luck, not talent differences.
+
+```{python}
+#| label: fig-expected-value
+#| fig-cap: "Expected final capital by talent quantile after 1 and 80 timesteps. Starting capital is 10 — both curves stay below that for all quantiles."
+quantiles = np.linspace(0.001, 0.999, 300)
+
+fig, ax = plt.subplots(figsize=(7, 5))
+for t, ls in [(1, "--"), (80, "-")]:
+    evs = [expected_value(q, n_timesteps=t) for q in quantiles]
+    ax.plot(quantiles, evs, ls=ls, lw=2, label=f"{t} timestep{'s' if t > 1 else ''}")
+
+ax.axhline(STARTING_CAPITAL, color="black", lw=0.8, ls=":", alpha=0.5, label="Starting capital")
+ax.set_xlim(0, 1)
+ax.set_ylim(0, STARTING_CAPITAL + 1)
+ax.set_xlabel("Talent quantile")
+ax.set_ylabel("Expected final capital")
+ax.legend()
+plt.tight_layout()
+plt.show()
+```
