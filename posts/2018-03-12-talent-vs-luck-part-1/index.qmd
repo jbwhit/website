@@ -1,0 +1,13 @@
+---
+title: "Talent vs Luck: A Critical Response, Part 1"
+date: 2018-03-12
+date-modified: 2026-03-09
+author: Jonathan Whitmore
+draft: true
+categories: [python, statistics, simulation, data-science]
+description: "The 'Talent vs Luck' simulation paper's conclusion that luck dominates talent is baked into the model from the start — here's the math showing why."
+execute:
+  echo: true
+  cache: true
+  warning: false
+---

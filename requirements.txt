@@ -2,3 +2,4 @@ jupyter
 jupyter-cache
 numpy
 matplotlib
+scipy
