@@ -1,0 +1,18 @@
+---
+draft: true
+title: "Does an LLM Know What It Knows? Do You?"
+description: "Thoughts on knowledge synthesis."
+author: "Jonathan Whitmore"
+date: "2025-01-06"
+categories: [LLMs, knowledge, epistemology]
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+Imagine in the wake of a terrorist attack, the relevant intelligence agency with hundreds of analysts was asked whether they had enough information to act in time to stop it. Let's say that there were three pieces of information, that would have been enough if any single analyst had seen the information at the same time -- but that this information was written in three different reports by three different analysts.
+
+## What does it mean to know something?
+
+What does it mean to know something? I'm not meaning to go down a deep philosophical hole here, I'm going to try to keep it at an actionable level. Here's a first attempt at a working definition: if asked about the information, the person (or entity) could reply with the correct answer without referencing external sources. But, in this case, a person could have asked about each piece of information to the "agency" and received the correct information. What was missing was the synthesis or combination of pieces of information into a new piece of knowledge.
