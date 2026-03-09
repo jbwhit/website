@@ -56,6 +56,11 @@ Push to `main` triggers `.github/workflows/publish.yml`:
 
 GitHub Pages source must be set to "GitHub Actions" (not "Deploy from a branch").
 
+After pushing, verify the deploy succeeded:
+```bash
+gh run watch --exit-status
+```
+
 ## Theming
 
 Dual light/dark mode using flatly (light) and darkly (dark) Bootstrap themes, with custom SCSS overrides. Navbar sections: Home, Blog, Projects, Courses, About. Social icons: art portfolio, Twitter/X, YouTube, LinkedIn, GitHub, RSS.
