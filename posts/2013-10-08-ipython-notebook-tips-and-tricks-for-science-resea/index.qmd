@@ -12,11 +12,11 @@ David Lagattuta and I gave a seminar at CAS about using [python](http://www.pyth
 These notebooks have embedded in them examples of images, text, LaTeX, and even embedded YouTube screencasts that explain aspects of the notebook within the notebook itself.
 
 	
-- **ipython notebook: Future of Science**: [http://nbviewer.ipython.org/5742826](http://nbviewer.ipython.org/5742826)
+- **ipython notebook: Future of Science**: [https://nbviewer.jupyter.org/5742826](https://nbviewer.jupyter.org/5742826)
 	
-- **Clean Code; Clear Code**: [http://nbviewer.ipython.org/5742829](http://nbviewer.ipython.org/5742829)
+- **Clean Code; Clear Code**: [https://nbviewer.jupyter.org/5742829](https://nbviewer.jupyter.org/5742829)
 	
-- **The Future of Science -- EXTRAS**: [http://nbviewer.ipython.org/5742830](http://nbviewer.ipython.org/5742830)
+- **The Future of Science -- EXTRAS**: [https://nbviewer.jupyter.org/5742830](https://nbviewer.jupyter.org/5742830)
 
 
 Here's a screencast that we embedded which shows some neat ipython notebook features:

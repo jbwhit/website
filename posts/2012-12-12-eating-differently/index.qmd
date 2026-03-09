@@ -85,6 +85,6 @@ Also note that I decided to follow this diet after watching the following TED ta
 **TEDxIowaCity Dr. Terry Wahls**
 
 
-{{< video http://www.youtube.com/embed/KLjgBLwH3Wc >}}
+{{< video https://www.youtube.com/embed/KLjgBLwH3Wc >}}
 
 Your mileage may vary/buyer beware/consult doctor before changing stuff.

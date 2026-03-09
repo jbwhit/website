@@ -27,10 +27,10 @@ It was also my last talk that I will give as an astrophysicist because I'm start
 
 ## First my (interactive) slides
 
-My first [set of slides](http://nbviewer.IPython.org/gist/jbwhit/9e92102baf89fca350cf) -- I tried to export into a reveal.js slideshow, but I failed, so it's one long (downloadable) IPython notebook.
+My first [set of slides](https://nbviewer.jupyter.org/gist/jbwhit/9e92102baf89fca350cf) -- I tried to export into a reveal.js slideshow, but I failed, so it's one long (downloadable) IPython notebook.
 
 
-Second [set of slides](http://nbviewer.IPython.org/gist/jbwhit/39e744be42b5c3c07a3f) which includes the Bayesian Blocks example from the [AstroML: Machine Learning and Data Mining for Astronomy](http://www.astroml.org/) library.
+Second [set of slides](https://nbviewer.jupyter.org/gist/jbwhit/39e744be42b5c3c07a3f) which includes the Bayesian Blocks example from the [AstroML: Machine Learning and Data Mining for Astronomy](http://www.astroml.org/) library.
 
 ## Example of the future of science
 
@@ -44,13 +44,13 @@ A possible flow of events
 
 - download the IPython notebook code (from github) + data; play with it.
 
-- Play with it in your own [IPython notebook](http://IPython.org/notebook.html).
+- Play with it in your own [IPython notebook](https://jupyter.org/).
 
 - Paste your final notebook (text file) into a [github gist](http://gist.github.com)
 
-- Paste link into the [IPython notebook viewer](http://nbviewer.IPython.org/) (remember to remove the .git at the end of the URL).
+- Paste link into the [IPython notebook viewer](https://nbviewer.jupyter.org/) (remember to remove the .git at the end of the URL).
 
-- Now you have an [nbviewer URL](http://nbviewer.IPython.org/gist/jbwhit/effabf41318c61f69dcd).
+- Now you have an [nbviewer URL](https://nbviewer.jupyter.org/gist/jbwhit/effabf41318c61f69dcd).
 
 
 
@@ -100,7 +100,7 @@ IPython notebook links
 
 
 
-- [Notebook Viewer](http://nbviewer.IPython.org/)
+- [Notebook Viewer](https://nbviewer.jupyter.org/)
 
 - The IPython notebook is moving to the [Project Jupyter](http://jupyter.org/) in the near future. Don't worry this is the same old IPython notebook thing, but it's rebranding because it now supports R, Julia and other languages.
 

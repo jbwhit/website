@@ -17,7 +17,7 @@ The data is already impressive; in a few years, there are about one million stud
 I've written about my thoughts on the future of education before, and I didn't have a clear concept of exactly what the teachers would be doing if there was an adaptive computer model that instructed students based on their history and current understanding. Khan argues that this humanizes the classroom experience; I am surprised but I think he is correct.
 
 
-{{< video http://www.youtube.com/embed/nTFEUsudhfs >}}
+{{< video https://www.youtube.com/embed/nTFEUsudhfs >}}
 
 
 I think Khan is missing one piece (or at least, I haven't heard that it has the following piece): I think he needs to open up the possibility for videos from people besides himself. Now, this doesn't mean that he has to accept any, and hell, I think he's earned the title of Benevolent Dictator for Life on what is displayed by the Khan Academy. But there are a number of subjects that can be pressed into and teachers who are willing to contribute in useful ways that simply cannot be implemented by Khan himself.
