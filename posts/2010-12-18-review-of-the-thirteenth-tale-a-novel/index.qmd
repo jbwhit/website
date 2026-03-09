@@ -4,7 +4,8 @@ date: 2010-12-18
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A mixed review of Diane Setterfield's gothic mystery novel The Thirteenth Tale, praising its atmosphere while critiquing its overly tidy plot resolutions."
+categories: [books, personal]
 ---
 
 [![The Thirteenth Tale](http://jonathanwhitmore.com/wp-content/uploads/2010/12/51ILCS6EtSL._SL160_.jpg)](http://www.amazon.com/gp/product/0743298039?ie=UTF8&tag=religdebat-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0743298039)I just finished reading [The Thirteenth Tale: A Novel](http://www.amazon.com/gp/product/0743298039?ie=UTF8&amp;tag=religdebat-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0743298039) by Diane Setterfield.

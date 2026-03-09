@@ -4,7 +4,8 @@ date: 2010-12-16
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A collection of witty Reddit comments from a Wikileaks thread, showcasing internet humor at its best — from fake Caesar quotes to an escalating chain of context-stripped quotations."
+categories: [personal, humor]
 ---
 
 [![Gaius Julius Caesar, Art History Museum, Vienn...](http://upload.wikimedia.org/wikipedia/commons/thumb/4/48/0092_-_Wien_-_Kunsthistorisches_Museum_-_Gaius_Julius_Caesar.jpg/300px-0092_-_Wien_-_Kunsthistorisches_Museum_-_Gaius_Julius_Caesar.jpg)](http://commons.wikipedia.org/wiki/File:0092_-_Wien_-_Kunsthistorisches_Museum_-_Gaius_Julius_Caesar.jpg)Image via [Wikipedia](http://commons.wikipedia.org/wiki/File:0092_-_Wien_-_Kunsthistorisches_Museum_-_Gaius_Julius_Caesar.jpg)

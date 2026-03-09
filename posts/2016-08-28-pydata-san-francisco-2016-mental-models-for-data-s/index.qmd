@@ -3,7 +3,8 @@ title: "PyData San Francisco 2016 -- Mental Models for Data Science"
 date: 2016-08-28
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A recording and notes from my PyData San Francisco 2016 talk on mental models data scientists should use — and avoid — when approaching problems."
+categories: [data-science, talks]
 ---
 
 I gave a [talk](http://pydata.org/sfo2016/schedule/presentation/34/) this month at [PyData San Francisco 2016](http://pydata.org/sfo2016/). The title of my talk was [Mental Models to Use and Avoid as a Data Scientist](http://pydata.org/sfo2016/schedule/presentation/34/)

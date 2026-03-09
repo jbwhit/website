@@ -3,7 +3,8 @@ title: "Birthrate by Month"
 date: 2010-12-01
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "Investigating a $20 bet about whether US birth rates vary significantly by month, using 1995–2002 CDC data — the answer turns out to be about a 6% difference between the high and low halves of the year."
+categories: [statistics, data-science]
 ---
 
 I was in a discussion about horoscopes and how they're wrong, when a possibly crazy claim came up: most people are born in one half of the year instead of another.

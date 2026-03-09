@@ -3,7 +3,8 @@ title: "Getting Optimal Weight from a Spectrum"
 date: 2010-10-03
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A derivation of the optimal per-pixel weighting for measuring Doppler velocity shifts from a spectrum, based on the signal-to-noise and spectral gradient at each pixel."
+categories: [astronomy, physics, science]
 ---
 
 To derive the equation for the information one can get from a spectrum.

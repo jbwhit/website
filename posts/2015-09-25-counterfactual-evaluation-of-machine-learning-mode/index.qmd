@@ -3,7 +3,8 @@ title: "Counterfactual evaluation of machine learning models (PyData Talk)"
 date: 2015-09-25
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A highlight of Michael Manapat's PyData Seattle 2015 talk on counterfactual evaluation — a rigorous framework for measuring the real-world impact of machine learning models."
+categories: [data-science, machine-learning, statistics]
 ---
 
 Here is an excellent talk by Michael Manapat at the [PyData Seattle 2015](http://seattle.pydata.org/) conference. I wish that this style of talk -- of really digging deep with specific examples -- becomes more common!

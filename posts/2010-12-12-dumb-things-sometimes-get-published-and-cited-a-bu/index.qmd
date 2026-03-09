@@ -4,7 +4,8 @@ date: 2010-12-12
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A peer-reviewed paper in Diabetes Care that essentially rediscovered the trapezoidal rule has been cited over 130 times — a cautionary tale about publication standards in science."
+categories: [science, statistics, education]
 ---
 
 [![Trapezoidal rule illustration](http://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Trapezoidal_rule_illustration_small.svg/300px-Trapezoidal_rule_illustration_small.svg.png)](http://commons.wikipedia.org/wiki/File:Trapezoidal_rule_illustration_small.svg) Image via [Wikipedia](http://commons.wikipedia.org/wiki/File:Trapezoidal_rule_illustration_small.svg) 

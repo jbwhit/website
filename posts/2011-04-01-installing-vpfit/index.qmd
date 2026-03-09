@@ -1,9 +1,10 @@
 ---
 title: "Installing VPFIT"
 date: 2011-04-01
+description: "Step-by-step instructions for compiling and installing VPFIT, the Voigt profile fitting program, on Ubuntu, including the required apt packages and makefile changes."
 author: Jonathan Whitmore
 draft: true
-categories: []
+categories: [astronomy, tools]
 ---
 
 If you want to install [VPFIT](http://www.ast.cam.ac.uk/~rfc/vpfit.html) on Ubuntu 11.04, doing the following I have a 50% success rate.

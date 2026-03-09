@@ -2,9 +2,10 @@
 title: "The Future of Education"
 date: 2011-03-11
 date-modified: 2026-03-08
+description: "Reflections on Khan Academy and the future of online education, including a proposal for community-contributed video lessons tested through randomized A/B experiments."
 author: Jonathan Whitmore
 draft: true
-categories: []
+categories: [education, science]
 ---
 
 I think that the future of education is an amazingly interesting idea to kick around. To begin with, I fully recommend watching the video of Salman Khan at TED where he talks about his [Khan academy](http://www.khanacademy.org/) (I've embedded the talk below). This Khan academy is a nonprofit that he started after several tutorial videos that he made for his cousins on youtube started garnering an intense interest and following. He currently has over 2,000 videos that he has uploaded that teach a whole range of topics: from mathematics to biology to history.

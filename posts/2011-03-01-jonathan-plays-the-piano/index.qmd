@@ -4,7 +4,8 @@ date: 2011-03-01
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A video recording of Jonathan playing Gershwin's Prelude No. 2 on piano, shared as a personal accountability exercise for practicing more regularly."
+categories: [music, personal]
 ---
 
 I was messing around and recorded myself playing Gershwin's Prelude 2 (which is still under copyright, funny enough).

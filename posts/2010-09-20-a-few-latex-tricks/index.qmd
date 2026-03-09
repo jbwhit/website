@@ -3,7 +3,8 @@ title: "A few LaTeX tricks"
 date: 2010-09-20
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A collection of practical LaTeX tips: rendering math in WordPress, scaling figures relative to text width, and using the figure* environment to span double-column layouts."
+categories: [latex, tools]
 ---
 
 I learned several neat LaTeX tricks in the past few days. The first is how to write LaTeX in my wordpress blog entry:

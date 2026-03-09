@@ -1,9 +1,10 @@
 ---
 title: "Using Dropbox and Git to write LaTeX papers"
 date: 2011-03-02
+description: "A workflow for collaborating on LaTeX papers using Dropbox as a shared git remote, with tips on ignoring LaTeX build artifacts and writing one sentence per line for cleaner diffs."
 author: Jonathan Whitmore
 draft: true
-categories: []
+categories: [latex, git, tools, productivity]
 ---
 
 First things first -- [Dropbox](http://db.tt/xRUtJza) is awesome. (Also, if you signup through that link, we both get extra free space... so do it). It's a service that syncs a folder on your computer with a central server -- and any other computers you have Dropbox installed on. But it does much more than that -- you can share subfolders with other Dropbox users. For example, if I want to give my roommate a directory full of PDFs, I can just drag the directory into our shared folder, and Dropbox will automatically sync it so that he gets all the files without doing anything. Also, the files are on your computer -- so if you lose internet or are on an airplane, you interact w/ the files just like any others on your computer.

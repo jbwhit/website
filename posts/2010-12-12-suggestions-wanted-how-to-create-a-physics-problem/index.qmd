@@ -4,7 +4,8 @@ date: 2010-12-12
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "Seeking ideas for building a searchable database of UCSD physics qualifying exam problems, with features like subject filtering and random exam generation."
+categories: [physics, education]
 ---
 
 [![Physics](http://upload.wikimedia.org/wikipedia/commons/7/7b/Physics.jpg)](http://commons.wikipedia.org/wiki/File:Physics.jpg)Image via [Wikipedia](http://commons.wikipedia.org/wiki/File:Physics.jpg)

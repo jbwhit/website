@@ -3,7 +3,8 @@ title: "So you wanna Data Science..."
 date: 2018-01-23
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A practical guide for career-changers breaking into data science: what to focus on (Python, SQL, statistics, machine learning), what to avoid, and how to find your first role."
+categories: [data-science, education, career]
 ---
 
 There are a number of blog posts that will describe what a person thinks is useful to know about getting into Data Science. And this is mine.

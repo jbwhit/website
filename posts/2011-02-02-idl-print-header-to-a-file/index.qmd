@@ -3,7 +3,8 @@ title: "IDL print header to a file"
 date: 2011-02-02
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A short IDL code snippet showing how to extract FITS file headers and write them to an ASCII text file."
+categories: [astronomy, tools]
 ---
 
 Here is a snippet to grab the headers of fits files and print them into a real format like ascii.

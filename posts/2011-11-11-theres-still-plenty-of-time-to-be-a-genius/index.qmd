@@ -2,9 +2,10 @@
 title: "There's still plenty of time to be a genius!"
 date: 2011-11-11
 date-modified: 2026-03-08
+description: "Reanalyzing the claim that scientists peak before 30 by arguing that the data actually reflects one exceptional quantum-mechanics generation dominating physics across two decades."
 author: Jonathan Whitmore
 draft: true
-categories: []
+categories: [science, physics]
 ---
 
 [caption id="" align="alignright" width="300" caption="Image via Wikipedia"][![Stern-Gerlach Experiment de](http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Stern-Gerlach_Experiment_de.png/300px-Stern-Gerlach_Experiment_de.png)](http://commons.wikipedia.org/wiki/File:Stern-Gerlach_Experiment_de.png)[/caption]

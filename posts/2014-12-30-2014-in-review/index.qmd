@@ -3,7 +3,8 @@ title: "2014 in Review"
 date: 2014-12-30
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A year-in-review of 2014: finishing a postdoc, publishing a paper, moving from Australia to the San Francisco Bay Area, completing the Insight Data Science fellowship, and starting a job as a data scientist."
+categories: [personal, data-science]
 ---
 
 [![Berlin](http://jonathanwhitmore.com/wp-content/uploads/2014/12/37-2014-06-21-15.53.18-300x225.jpg)](http://jonathanwhitmore.com/wp-content/uploads/2014/12/37-2014-06-21-15.53.18.jpg) Thanks to everyone who helped make this past year great – I’ve been incredibly fortunate to have people who have helped support me in all of my adventures. Below are a few highlights from 2014!

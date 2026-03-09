@@ -4,7 +4,8 @@ date: 2011-01-23
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A defense of childhood vaccination and an endorsement of proposals to charge higher insurance premiums to parents who refuse vaccines, examining the public health and economic consequences of vaccine hesitancy."
+categories: [science, health, education]
 ---
 
 [![The following is the author](http://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Syringe_with_Green_Fluid.jpg/300px-Syringe_with_Green_Fluid.jpg)](http://commons.wikipedia.org/wiki/File:Syringe_with_Green_Fluid.jpg)Image via [Wikipedia](http://commons.wikipedia.org/wiki/File:Syringe_with_Green_Fluid.jpg)

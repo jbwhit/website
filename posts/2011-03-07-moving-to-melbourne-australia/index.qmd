@@ -2,9 +2,10 @@
 title: "Moving to Melbourne, Australia"
 date: 2011-03-07
 date-modified: 2026-03-08
+description: "Announcing an upcoming move to Melbourne, Australia to begin a postdoctoral position in extragalactic fundamental physics at Swinburne University of Technology."
 author: Jonathan Whitmore
 draft: true
-categories: []
+categories: [personal, astronomy]
 ---
 
 [caption id="" align="alignright" width="300" caption="Image via Wikipedia"][![Melbourne](http://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Melbourne_docklands_twilight.jpg/300px-Melbourne_docklands_twilight.jpg)](http://commons.wikipedia.org/wiki/File:Melbourne_docklands_twilight.jpg)[/caption]

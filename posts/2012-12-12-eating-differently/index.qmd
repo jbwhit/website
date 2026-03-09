@@ -4,7 +4,8 @@ date: 2012-12-12
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A personal account of adopting a Paleo/Primal diet for health reasons, covering what's allowed and avoided, a skeptic's take on the diet's rationale, and recommended resources."
+categories: [personal, health]
 ---
 
 I've been inspired to write up a bit about what I have been eating. The long and the short of it is that I'm basically following the "Paleo"/"Primal" diet (since July 2012), for health reasons (as in my goal was not for weight loss).

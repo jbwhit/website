@@ -3,7 +3,8 @@ title: "South Park makes me really happy sometimes"
 date: 2010-12-02
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A short playlist of two South Park YouTube clips guaranteed to make you smile, clocking in at under four minutes total."
+categories: [personal, humor]
 ---
 
 I've embedded a YouTube playlist that will play two videos back to back. I promise it's worth it to fully watch both videos.

@@ -4,7 +4,8 @@ date: 2011-02-12
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A personal account of running the Death Valley Borax 10K race, including a GPS-tracked Google Earth flythrough video of the course."
+categories: [running, personal]
 ---
 
 [caption id="" align="alignright" width="300" caption="Image via Wikipedia"][![Dunes at Death Valley, Ca looking east towards...](http://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Quietdunes.jpg/300px-Quietdunes.jpg)](http://commons.wikipedia.org/wiki/File:Quietdunes.jpg)[/caption]

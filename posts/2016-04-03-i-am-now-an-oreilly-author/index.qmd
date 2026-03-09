@@ -3,7 +3,8 @@ title: "I am now an O'Reilly Author!"
 date: 2016-04-03
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "Announcing the release of my O'Reilly screencast course, Jupyter Notebook for Data Science Teams, covering collaborative workflows, version control, and sharing notebooks."
+categories: [data-science, python, jupyter, education]
 ---
 
 My O'Reilly screencast course is now available: [Jupyter Notebook for Data Science Teams](http://shop.oreilly.com/product/0636920044260.do)! I've been working on this project for many months, and I'm so happy that it has finally completed.

@@ -3,7 +3,8 @@ title: "A few more LaTeX tricks"
 date: 2010-09-24
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "How to typeset a variable-height 'evaluated at' bar in LaTeX using \\left. and \\right|, with an explanation of why the invisible \\left. is required."
+categories: [latex, tools]
 ---
 
 Just happened to be a week where I figured out a lot of LaTeX things at once -- and I wanted to get them down before they are lost forever.

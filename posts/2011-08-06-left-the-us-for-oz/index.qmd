@@ -2,9 +2,10 @@
 title: "Left the US for Oz"
 date: 2011-08-06
 date-modified: 2026-03-08
+description: "A brief update on arriving in Melbourne, Australia to start a postdoc at Swinburne University, with some wry observations about the US debt-ceiling crisis happening back home."
 author: Jonathan Whitmore
 draft: true
-categories: []
+categories: [personal]
 ---
 
 [caption id="" align="alignright" width="240" caption="Image by WilLiao via Flickr"][![Library of Swinburne University](http://farm1.static.flickr.com/20/73345897_183069db03_m.jpg)](http://www.flickr.com/photos/21743454@N00/73345897)[/caption]

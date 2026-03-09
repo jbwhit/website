@@ -3,7 +3,8 @@ title: "Jupyter Notebook Best Practices for Data Science"
 date: 2015-07-24
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A talk from OSCON 2015 covering best practices for using Jupyter Notebooks in a data science workflow, particularly when collaborating on a team."
+categories: [data-science, python, tools, jupyter]
 ---
 
 I gave a [talk](http://www.oscon.com/open-source-2015/public/schedule/detail/42315) on Friday (July 24) at the 2015 [OSCON](http://www.oscon.com/open-source-2015/public/schedule/grid/public) in Portland, OR. My topic was on the IPython (Jupyter) Notebook for Data Science, and it highlighted a number of challenges that come from needing to organize a data science workflow -- especially in the context of working on a team of data scientists.

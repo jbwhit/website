@@ -3,7 +3,8 @@ title: "ipython notebook tips and tricks for science research"
 date: 2013-10-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "Resources and notebooks from a seminar on using Python and the IPython Notebook for scientific research, covering clean code practices and the future of reproducible science."
+categories: [python, science, tools, education]
 ---
 
 David Lagattuta and I gave a seminar at CAS about using [python](http://www.python.org/), [ipython](http://ipython.org/) and the [ipython notebook](http://ipython.org/notebook.html). At the end of it we made 3 of our ipython notebooks available to all.

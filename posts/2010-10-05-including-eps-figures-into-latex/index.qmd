@@ -3,7 +3,8 @@ title: "Including eps figures into LaTeX"
 date: 2010-10-05
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "Tips for including EPS figures in LaTeX with the graphicx package, including automatic PDF conversion and a workaround for a bug with relative paths containing '..'."
+categories: [latex, tools]
 ---
 
 I have a folder for my images that I include in my LaTeX documents called "img". My graphics package is set by (it used to be slightly different -- see bug report below):

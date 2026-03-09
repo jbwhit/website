@@ -3,7 +3,8 @@ title: "Data Reduction of VLT-UVES"
 date: 2012-03-30
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A step-by-step walkthrough of reducing VLT-UVES spectroscopic data using UVES_headsort and a helper Python script to organize raw FITS files and generate reduction scripts."
+categories: [astronomy, python, science]
 ---
 
 The end goal will be to run [UVES_headsort](http://astronomy.swin.edu.au/~mmurphy/UVES_headsort.html) to correctly setup the reduction scripts to reduce science exposures. Let's look at reducing the VLT-UVES science exposures for a single object: vesta.

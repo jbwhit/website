@@ -2,9 +2,10 @@
 title: "Suggestions for Moving to Melbourne"
 date: 2011-09-27
 date-modified: 2026-03-08
+description: "Practical tips for relocating to Melbourne: setting up a bank account, navigating the rental market, and assembling a strong apartment application as an international arrival."
 author: Jonathan Whitmore
 draft: true
-categories: []
+categories: [personal]
 ---
 
 [caption id="" align="alignright" width="300" caption="Image via Wikipedia"][![Melbourne Docklands area, taken from the terra...](http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Melbourne_docklands_area.jpg/300px-Melbourne_docklands_area.jpg)](http://commons.wikipedia.org/wiki/File:Melbourne_docklands_area.jpg)[/caption]

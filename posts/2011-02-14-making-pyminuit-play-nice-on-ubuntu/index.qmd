@@ -4,7 +4,8 @@ date: 2011-02-14
 date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "Step-by-step instructions for installing PyMinuit (the Python wrapper for CERN's Minuit minimizer) on 64-bit Ubuntu with the Enthought Python Distribution, including a fix for a C++ compilation error."
+categories: [python, tools]
 ---
 
 [caption id="" align="alignright" width="300" caption="Image via Wikipedia"][![Python logo](http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Python_logo.svg/300px-Python_logo.svg.png)](http://commons.wikipedia.org/wiki/File:Python_logo.svg)[/caption]

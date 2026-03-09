@@ -3,7 +3,8 @@ title: "2016 Year in Review"
 date: 2017-01-08
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A personal review of 2016: highlights from travel, a wedding reception in Lithuania, art shows, the O'Reilly course launch, and books recommended from the year."
+categories: [personal]
 ---
 
 ## Some of my major life highlights:

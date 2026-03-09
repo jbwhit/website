@@ -3,7 +3,8 @@ title: "2014 Harley Wood Winter School Invited Talk"
 date: 2014-07-26
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "Slides and resources from an invited talk on reproducible open notebook science at the 2014 Harley Wood Winter School, covering IPython notebooks, scientific workflow, and tools for sharing research."
+categories: [python, science, tools, astronomy]
 ---
 
 # Reproducible Open Notebook Science

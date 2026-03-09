@@ -3,7 +3,8 @@ title: "2015 Year in Review"
 date: 2015-12-31
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A personal look back at 2015: getting married, finishing a first year as a data scientist at SVDS, conferences attended, and books worth reading."
+categories: [personal]
 ---
 
 Another post to reflect on all that's happened in the past year! I'm beginning writing this post while on a flight to Maui for my honeymoon with my lovely wife sleeping next to me. What a difference a year makes!

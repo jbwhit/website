@@ -3,7 +3,8 @@ title: "If you like dancing..."
 date: 2010-12-14
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "An introduction to hand-dancing: a delightful and quirky video guaranteed to brighten your day."
+categories: [personal, humor]
 ---
 
 How about hand-dancing? Don't know what I'm talking about? Watch the following, it'll brighten your day:

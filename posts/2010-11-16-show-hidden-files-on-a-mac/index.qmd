@@ -3,7 +3,8 @@ title: "Show Hidden Files on a Mac"
 date: 2010-11-16
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "Two Terminal commands to toggle the display of hidden dot-files in macOS Finder, and why killall Finder is needed to apply the change immediately."
+categories: [macos, tools]
 ---
 
 How to show hidden files on a Mac:

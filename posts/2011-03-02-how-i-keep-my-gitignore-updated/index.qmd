@@ -3,7 +3,8 @@ title: "How I Keep My GitIgnore Updated"
 date: 2011-03-02
 author: Jonathan Whitmore
 draft: true
-categories: []
+description: "A bash script that automates keeping a .gitignore file current by pulling language- and editor-specific ignore rules from GitHub's gitignore repository."
+categories: [tools, productivity]
 ---
 
 The bash script that keeps my gitignore file up to date — I store it in `~/Dropbox/scripts/git`.
