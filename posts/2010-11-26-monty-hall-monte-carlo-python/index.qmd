@@ -1,0 +1,96 @@
+---
+title: "Monty Hall Monte Carlo — Python"
+date: 2010-11-26
+author: Jonathan Whitmore
+draft: false
+categories: [probability, python]
+description: "A Monte Carlo simulation of the Monty Hall bet — ten million rounds of switching vs. staying, with Python code you can run yourself."
+execute:
+  echo: true
+---
+
+In [my previous post](../2010-11-24-making-money-with-monty-hall/), I proposed a bet to a YouTube commenter who insisted the Monty Hall problem is a 50-50 coin flip. He declined to put money on it — so let's let the computer settle things instead.
+
+Below is a Monte Carlo simulation that plays the bet millions of times. The "stay" player always keeps Door 1; the "switch" player always switches to the remaining closed door after a goat is revealed. The payout terms: the switcher pays $1.08 when staying wins, and the stayer pays $1.00 when switching wins.
+
+```{python}
+#| label: setup
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(seed=42)
+```
+
+## The simulation
+
+```{python}
+#| label: simulation
+ROUNDS = 10_000_000
+SWITCH_BET = 1.08  # switcher pays this when staying wins
+STAY_BET = 1.00    # stayer pays this when switching wins
+DOORS = np.array([1, 2, 3])
+
+STAY_DOOR = 1
+
+# Randomly place the prize behind a door each round
+winning_doors = rng.choice(DOORS, size=ROUNDS)
+
+# Staying wins when the prize is behind Door 1
+stay_wins = winning_doors == STAY_DOOR
+
+# Switching wins whenever staying loses (the revealed door is never the prize)
+switch_wins = ~stay_wins
+
+stay_win_count = stay_wins.sum()
+switch_win_count = switch_wins.sum()
+
+# Net payouts
+switch_net = switch_win_count * STAY_BET - stay_win_count * SWITCH_BET
+stay_net = -switch_net
+
+print(f"Rounds:              {ROUNDS:>12,}")
+print(f"Stay wins:           {stay_win_count:>12,}  ({stay_win_count / ROUNDS:.2%})")
+print(f"Switch wins:         {switch_win_count:>12,}  ({switch_win_count / ROUNDS:.2%})")
+print(f"Stayer nets:         ${stay_net:>12,.2f}")
+print(f"Switcher nets:       ${switch_net:>12,.2f}")
+```
+
+Switching wins about 2/3 of the time — exactly as the math predicts. Even with the switcher paying an 8% premium on losses, the edge is overwhelming over millions of rounds.
+
+## Convergence plot
+
+As the number of rounds grows, the win ratios converge to their true probabilities: 1/3 for staying, 2/3 for switching.
+
+```{python}
+#| label: fig-convergence
+#| fig-cap: "Win ratio convergence over 10 million rounds"
+cumulative_stay = np.cumsum(stay_wins)
+cumulative_switch = np.cumsum(switch_wins)
+rounds = np.arange(1, ROUNDS + 1)
+
+# Sample points for plotting (log-spaced to keep the plot manageable)
+idx = np.unique(np.geomspace(1, ROUNDS, num=2000).astype(int)) - 1
+
+fig, ax = plt.subplots(figsize=(9, 5))
+ax.semilogx(rounds[idx], cumulative_stay[idx] / rounds[idx], label="Stay", color="#e74c3c")
+ax.semilogx(rounds[idx], cumulative_switch[idx] / rounds[idx], label="Switch", color="#2ecc71")
+ax.axhline(1 / 3, color="#e74c3c", linestyle="--", alpha=0.4, label="1/3")
+ax.axhline(2 / 3, color="#2ecc71", linestyle="--", alpha=0.4, label="2/3")
+ax.set_xlabel("Rounds played")
+ax.set_ylabel("Win ratio")
+ax.set_title("Monty Hall Monte Carlo — Win Ratio Convergence")
+ax.legend()
+ax.set_ylim(0, 1)
+plt.tight_layout()
+plt.show()
+```
+
+## Try it yourself
+
+Want to run this locally? With [uv](https://docs.astral.sh/uv/) installed:
+
+```bash
+uv run --with numpy --with matplotlib monty_hall.py
+```
+
+Or copy the code blocks above into a Jupyter notebook and experiment — try changing the number of doors, the bet amounts, or the number of rounds.

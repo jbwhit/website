@@ -3,7 +3,8 @@ title: "Making Money with Monty Hall"
 date: 2010-11-24
 author: Jonathan Whitmore
 draft: false
-categories: []
+categories: [probability, python]
+description: "The Monty Hall problem is notorious for tripping up smart people. Here's how I tried to turn a wrong answer into a wager."
 
 ---
 
@@ -26,12 +27,12 @@ It's a notorious problem because most people — especially somewhat math-inclin
 
 ## The YouTube Argument
 
-There's a YouTube video that mentions the Monty Hall problem and the correct solution. A commenter insisted the real odds are 50-50 — and confronted with the possibility that [someone is wrong on the internet](http://xkcd.com/386/) — I engaged with YouTube user adolthitler.
+There's a YouTube video that mentions the Monty Hall problem and the correct solution. A commenter insisted the real odds are 50-50 — and confronted with the possibility that [someone is wrong on the internet](http://xkcd.com/386/) — I engaged.
 
 After a lot of back and forth, the last volley was:
 
-:::{.callout-note title="jbwhitmore (me)"}
-@adolthitler I don't forget that the door is removed — and it isn't just removed, it's *revealed* — and that is crucial to why a person should switch.
+:::{.callout-note title="Me"}
+I don't forget that the door is removed — and it isn't just removed, it's *revealed* — and that is crucial to why a person should switch.
 
 **(a)** If you happened to have picked a door with a goat, when the only other goat is revealed, you are **guaranteed to win the car if you switch**.
 
@@ -40,8 +41,8 @@ After a lot of back and forth, the last volley was:
 It's not opinion, it's math.
 :::
 
-:::{.callout-warning title="adolthitler"}
-@jbwhitmore its opinioinated math. There are two doors left. NOT THREE. Its now 50% chnace the car is behind door 1, and 50% its behind door 3, thats simple math.
+:::{.callout-warning title="The commenter"}
+Its opinioinated math. There are two doors left. NOT THREE. Its now 50% chnace the car is behind door 1, and 50% its behind door 3, thats simple math.
 
 Who cares when you made the choice? It does not affect the outcome.
 
@@ -56,14 +57,14 @@ So: wrong, impervious to correction, and publicly proclaiming he's right at my e
 
 ## The Bet
 
-Since adolthitler thinks the odds are 50-50 whether you switch or stay, and I think they're 2/3 vs. 1/3 for switching, we pay each other depending on whose strategy wins each round:
+Since this commenter thinks the odds are 50-50 whether you switch or stay, and I think they're 2/3 vs. 1/3 for switching, we pay each other depending on whose strategy wins each round:
 
 | Outcome | Payout |
 |---------|--------|
-| Staying wins (Door 1 had the car) | I pay adolthitler **$1.08** |
-| Switching wins (Door 2 or 3 had the car) | adolthitler pays me **$1.00** |
+| Staying wins (Door 1 had the car) | I pay him **$1.08** |
+| Switching wins (Door 2 or 3 had the car) | He pays me **$1.00** |
 
-That's an 8% payout difference on what adolthitler thinks is a coin flip — and if he's got conviction, he should really want to play as many times as possible.
+That's an 8% payout difference on what he thinks is a coin flip — and if he's got conviction, he should really want to play as many times as possible.
 
 ### How the rounds work
 
@@ -71,7 +72,7 @@ Using a [random number generator](http://www.random.org/integers/?num=1000&min=1
 
 1. We both always pick **Door 1** to start.
 2. One goat door is revealed (from Door 2 or 3).
-3. I am forced to **switch** to the remaining closed door. adolthitler is forced to **stay** with Door 1.
+3. I am forced to **switch** to the remaining closed door. He is forced to **stay** with Door 1.
 4. Whoever picked the right door gets paid by the other.
 
 ### First 10 rounds
@@ -93,6 +94,4 @@ Using the first 10 random prize placements:
 
 After 10 rounds: 6 wins, 4 losses — right in line with the 2/3 prediction — and I'm up $1.68.
 
-How many rounds would you like to play? A thousand? A million? Ten million? I'll play until someone goes bankrupt. Or [let the computer play a million rounds for you](../2010-11-25-monty-hall-monte-carlo-python/).
-
-*Side-bet to any interested readers: how long before adolthitler gives up?*
+How many rounds would you like to play? A thousand? A million? Ten million? I'll play until someone goes bankrupt. Or [let the computer play ten million rounds for you](../2010-11-26-monty-hall-monte-carlo-python/).
