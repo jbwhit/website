@@ -124,3 +124,27 @@ print(f"\nDifference in p_double (95th − 5th): {pd_95 - pd_05:.4f}  ({(pd_95 -
 ```
 
 The difference in the probability of doubling between the 95th and 5th percentile is only **~2.6 percentage points**. The probability of *halving* is identical for everyone — talent offers no protection from bad luck at all.
+
+```{python}
+#| label: fig-probability-bands
+#| fig-cap: "Per-timestep outcome probabilities across all talent quantiles. The 5th and 95th percentiles are marked. The tiny difference in the blue 'doubles' band is the entire effect of talent in this model."
+quantiles = np.linspace(0.001, 0.999, 300)
+probs = np.array([tvl_probabilities(q) for q in quantiles])
+p_halve, p_same, p_double = probs[:, 0], probs[:, 1], probs[:, 2]
+
+fig, ax = plt.subplots(figsize=(7, 6))
+ax.fill_between(quantiles, p_halve + p_same, 1.0,   color="#2196F3", alpha=0.8, label="Doubles")
+ax.fill_between(quantiles, p_halve,           p_halve + p_same, color="#9E9E9E", alpha=0.35, label="Stays the same")
+ax.fill_between(quantiles, 0,                 p_halve,          color="#F44336", alpha=0.8, label="Halves")
+
+for q in (0.05, 0.95):
+    ax.axvline(q, color="black", lw=1.0, ls="--", alpha=0.6)
+
+ax.set_xlim(0, 1)
+ax.set_ylim(0, 1)
+ax.set_xlabel("Talent quantile")
+ax.set_ylabel("Probability per timestep")
+ax.legend(loc="upper left")
+plt.tight_layout()
+plt.show()
+```
