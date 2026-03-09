@@ -188,3 +188,48 @@ ax.legend()
 plt.tight_layout()
 plt.show()
 ```
+
+## Concluding Thoughts
+
+The TvL paper's conclusion — that luck dominates talent — is essentially a restatement of its inputs. With only a ~2.6 percentage-point difference in doubling probability between the most and least talented people, and with even perfect talent yielding a negative expected return, the model has almost no sensitivity to talent by construction.
+
+This is not to say luck is unimportant in real life. It may well dominate. But this particular simulation doesn't demonstrate that — it assumes it. Conclusions drawn from the TvL model should be understood as properties of the model's design choices, not discoveries about the world.
+
+We plan to continue this analysis and welcome corrections and feedback.
+
+## Appendix: Estimating `p_event`
+
+The paper does not state $p_\text{event}$ directly. We infer it by finding values that reproduce the maximum number of unlucky events seen in the paper's Figure 5b (approximately 15 events across 1,000 people). The plot below sweeps `p_event` over 50 simulation trials; our best estimate of **0.16** sits in the center of the plausible range.
+
+```{python}
+#| label: fig-p-event
+#| code-summary: "Estimating p_event from paper Figure 5b"
+#| fig-cap: "Maximum unlucky events per person across 50 simulation trials, for different values of p_event. The paper's Figure 5b shows a maximum of ~15 unlucky events; our estimate of p_event=0.16 sits in the middle of the plausible range."
+p_event_low      = 0.11
+p_event_estimate = 0.16
+p_event_high     = 0.21
+
+p_events = np.linspace(0.0, 0.5, 250)
+trial_rng = np.random.default_rng(seed=42)
+
+fig, ax = plt.subplots(figsize=(7, 4))
+for trial in range(50):
+    max_unlucky = []
+    for pe in p_events:
+        n_events = (trial_rng.random((N_PEOPLE, N_TIMESTEPS)) < pe).sum(axis=1)
+        n_lucky  = np.array([trial_rng.binomial(n, P_LUCKY) for n in n_events])
+        max_unlucky.append((n_events - n_lucky).max())
+    ax.plot(p_events, max_unlucky, lw=0.4, color="#2196F3", alpha=0.5)
+
+ax.axhline(15, color="red", lw=2, label="Observed max unlucky events (paper Fig. 5b)")
+ax.axvline(p_event_low,      color="black", lw=1.5, ls=":",  label="Our estimated range")
+ax.axvline(p_event_high,     color="black", lw=1.5, ls=":")
+ax.axvline(p_event_estimate, color="black", lw=2.0, ls="--", label="Best estimate (0.16)")
+ax.set_xlim(0, 0.5)
+ax.set_ylim(0, 40)
+ax.set_xlabel("p_event")
+ax.set_ylabel("Max unlucky events across 1,000 people")
+ax.legend(fontsize=9)
+plt.tight_layout()
+plt.show()
+```
