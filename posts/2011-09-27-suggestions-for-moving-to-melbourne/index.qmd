@@ -1,6 +1,7 @@
 ---
 title: "Suggestions for Moving to Melbourne"
 date: 2011-09-27
+date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
 categories: []

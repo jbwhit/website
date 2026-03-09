@@ -1,6 +1,7 @@
 ---
 title: "Dumb things Sometimes get Published and Cited a Bunch"
 date: 2010-12-12
+date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
 categories: []

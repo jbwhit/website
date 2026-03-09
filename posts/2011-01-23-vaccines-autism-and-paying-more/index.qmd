@@ -1,6 +1,7 @@
 ---
 title: "Vaccines, Autism and Paying More"
 date: 2011-01-23
+date-modified: 2026-03-08
 author: Jonathan Whitmore
 draft: true
 categories: []
