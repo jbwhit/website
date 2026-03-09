@@ -155,3 +155,6 @@ checklink/cookies.txt
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Git worktrees
+.worktrees/
