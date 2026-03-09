@@ -3,7 +3,7 @@ title: "Talent vs Luck: A Critical Response"
 date: 2018-03-12
 date-modified: 2026-03-09
 author: Jonathan Whitmore
-draft: true
+draft: false
 categories: [python, statistics, simulation, data-science]
 description: "The 'Talent vs Luck' simulation paper's conclusion that luck dominates talent is baked into the model from the start — here's the math showing why."
 execute:
@@ -151,7 +151,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Mean vs Median: The Multiplicative Trap
+## Mean vs Geometric Mean: The Multiplicative Trap
 
 Because we have analytical probabilities, we can compute both the expected (mean) final capital and the geometric-mean growth rate for any talent quantile. No simulation needed.
 
