@@ -12,7 +12,7 @@ execute:
   warning: false
 ---
 
-The paper [Talent vs Luck: the role of randomness in success and failure](https://arxiv.org/abs/1802.07068) by Pluchino, Biondo, and Rapisarda was covered in [MIT Technology Review](https://www.technologyreview.com/s/610395/if-youre-so-smart-why-arent-you-rich-turns-out-its-just-chance/) and [Scientific American](https://www.scientificamerican.com/article/why-success-is-based-on-more-than-talent-and-work/), and later won the [2022 Ig Nobel Prize in Economics](https://improbable.com/ig/winners/#ig2022). The authors build a simulation — the Talent vs Luck model (TvL) — and conclude:
+The paper "Talent vs Luck: the role of randomness in success and failure" ([journal](https://www.worldscientific.com/doi/abs/10.1142/S0219525918500145), [arXiv](https://arxiv.org/abs/1802.07068)) by Pluchino, Biondo, and Rapisarda was covered in [MIT Technology Review](https://www.technologyreview.com/s/610395/if-youre-so-smart-why-arent-you-rich-turns-out-its-just-chance/) and [Scientific American](https://www.scientificamerican.com/article/why-success-is-based-on-more-than-talent-and-work/), and later won the [2022 Ig Nobel Prize in Economics](https://improbable.com/ig/winners/#ig2022). The authors build a simulation — the Talent vs Luck model (TvL) — and conclude:
 
 > We can conclude that, if there is not an exceptional talent behind the enormous success of some people, another factor is probably at work. Our simulation clearly shows that such a factor is just pure luck.
 > — Pluchino, Biondo, Rapisarda
@@ -134,7 +134,7 @@ quantiles = np.linspace(0.001, 0.999, 300)
 probs = np.array([tvl_probabilities(q) for q in quantiles])
 p_halve, p_same, p_double = probs[:, 0], probs[:, 1], probs[:, 2]
 
-fig, ax = plt.subplots(figsize=(7, 6))
+fig, ax = plt.subplots(figsize=(7, 3))
 ax.fill_between(quantiles, p_halve + p_same, 1.0,   color="#2196F3", alpha=0.8, label="Doubles")
 ax.fill_between(quantiles, p_halve,           p_halve + p_same, color="#9E9E9E", alpha=0.35, label="Stays the same")
 ax.fill_between(quantiles, 0,                 p_halve,          color="#F44336", alpha=0.8, label="Halves")
@@ -146,7 +146,7 @@ ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
 ax.set_xlabel("Talent quantile")
 ax.set_ylabel("Probability per timestep")
-ax.legend(loc="upper left")
+ax.legend(loc="center", framealpha=0.9)
 plt.tight_layout()
 plt.show()
 ```
