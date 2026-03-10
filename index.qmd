@@ -11,7 +11,9 @@ listing:
   fields: [date, title, description]
 ---
 
-Welcome to my website — a collection of my thoughts on machine learning, physics education, data analysis, and effective learning strategies.
+::: {.lead}
+I'm a physicist and data scientist who builds things at the intersection of machine learning, causal inference, and education. I studied physics at UC San Diego, gave talks at PyCon, Grace Hopper, and Stanford, and make [generative art](https://www.jbwhitmoreart.com/) on the side.
+:::
 
 ## Recent Posts
 
@@ -24,4 +26,5 @@ Browse all posts on the [Blog](blog.qmd) page.
 
 - [Checklists](projects/checklists/index.qmd) — Decision-making checklists for investing and causal inference
 - [UCSD Physics Qualifying Exams](projects/physics-quals/index.qmd) — Archive of physics PhD qualifying exams (1987–2019)
+- [Talks](projects/talks/index.qmd) — Conference talks, tutorials, and public lectures (2011–2019)
 - [Generative Art](https://www.jbwhitmoreart.com/) — Algorithmic explorations of motion, form, and color
