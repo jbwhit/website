@@ -39,6 +39,19 @@ h2 {
   border-bottom: 1px solid $gb-dark2;
 }
 
+// Navbar styling
+.navbar {
+  background-color: $gb-blue !important;
+}
+
+.navbar .navbar-brand, .navbar .nav-link, .navbar .navbar-title, .navbar .quarto-navigation-tool {
+  color: $gb-bg0-hard !important;
+}
+
+.navbar .nav-link:hover, .navbar .navbar-brand:hover {
+  color: #282828 !important; // Gruvbox Dark 0 Hard
+}
+
 .cell-output > pre,
 .cell-output > .sourceCode > pre,
 .cell-output-stdout > pre {

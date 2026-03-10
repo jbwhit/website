@@ -73,6 +73,19 @@ h2 {
   opacity: 0.5;
 }
 
+// Navbar styling
+.navbar {
+  background-color: $gb-blue !important;
+}
+
+.navbar .navbar-brand, .navbar .nav-link, .navbar .navbar-title, .navbar .quarto-navigation-tool {
+  color: $gb-bg0-hard !important;
+}
+
+.navbar .nav-link:hover, .navbar .navbar-brand:hover {
+  color: #ebdbb2 !important; // Gruvbox Light 1
+}
+
 // Cell output styling (preserved from original site)
 .cell {
   margin-bottom: 1rem;

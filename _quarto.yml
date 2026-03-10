@@ -24,7 +24,6 @@ website:
   search: true
 
   navbar:
-    background: primary
     left:
       - text: Home
         href: index.qmd
