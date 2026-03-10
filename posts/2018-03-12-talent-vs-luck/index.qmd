@@ -135,9 +135,9 @@ probs = np.array([tvl_probabilities(q) for q in quantiles])
 p_halve, p_same, p_double = probs[:, 0], probs[:, 1], probs[:, 2]
 
 fig, ax = plt.subplots(figsize=(7, 3))
-ax.fill_between(quantiles, p_halve + p_same, 1.0,   color="#2196F3", alpha=0.8, label="Doubles")
-ax.fill_between(quantiles, p_halve,           p_halve + p_same, color="#9E9E9E", alpha=0.35, label="Stays the same")
-ax.fill_between(quantiles, 0,                 p_halve,          color="#F44336", alpha=0.8, label="Halves")
+ax.fill_between(quantiles, p_halve + p_same, 1.0,   color="#076678", alpha=0.8, label="Doubles")
+ax.fill_between(quantiles, p_halve,           p_halve + p_same, color="#a89984", alpha=0.35, label="Stays the same")
+ax.fill_between(quantiles, 0,                 p_halve,          color="#cc241d", alpha=0.8, label="Halves")
 
 for q in (0.05, 0.95):
     ax.axvline(q, color="black", lw=1.0, ls="--", alpha=0.6)
@@ -191,8 +191,8 @@ quantiles = np.linspace(0.001, 0.999, 300)
 fig, ax = plt.subplots(figsize=(7, 5))
 evs = [expected_value(q) for q in quantiles]
 gms = [geometric_mean_value(q) for q in quantiles]
-ax.plot(quantiles, evs, ls="--", lw=2, color="#2196F3", label="Mean (expected value)")
-ax.plot(quantiles, gms, ls="-", lw=2, color="#F44336", label="Geometric-mean path")
+ax.plot(quantiles, evs, ls="--", lw=2, color="#076678", label="Mean (expected value)")
+ax.plot(quantiles, gms, ls="-", lw=2, color="#cc241d", label="Geometric-mean path")
 ax.axhline(STARTING_CAPITAL, color="black", lw=0.8, ls=":", alpha=0.5, label="Starting capital")
 
 for q in (0.05, 0.95):
@@ -247,9 +247,9 @@ for trial in range(50):
         n_events = (trial_rng.random((N_PEOPLE, N_TIMESTEPS)) < pe).sum(axis=1)
         n_lucky  = np.array([trial_rng.binomial(n, P_LUCKY) for n in n_events])
         max_unlucky.append((n_events - n_lucky).max())
-    ax.plot(p_events, max_unlucky, lw=0.4, color="#2196F3", alpha=0.5)
+    ax.plot(p_events, max_unlucky, lw=0.4, color="#076678", alpha=0.5)
 
-ax.axhline(15, color="red", lw=2, label="Observed max unlucky events (paper Fig. 5b)")
+ax.axhline(15, color="#cc241d", lw=2, label="Observed max unlucky events (paper Fig. 5b)")
 ax.axvline(p_event_low,      color="black", lw=1.5, ls=":",  label="Our estimated range")
 ax.axvline(p_event_high,     color="black", lw=1.5, ls=":")
 ax.axvline(p_event_estimate, color="black", lw=2.0, ls="--", label="Best estimate (0.16)")
