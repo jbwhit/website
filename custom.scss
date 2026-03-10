@@ -1,6 +1,20 @@
 /*-- scss:defaults --*/
 
-// Clean, minimal typography
+// Gruvbox Light Hard Palette
+$gb-bg0-hard: #f9f5d7;
+$gb-fg0: #282828;
+$gb-fg1: #3c3836;
+$gb-blue: #076678;
+$gb-orange: #af3a03;
+$gb-gray: #a89984;
+$gb-light2: #d5c4a1;
+
+// Bootstrap Overrides
+$body-bg: $gb-bg0-hard;
+$body-color: $gb-fg1;
+$primary: $gb-blue;
+$link-color: $gb-blue;
+
 $font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 $font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, monospace;
 
@@ -11,6 +25,7 @@ h1, h2, h3 {
   font-family: 'Fraunces', Georgia, serif;
   font-optical-sizing: auto;
   letter-spacing: -0.02em;
+  color: $gb-fg0;
 }
 
 // Home page hero — give the title/subtitle more presence
@@ -28,19 +43,20 @@ h1, h2, h3 {
   font-size: 1.25rem;
   opacity: 0.7;
   margin-top: 0;
+  color: $gb-gray;
 }
 
 // Section headings — subtle rule accent
 h2 {
   padding-bottom: 0.4rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid $gb-light2;
   margin-bottom: 1.25rem;
 }
 
 // Blog listing cards — breathing room + styled date
 .quarto-listing-default .quarto-post {
   padding: 1.25rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07); // Adjusted for light background
 }
 
 .quarto-listing-default .quarto-post .listing-title a {
@@ -76,7 +92,7 @@ h2 {
   margin-left: 0.8rem;
   margin-top: 0;
   background: none;
-  border-left: 2px solid lightsalmon;
+  border-left: 2px solid $gb-orange;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
