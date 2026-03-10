@@ -24,7 +24,6 @@ website:
   search: true
 
   navbar:
-    background: primary
     left:
       - text: Home
         href: index.qmd
@@ -68,8 +67,9 @@ website:
 format:
   html:
     theme:
-      light: [flatly, custom.scss]
-      dark: [darkly, custom-dark.scss]
+      light: [custom.scss]
+      dark: [custom-dark.scss]
+    highlight-style: gruvbox
     css: styles.css
     toc: true
     code-fold: true
