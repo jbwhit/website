@@ -44,7 +44,13 @@ h2 {
   background-color: $gb-blue !important;
 }
 
-.navbar .navbar-brand, .navbar .nav-link, .navbar .navbar-title, .navbar .quarto-navigation-tool {
+.navbar .navbar-brand, .navbar .navbar-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  color: $gb-bg0-hard !important;
+}
+
+.navbar .nav-link, .navbar .quarto-navigation-tool {
   color: $gb-bg0-hard !important;
 }
 
