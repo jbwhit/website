@@ -125,10 +125,15 @@ h2 {
   border-left: 2px solid $gb-orange;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  color: $gb-fg1;
 }
 
 .cell-output > .sourceCode {
   border: none;
   background: none;
   margin-top: 0;
+}
+
+.cell-output-stdout > pre > code {
+  color: $gb-fg1;
 }
