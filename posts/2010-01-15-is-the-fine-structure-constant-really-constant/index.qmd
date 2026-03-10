@@ -1,0 +1,103 @@
+---
+title: "Is the Fine-Structure Constant Really Constant?"
+date: 2010-01-15
+date-modified: 2026-03-10
+author: Jonathan Whitmore
+draft: true
+categories: [physics, astrophysics]
+description: "How do you test whether a fundamental constant of nature has changed over billions of years? By pointing a telescope at a distant quasar and measuring absorption lines to extraordinary precision."
+---
+
+One of the questions I worked on during my PhD at UC San Diego was whether the fine-structure constant, $\alpha$, has the same value everywhere in the universe and at all times. It sounds like a strange question---why would a constant not be constant?---but it turns out that some modern physics theories *predict* that fundamental constants could vary, and astrophysics gives us a way to test that prediction.
+
+## What is the fine-structure constant?
+
+The fine-structure constant characterizes the strength of the electromagnetic interaction. It's a dimensionless number:
+
+$$
+\alpha = \frac{e^2}{\hbar c} \approx \frac{1}{137}
+$$
+
+where $e$ is the electron charge, $\hbar$ is the reduced Planck constant, and $c$ is the speed of light. Because it's dimensionless---a pure number with no units---asking whether it has changed over time is a well-defined physical question. You can't wriggle out of it by changing your system of units.
+
+The value of $\alpha$ determines the spacing between energy levels in atoms. If $\alpha$ were even slightly different, the pattern of spectral lines emitted and absorbed by atoms would shift. That's the key insight behind this whole enterprise: **we can use spectral lines as a fingerprint of $\alpha$**.
+
+## Quasars as time machines
+
+To check whether $\alpha$ was different billions of years ago, we need a light source that (a) is very far away (so the light is very old) and (b) passes through gas clouds that produce sharp absorption lines. Quasars give us both.
+
+A quasar is an extremely luminous active galactic nucleus powered by a supermassive black hole. Their light travels billions of light-years to reach us, passing through intervening gas clouds along the way. Each cloud imprints absorption lines onto the quasar's spectrum at a redshift $z$ determined by the cloud's distance:
+
+$$
+z = \frac{\lambda_{\text{obs}} - \lambda_{\text{emit}}}{\lambda_{\text{emit}}}
+$$
+
+By measuring the *pattern* of absorption lines---specifically, the relative spacing between lines of different atomic species---we can ask whether $\alpha$ at the time and place of absorption was the same as $\alpha$ measured in the lab today.
+
+## The many-multiplet method
+
+The clever technique that makes this measurement possible is called the "many-multiplet" method. Different atomic transitions have different sensitivities to changes in $\alpha$, parameterized by a $q$-coefficient:
+
+$$
+\omega_z = \omega_0 + q \left[ \left(\frac{\alpha_z}{\alpha_0}\right)^2 - 1 \right]
+$$
+
+Here $\omega_0$ is the laboratory rest frequency of a transition, $\omega_z$ is the frequency we observe at redshift $z$, and $q$ encodes how sensitive that particular transition is to a change in $\alpha$. The $q$-coefficients come from detailed relativistic many-body calculations of atomic structure.
+
+The key is that different transitions have $q$-coefficients with different signs and magnitudes. For example, among the species we used:
+
+| Ion   | Wavelength (Å) | $q$ coefficient |
+|-------|----------------|-----------------|
+| Fe II | 1608.45        | $-1300$         |
+| Fe II | 1611.20        | $+1100$         |
+| Ni II | 1709.60        | $-20$           |
+| Ni II | 1741.55        | $-1400$         |
+| Ni II | 1751.92        | $-700$          |
+
+Notice that the two iron lines have $q$-coefficients of *opposite sign*. If $\alpha$ were different in the past, these lines would shift in opposite directions---one moving to the red and the other to the blue. This differential signature is what makes the method powerful: systematic errors that shift all lines the same way (like an overall wavelength calibration error) cancel out.
+
+## Why it connects to fundamental physics
+
+Why does $\alpha$ affect atomic energy levels at all? The energy levels of a hydrogen-like atom depend on $\alpha$ through the relativistic correction. From the Dirac equation, the energy of an electron in a state with quantum numbers $n$ and $j$ is:
+
+$$
+E_{n,j} = m_e c^2 \left[ 1 + \left( \frac{Z \alpha}{n - (j + \frac{1}{2}) + \sqrt{(j + \frac{1}{2})^2 - Z^2 \alpha^2}} \right)^2 \right]^{-1/2}
+$$
+
+The fine-structure splitting---the small energy difference between states with the same $n$ but different $j$---is proportional to $\alpha^2$ at leading order. For multi-electron atoms, the dependence is more complex (which is where the $q$-coefficients come in), but the basic point is the same: **change $\alpha$, and the energy levels shift by amounts that depend on the atomic species and transition**.
+
+## Our experiment: an iodine cell on the Keck telescope
+
+For my PhD work with Prof. Kim Griest at UCSD, we took a distinctive approach to the wavelength calibration problem. We observed quasar PHL957 with the HIRES spectrograph on the Keck telescope, using an iodine absorption cell placed in the light path.
+
+The iodine cell superimposes a dense forest of very precisely known absorption lines on top of the quasar spectrum. These lines serve as a wavelength ruler imprinted directly on the data, allowing us to calibrate the wavelength scale to higher precision than the standard thorium-argon lamp calibration.
+
+The process worked like this:
+
+1. **Observe the quasar** with and without the iodine cell in place
+2. **Identify the quasar absorption lines** from species like Mg I, Mg II, Al II, Al III, Si II, Cr II, Fe II, Ni II, and Zn II in the intervening gas clouds
+3. **Use the iodine lines** to precisely calibrate the wavelength scale
+4. **Fit the absorption lines** and measure their positions relative to laboratory values
+5. **Apply the many-multiplet method** to extract any shift in $\alpha$
+
+The quasar absorption lines we analyzed spanned redshifts around $z \approx 2.3$, meaning the light passed through these gas clouds when the universe was roughly 3 billion years old---about 11 billion years ago.
+
+## What did we find?
+
+The results from various groups have been tantalizing but inconclusive. Early work by Murphy, Webb, and Flambaum (2001) analyzing 49 quasar absorption systems found a small but statistically significant result:
+
+$$
+\frac{\Delta \alpha}{\alpha} = (-0.72 \pm 0.18) \times 10^{-5}
+$$
+
+suggesting $\alpha$ was *smaller* in the past by about 7 parts per million. But other groups found results consistent with no change, and the field has been grappling with subtle systematic effects---particularly in wavelength calibration---ever since.
+
+This is precisely what motivated our iodine cell approach: by imprinting a precise wavelength reference directly onto the data, we aimed to reduce the calibration systematics that plagued earlier measurements. The debate over whether $\alpha$ varies remains one of the most demanding precision measurement challenges in observational astrophysics.
+
+## Why it matters
+
+If the fine-structure constant really does vary, the implications are profound. It would mean that the laws of physics are not the same everywhere and at all times---a violation of the Einstein Equivalence Principle. It would provide evidence for new physics beyond the Standard Model, potentially supporting theories with extra spatial dimensions or dynamical scalar fields.
+
+Even a *null* result is valuable: it places tight constraints on these theories and tells us that the laws of physics have been remarkably stable over most of the age of the universe.
+
+Either way, the fact that we can test this question at all---using the light from objects billions of light-years away, absorbed by gas clouds billions of years ago, and measured to parts-per-million precision---is one of the more remarkable achievements of modern observational astrophysics.
