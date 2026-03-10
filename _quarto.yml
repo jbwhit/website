@@ -69,7 +69,9 @@ format:
     theme:
       light: [custom.scss]
       dark: [custom-dark.scss]
-    highlight-style: gruvbox
+    highlight-style:
+      light: gruvbox-light
+      dark: gruvbox-dark
     css: styles.css
     toc: true
     code-fold: true
