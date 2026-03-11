@@ -103,6 +103,17 @@ h2 {
   color: #282828 !important; // Gruvbox Dark 0 Hard
 }
 
+// Code block background — override Bootstrap's light #f8f9fa default
+// Target source code blocks only, not cell output pre elements
+div.sourceCode,
+pre.sourceCode {
+  background-color: #282828 !important; // Gruvbox Dark bg0
+}
+
+pre code {
+  background-color: transparent !important;
+}
+
 // Cell output styling
 .cell {
   margin-bottom: 1rem;
