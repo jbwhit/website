@@ -16,8 +16,3 @@ div.description {
 .blog-archive-content section.level2:first-of-type h2 {
   margin-top: 1rem;
 }
-
-/* Suppress the hidden all-posts listing block (RSS only, no visible output) */
-#all-posts {
-  display: none !important;
-}
