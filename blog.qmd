@@ -1,9 +1,59 @@
 ---
 title: "Blog"
 listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  feed: true
+  # Hidden master listing: drives RSS feed and category sidebar only
+  - id: all-posts
+    contents: posts
+    sort: "date desc"
+    type: default
+    categories: true
+    feed: true
+
+  # Year-scoped visible listings (add new block when first post of a new year is published)
+  - id: posts-2026
+    contents: "posts/2026-*/index.qmd"
+    sort: "date desc"
+    type: default
+
+  - id: posts-2024
+    contents: "posts/2024-*/index.qmd"
+    sort: "date desc"
+    type: default
+
+  - id: posts-2018
+    contents: "posts/2018-*/index.qmd"
+    sort: "date desc"
+    type: default
+
+  - id: posts-2010
+    contents: "posts/2010-*/index.qmd"
+    sort: "date desc"
+    type: default
 ---
+
+:::{#all-posts style="display:none"}
+:::
+
+<!-- MAINTENANCE: when first post of a new year is published, add a new ## YYYY heading,
+     :::{#posts-YYYY}::: div, and a new listing block (contents: "posts/YYYY-*/index.qmd").
+     Keep feed: true and categories: true on the all-posts block only. -->
+
+## 2026
+
+:::{#posts-2026}
+:::
+
+## 2024
+
+:::{#posts-2024}
+:::
+
+## 2018
+
+:::{#posts-2018}
+:::
+
+## 2010
+
+:::{#posts-2010}
+:::
