@@ -132,3 +132,10 @@ h2 {
   background: none;
   margin-top: 0;
 }
+
+// Listing thumbnails — consistent crop, prevent stretch
+.thumbnail-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
