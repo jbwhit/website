@@ -148,10 +148,3 @@ pre code {
 .cell-output-stdout > pre > code {
   color: $gb-fg1;
 }
-
-// Listing thumbnails — consistent crop, prevent stretch
-.thumbnail-image {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
