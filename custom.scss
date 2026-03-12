@@ -132,17 +132,3 @@ h2 {
   background: none;
   margin-top: 0;
 }
-
-// Year section headings on blog listing page — breathing room between year groups
-section.level2 h2 {
-  margin-top: 3rem;
-}
-
-section.level2:first-of-type h2 {
-  margin-top: 1rem;
-}
-
-// Hide the hidden all-posts master listing (used only for RSS feed)
-#all-posts {
-  display: none !important;
-}
