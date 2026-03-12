@@ -16,3 +16,14 @@ div.description {
 .blog-archive-content section.level2:first-of-type h2 {
   margin-top: 1rem;
 }
+
+/* Listing thumbnails — image-left layout and consistent crop */
+.quarto-post.image-right {
+  flex-direction: row; /* override Quarto's row-reverse to put thumbnail on left */
+}
+
+.quarto-post .thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

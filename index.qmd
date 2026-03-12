@@ -8,7 +8,9 @@ listing:
   sort: "date desc"
   type: default
   max-items: 3
-  fields: [date, title, description]
+  fields: [image, date, title, description]
+  image-height: "100px"
+  image-placeholder: assets/images/post-placeholder.svg
 ---
 
 ::: {.lead}
