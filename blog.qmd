@@ -1,9 +1,60 @@
 ---
 title: "Blog"
 listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  feed: true
+  # Year-scoped visible listings (add new block when first post of a new year is published)
+  - id: posts-2026
+    contents: "posts/2026-*/index.qmd"
+    sort: "date desc"
+    type: default
+    feed: true
+    categories: true
+
+  - id: posts-2024
+    contents: "posts/2024-*/index.qmd"
+    sort: "date desc"
+    type: default
+    feed: true
+    categories: true
+
+  - id: posts-2018
+    contents: "posts/2018-*/index.qmd"
+    sort: "date desc"
+    type: default
+    feed: true
+    categories: true
+
+  - id: posts-2010
+    contents: "posts/2010-*/index.qmd"
+    sort: "date desc"
+    type: default
+    feed: true
+    categories: true
 ---
+
+<!-- MAINTENANCE: when first post of a new year is published, add a new ## YYYY heading,
+     :::{#posts-YYYY}::: div, and a new listing block (contents: "posts/YYYY-*/index.qmd").
+     Add feed: true and categories: true to the new year block. -->
+
+:::{.blog-archive-content}
+
+## 2026
+
+:::{#posts-2026}
+:::
+
+## 2024
+
+:::{#posts-2024}
+:::
+
+## 2018
+
+:::{#posts-2018}
+:::
+
+## 2010
+
+:::{#posts-2010}
+:::
+
+:::
