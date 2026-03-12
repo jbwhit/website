@@ -8,6 +8,9 @@ listing:
     type: default
     feed: true
     categories: true
+    fields: [image, date, title, description, categories]
+    image-height: "120px"
+    image-placeholder: assets/images/post-placeholder.svg
 
   - id: posts-2024
     contents: "posts/2024-*/index.qmd"
@@ -15,6 +18,9 @@ listing:
     type: default
     feed: true
     categories: true
+    fields: [image, date, title, description, categories]
+    image-height: "120px"
+    image-placeholder: assets/images/post-placeholder.svg
 
   - id: posts-2018
     contents: "posts/2018-*/index.qmd"
@@ -22,6 +28,9 @@ listing:
     type: default
     feed: true
     categories: true
+    fields: [image, date, title, description, categories]
+    image-height: "120px"
+    image-placeholder: assets/images/post-placeholder.svg
 
   - id: posts-2010
     contents: "posts/2010-*/index.qmd"
@@ -29,11 +38,14 @@ listing:
     type: default
     feed: true
     categories: true
+    fields: [image, date, title, description, categories]
+    image-height: "120px"
+    image-placeholder: assets/images/post-placeholder.svg
 ---
 
 <!-- MAINTENANCE: when first post of a new year is published, add a new ## YYYY heading,
      :::{#posts-YYYY}::: div, and a new listing block (contents: "posts/YYYY-*/index.qmd").
-     Add feed: true and categories: true to the new year block. -->
+     Add feed: true, categories: true, fields, image-height, and image-placeholder to the new block. -->
 
 :::{.blog-archive-content}
 
