@@ -160,3 +160,6 @@ checklink/cookies.txt
 # Git worktrees
 .worktrees/
 .jupyter_cache/
+
+.gemini/
+gha-creds-*.json
