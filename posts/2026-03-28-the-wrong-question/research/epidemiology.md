@@ -90,9 +90,9 @@ Serious complications were much more common in primary vaccinees than in revacci
 - The herd immunity threshold (HIT) is `v* = (1 - 1/R0) / e`.
 
 ### The benefit curve and disease burden
-- **Is it truly S-shaped?** In a standard SIR model, the cumulative number of infections (total disease burden) over time follows an **S-shaped (sigmoidal) curve**.
+- **The coverage-vs-burden curve is NOT S-shaped.** In a standard SIR model, cumulative infections over *time* follow an S-shaped (sigmoidal) curve—a different phenomenon. When plotting **disease burden as a function of vaccination coverage**, the curve is a **hockey-stick or reverse-J shape**: burden remains substantial as coverage increases, then drops steeply near the herd immunity threshold, then flattens near zero past the threshold.
 - When mapping **vaccination coverage against disease burden** (the "benefit curve"), the relationship is profoundly non-linear.
-  - Initial increases in coverage offer direct protection with linear, additive benefits.
+  - Initial increases in coverage offer direct protection but with modest incremental reductions in burden.
   - As coverage approaches the herd immunity threshold, the marginal benefit increases sharply due to the compounding effect of indirect protection ("bending the curve").
   - Once coverage crosses the threshold ($R_e < 1$), the risk of sustained transmission collapses precipitously, and disease burden plateaus.
 
