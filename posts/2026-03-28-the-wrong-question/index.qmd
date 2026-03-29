@@ -369,3 +369,143 @@ The Rawlsian argument doesn't say "vaccinate because society demands it." It say
 But notice what the veil *doesn't* settle. It tells you the policy should protect the worst-off, but it doesn't tell you exactly how. Mandates? Incentives? School-entry requirements? The veil points toward a destination — high, reliable coverage with special protection for the vulnerable — but leaves the route open. And reasonable people can still disagree about the route even when they agree on the destination.
 
 We've now built three lenses: the nonlinear epidemiology of herd immunity, the strategic trap of free-riding, and the Rawlsian case for institutional design that protects the worst-off. Each one reveals something the others miss. But we still haven't synthesized them into a unified framework — one that can actually guide decisions across our four archetypes.
+
+## When the Tail Wags the Dog
+
+Everything so far has assumed we know the numbers. But what happens when the parameters themselves are the problem?
+
+Nassim Nicholas Taleb draws a sharp line between two risk domains. In **Mediocristan**, extremes are bounded — car accidents, human height, seasonal flu severity. Expected-value calculations converge. The tools from Section 4 work fine. In **Extremistan**, a single event dwarfs everything else in the historical record combined. The distribution follows a power law, and when the tail exponent is low enough, the theoretical mean is *infinite*. You can't compute an expected value because there is no stable expectation.
+
+::: {.column-margin}
+Cirillo and Taleb (2020, *Nature Physics*) analyzed epidemic fatality distributions over 2,500 years and found a tail exponent $\alpha < 1$ — meaning infinite mean and variance. The "average pandemic" is a number that doesn't exist in any meaningful statistical sense.
+:::
+
+Pandemics live in Extremistan. The Black Death, the 1918 influenza, and COVID-19 aren't outliers from some well-behaved distribution — they *are* the distribution, with tail events containing most of the total impact. This breaks expected-value reasoning for our Black Swan archetype. You can't optimize expected utility when the expectation doesn't exist.
+
+Taleb's response is the **Precautionary Principle** — but not the vague "better safe than sorry" version. His formalization is narrow. The PP applies only when a risk is: (1) systemic, (2) multiplicative, (3) potentially ruinous with no defined upper bound, and (4) fat-tailed. Novel pandemics check every box. Seasonal flu checks none. When someone says "we don't mandate flu shots, so why mandate this?" they're conflating Mediocristan with Extremistan.
+
+And the key asymmetry: disease risk is potentially fat-tailed (no defined upper bound), while vaccine risk is thin-tailed (bounded, localized, well-characterized). A vaccine side effect doesn't replicate or cascade through hospital systems. It stays in Mediocristan even when the disease has moved into Extremistan. The PP *strongly favors* vaccination infrastructure — accept a known, bounded cost to clip an unknown, unbounded tail.
+
+::: {.column-margin}
+This is where the "individual rights" framing is most bankrupt. Pandemic risk is *correlated* — everyone's worst case happens at the same time. You can't diversify away from it. Your personal risk tolerance is irrelevant when the hospital system collapses because a million people got sick in the same week.
+:::
+
+And pandemic risk is **correlated** — everyone gets sick together, hospitals overflow simultaneously, supply chains break in concert. Individual risk assessment assumes independent outcomes. That assumption fails catastrophically when ruin hits the whole population at once.
+
+The policy upshot: maintaining vaccination infrastructure isn't about any single disease. It's about the entire distribution of possible future pandemics. Build the surge capacity *before* you need it — by the time you have precise estimates, the fat tail may have already arrived.
+
+Four lenses now. But all four share a hidden assumption: they evaluate outcomes by averaging across people at a single moment in time. What if the right way to evaluate outcomes is across *time* for a single person?
+
+## You Are Not the Average
+
+A fair coin is flipped. Heads, your wealth increases by 50%. Tails, it decreases by 40%. The expected value is positive: $0.5 \times (+50\%) + 0.5 \times (-40\%) = +5\%$ per round. Across a thousand people, the population gets richer on average.
+
+But you're one person living through the sequence. The time-average growth rate is $\sqrt{1.5 \times 0.6} - 1 \approx -5.1\%$ per round. Play long enough and you go broke with probability 1.
+
+::: {.column-margin}
+The Kelly criterion — the growth-rate optimal betting strategy — is the ergodic solution applied to gambling. Maximize long-run geometric growth, not expected value. The vaccination analog: maximize your long-run health trajectory, not any single year's expected outcome.
+:::
+
+This is **ergodicity economics** (Ole Peters). For multiplicative processes, the ensemble average (across many people at one moment) can diverge from the time average (one person across many moments). The process is *non-ergodic*.
+
+Now think about a free-rider's health as multiplicative. Each year: some probability of infection, and if infected, a compounding hit. The vaccinator pays a small certain cost but avoids the big hits. The ensemble view looks fine for free-riders — the mean is pulled up by lucky agents. But the *median* free-rider fares much worse, because multiplicative hits compound. The "average free-rider outcome" is a statistical fiction.
+
+This is a different lens from Section 5. Game theory asked about strategic interaction at equilibrium. Ergodicity asks about **path-dependent welfare for a single agent over time**. Same population, different question. Let's simulate it — Gray Threat parameters, the most interesting case.
+
+```{python}
+#| label: fig-ergodicity
+#| fig-cap: "The ensemble average (left) hides what the time average reveals (right). The 'average free-rider' is a statistical fiction — individual trajectories diverge wildly, and the median tells a much grimmer story than the mean."
+
+rng = np.random.default_rng(42)
+
+# Gray Threat parameters
+R0_gt = 4.0
+efficacy_gt = 0.75
+cfr_gt = 0.02
+coverage_gt = 0.70        # Moderate cooperation — interesting regime
+severity_hit = 0.20       # Each infection: health *= (1 - 0.20)
+vax_cost = 0.005          # Each year: health *= (1 - 0.005) for vaccinators
+
+N = 1000         # agents per group
+T = 40           # years
+
+# Infection probability from SIR steady-state at this coverage
+Re_gt = R0_gt * (1 - coverage_gt * efficacy_gt)
+if Re_gt > 1:
+    p_inf = 1 - 1 / Re_gt
+else:
+    p_inf = 0.0
+
+# Simulate health trajectories
+vax_health = np.ones((N, T + 1))
+free_health = np.ones((N, T + 1))
+
+for t in range(T):
+    # Vaccinators: small certain cost
+    vax_health[:, t + 1] = vax_health[:, t] * (1 - vax_cost)
+
+    # Free-riders: probabilistic multiplicative hit
+    infected = rng.random(N) < p_inf
+    multiplier = np.where(infected, 1 - severity_hit, 1.0)
+    free_health[:, t + 1] = free_health[:, t] * multiplier
+
+years = np.arange(T + 1)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5), sharey=True)
+
+# --- Left panel: Ensemble view (means) ---
+vax_mean = vax_health.mean(axis=0)
+free_mean = free_health.mean(axis=0)
+free_median = np.median(free_health, axis=0)
+
+ax1.plot(years, vax_mean, color="#458588", linewidth=2.5, label="Vaccinators (mean)")
+ax1.plot(years, free_mean, color="#c9613a", linewidth=2.5, label="Free-riders (mean)")
+ax1.plot(years, free_median, color="#c9613a", linewidth=2, linestyle="--",
+         alpha=0.6, label="Free-riders (median)")
+
+ax1.set_xlabel("Year", fontsize=12)
+ax1.set_ylabel("Health capital (starting = 1.0)", fontsize=12)
+ax1.set_title("Ensemble View", fontsize=14)
+ax1.legend(fontsize=9.5, loc="lower left")
+ax1.set_xlim(0, T)
+ax1.spines[["top", "right"]].set_visible(False)
+
+# --- Right panel: Individual trajectories ---
+# Show 20 random free-rider trajectories
+n_traces = 20
+indices = rng.choice(N, n_traces, replace=False)
+
+for idx in indices:
+    ax2.plot(years, free_health[idx], color="#c9613a", alpha=0.15, linewidth=0.8)
+
+ax2.plot(years, free_mean, color="#c9613a", linewidth=2.5, label="Free-riders (mean)")
+ax2.plot(years, free_median, color="#c9613a", linewidth=2, linestyle="--", label="Free-riders (median)")
+ax2.plot(years, vax_mean, color="#458588", linewidth=2.5, label="Vaccinators (mean)")
+
+ax2.set_xlabel("Year", fontsize=12)
+ax2.set_title("Time-Average View", fontsize=14)
+ax2.legend(fontsize=9.5, loc="lower left")
+ax2.set_xlim(0, T)
+ax2.spines[["top", "right"]].set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+
+The left panel shows the ensemble view. The free-riders' mean health holds up — buoyed by lucky agents who dodged infection year after year. Expected-value reasoning says "free-riding pays."
+
+The right panel shows what actually happens. Those faint traces are individual free-rider trajectories. The median — the dashed line — tells a grimmer story than the mean. That gap between mean and median is the signature of non-ergodicity: the distance between "what the group looks like" and "what you'll actually live through."
+
+::: {.column-margin}
+The divergence zone boundaries: ensemble says free-ride when $p < c/L$. Time-average says vaccinate when $p > \ln(1-c)/\ln(1-L)$. Jensen's inequality guarantees $\ln(1-c)/\ln(1-L) < c/L$ for all $L > 0$, so a disagreement zone always exists.
+:::
+
+The math is precise. For any disease severity $L > 0$ and vaccine cost $c > 0$, Jensen's inequality guarantees a range of infection probabilities where ensemble reasoning says "free-ride" but time-average reasoning says "vaccinate." It's a theorem.
+
+But the zone is often *narrow* — about 0.25 percentage points for the Gray Threat. In most realistic scenarios, both methods agree on *direction*. The outright disagreement zone is real but slim.
+
+So does the individual-collective tension dissolve? Not entirely. But it **narrows** substantially. The real finding is about **magnitude**, not direction. Ensemble reasoning systematically underestimates the cost of free-riding because the "average free-rider outcome" is inflated by a lucky minority. Time-average reasoning strips that illusion away.
+
+The remaining gap is small enough that ordinary human motivations — reciprocity, social trust, mild institutional nudges — can close it. You don't need coercive mandates. You need people reasoning correctly about their own long-run welfare.
+
+Five lenses now, trained on the same question. Expected value gives the first approximation. Game theory reveals the strategic trap. Rawls shows what justice demands. Taleb tells us when the entire framework breaks down. Ergodicity economics shows that the tension between individual and collective rationality is partly an artifact of the wrong averaging method. Time to bring them together.
