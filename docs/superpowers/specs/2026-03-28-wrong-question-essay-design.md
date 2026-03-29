@@ -14,11 +14,18 @@ Mixed: accessible core argument for educated general readers, with quantitative 
 
 ## Central Thesis
 
-The "individual rights vs. public good" debate around vaccination policy is mal-posed. It arises from a framing error — specifically, from treating non-ergodic systems as ergodic (using ensemble averages where time averages are what matter). Multiple frameworks (game theory, Rawls, Taleb, ergodicity economics) each expose different flaws in the standard framing. Under the correct mathematical treatment, the "selfish" and "selfless" calculations converge.
+The "individual rights vs. public good" debate around vaccination policy is mal-posed. It arises from a framing error — specifically, from treating non-ergodic systems as ergodic (using ensemble averages where time averages are what matter). Multiple frameworks (game theory, Rawls, Taleb, ergodicity economics) each expose different flaws in the standard framing.
+
+The essay *explores* whether the "selfish" and "selfless" calculations converge under correct mathematical treatment — this is a conclusion the argument must earn through the simulations and reasoning, not a premise it assumes. The exploratory coding phase should test this claim before the essay commits to it.
 
 ## Core Device
 
-A **parameter space** of disease/vaccine/population characteristics, introduced first as a single intuitive dial (0–100% vaccination with consequences from trivial to catastrophic), then expanded to the full multi-dimensional reality. Four archetypal scenarios anchor the analysis:
+A **parameter space** of disease/vaccine/population characteristics, introduced pedagogically in two stages:
+
+1. **Single dial first:** Fix a disease profile (e.g., measles-like), vary only vaccination coverage from 0–100%, and show the non-linear herd immunity curve. This is genuinely one-dimensional — one disease, one variable.
+2. **Then reveal the parameter space:** Severity, R0, incubation period, vaccine effectiveness, adverse event rate, epistemic uncertainty. Coverage was just one axis.
+
+Four archetypal scenarios anchor the analysis:
 
 1. **Measles-like:** R0 ~15, severe, excellent vaccine, herd threshold ~95%. Historical anchor. Strong mandate case.
 2. **Smallpox-like:** R0 ~5-7, devastating severity, effective vaccine, eradication achieved. Historical proof of concept.
@@ -28,7 +35,7 @@ A **parameter space** of disease/vaccine/population characteristics, introduced 
 ## Essay Structure
 
 ### 1. The Pharmacy Moment (Opening Hook)
-You're standing in a pharmacy. "Want a flu shot today?" Simple personal question — zoom out to the policy question: what if the consequences of low vaccination ranged from trivial to catastrophic? At what point does coercion become justified, and how do you decide?
+You're standing in a pharmacy. "Want a flu shot today?" Simple personal question — low stakes, easy to say no. But this small moment is the accessible end of a much harder policy class. Zoom out: what if the consequences of low vaccination ranged from trivial to catastrophic? At what point does coercion become justified, and how do you decide?
 
 ### 2. The Single Dial (Intuition Builder)
 Introduce the spectrum: 0–100% vaccination, consequence from negligible to societal collapse. At the extremes, the answer is obvious. The essay lives in the middle. Introduce the non-linear herd immunity S-curve.
@@ -39,7 +46,7 @@ Introduce the spectrum: 0–100% vaccination, consequence from negligible to soc
 Reveal the multi-dimensional reality: severity, R0, incubation period, vaccine effectiveness, adverse event rate, epistemic uncertainty. Introduce the four archetypal clusters.
 
 ### 4. The Default Answer (Expected Value as Foil)
-The naive utilitarian cost-benefit calculation. Show it with actual numbers for each archetype. Then expose the cracks: insensitive to non-linearity, treats individuals as interchangeable with population averages, gives the same recommendation regardless of current vaccination rate.
+The naive utilitarian cost-benefit calculation. Show it with numbers for each archetype — using sourced estimates for measles/smallpox (from deep research) and explicitly labeled toy values for the hypothetical archetypes. Being transparent about data provenance matters here: the essay is about to criticize false precision, so it shouldn't exhibit it. Then expose the cracks: insensitive to non-linearity, treats individuals as interchangeable with population averages, gives the same recommendation regardless of current vaccination rate.
 
 ### 5. The Free-Rider Trap (Game Theory)
 Vaccination as a public goods game with non-linear payoffs. The payoff matrix shifts along the herd immunity curve. Individual rationality produces collective irrationality — but severity depends on position in parameter space.
@@ -47,7 +54,14 @@ Vaccination as a public goods game with non-linear payoffs. The payoff matrix sh
 **Simulation:** Monte Carlo population model. Agents make individually "rational" decisions. Show how collective outcomes degrade non-linearly as free-riding increases. Apply to each archetype.
 
 ### 6. Behind the Veil (Rawls)
-Behind the veil of ignorance — unknown immune status, age, population vaccination state — what policy would you design? Key insight: you'd consent to mandates earlier than revealed preferences suggest, because you'd weight worst-case positions.
+Behind the veil of ignorance — what policy would you design? The veil hides several distinct unknowns, and specifying them matters because different uncertainty sets may justify different policies:
+
+- **Unknown immune status** (healthy adult vs. immunocompromised vs. infant)
+- **Unknown contact network** (isolated rural vs. dense urban vs. healthcare worker)
+- **Unknown family circumstances** (caring for vulnerable dependents or not)
+- **Unknown population coverage** (where on the herd immunity curve are we?)
+
+Key insight: behind a sufficiently thick veil, you'd consent to stronger policy interventions than your revealed preferences suggest, because you'd weight the worst-case positions you might occupy.
 
 **Sidenote:** The Rawlsian case strengthens non-linearly with population uncertainty. If you don't know the vaccination rate, the marginal value of your contribution has higher variance, and Rawlsian reasoning is risk-averse.
 
@@ -55,12 +69,22 @@ Behind the veil of ignorance — unknown immune status, age, population vaccinat
 Under fat-tailed pandemic risk, you don't optimize expected value — you avoid ruin. The precautionary principle as policy: maintaining vaccination infrastructure/readiness is about the distribution of possible pandemics, not any single disease. The individual-vs-collective framing is especially bankrupt here because tail risk is correlated.
 
 ### 8. You Are Not the Average (Ergodicity Economics)
-The core mathematical insight. Ensemble average ≠ time average for non-ergodic processes. What looks rational for "the population" can be irrational for any individual, and vice versa. The "individual vs. collective" framing assumes ergodicity. Drop that assumption and the dichotomy dissolves.
+The core mathematical insight. Ensemble average ≠ time average for non-ergodic processes. What looks rational for "the population" can be irrational for any individual, and vice versa. The "individual vs. collective" framing assumes ergodicity. Drop that assumption and the dichotomy may dissolve.
 
-**Simulation:** Side-by-side ensemble vs. time-average divergence for a health/vaccination model.
+**Distinct job from section 5:** Game theory (section 5) is about strategic equilibrium — many agents making decisions that affect each other, free-riding and Nash equilibria. Ergodicity (this section) is about path-dependent welfare over time for a *single* agent — the insight that your lifetime health trajectory is not the population average. Different questions, potentially sharing one toy model to make the contrast cleaner.
+
+**Simulation:** Side-by-side ensemble vs. time-average divergence for a health/vaccination model. Consider reusing the section 5 model but switching the lens: same system, but now tracking one agent's path through time rather than population equilibrium.
 
 ### 9. The Right Question (Synthesis)
-Bring frameworks together. Show where each draws the mandate threshold for each archetype (table or visual). They disagree informatively. The right question: "What policy would I design for the sequence of decisions a society faces over time, under uncertainty about disease parameters, population state, and individual vulnerability?" This is simultaneously self-interested and pro-social — not as moral compromise, but as mathematical consequence.
+Bring frameworks together. Show where each framework lands on a **policy ladder** for each archetype — not a binary mandate/no-mandate, but a spectrum of interventions:
+
+1. Recommend (public information)
+2. Subsidize (remove cost barriers)
+3. School/workplace entry requirement
+4. Outbreak-triggered mandate
+5. Universal mandate
+
+Table or visual showing framework × archetype → policy level. They disagree informatively. The right question: "What policy would I design for the sequence of decisions a society faces over time, under uncertainty about disease parameters, population state, and individual vulnerability?" This is simultaneously self-interested and pro-social — not as moral compromise, but as mathematical consequence.
 
 ### 10. Coda
 Return to the pharmacy. The flu shot decision, seen correctly, isn't about your rights vs. society's claim on you. It's about understanding the system you're embedded in.
@@ -83,6 +107,8 @@ To be delegated to deep research tools (Gemini/Codex):
 3. **Ergodicity economics:** Ole Peters' key papers and arguments. Ensemble vs. time-average distinction. Applications to policy decisions. Kelly criterion connection.
 4. **Taleb / fat tails:** Precautionary principle papers. Fat-tail arguments applied to pandemic policy. Distinction between thin-tailed and fat-tailed risk domains.
 
+> [CODEX COMMENT] I would add a fifth research track on institutional design and legitimacy: exemptions, vaccine-injury compensation, enforcement mechanisms, and examples of how liberal democracies operationalize mandates. Otherwise the piece can read as mathematically elegant but politically under-specified.
+
 ## Sidenotes / Margin Content
 
 - Rawlsian herd-immunity-under-ignorance result (the non-linear marginal contribution under population uncertainty)
@@ -99,17 +125,19 @@ To be delegated to deep research tools (Gemini/Codex):
 - Margin notes / sidenotes for depth
 - Lean core argument with detail pushed to notes
 
+> [CODEX COMMENT] If "interactive" in section 2 means a JS-heavy chart, I would make that optional rather than required. The current site already supports strong static/matplotlib-based posts, and a static first pass lowers implementation risk without weakening the argument.
+
 ## Design Decisions
 
 - **Avoid COVID:** Use measles, smallpox, and hypothetical pandemics to avoid political gravity.
 - **Policy framing over personal framing:** The central question is "when should society mandate?" not "should I get vaccinated?" — though the personal angle opens and closes the essay.
 - **Single dial first, then parameter space:** Build intuition before revealing complexity.
 - **Expected value as foil:** The framework everyone defaults to, shown to be insufficient from multiple angles.
-- **Ergodicity as resolution, not just critique:** The essay doesn't just tear down framings — it offers a mathematically grounded alternative that dissolves the tension.
+- **Ergodicity as potential resolution, not just critique:** The essay doesn't just tear down framings — it explores whether ergodicity economics offers a mathematically grounded alternative. Whether the tension fully dissolves is a claim the essay must earn.
 
 ## Open Questions
 
 - Exact title (working title: "The Wrong Question")
-- Whether the stronger claim holds: that under ergodicity economics the individual/collective tension fully dissolves (needs exploratory simulation to verify)
+- Whether the stronger claim holds: that under ergodicity economics the individual/collective tension fully dissolves (needs exploratory simulation early — this is a branching point that affects sections 8-9)
 - How much historical narrative to include for measles/smallpox (deep research will inform this)
 - Whether the framework comparison in section 9 works better as a table, heatmap, or narrative
