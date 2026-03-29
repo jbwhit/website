@@ -197,3 +197,175 @@ So does expected value settle the question? For measles, basically yes. For the 
 These aren't minor quibbles. They're structural limitations. The expected-value framework is a useful first pass — it correctly identifies that measles vaccination is a no-brainer, and it correctly flags the Gray Threat as a closer call. But it can't tell you what to do when the interesting complications arise: strategic interdependence, deep uncertainty, and the gap between individual rationality and collective outcomes.
 
 We need better tools. Let's go find them.
+
+## The Free-Rider Trap
+
+Here's the strategic problem lurking inside Section 2's nonlinearity: vaccination is a public good, and public goods invite free-riders.
+
+The logic is seductive. If 94% of people around you are vaccinated against measles, your personal risk of infection is already tiny — herd immunity is doing most of the work. So why absorb even the minuscule cost of the vaccine (sore arm, afternoon off, one-in-a-million adverse event) when you can coast on everyone else's immunity for free?
+
+That reasoning is individually rational. It's also collectively suicidal. If enough people follow it, coverage drops below the herd immunity threshold and everybody loses — including the free-riders, who are now unvaccinated in a population that can no longer protect them. This is a tragedy of the commons, but with the nonlinear twist from Section 2: near the threshold, each defection has an outsized effect. Going from 95% to 94% coverage doesn't reduce herd protection by 1%. It can destroy it entirely.
+
+::: {.column-margin}
+Game theorists call this a **public goods game with a threshold**. Below the threshold, defection is catastrophic. Above it, defection is tempting. The herd immunity threshold is the knife-edge where private and public incentives diverge most sharply.
+:::
+
+To see how this plays out across our four archetypes, let's build a simple agent-based model. We place $N = 5{,}000$ agents in a population. Each agent decides whether to vaccinate based on a personal cost-benefit calculation: they compare the perceived cost of vaccination (a fixed "cost sensitivity" drawn from a distribution) against the perceived benefit, which depends on current disease burden — and disease burden depends on how many other agents vaccinated.
+
+The catch is the feedback loop. When coverage is high, the perceived benefit of vaccination drops (the disease seems rare, why bother?), which tempts more agents to defect, which lowers coverage. The model iterates until it reaches a **Nash equilibrium** — a coverage level where no individual agent wants to change their decision given everyone else's decisions.
+
+We then compare that Nash equilibrium to the **social optimum**: the coverage level that minimizes total harm across the entire population.
+
+```{python}
+#| label: fig-free-rider
+#| fig-cap: "The free-rider trap: when individuals make privately rational vaccination decisions, the population settles at coverage levels below the social optimum. The gap varies dramatically across disease profiles."
+
+def compute_disease_burden(coverage, R0, efficacy, cfr, pop=1):
+    """Fraction of population experiencing serious harm at a given coverage level."""
+    Re = R0 * (1 - coverage * efficacy)
+    if Re <= 1:
+        return 0.0
+    fraction_infected = 1 - 1 / Re
+    return fraction_infected * cfr
+
+def find_nash_equilibrium(R0, efficacy, cfr, adverse_rate, n_agents=5000,
+                          n_iterations=80, seed=42):
+    """
+    Agent-based Nash equilibrium finder.
+    Each agent has a cost_sensitivity drawn from a distribution.
+    They vaccinate if perceived_benefit > cost_sensitivity * adverse_rate.
+    """
+    rng = np.random.default_rng(seed)
+    # Cost sensitivities: how much each agent weights vaccine cost vs. benefit
+    # Drawn from a log-normal so most agents are moderate, some are very cost-sensitive
+    cost_sensitivity = rng.lognormal(mean=0.0, sigma=0.8, size=n_agents)
+
+    # Start at 50% coverage
+    vaccinated = rng.random(n_agents) < 0.5
+
+    for _ in range(n_iterations):
+        coverage = vaccinated.mean()
+        # Personal risk if unvaccinated: disease burden at current coverage
+        burden = compute_disease_burden(coverage, R0, efficacy, cfr)
+        # Perceived benefit = risk reduction from vaccination
+        perceived_benefit = burden * efficacy
+        # Each agent compares perceived benefit to their personal cost threshold
+        threshold = cost_sensitivity * adverse_rate
+        vaccinated = perceived_benefit > threshold
+
+    return vaccinated.mean()
+
+def find_social_optimum(R0, efficacy, cfr, adverse_rate, n_points=2000):
+    """Find coverage that minimizes total social cost (disease burden + vaccine adverse events)."""
+    coverages = np.linspace(0, 1, n_points)
+    total_costs = []
+    for c in coverages:
+        disease_cost = compute_disease_burden(c, R0, efficacy, cfr)
+        vaccine_cost = c * adverse_rate
+        total_costs.append(disease_cost + vaccine_cost)
+    total_costs = np.array(total_costs)
+    return coverages[np.argmin(total_costs)]
+
+# Archetype parameters: (name, R0, efficacy, CFR, adverse_rate_per_person)
+archetypes = [
+    ("Measles-like",       15.0, 0.97, 0.002, 1e-6),
+    ("Smallpox-like",       6.0, 0.95, 0.30,  15e-6),
+    ("Gray Threat",         4.0, 0.75, 0.02,  1e-4),
+    ("Black Swan\n(mid-estimate)", 4.0, 0.60, 0.05,  5e-5),
+]
+
+nash_coverages = []
+optimal_coverages = []
+names = []
+
+for name, R0, eff, cfr, adv in archetypes:
+    nash_c = find_nash_equilibrium(R0, eff, cfr, adv)
+    opt_c = find_social_optimum(R0, eff, cfr, adv)
+    nash_coverages.append(nash_c * 100)
+    optimal_coverages.append(opt_c * 100)
+    names.append(name)
+
+# --- Plot ---
+fig, ax = plt.subplots(figsize=(9, 5.5))
+
+x = np.arange(len(names))
+width = 0.32
+
+bars_nash = ax.bar(x - width/2, nash_coverages, width, label="Nash equilibrium\n(individual rationality)",
+                   color="#c9613a", alpha=0.85, edgecolor="white", linewidth=0.8)
+bars_opt = ax.bar(x + width/2, optimal_coverages, width, label="Social optimum\n(collective rationality)",
+                  color="#458588", alpha=0.85, edgecolor="white", linewidth=0.8)
+
+# Annotate the gap
+for i in range(len(names)):
+    gap = optimal_coverages[i] - nash_coverages[i]
+    if gap > 1:
+        mid_y = (nash_coverages[i] + optimal_coverages[i]) / 2
+        ax.annotate(
+            f"gap: {gap:.0f}pp",
+            xy=(x[i], mid_y),
+            fontsize=9,
+            ha="center",
+            color="#7c6f64",
+            fontweight="bold",
+        )
+
+ax.set_ylabel("Coverage (%)", fontsize=12)
+ax.set_title("The Free-Rider Tax", fontsize=14)
+ax.set_xticks(x)
+ax.set_xticklabels(names, fontsize=10.5)
+ax.set_ylim(0, 105)
+ax.legend(fontsize=10, loc="lower right")
+ax.spines[["top", "right"]].set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+
+The pattern is striking. For measles, the Nash equilibrium settles well below the 95% threshold needed for herd immunity. Individual rationality says "the disease is rarely fatal, the vaccine costs me something, and most people around me are already vaccinated." But that reasoning, followed by enough agents, produces a coverage level where outbreaks become inevitable. The free-rider tax — the gap between Nash and social optimum — is enormous precisely because the herd immunity threshold is so high.
+
+Smallpox tells a different story. When the disease kills 30% of the people it infects, even selfish agents are terrified enough to vaccinate. The perceived benefit stays high regardless of what everyone else does, because the personal cost of infection is catastrophic. Nash and social optimum nearly converge. You don't need to appeal to collective duty when individual survival instinct does the work.
+
+The Gray Threat is where things get really uncomfortable. The disease is serious but not terrifying, the vaccine is imperfect and carries non-trivial risk, and the herd immunity threshold is essentially unreachable. The Nash equilibrium undershoots the social optimum by a wide margin. This is the scenario where the gap between "what's rational for me" and "what's best for all of us" is hardest to close — and where the loudest policy disagreements actually live.
+
+::: {.column-margin}
+The Black Swan bar uses mid-range parameter estimates. In reality, the deep uncertainty means you can't even compute a stable Nash equilibrium — agents keep revising their beliefs, and the "equilibrium" shifts with every new data point. The bar shown is a fiction that understates the real problem.
+:::
+
+The Black Swan case, shown with mid-range parameter estimates, displays a moderate gap. But this understates the actual problem. When agents are uncertain about the parameters themselves — not just "will I get sick?" but "how bad is this disease, really?" — the Nash equilibrium becomes a moving target. The free-rider calculation requires knowing the payoffs, and during a novel pandemic, nobody knows the payoffs.
+
+So expected-value reasoning misses the strategic structure, and game theory reveals the free-rider trap but doesn't tell us how to escape it. Both frameworks take the agent's perspective — what should *I* do? — and optimize from there.
+
+What if we asked a different question entirely? Not "what should I do?" but "what rules would I agree to before I knew who I'd be?"
+
+## Behind the Veil
+
+In 1971, John Rawls proposed a thought experiment that remains one of the most powerful tools in political philosophy. Imagine you're designing the rules of a society — but you don't know what position you'll occupy in it. You don't know if you'll be rich or poor, healthy or sick, talented or disadvantaged. You're behind a **veil of ignorance**.
+
+From behind that veil, what vaccination policy would you choose?
+
+The question hits differently once you take it seriously. You don't know whether you'll be a healthy 25-year-old who barely notices infectious diseases, or an infant too young to be vaccinated, or a cancer patient whose immune system is suppressed by chemotherapy. You don't know if you'll live in a rural town where you rarely encounter strangers, or work in a pediatric ICU. You don't know if your future child will be one of the rare cases where vaccination is medically contraindicated — leaving them entirely dependent on everyone else's immunity.
+
+::: {.column-margin}
+Rawls himself didn't write much about public health specifically. The major extension is Norman Daniels (*Just Health*, 2008), who argues that health protections matter because disease undermines "fair equality of opportunity" — it limits what Daniels calls an individual's "normal opportunity range."
+:::
+
+And critically, you don't know where on the herd immunity curve your society will land. You might wake up in a world with 96% measles coverage, where herd immunity does its quiet work and you never even think about the disease. Or you might wake up in a world at 89% coverage, where your unvaccinated child is exposed every time they enter a classroom.
+
+Rawls's answer to this kind of uncertainty was the **maximin principle**: choose the rules that make the worst-off position as good as possible. Not the rules that maximize average welfare — that's utilitarianism, and it's perfectly happy to sacrifice a few people if the average comes out ahead. Maximin says: look at the person who draws the shortest straw under each possible policy, and pick the policy where that shortest straw is longest.
+
+Applied to vaccination, the worst-off position is clear: it's the person who *cannot* be vaccinated and lives in a community where coverage is below the herd immunity threshold. That person faces a disease risk they did nothing to create and can do nothing to mitigate. Their safety depends entirely on the choices of others.
+
+::: {.column-margin}
+The legal system has wrestled with this too. In *Jacobson v. Massachusetts* (1905), the Supreme Court upheld compulsory smallpox vaccination, with Justice Harlan writing that "real liberty for all could not exist under the operation of a principle which recognizes the right of each individual person to use his own... regardless of the injury that may be done to others." The Rawlsian framework reaches a similar conclusion by a different route.
+:::
+
+Behind a sufficiently thick veil, you'd consent to stronger policy interventions than your revealed preferences suggest. You'd agree to mandatory coverage requirements — not because you enjoy being told what to do, but because you'd be terrified of waking up as the immunocompromised child whose classmates' parents decided the vaccine wasn't worth the trouble. The veil converts the free-rider's smug calculus ("I'll skip it, everyone else has me covered") into a source of existential dread ("what if I'm the one who needs covering?").
+
+This connects directly to the nonlinearity from Section 2 and the game theory from Section 5. Behind the veil, you don't know the current vaccination rate — you face uncertainty over where on the herd immunity curve you'll land. And we've seen that the curve is violently nonlinear near the threshold. That means the marginal value of one additional vaccination has enormous variance: it might be nearly worthless (if coverage is already high) or extraordinarily valuable (if coverage is teetering on the edge). Rawlsian reasoning is risk-averse by design. When the variance of the marginal contribution is high and the downside is catastrophic, the maximin principle pushes hard toward ensuring high coverage.
+
+The Rawlsian argument doesn't say "vaccinate because society demands it." It says something sharper: **a just society would not ask the vulnerable to bear epidemic risk created by others' optional non-cooperation.** If you wouldn't accept that risk for yourself behind the veil, you can't in good conscience impose it on someone else from in front of it.
+
+But notice what the veil *doesn't* settle. It tells you the policy should protect the worst-off, but it doesn't tell you exactly how. Mandates? Incentives? School-entry requirements? The veil points toward a destination — high, reliable coverage with special protection for the vulnerable — but leaves the route open. And reasonable people can still disagree about the route even when they agree on the destination.
+
+We've now built three lenses: the nonlinear epidemiology of herd immunity, the strategic trap of free-riding, and the Rawlsian case for institutional design that protects the worst-off. Each one reveals something the others miss. But we still haven't synthesized them into a unified framework — one that can actually guide decisions across our four archetypes.
