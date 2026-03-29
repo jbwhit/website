@@ -163,3 +163,4 @@ checklink/cookies.txt
 
 .gemini/
 gha-creds-*.json
+.superpowers/

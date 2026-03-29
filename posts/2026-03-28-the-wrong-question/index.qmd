@@ -1,0 +1,13 @@
+---
+title: "The Wrong Question"
+date: 2026-03-28
+author: Jonathan Whitmore
+draft: true
+categories: [ergodicity, game-theory, philosophy, policy, simulation]
+description: "The individual rights vs. collective obligations debate is a false dichotomy — here's the math that shows why."
+execute:
+  echo: true
+  cache: true
+---
+
+<!-- Placeholder: essay content will be built section by section -->
