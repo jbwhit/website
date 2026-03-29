@@ -21,27 +21,25 @@ But sit with that moment a little longer. What made it feel so easy? Mostly this
 
 Now change the disease. Make it more contagious. Make the consequences of infection worse. Make the vaccine more effective — so effective that if enough people take it, the disease simply can't circulate. Suddenly the same personal decision ("do I want this shot?") is entangled with everyone else's decisions in a way that's genuinely hard to reason about.
 
-This is where most public debates go wrong. They start from the pharmacy moment — my body, my choice, a personal risk calculation — and try to scale that intuition up to diseases where individual and collective logic diverge sharply. Or they start from the collective end — everyone must vaccinate for the common good — and bulldoze the legitimate personal dimension entirely.
+This is where most public debates go wrong. They start from the pharmacy moment — my body, my choice, a personal risk calculation — and try to scale that intuition up to diseases where individual and collective logic diverge. Or they start from the collective end — everyone must vaccinate for the common good — and bulldoze the legitimate personal dimension entirely.
 
 Both framings skip the hard part. The interesting question isn't "individual rights vs. collective obligation." It's: **how does the math actually change as you move from one end of that spectrum to the other?**
-
-Let's start with a single dial.
 
 ## The Single Dial
 
 Imagine you could control one number: the fraction of the population that's vaccinated against a specific disease. Set it to 0% and you're in the pre-vaccine world. Set it to 100% and the disease is gone. What happens in between?
 
-Your intuition probably says it's gradual — more vaccination, proportionally less disease. A smooth ramp from bad to good.
+Your intuition probably says it's gradual — more vaccination, proportionally less disease.
 
 It's not.
 
-For highly contagious diseases, the relationship between vaccination coverage and disease burden is wildly nonlinear. Burden stays stubbornly high across a huge range of coverage levels, then collapses near a critical threshold. Epidemiologists call this the **herd immunity threshold** — the coverage level above which the pathogen can't sustain transmission in the population.
+For highly contagious diseases, the relationship between coverage and disease burden is wildly nonlinear. Burden stays stubbornly high across a huge range of coverage levels, then collapses near a critical threshold — the **herd immunity threshold**, above which the pathogen can't sustain transmission.
 
 ::: {.column-margin}
 The herd immunity threshold depends on two numbers: the basic reproduction number $R_0$ (how many people one infected person infects in a fully susceptible population) and vaccine efficacy $\varepsilon$. The threshold is $v_c = \frac{1}{\varepsilon}\left(1 - \frac{1}{R_0}\right)$.
 :::
 
-Let's make this concrete with measles — the most contagious common infectious disease we know. Measles has an $R_0$ around 15, meaning one infected person infects about 15 others in an unvaccinated population. The two-dose MMR vaccine is about 97% effective. Plug those in, and the herd immunity threshold lands around 95% coverage.
+Let's make this concrete with measles — the most contagious common infectious disease we know. Measles has an $R_0$ around 15, and the two-dose MMR vaccine is about 97% effective. Plug those in, and the herd immunity threshold lands around 95% coverage.
 
 That number matters because it tells you where the cliff is.
 
@@ -115,23 +113,23 @@ plt.tight_layout()
 plt.show()
 ```
 
-Look at the shape. At 0% coverage you get roughly 930 infections per 1,000 people — essentially everyone who's susceptible gets sick. Raise coverage to 50% and you're still above 850. Push it to 80% and you're still around 700. The disease barely notices.
+Look at the shape. At 0% coverage you get roughly 930 infections per 1,000 people. Raise coverage to 50% and you're still above 850. Push it to 80% and you're still around 700. The disease barely notices.
 
-Then something happens around 90-95%. The curve falls off a cliff. By the time you hit the herd immunity threshold at ~96%, infections drop to near zero. The disease can't find enough susceptible hosts to sustain a chain of transmission, and outbreaks die out on their own.
+Then something happens around 90-95%. The curve falls off a cliff. By 96% coverage, infections drop to near zero — the disease can't find enough susceptible hosts to sustain transmission.
 
 ::: {.column-margin}
 Pre-vaccine, the US saw roughly 3-4 million measles infections per year. Today, with coverage hovering in the low 90s, outbreaks still happen — and measles is always the first disease to reappear when coverage slips, precisely because its threshold is so high.
 :::
 
-This is the key nonlinearity. Going from 0% to 50% coverage does remarkably little. Going from 90% to 96% does almost everything. The relationship between effort and outcome is the opposite of what a linear mental model predicts.
+This is the key nonlinearity. Going from 0% to 50% coverage does remarkably little. Going from 90% to 96% does almost everything.
 
-And this creates a genuine problem for individual reasoning. If you're the person at the pharmacy counter and the population is at 94% coverage, your individual decision to skip vaccination barely changes your personal risk — most people around you are vaccinated, so your chance of encountering measles is already low. But if enough people reason this way, coverage drops below the threshold and the entire population loses herd protection. The individually rational choice and the collectively rational choice point in different directions.
+This creates a genuine problem for individual reasoning. If the population is at 94% coverage, your decision to skip vaccination barely changes your personal risk — most people around you are vaccinated. But if enough people reason this way, coverage drops below the threshold and everyone loses herd protection. The individually rational choice and the collectively rational choice point in different directions.
 
-That's already interesting. But we've only turned one dial so far — coverage — while holding the disease fixed at "maximally contagious, serious, vaccine-preventable." What happens when we start varying the disease itself?
+We've only turned one dial so far — coverage — while holding the disease fixed at "maximally contagious, serious, vaccine-preventable." What happens when we vary the disease itself?
 
 ## The Real Complexity
 
-Coverage was one dial. But the vaccination question actually lives in a much higher-dimensional space. To see why, consider the other numbers that shape the problem:
+Coverage was one dial. The vaccination question lives in a much higher-dimensional space:
 
 - **Contagiousness ($R_0$):** How many people one infected person infects in a fully susceptible population. Ranges from ~2 (flu) to ~18 (measles).
 - **Severity (case fatality rate, CFR):** What fraction of infected people die. Ranges from near zero to 30%+.
@@ -139,7 +137,7 @@ Coverage was one dial. But the vaccination question actually lives in a much hig
 - **Adverse event rate:** The probability of a serious adverse reaction to the vaccine itself.
 - **Herd immunity threshold:** The coverage level needed to stop transmission — determined by $R_0$ and $\varepsilon$ together.
 
-Change any of these and the character of the problem shifts. Here are four archetypal disease profiles that illustrate the range:
+Change any of these and the problem shifts character. Four archetypes illustrate the range:
 
 ::: {.column-margin}
 Data for measles and smallpox are sourced from published epidemiological literature (WHO, CDC, peer-reviewed estimates). The "Gray Threat" and "Black Swan Pandemic" are hypothetical constructions with **toy parameter values** chosen to illustrate the decision-theoretic landscape — they are not modeled on any specific real pathogen.
@@ -149,17 +147,21 @@ Data for measles and smallpox are sourced from published epidemiological literat
 
 **Smallpox-like** — $R_0 \approx 5\text{–}7$, CFR ~30% (variola major), vaccine efficacy ~95%, serious adverse events ~15 per million doses, herd threshold ~80–85%. Eradicated in 1980. The higher adverse event rate was tolerable because the disease killed nearly a third of those it infected. This is the historical proof of concept: coordinated global vaccination can eliminate a pathogen entirely. Nobody debates smallpox vaccination in retrospect.
 
-**"Gray Threat" (hypothetical, toy values)** — $R_0 \approx 4$, CFR ~2%, vaccine efficacy ~75%, serious adverse events ~100 per million (1 in 10,000), herd threshold $\approx$ 100% — essentially impossible to reach with an imperfect vaccine. This is the hard case. The disease is serious but not terrifying. The vaccine helps but isn't great, and it carries non-trivial risk. The herd threshold is so high that even full compliance might not achieve elimination. Now what?
+::: {.column-margin}
+The WHO declared smallpox eradicated in 1980 after a decade-long campaign that shifted from mass vaccination to "ring vaccination" — identifying cases, then vaccinating everyone in their contact network. The strategy worked because smallpox had no animal reservoir, produced visible symptoms, and conferred lifelong immunity. These are properties, not guarantees — no other disease has been eradicated since.
+:::
+
+**"Gray Threat" (hypothetical, toy values)** — $R_0 \approx 4$, CFR ~2%, vaccine efficacy ~75%, serious adverse events ~100 per million (1 in 10,000), herd threshold $\approx$ 100% — essentially impossible to reach with an imperfect vaccine. This is the hard case. The disease is serious but not terrifying. The vaccine helps but isn't great, and carries non-trivial risk. Even full compliance might not achieve elimination. Now what?
 
 **"Black Swan Pandemic" (hypothetical, toy values)** — $R_0$ uncertain (range 2–6), CFR uncertain (1–15%), vaccine efficacy ~60%, high uncertainty on all parameters. Fat-tailed severity distribution. This is the epistemic nightmare: you have to make decisions before you know what you're dealing with, and the range of possible outcomes spans from "bad flu season" to "civilization-altering catastrophe."
 
-Notice what happened. With measles, the question "should you get vaccinated?" has an almost trivially obvious answer. With the Gray Threat, reasonable people could genuinely disagree. With the Black Swan, you can't even frame the question clearly because the parameters themselves are uncertain. Same question — "should I get this shot?" — radically different decision-making environments.
+Notice what happened. With measles, "should you get vaccinated?" has a trivially obvious answer. With the Gray Threat, reasonable people could genuinely disagree. With the Black Swan, you can't even frame the question because the parameters themselves are uncertain. Same question — radically different decision-making environments.
 
-So how do we actually make the decision? The default answer from economics and public health is: **calculate the expected value.**
+The default answer from economics and public health: **calculate the expected value.**
 
 ## The Default Answer
 
-Expected-value reasoning is the workhorse of cost-benefit analysis. The logic is straightforward: estimate the expected benefit of vaccination, estimate the expected cost, and compare them.
+Expected-value reasoning is the workhorse of cost-benefit analysis. Estimate the benefit, estimate the cost, compare.
 
 ::: {.column-margin}
 **The expected-value calculation.** For an individual, the benefit of vaccination is roughly:
@@ -173,49 +175,51 @@ $H = P(\text{adverse event}) \times C_{\text{adverse}}$
 The decision rule says: vaccinate if $B > H$.
 :::
 
-Let's run the numbers for the measles-like case using sourced estimates. In an unvaccinated population with endemic measles, your annual infection probability is high — essentially everyone gets measles in childhood. The CFR is roughly 1–2 per 1,000 in developed countries, with additional risks of serious complications (encephalitis, pneumonia) affecting another 1–3 per 1,000. Call the total serious-harm probability from infection around 3 per 1,000.
+For the measles-like case: in an unvaccinated population, essentially everyone gets measles in childhood. The CFR is 1-2 per 1,000 in developed countries, with serious complications (encephalitis, pneumonia) affecting another 1-3 per 1,000. Total serious-harm probability from infection: about 3 per 1,000.
 
 The vaccine reduces that risk by 97%. So the benefit per person is roughly $0.003 \times 0.97 \approx 0.0029$ — a reduction of about 2.9 per 1,000 in serious-harm probability.
 
 The cost? Serious adverse events from MMR occur at roughly 1 per million doses. That's $0.000001$.
 
+::: {.column-margin}
+To put the adverse event rate in context: the MMR vaccine's serious adverse event rate (~1 per million) is roughly the probability of being struck by lightning in a given year in the US (~1 in 1.2 million). The Gray Threat's hypothetical rate (1 in 10,000) is closer to the lifetime risk of dying in a fire.
+:::
+
 The benefit-to-cost ratio is on the order of **3,000 to 1**. You don't need a sophisticated model to see which way this tips. Even if you're off by an order of magnitude on every parameter, the answer doesn't change.
 
-Now run the same calculation for the Gray Threat using our toy values. Infection probability in an endemic setting: let's say 20% annually (lower $R_0$ means slower spread). CFR of 2% gives a serious-harm probability of 0.004 per year. Vaccine efficacy of 75% yields a benefit of $0.004 \times 0.75 = 0.003$. Serious adverse events at 1 in 10,000 gives a cost of $0.0001$.
+Now run the same calculation for the Gray Threat using our toy values. Infection probability in an endemic setting: say 20% annually (lower $R_0$ means slower spread). CFR of 2% gives a serious-harm probability of 0.004 per year. Vaccine efficacy of 75% yields a benefit of $0.004 \times 0.75 = 0.003$. Serious adverse events at 1 in 10,000 gives a cost of $0.0001$.
 
 The ratio is now **30 to 1**. Still in favor of vaccination, but the margin is thinner by two orders of magnitude. And that 30:1 assumed we knew the parameters precisely.
 
-So does expected value settle the question? For measles, basically yes. For the Gray Threat, it gives an answer — vaccinate — but the answer should make you uncomfortable, because the framework has cracks:
+For measles, that settles it. For the Gray Threat, the answer is still "vaccinate" — but the margin should make you uncomfortable, because the framework has cracks:
 
-**It's insensitive to the nonlinearity we just saw.** The expected-value calculation gives you the same recommendation whether 10% or 90% of the population is already vaccinated. But we know from Section 2 that where you are on the coverage curve matters enormously. Your marginal contribution to herd immunity is nearly worthless at 50% coverage and potentially decisive at 93%.
+**It's insensitive to the nonlinearity we just saw.** The calculation gives you the same recommendation whether 10% or 90% of the population is already vaccinated. But where you are on the coverage curve matters enormously. Your marginal contribution to herd immunity is nearly worthless at 50% coverage and potentially decisive at 93%.
 
 **It treats you as interchangeable with the population average.** But you're not average. You have a specific age, health profile, occupation, and risk tolerance. A 25-year-old marathon runner and an immunocompromised 70-year-old face very different calculi, even for the same disease.
 
-**It ignores strategic interdependence.** Your optimal decision depends on what everyone else decides, and theirs depends on yours. Expected-value reasoning treats the population coverage level as fixed background — but it's the emergent result of millions of people making exactly the same kind of calculation you are.
+**It ignores strategic interdependence.** Your optimal decision depends on what everyone else decides, and theirs depends on yours. Expected-value reasoning treats coverage as fixed background — but it's the emergent result of millions of people making the same calculation you are.
 
 **It says nothing about deep uncertainty.** For the Black Swan scenario, you don't just face risk (known probabilities); you face uncertainty (unknown probabilities) and possibly ignorance (unknown unknowns). Expected value requires a probability distribution. What if you don't have one?
 
-These aren't minor quibbles. They're structural limitations. The expected-value framework is a useful first pass — it correctly identifies that measles vaccination is a no-brainer, and it correctly flags the Gray Threat as a closer call. But it can't tell you what to do when the interesting complications arise: strategic interdependence, deep uncertainty, and the gap between individual rationality and collective outcomes.
+These aren't minor quibbles. They're structural limitations. Expected value is a useful first pass — it correctly identifies measles vaccination as a no-brainer and flags the Gray Threat as a closer call. But it can't handle strategic interdependence, deep uncertainty, or the gap between individual and collective rationality.
 
-We need better tools. Let's go find them.
+We need better tools.
 
 ## The Free-Rider Trap
 
 Here's the strategic problem lurking inside Section 2's nonlinearity: vaccination is a public good, and public goods invite free-riders.
 
-The logic is seductive. If 94% of people around you are vaccinated against measles, your personal risk of infection is already tiny — herd immunity is doing most of the work. So why absorb even the minuscule cost of the vaccine (sore arm, afternoon off, one-in-a-million adverse event) when you can coast on everyone else's immunity for free?
+The logic is seductive. If 94% of people around you are vaccinated against measles, your personal risk is already tiny. Why absorb even the minuscule cost of the vaccine when you can coast on everyone else's immunity for free?
 
-That reasoning is individually rational. It's also collectively suicidal. If enough people follow it, coverage drops below the herd immunity threshold and everybody loses — including the free-riders, who are now unvaccinated in a population that can no longer protect them. This is a tragedy of the commons, but with the nonlinear twist from Section 2: near the threshold, each defection has an outsized effect. Going from 95% to 94% coverage doesn't reduce herd protection by 1%. It can destroy it entirely.
+That reasoning is individually rational and collectively suicidal. If enough people follow it, coverage drops below the herd immunity threshold and everybody loses — including the free-riders. This is a tragedy of the commons with the nonlinear twist from Section 2: near the threshold, each defection has an outsized effect. Going from 95% to 94% coverage doesn't reduce herd protection by 1%. It can destroy it entirely.
 
 ::: {.column-margin}
 Game theorists call this a **public goods game with a threshold**. Below the threshold, defection is catastrophic. Above it, defection is tempting. The herd immunity threshold is the knife-edge where private and public incentives diverge most sharply.
 :::
 
-To see how this plays out across our four archetypes, let's build a simple agent-based model. We place $N = 5{,}000$ agents in a population. Each agent decides whether to vaccinate based on a personal cost-benefit calculation: they compare the perceived cost of vaccination (a fixed "cost sensitivity" drawn from a distribution) against the perceived benefit, which depends on current disease burden — and disease burden depends on how many other agents vaccinated.
+Let's build a simple agent-based model to see this across our four archetypes. We place $N = 5{,}000$ agents in a population. Each agent compares the perceived cost of vaccination (a "cost sensitivity" drawn from a distribution) against the perceived benefit, which depends on current disease burden — which depends on how many agents vaccinated.
 
-The catch is the feedback loop. When coverage is high, the perceived benefit of vaccination drops (the disease seems rare, why bother?), which tempts more agents to defect, which lowers coverage. The model iterates until it reaches a **Nash equilibrium** — a coverage level where no individual agent wants to change their decision given everyone else's decisions.
-
-We then compare that Nash equilibrium to the **social optimum**: the coverage level that minimizes total harm across the entire population.
+The catch is the feedback loop. When coverage is high, the perceived benefit drops (the disease seems rare), tempting more agents to defect, which lowers coverage. The model iterates until it reaches a **Nash equilibrium** — a coverage level where no agent wants to change their decision. We compare that to the **social optimum**: the coverage level that minimizes total harm.
 
 ```{python}
 #| label: fig-free-rider
@@ -323,29 +327,29 @@ plt.tight_layout()
 plt.show()
 ```
 
-The pattern is striking. For measles, the Nash equilibrium settles well below the 95% threshold needed for herd immunity. Individual rationality says "the disease is rarely fatal, the vaccine costs me something, and most people around me are already vaccinated." But that reasoning, followed by enough agents, produces a coverage level where outbreaks become inevitable. The free-rider tax — the gap between Nash and social optimum — is enormous precisely because the herd immunity threshold is so high.
+The pattern is striking. For measles, the Nash equilibrium settles well below the 95% threshold. Individual rationality says "the disease is rarely fatal, the vaccine costs me something, and most people are already vaccinated." Followed by enough agents, that reasoning produces coverage levels where outbreaks become inevitable. The free-rider tax is enormous precisely because the threshold is so high.
 
-Smallpox tells a different story. When the disease kills 30% of the people it infects, even selfish agents are terrified enough to vaccinate. The perceived benefit stays high regardless of what everyone else does, because the personal cost of infection is catastrophic. Nash and social optimum nearly converge. You don't need to appeal to collective duty when individual survival instinct does the work.
+Smallpox tells a different story. When the disease kills 30% of those it infects, even selfish agents vaccinate. The perceived benefit stays high regardless of what everyone else does. Nash and social optimum nearly converge. You don't need to appeal to collective duty when survival instinct does the work.
 
-The Gray Threat is where things get really uncomfortable. The disease is serious but not terrifying, the vaccine is imperfect and carries non-trivial risk, and the herd immunity threshold is essentially unreachable. The Nash equilibrium undershoots the social optimum by a wide margin. This is the scenario where the gap between "what's rational for me" and "what's best for all of us" is hardest to close — and where the loudest policy disagreements actually live.
+The Gray Threat is where things get uncomfortable. The disease is serious but not terrifying, the vaccine is imperfect with non-trivial risk, and the herd threshold is unreachable. The Nash equilibrium undershoots the social optimum by a wide margin — this is where the gap between "what's rational for me" and "what's best for all of us" is hardest to close, and where the loudest policy disagreements live.
 
 ::: {.column-margin}
 The Black Swan bar uses mid-range parameter estimates. In reality, the deep uncertainty means you can't even compute a stable Nash equilibrium — agents keep revising their beliefs, and the "equilibrium" shifts with every new data point. The bar shown is a fiction that understates the real problem.
 :::
 
-The Black Swan case, shown with mid-range parameter estimates, displays a moderate gap. But this understates the actual problem. When agents are uncertain about the parameters themselves — not just "will I get sick?" but "how bad is this disease, really?" — the Nash equilibrium becomes a moving target. The free-rider calculation requires knowing the payoffs, and during a novel pandemic, nobody knows the payoffs.
+The Black Swan case, shown with mid-range estimates, displays a moderate gap — but this understates the actual problem. When agents are uncertain about the parameters themselves, the Nash equilibrium becomes a moving target. The free-rider calculation requires knowing the payoffs, and during a novel pandemic, nobody knows the payoffs.
 
-So expected-value reasoning misses the strategic structure, and game theory reveals the free-rider trap but doesn't tell us how to escape it. Both frameworks take the agent's perspective — what should *I* do? — and optimize from there.
+Expected-value reasoning misses the strategic structure; game theory reveals the free-rider trap but doesn't tell us how to escape it. Both take the agent's perspective — what should *I* do?
 
-What if we asked a different question entirely? Not "what should I do?" but "what rules would I agree to before I knew who I'd be?"
+What if we asked a different question: not "what should I do?" but "what rules would I agree to before I knew who I'd be?"
 
 ## Behind the Veil
 
-In 1971, John Rawls proposed a thought experiment that remains one of the most powerful tools in political philosophy. Imagine you're designing the rules of a society — but you don't know what position you'll occupy in it. You don't know if you'll be rich or poor, healthy or sick, talented or disadvantaged. You're behind a **veil of ignorance**.
+In 1971, John Rawls proposed a thought experiment that remains one of the most powerful tools in political philosophy. You're designing the rules of a society, but you don't know what position you'll occupy in it — rich or poor, healthy or sick, talented or disadvantaged. You're behind a **veil of ignorance**.
 
 From behind that veil, what vaccination policy would you choose?
 
-The question hits differently once you take it seriously. You don't know whether you'll be a healthy 25-year-old who barely notices infectious diseases, or an infant too young to be vaccinated, or a cancer patient whose immune system is suppressed by chemotherapy. You don't know if you'll live in a rural town where you rarely encounter strangers, or work in a pediatric ICU. You don't know if your future child will be one of the rare cases where vaccination is medically contraindicated — leaving them entirely dependent on everyone else's immunity.
+The question hits differently once you take it seriously. You don't know whether you'll be a healthy 25-year-old, an infant too young to be vaccinated, or a cancer patient on immunosuppressive chemotherapy. You don't know if your future child will be one of the rare cases where vaccination is medically contraindicated — entirely dependent on everyone else's immunity.
 
 ::: {.column-margin}
 Rawls himself didn't write much about public health specifically. The major extension is Norman Daniels (*Just Health*, 2008), who argues that health protections matter because disease undermines "fair equality of opportunity" — it limits what Daniels calls an individual's "normal opportunity range."
@@ -353,7 +357,7 @@ Rawls himself didn't write much about public health specifically. The major exte
 
 And critically, you don't know where on the herd immunity curve your society will land. You might wake up in a world with 96% measles coverage, where herd immunity does its quiet work and you never even think about the disease. Or you might wake up in a world at 89% coverage, where your unvaccinated child is exposed every time they enter a classroom.
 
-Rawls's answer to this kind of uncertainty was the **maximin principle**: choose the rules that make the worst-off position as good as possible. Not the rules that maximize average welfare — that's utilitarianism, and it's perfectly happy to sacrifice a few people if the average comes out ahead. Maximin says: look at the person who draws the shortest straw under each possible policy, and pick the policy where that shortest straw is longest.
+Rawls's answer was the **maximin principle**: choose the rules that make the worst-off position as good as possible. Not the rules that maximize average welfare — that's utilitarianism, happy to sacrifice a few if the average comes out ahead. Maximin says: look at the person who draws the shortest straw under each policy, and pick the policy where that shortest straw is longest.
 
 Applied to vaccination, the worst-off position is clear: it's the person who *cannot* be vaccinated and lives in a community where coverage is below the herd immunity threshold. That person faces a disease risk they did nothing to create and can do nothing to mitigate. Their safety depends entirely on the choices of others.
 
@@ -363,35 +367,35 @@ The legal system has wrestled with this too. In *Jacobson v. Massachusetts* (190
 
 Behind a sufficiently thick veil, you'd consent to stronger policy interventions than your revealed preferences suggest. You'd agree to mandatory coverage requirements — not because you enjoy being told what to do, but because you'd be terrified of waking up as the immunocompromised child whose classmates' parents decided the vaccine wasn't worth the trouble. The veil converts the free-rider's smug calculus ("I'll skip it, everyone else has me covered") into a source of existential dread ("what if I'm the one who needs covering?").
 
-This connects directly to the nonlinearity from Section 2 and the game theory from Section 5. Behind the veil, you don't know the current vaccination rate — you face uncertainty over where on the herd immunity curve you'll land. And we've seen that the curve is violently nonlinear near the threshold. That means the marginal value of one additional vaccination has enormous variance: it might be nearly worthless (if coverage is already high) or extraordinarily valuable (if coverage is teetering on the edge). Rawlsian reasoning is risk-averse by design. When the variance of the marginal contribution is high and the downside is catastrophic, the maximin principle pushes hard toward ensuring high coverage.
+This connects directly to the nonlinearity from Section 2. Behind the veil, you don't know the current vaccination rate — you face uncertainty over where on the herd immunity curve you'll land. The marginal value of one additional vaccination might be nearly worthless (coverage already high) or extraordinarily valuable (coverage teetering on the edge). Rawlsian reasoning is risk-averse by design. When the downside is catastrophic, maximin pushes hard toward ensuring high coverage.
 
 The Rawlsian argument doesn't say "vaccinate because society demands it." It says something sharper: **a just society would not ask the vulnerable to bear epidemic risk created by others' optional non-cooperation.** If you wouldn't accept that risk for yourself behind the veil, you can't in good conscience impose it on someone else from in front of it.
 
 But notice what the veil *doesn't* settle. It tells you the policy should protect the worst-off, but it doesn't tell you exactly how. Mandates? Incentives? School-entry requirements? The veil points toward a destination — high, reliable coverage with special protection for the vulnerable — but leaves the route open. And reasonable people can still disagree about the route even when they agree on the destination.
 
-We've now built three lenses: the nonlinear epidemiology of herd immunity, the strategic trap of free-riding, and the Rawlsian case for institutional design that protects the worst-off. Each one reveals something the others miss. But we still haven't synthesized them into a unified framework — one that can actually guide decisions across our four archetypes.
+Three lenses now: the nonlinear epidemiology, the strategic trap, and the Rawlsian case for protecting the worst-off. Each reveals something the others miss. But none handles the case where the parameters themselves are unknown.
 
 ## When the Tail Wags the Dog
 
 Everything so far has assumed we know the numbers. But what happens when the parameters themselves are the problem?
 
-Nassim Nicholas Taleb draws a sharp line between two risk domains. In **Mediocristan**, extremes are bounded — car accidents, human height, seasonal flu severity. Expected-value calculations converge. The tools from Section 4 work fine. In **Extremistan**, a single event dwarfs everything else in the historical record combined. The distribution follows a power law, and when the tail exponent is low enough, the theoretical mean is *infinite*. You can't compute an expected value because there is no stable expectation.
+Nassim Nicholas Taleb draws a sharp line between two risk domains. In **Mediocristan**, extremes are bounded — car accidents, human height, seasonal flu. Expected-value calculations converge. In **Extremistan**, a single event dwarfs everything else in the historical record combined. The distribution follows a power law, and when the tail exponent is low enough, the theoretical mean is *infinite*. There is no stable expectation to optimize.
 
 ::: {.column-margin}
 Cirillo and Taleb (2020, *Nature Physics*) analyzed epidemic fatality distributions over 2,500 years and found a tail exponent $\alpha < 1$ — meaning infinite mean and variance. The "average pandemic" is a number that doesn't exist in any meaningful statistical sense.
 :::
 
-Pandemics live in Extremistan. The Black Death, the 1918 influenza, and COVID-19 aren't outliers from some well-behaved distribution — they *are* the distribution, with tail events containing most of the total impact. This breaks expected-value reasoning for our Black Swan archetype. You can't optimize expected utility when the expectation doesn't exist.
+Pandemics live in Extremistan. The Black Death, 1918 influenza, and COVID-19 aren't outliers from some well-behaved distribution — they *are* the distribution, with tail events containing most of the total impact. You can't optimize expected utility when the expectation doesn't exist.
 
 Taleb's response is the **Precautionary Principle** — but not the vague "better safe than sorry" version. His formalization is narrow. The PP applies only when a risk is: (1) systemic, (2) multiplicative, (3) potentially ruinous with no defined upper bound, and (4) fat-tailed. Novel pandemics check every box. Seasonal flu checks none. When someone says "we don't mandate flu shots, so why mandate this?" they're conflating Mediocristan with Extremistan.
 
-And the key asymmetry: disease risk is potentially fat-tailed (no defined upper bound), while vaccine risk is thin-tailed (bounded, localized, well-characterized). A vaccine side effect doesn't replicate or cascade through hospital systems. It stays in Mediocristan even when the disease has moved into Extremistan. The PP *strongly favors* vaccination infrastructure — accept a known, bounded cost to clip an unknown, unbounded tail.
+The key asymmetry: disease risk is potentially fat-tailed (no defined upper bound), while vaccine risk is thin-tailed (bounded, localized, well-characterized). A vaccine side effect doesn't replicate or cascade through hospital systems. It stays in Mediocristan even when the disease has moved into Extremistan. The PP *strongly favors* vaccination infrastructure — accept a known, bounded cost to clip an unknown, unbounded tail.
 
 ::: {.column-margin}
 This is where the "individual rights" framing is most bankrupt. Pandemic risk is *correlated* — everyone's worst case happens at the same time. You can't diversify away from it. Your personal risk tolerance is irrelevant when the hospital system collapses because a million people got sick in the same week.
 :::
 
-And pandemic risk is **correlated** — everyone gets sick together, hospitals overflow simultaneously, supply chains break in concert. Individual risk assessment assumes independent outcomes. That assumption fails catastrophically when ruin hits the whole population at once.
+And pandemic risk is **correlated** — everyone gets sick together, hospitals overflow simultaneously, supply chains break in concert. Individual risk assessment assumes independent outcomes. That assumption fails when ruin hits the whole population at once.
 
 The policy upshot: maintaining vaccination infrastructure isn't about any single disease. It's about the entire distribution of possible future pandemics. Build the surge capacity *before* you need it — by the time you have precise estimates, the fat tail may have already arrived.
 
@@ -409,9 +413,13 @@ The Kelly criterion — the growth-rate optimal betting strategy — is the ergo
 
 This is **ergodicity economics** (Ole Peters). For multiplicative processes, the ensemble average (across many people at one moment) can diverge from the time average (one person across many moments). The process is *non-ergodic*.
 
-Now think about a free-rider's health as multiplicative. Each year: some probability of infection, and if infected, a compounding hit. The vaccinator pays a small certain cost but avoids the big hits. The ensemble view looks fine for free-riders — the mean is pulled up by lucky agents. But the *median* free-rider fares much worse, because multiplicative hits compound. The "average free-rider outcome" is a statistical fiction.
+Now think about a free-rider's health as multiplicative. Each year: some probability of infection, and if infected, a compounding hit. The vaccinator pays a small certain cost but avoids the big hits. The ensemble view looks fine for free-riders — the mean is pulled up by lucky agents. But the *median* free-rider fares much worse, because multiplicative hits compound.
 
-This is a different lens from Section 5. Game theory asked about strategic interaction at equilibrium. Ergodicity asks about **path-dependent welfare for a single agent over time**. Same population, different question. Let's simulate it — Gray Threat parameters, the most interesting case.
+This is a different lens from Section 5. Game theory asked about strategic interaction at equilibrium. Ergodicity asks about **path-dependent welfare for a single agent over time**. Let's simulate it — Gray Threat parameters, the most interesting case.
+
+::: {.column-margin}
+The simulation assumes a fixed population coverage level and independent infection draws each year. In reality, infection risk is correlated (outbreaks cluster in time and space) and coverage shifts endogenously. Both effects would strengthen the ergodicity argument — correlated hits compound faster, and endogenous coverage creates feedback loops that amplify non-ergodicity.
+:::
 
 ```{python}
 #| label: fig-ergodicity
@@ -493,31 +501,29 @@ plt.tight_layout()
 plt.show()
 ```
 
-The left panel shows the ensemble view. The free-riders' mean health holds up — buoyed by lucky agents who dodged infection year after year. Expected-value reasoning says "free-riding pays."
+The left panel shows the ensemble view. Free-riders' mean health holds up, buoyed by lucky agents who dodged infection year after year. Expected-value reasoning says "free-riding pays."
 
-The right panel shows what actually happens. Those faint traces are individual free-rider trajectories. The median — the dashed line — tells a grimmer story than the mean. That gap between mean and median is the signature of non-ergodicity: the distance between "what the group looks like" and "what you'll actually live through."
+The right panel shows what actually happens. Those faint traces are individual trajectories. The gap between mean and median is the signature of non-ergodicity: the distance between "what the group looks like" and "what you'll actually live through."
 
 ::: {.column-margin}
 The divergence zone boundaries: ensemble says free-ride when $p < c/L$. Time-average says vaccinate when $p > \ln(1-c)/\ln(1-L)$. Jensen's inequality guarantees $\ln(1-c)/\ln(1-L) < c/L$ for all $L > 0$, so a disagreement zone always exists.
 :::
 
-The math is precise. For any disease severity $L > 0$ and vaccine cost $c > 0$, Jensen's inequality guarantees a range of infection probabilities where ensemble reasoning says "free-ride" but time-average reasoning says "vaccinate." It's a theorem.
+The math is precise. For any disease severity $L > 0$ and vaccine cost $c > 0$, Jensen's inequality guarantees a range of infection probabilities where ensemble reasoning says "free-ride" but time-average reasoning says "vaccinate."
 
-But the zone is often *narrow* — about 0.25 percentage points for the Gray Threat. In most realistic scenarios, both methods agree on *direction*. The outright disagreement zone is real but slim.
-
-So does the individual-collective tension dissolve? Not entirely. But it **narrows** substantially. The real finding is about **magnitude**, not direction. Ensemble reasoning systematically underestimates the cost of free-riding because the "average free-rider outcome" is inflated by a lucky minority. Time-average reasoning strips that illusion away.
+But the zone is often *narrow* — about 0.25 percentage points for the Gray Threat. The outright disagreement zone is real but slim. The real finding is about **magnitude**, not direction. Ensemble reasoning systematically underestimates the cost of free-riding because the "average free-rider outcome" is inflated by a lucky minority. Time-average reasoning strips that illusion away.
 
 The remaining gap is small enough that ordinary human motivations — reciprocity, social trust, mild institutional nudges — can close it. You don't need coercive mandates. You need people reasoning correctly about their own long-run welfare.
 
-Five lenses now, trained on the same question. Expected value gives the first approximation. Game theory reveals the strategic trap. Rawls shows what justice demands. Taleb tells us when the entire framework breaks down. Ergodicity economics shows that the tension between individual and collective rationality is partly an artifact of the wrong averaging method. Time to bring them together.
+Five lenses now. Expected value gives the first approximation. Game theory reveals the strategic trap. Rawls shows what justice demands. Taleb tells us when the framework breaks down. Ergodicity shows that the individual-collective tension is partly an artifact of the wrong averaging method. Time to bring them together.
 
 ## The Right Question
 
-Here's the pattern we've built, five frameworks deep. Each one answered a different question about the same problem — and they landed in different places depending on the disease.
+Each framework answered a different question about the same problem — and they landed in different places depending on the disease.
 
-Expected value asked: *what maximizes average welfare?* Game theory asked: *what's the equilibrium when everyone optimizes for themselves?* Rawls asked: *what protects the person who draws the shortest straw?* Taleb asked: *what avoids ruin?* Ergodicity asked: *what maximizes my long-run trajectory through time?*
+Expected value: *what maximizes average welfare?* Game theory: *what's the equilibrium when everyone optimizes for themselves?* Rawls: *what protects the worst-off?* Taleb: *what avoids ruin?* Ergodicity: *what maximizes my long-run trajectory?*
 
-Five questions. Not one. And that, it turns out, is the key.
+Five questions. Not one. That's the key.
 
 Let's see where they converge and where they don't. Below is a framework comparison across our four disease archetypes. The color represents how far up a **policy ladder** each framework pushes — from the lightest intervention (recommend, level 1) to the strongest (universal mandate, level 5):
 
@@ -599,17 +605,17 @@ plt.show()
 
 Read the columns.
 
-For measles and smallpox — the extremes — the frameworks mostly agree. The numbers cluster at 4 and 5. When a disease is highly contagious, the vaccine is safe and effective, and the herd immunity threshold is steep, every lens points toward strong coordinated action. Expected value says the benefit-to-cost ratio is 3,000 to 1. Game theory says the free-rider gap is enormous. Rawls says the immunocompromised child behind the veil demands protection. Ergodicity says your long-run health trajectory clearly favors vaccination. Even Taleb, who generally resists mandates, agrees on maintaining the infrastructure. The disagreement is about tactics, not direction.
+For measles and smallpox, the frameworks mostly agree. The numbers cluster at 4 and 5. When the disease is highly contagious and the vaccine is safe and effective, every lens points toward strong coordinated action. Expected value says 3,000 to 1. Game theory says the free-rider gap is enormous. Rawls demands protection for the immunocompromised child. Ergodicity favors vaccination. The disagreement is about tactics, not direction.
 
-Now read the Gray Threat column. The numbers scatter: 2, 2, 3, 3, 4. This is where the frameworks pull apart. Expected value says vaccinate but the margin is thin. Game theory sees a moderate free-rider gap but notes the herd threshold is essentially unreachable — so what exactly are we mandating *toward*? Rawls still pushes high because the worst-off person still suffers. Taleb shrugs — the severity distribution is thin-tailed, the Precautionary Principle doesn't activate. Ergodicity lands in the middle. There's no consensus because the frameworks are answering genuinely different questions, and for this disease profile, those questions have genuinely different answers.
+Now the Gray Threat column. The numbers scatter: 2, 2, 3, 3, 4. Expected value says vaccinate but the margin is thin. Game theory sees a moderate free-rider gap but notes the herd threshold is unreachable — so what are we mandating *toward*? Rawls still pushes high. Taleb shrugs — thin-tailed severity, the PP doesn't activate. Ergodicity lands in the middle. No consensus, because for this disease profile the frameworks are answering genuinely different questions with genuinely different answers.
 
-And the Black Swan column is the most revealing. Taleb and Rawls both push to 5 — maximum intervention — because their frameworks are designed precisely for this case. Taleb sees fat-tailed, correlated, systemic risk and invokes the Precautionary Principle. Rawls imagines the worst-off person behind the veil during a novel pandemic and demands protection. But expected value can't even produce a number — that question mark is real, not rhetorical. When the tail exponent is below 1 and the mean doesn't exist, "maximize expected welfare" is a sentence without a referent.
+The Black Swan column is the most revealing. Taleb and Rawls both push to 5 — their frameworks are designed for this case. But expected value can't even produce a number. That question mark is real, not rhetorical. When the tail exponent is below 1 and the mean doesn't exist, "maximize expected welfare" is a sentence without a referent.
 
 ::: {.column-margin}
 Real-world vaccination systems absorb this framework disagreement through institutional design. The US Vaccine Injury Compensation Program ($0.75 excise tax per dose) addresses individual risk. Medical exemptions protect the vulnerable. School-entry requirements create conditional mandates. Outbreak-triggered orders allow escalation. No single framework built this system — the system works because it implicitly answers multiple frameworks at once.
 :::
 
-This is the reveal. The standard debate — "individual rights vs. collective obligation" — is a category error. It assumes there's one question to answer. But there are at least five, and they're all legitimate:
+The standard debate — "individual rights vs. collective obligation" — is a category error. It assumes there's one question. There are at least five, and they're all legitimate:
 
 - What maximizes total welfare? (Expected value)
 - What's stable when everyone acts strategically? (Game theory)
@@ -619,18 +625,18 @@ This is the reveal. The standard debate — "individual rights vs. collective ob
 
 Asking "which framework is correct?" is like asking "which is the right map projection?" — Mercator, Robinson, and Mollweide all distort reality in different ways, and the right choice depends on what you're navigating.
 
-The policy ladder *is* the answer. Not because it represents some optimal compromise, but because different diseases genuinely warrant different levels of coordinated action — and the level should be calibrated to where the frameworks converge. For measles, they converge on strong action. For the Gray Threat, they diverge, which is itself informative: it means the policy question is genuinely hard, and anyone claiming an obvious answer is ignoring at least three of the five lenses.
+The policy ladder *is* the answer. Different diseases genuinely warrant different levels of coordinated action, calibrated to where the frameworks converge. For measles, they converge on strong action. For the Gray Threat, they diverge — which is itself informative: the policy question is genuinely hard, and anyone claiming an obvious answer is ignoring at least three of the five lenses.
 
-And where the frameworks diverge most — the Black Swan — the institutional response should err toward the frameworks designed for that exact scenario. Well-designed vaccination systems don't force a single answer. They build layered mechanisms — compensation for the unlucky few (VICP), exemptions for the medically vulnerable, conditional requirements that escalate with threat severity, due process and legal review — that absorb disagreement across frameworks rather than resolving it. The system works not by picking a winner among the five lenses but by designing institutions robust to all of them.
+Where the frameworks diverge most — the Black Swan — institutional design should err toward the frameworks built for that scenario. Well-designed vaccination systems don't force a single answer. They build layered mechanisms — compensation for the unlucky few (VICP), exemptions for the medically vulnerable, conditional requirements that escalate with threat severity — that absorb disagreement across frameworks rather than resolving it.
 
 ## Coda
 
 Back to the pharmacy counter.
 
-The flu shot. You already know the answer — every framework agrees on this one. Low $R_0$, thin-tailed severity, moderate vaccine efficacy. No lens demands a mandate. Recommend, subsidize, move on.
+The flu shot. You already know the answer — every framework agrees. Low $R_0$, thin-tailed severity, moderate vaccine efficacy. Recommend, subsidize, move on.
 
-But the moment is different now. You understand that your individual decision is embedded in a system with nonlinear thresholds, strategic interdependence, fat-tailed risks you can't see, and path-dependent trajectories that compound over decades. The question was never "my body, my choice" vs. "do it for the collective." That framing was always too thin.
+But the moment is different now. Your individual decision is embedded in a system with nonlinear thresholds, strategic interdependence, fat-tailed risks you can't see, and path-dependent trajectories that compound over decades. The question was never "my body, my choice" vs. "do it for the collective." That framing was always too thin.
 
-The right question is narrower and more useful: *what level of coordinated action does this specific disease, with these specific parameters, in this specific population, actually warrant?* The answer varies — from a shrug at the pharmacy counter to emergency orders in four Brooklyn ZIP codes — and the math helps you see why.
+The right question: *what level of coordinated action does this specific disease, with these specific parameters, in this specific population, actually warrant?* The answer varies — from a shrug at the pharmacy counter to emergency orders in four Brooklyn ZIP codes — and the math helps you see why.
 
-It doesn't remove the need for judgment. It just makes the judgment better-informed. And sometimes that's all you can ask of a framework: not certainty, but a clearer view of what you're actually deciding.
+It doesn't remove the need for judgment. It makes the judgment better-informed. Sometimes that's all you can ask of a framework: not certainty, but a clearer view of what you're actually deciding.
