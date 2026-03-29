@@ -138,6 +138,6 @@ To be delegated to deep research tools (Gemini/Codex):
 ## Open Questions
 
 - Exact title (working title: "The Wrong Question")
-- Whether the stronger claim holds: that under ergodicity economics the individual/collective tension fully dissolves (needs exploratory simulation early — this is a branching point that affects sections 8-9)
+- ~~Whether the stronger claim holds~~ **RESOLVED:** Exploratory simulation (Task 8) shows the tension *narrows dramatically* but does not fully dissolve. The divergence zone exists mathematically (Jensen's inequality) but real parameters fall outside it. The key insight is the mean-median gap: ensemble reasoning underestimates the cost of free-riding. Sections 8-9 should use the "narrows" framing.
 - How much historical narrative to include for measles/smallpox (deep research will inform this)
 - Whether the framework comparison in section 9 works better as a table, heatmap, or narrative
