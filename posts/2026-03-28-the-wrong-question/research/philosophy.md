@@ -69,9 +69,15 @@ Libertarianism is rooted in the principle of self-ownership and the Non-Aggressi
 
 ### Communitarian Perspective
 
-Communitarianism emphasizes that individuals are part of a larger social fabric.
+Communitarianism emphasizes that individuals are part of a larger social fabric. Key thinkers include:
 
-- **The Common Good & Social Solidarity:** Vaccination is viewed as a collective effort to achieve "herd immunity," protecting vulnerable members. In frameworks like Afro-communitarianism, vaccination is seen as an act of solidarity—a commitment to "carry the cost" for the well-being of others.
+- **Michael Sandel** (*Justice*, 2009; *What Money Can't Buy*, 2012) argues that market logic erodes shared obligations and that health is a common good, not merely a private consumption choice. From this perspective, vaccination is a shared responsibility rooted in our interdependence.
+- **Amitai Etzioni**, a leading communitarian theorist, has written directly about vaccination and community responsibility, emphasizing that individuals cannot simply extract the benefits of collective immunity without reciprocal participation.
+- **Charles Taylor** and **Michael Walzer** provide broader communitarian frameworks emphasizing the embedded nature of individual choice within social goods and shared meanings.
+
+The communitarian argument proceeds as follows:
+
+- **The Common Good & Social Solidarity:** Vaccination is viewed as a collective effort to achieve "herd immunity," protecting vulnerable members. From a communitarian perspective, vaccination is an act of solidarity—a commitment to "carry the cost" for the well-being of others.
 - **Reciprocity:** Because individuals benefit from a disease-free society, they have a reciprocal obligation to contribute to its maintenance. Taking the benefits of cooperation without contributing is free-riding.
 
 ### Where the mainstream literature lands
@@ -121,3 +127,8 @@ The best synthesis is that mandates become most defensible when they are embedde
 - Brennan, Jason. "A Libertarian Case for Mandatory Vaccination." *Journal of Medical Ethics*, 2018.
 - Flanigan, Jessica. "A Defense of Compulsory Vaccination." *HEC Forum*, 2014.
 - European Court of Human Rights. *Vavricka and Others v. the Czech Republic* (Grand Chamber, 2021). https://hudoc.echr.coe.int/eng?i=001-209039
+- Sandel, Michael J. *Justice: What's the Right Thing to Do?*. Farrar, Straus and Giroux, 2009.
+- Sandel, Michael J. *What Money Can't Buy: The Moral Limits of Markets*. Farrar, Straus and Giroux, 2012.
+- Etzioni, Amitai. *The Moral Dimension: Toward a New Economics*. Free Press, 1988.
+- Taylor, Charles. *Sources of the Self: The Making of the Modern Identity*. Harvard University Press, 1989.
+- Walzer, Michael. *Spheres of Justice: A Defense of Pluralism and Equality*. Basic Books, 1983.
