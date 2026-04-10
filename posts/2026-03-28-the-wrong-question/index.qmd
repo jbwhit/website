@@ -70,8 +70,8 @@ Re = R0 * (1 - v * efficacy)
 k = 50  # steepness of the transition
 weight = 1 / (1 + np.exp(-k * (Re - 1)))
 
-fraction_infected = weight * (1 - 1 / np.where(Re > 0.5, Re, 0.5))
-infections_per_1000 = fraction_infected * POP
+fraction_infected = np.maximum(0, weight * (1 - 1 / np.where(Re > 0.5, Re, 0.5)))
+infections_per_1000 = fraction_infected * (1 - v * efficacy) * POP
 
 # Herd immunity threshold
 v_threshold = (1 / efficacy) * (1 - 1 / R0)
