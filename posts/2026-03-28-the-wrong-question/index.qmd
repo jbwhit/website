@@ -217,6 +217,10 @@ That reasoning is individually rational and collectively suicidal. If enough peo
 Game theorists call this a **public goods game with a threshold**. Below the threshold, defection is catastrophic. Above it, defection is tempting. The herd immunity threshold is the knife-edge where private and public incentives diverge most sharply.
 :::
 
+::: {.column-margin}
+The game-theoretic structure of vaccination was formalized by Bauch and Earn (2004, *PNAS*), who showed that individual optimization generically produces coverage below the social optimum. Geoffard and Philipson (1997, *AER*) analyzed the economics of eradication. The model here is a simplified illustration of their core result — see those papers for the rigorous treatment.
+:::
+
 Let's build a simple agent-based model to see this across our four archetypes. We place $N = 5{,}000$ agents in a population. Each agent compares the perceived cost of vaccination (a "cost sensitivity" drawn from a distribution) against the perceived benefit, which depends on current disease burden — which depends on how many agents vaccinated.
 
 The catch is the feedback loop. When coverage is high, the perceived benefit drops (the disease seems rare), tempting more agents to defect, which lowers coverage. The model iterates until it reaches a **Nash equilibrium** — a coverage level where no agent wants to change their decision. We compare that to the **social optimum**: the coverage level that minimizes total harm.
@@ -369,7 +373,7 @@ From behind that veil, what vaccination policy would you choose?
 The question hits differently once you take it seriously. You don't know whether you'll be a healthy 25-year-old, an infant too young to be vaccinated, or a cancer patient on immunosuppressive chemotherapy. You don't know if your future child will be one of the rare cases where vaccination is medically contraindicated — entirely dependent on everyone else's immunity.
 
 ::: {.column-margin}
-Rawls himself didn't write much about public health specifically. The major extension is Norman Daniels (*Just Health*, 2008), who argues that health protections matter because disease undermines "fair equality of opportunity" — it limits what Daniels calls an individual's "normal opportunity range."
+Rawls himself didn't write much about public health specifically. The major extension is Norman Daniels (*Just Health*, 2008), who argues that health protections matter because disease undermines "fair equality of opportunity." For a comprehensive treatment of the ethics of vaccination through a Rawlsian lens, see Giubilini (*The Ethics of Vaccination*, 2019). The argument here follows his general line but simplifies considerably.
 :::
 
 And critically, you don't know where on the herd immunity curve your society will land. You might wake up in a world with 96% measles coverage, where herd immunity does its quiet work and you never even think about the disease. Or you might wake up in a world at 89% coverage, where your unvaccinated child is exposed every time they enter a classroom.
@@ -537,6 +541,80 @@ The math illustrates the point precisely, even if the model is stylized. For any
 But the zone is often *narrow* — about 0.25 percentage points for the Gray Threat. The outright disagreement zone is real but slim. The real finding is about **magnitude**, not direction. Ensemble reasoning systematically underestimates the cost of free-riding because the "average free-rider outcome" is inflated by a lucky minority. Time-average reasoning strips that illusion away.
 
 The remaining gap is small enough that ordinary human motivations — reciprocity, social trust, mild institutional nudges — can close it. You don't need coercive mandates. You need people reasoning correctly about their own long-run welfare.
+
+::: {.column-margin}
+All simulations above used single parameter values. How stable are the conclusions? The figure below perturbs the three most influential parameters — cost-sensitivity spread (σ), severity per infection, and sigmoid steepness — by ±50% and shows how key outputs shift.
+:::
+
+```{python}
+#| label: fig-sensitivity
+#| fig-cap: "Sensitivity of key outputs to ±50% parameter perturbations. The qualitative conclusions — Nash undershoots the optimum, and the mean-median gap grows over time — are stable across perturbations. The specific magnitudes shift, particularly with cost-sensitivity spread."
+
+fig, axes = plt.subplots(1, 3, figsize=(13, 4.5))
+
+# --- Panel 1: Nash equilibrium vs. cost-sensitivity sigma ---
+sigmas = np.linspace(0.4, 1.2, 15)
+nash_by_sigma = []
+for s in sigmas:
+    rng_s = np.random.default_rng(42)
+    cs = rng_s.lognormal(mean=0.0, sigma=s, size=5000)
+    vaccinated = rng_s.random(5000) < 0.5
+    for _ in range(80):
+        cov = vaccinated.mean()
+        Re_s = 15.0 * (1 - cov * 0.97)
+        if Re_s > 1:
+            fi = (1 - 1/Re_s) * (1 - cov * 0.97)
+        else:
+            fi = 0.0
+        burden = fi * 0.002
+        pb = burden * 0.97
+        vaccinated = pb > cs * 1e-6
+    nash_by_sigma.append(vaccinated.mean() * 100)
+
+axes[0].plot(sigmas, nash_by_sigma, color="#c9613a", linewidth=2)
+axes[0].axvline(0.8, color="#7c6f64", linestyle="--", alpha=0.5, label="baseline σ=0.8")
+axes[0].set_xlabel("Cost-sensitivity σ", fontsize=11)
+axes[0].set_ylabel("Nash equilibrium coverage (%)", fontsize=11)
+axes[0].set_title("Measles-like", fontsize=12)
+axes[0].legend(fontsize=9)
+axes[0].spines[["top", "right"]].set_visible(False)
+
+# --- Panel 2: Mean-median gap vs. severity_hit ---
+severities = np.linspace(0.05, 0.35, 15)
+gaps = []
+for sev in severities:
+    rng_sev = np.random.default_rng(42)
+    health = np.ones(1000)
+    for t in range(40):
+        infected = rng_sev.random(1000) < p_inf
+        health *= np.where(infected, 1 - sev, 1.0)
+    gaps.append(health.mean() - np.median(health))
+
+axes[1].plot(severities, gaps, color="#458588", linewidth=2)
+axes[1].axvline(0.20, color="#7c6f64", linestyle="--", alpha=0.5, label="baseline=0.20")
+axes[1].set_xlabel("Severity hit per infection", fontsize=11)
+axes[1].set_ylabel("Mean − median health capital", fontsize=11)
+axes[1].set_title("Gray Threat: Ergodicity gap", fontsize=12)
+axes[1].legend(fontsize=9)
+axes[1].spines[["top", "right"]].set_visible(False)
+
+# --- Panel 3: Herd immunity curve vs. sigmoid steepness k ---
+for k_val, alpha_val in [(10, 0.3), (50, 1.0), (200, 0.3)]:
+    w = 1 / (1 + np.exp(-k_val * (Re - 1)))
+    fi = np.maximum(0, w * (1 - 1 / np.where(Re > 0.5, Re, 0.5)))
+    inf_plot = fi * (1 - v * efficacy) * POP
+    axes[2].plot(v * 100, inf_plot, linewidth=2, alpha=alpha_val,
+                 label=f"k={k_val}")
+
+axes[2].set_xlabel("Coverage (%)", fontsize=11)
+axes[2].set_ylabel("Infections per 1,000", fontsize=11)
+axes[2].set_title("Sigmoid steepness", fontsize=12)
+axes[2].legend(fontsize=9)
+axes[2].spines[["top", "right"]].set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
 
 Five lenses now. Expected value gives the first approximation. Game theory reveals the strategic trap. Rawls shows what justice demands. Taleb tells us when the framework breaks down. Ergodicity shows that the individual-collective tension is partly an artifact of the wrong averaging method. Time to bring them together.
 
