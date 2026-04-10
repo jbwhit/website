@@ -260,13 +260,24 @@ def find_nash_equilibrium(R0, efficacy, cfr, adverse_rate, n_agents=5000,
 
     return vaccinated.mean()
 
-def find_social_optimum(R0, efficacy, cfr, adverse_rate, n_points=2000):
-    """Find coverage that minimizes total social cost (disease burden + vaccine adverse events)."""
+def find_social_optimum(R0, efficacy, cfr, adverse_rate, n_points=2000, sigma=0.8):
+    """Find coverage that minimizes total social cost (disease burden + vaccine adverse events).
+
+    Vaccine cost integrates the log-normal cost-sensitivity distribution up to the
+    coverage quantile, matching the agent-based model's cost structure.
+    """
+    from scipy.stats import lognorm
+    dist = lognorm(s=sigma, scale=1.0)  # median=1, matching agent model
+
     coverages = np.linspace(0, 1, n_points)
     total_costs = []
     for c in coverages:
         disease_cost = compute_disease_burden(c, R0, efficacy, cfr)
-        vaccine_cost = c * adverse_rate
+        if c > 0:
+            avg_sensitivity = dist.expect(lambda x: x, lb=0, ub=dist.ppf(c)) / c
+            vaccine_cost = c * avg_sensitivity * adverse_rate
+        else:
+            vaccine_cost = 0.0
         total_costs.append(disease_cost + vaccine_cost)
     total_costs = np.array(total_costs)
     return coverages[np.argmin(total_costs)]
