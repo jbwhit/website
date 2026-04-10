@@ -118,7 +118,7 @@ Look at the shape. At 0% coverage you get roughly 930 infections per 1,000 peopl
 Then something happens around 90-96%. The curve falls off a cliff. By 96% coverage, infections drop to near zero — the disease can't find enough susceptible hosts to sustain transmission.
 
 ::: {.column-margin}
-Pre-vaccine, the US saw roughly 3-4 million measles infections per year. Today, with coverage hovering in the low 90s, outbreaks still happen — and measles is always the first disease to reappear when coverage slips, precisely because its threshold is so high.
+Pre-vaccine, the US saw roughly 3–4 million measles infections per year. Today, with coverage in the low 90s, annual cases number in the hundreds — a >99.9% reduction achieved *below* the herd threshold. Sub-threshold coverage is enormously effective in absolute terms. But measles is always the first disease to reappear when coverage slips, because sustained transmission can resume until the threshold is crossed. The cliff is about *elimination*, not about whether vaccination "works."
 :::
 
 This is the key nonlinearity. Sub-threshold coverage reduces the absolute burden substantially — but the disease maintains sustained transmission all the way up to the cliff. Going from 90% to 96% is what eliminates circulation entirely.
@@ -193,7 +193,7 @@ The ratio is now **30 to 1**. Still in favor of vaccination, but the margin is t
 
 For measles, that settles it. For the Gray Threat, the answer is still "vaccinate" — but the margin should make you uncomfortable, because the framework has cracks:
 
-**It's insensitive to the nonlinearity we just saw.** The calculation gives you the same recommendation whether 10% or 90% of the population is already vaccinated. But where you are on the coverage curve matters enormously. Your marginal contribution to herd immunity is nearly worthless at 50% coverage and potentially decisive at 93%.
+**A naive application ignores the nonlinearity we just saw.** If you treat P(infection) as a fixed background number — as many informal cost-benefit arguments do — you get the same recommendation whether 10% or 90% of the population is already vaccinated. A careful expected-value analysis updates infection probability with coverage, but in practice the framework is often applied without that update. The agent-based model below does it correctly; the point is that the simplest version of the calculation, the one most people implicitly run, does not.
 
 **It treats you as interchangeable with the population average.** But you're not average. You have a specific age, health profile, occupation, and risk tolerance. A 25-year-old marathon runner and an immunocompromised 70-year-old face very different calculi, even for the same disease.
 
@@ -312,6 +312,12 @@ bars_nash = ax.bar(x - width/2, nash_coverages, width, label="Nash equilibrium\n
 bars_opt = ax.bar(x + width/2, optimal_coverages, width, label="Social optimum\n(collective rationality)",
                   color="#458588", alpha=0.85, edgecolor="white", linewidth=0.8)
 
+# Hatch the Black Swan bars to indicate uncertainty
+bars_nash[-1].set_hatch('///')
+bars_nash[-1].set_alpha(0.4)
+bars_opt[-1].set_hatch('///')
+bars_opt[-1].set_alpha(0.4)
+
 # Annotate the gap
 for i in range(len(names)):
     gap = optimal_coverages[i] - nash_coverages[i]
@@ -345,10 +351,10 @@ Smallpox tells a different story. When the disease kills 30% of those it infects
 The Gray Threat is where things get uncomfortable. The disease is serious but not terrifying, the vaccine is imperfect with non-trivial risk, and the herd threshold is unreachable. The Nash equilibrium undershoots the social optimum by a wide margin — this is where the gap between "what's rational for me" and "what's best for all of us" is hardest to close, and where the loudest policy disagreements live.
 
 ::: {.column-margin}
-The Black Swan bar uses mid-range parameter estimates. In reality, the deep uncertainty means you can't even compute a stable Nash equilibrium — agents keep revising their beliefs, and the "equilibrium" shifts with every new data point. The bar shown is a fiction that understates the real problem.
+The Black Swan bars (hatched) use mid-range parameter estimates under deep uncertainty. The true Nash equilibrium is not computable when agents keep revising beliefs as data arrives — treat these as illustrative placeholders, not predictions.
 :::
 
-The Black Swan case, shown with mid-range estimates, displays a moderate gap — but this understates the actual problem. When agents are uncertain about the parameters themselves, the Nash equilibrium becomes a moving target. The free-rider calculation requires knowing the payoffs, and during a novel pandemic, nobody knows the payoffs.
+The Black Swan case is the most revealing: the free-rider calculation requires knowing the payoffs, and during a novel pandemic, nobody knows the payoffs. The Nash equilibrium becomes a moving target that shifts with every new data point.
 
 Expected-value reasoning misses the strategic structure; game theory reveals the free-rider trap but doesn't tell us how to escape it. Both take the agent's perspective — what should *I* do?
 
@@ -370,13 +376,19 @@ And critically, you don't know where on the herd immunity curve your society wil
 
 Rawls's answer was the **maximin principle**: choose the rules that make the worst-off position as good as possible. Not the rules that maximize average welfare — that's utilitarianism, happy to sacrifice a few if the average comes out ahead. Maximin says: look at the person who draws the shortest straw under each policy, and pick the policy where that shortest straw is longest.
 
+(Strictly, Rawls's framework has two principles in lexical order: basic liberties come first, and the difference principle applies only after those are secured. The strongest objection to vaccine mandates — bodily autonomy — is a claim under the first principle. Applying maximin here requires arguing that the liberty principle permits restrictions when others' basic liberties, including health and life, are at stake — a contested but defensible position.)
+
 Applied to vaccination, the worst-off position is clear: it's the person who *cannot* be vaccinated and lives in a community where coverage is below the herd immunity threshold. That person faces a disease risk they did nothing to create and can do nothing to mitigate. Their safety depends entirely on the choices of others.
 
 ::: {.column-margin}
 The legal system has wrestled with this too. In *Jacobson v. Massachusetts* (1905), the Supreme Court upheld compulsory smallpox vaccination, with Justice Harlan writing that "real liberty for all could not exist under the operation of a principle which recognizes the right of each individual person to use his own... regardless of the injury that may be done to others." The Rawlsian framework reaches a similar conclusion by a different route.
 :::
 
-Behind a sufficiently thick veil, you'd consent to stronger policy interventions than your revealed preferences suggest. You'd agree to mandatory coverage requirements — not because you enjoy being told what to do, but because you'd be terrified of waking up as the immunocompromised child whose classmates' parents decided the vaccine wasn't worth the trouble. The veil converts the free-rider's smug calculus ("I'll skip it, everyone else has me covered") into a source of existential dread ("what if I'm the one who needs covering?").
+Behind a sufficiently thick veil, you'd consent to stronger policy interventions than your revealed preferences suggest. You'd agree to mandatory coverage requirements — not because you enjoy being told what to do, but because you'd be terrified of waking up as the immunocompromised child whose classmates' parents decided the vaccine wasn't worth the trouble.
+
+Of course, you also don't know whether you'll experience a severe adverse reaction, hold deep religious objections, or live under a government that abuses compulsory medical powers. The veil generates fear in both directions. The Rawlsian case rests on the asymmetry: epidemic disease risk is correlated and potentially catastrophic, while vaccine adverse events are independent and bounded. Behind the veil, the unbounded downside dominates — but reasonable people can disagree about how much weight to give the state-overreach concern.
+
+The veil converts the free-rider's smug calculus ("I'll skip it, everyone else has me covered") into a source of existential dread ("what if I'm the one who needs covering?").
 
 This connects directly to the nonlinearity from Section 2. Behind the veil, you don't know the current vaccination rate — you face uncertainty over where on the herd immunity curve you'll land. The marginal value of one additional vaccination might be nearly worthless (coverage already high) or extraordinarily valuable (coverage teetering on the edge). Rawlsian reasoning is risk-averse by design. When the downside is catastrophic, maximin pushes hard toward ensuring high coverage.
 
