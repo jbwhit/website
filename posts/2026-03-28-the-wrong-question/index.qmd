@@ -113,7 +113,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Look at the shape. At 0% coverage you get roughly 930 infections per 1,000 people. Raise coverage to 50% and you're still above 850. Push it to 80% and you're still around 700. The disease barely notices.
+Look at the shape. At 0% coverage you get roughly 930 infections per 1,000 people. Raise coverage to 50% and that drops to around 450 — a real reduction in absolute terms, but the disease is still circulating freely. Push to 80% and you're around 160. The curve bends, but sustained transmission continues.
 
 Then something happens around 90-95%. The curve falls off a cliff. By 96% coverage, infections drop to near zero — the disease can't find enough susceptible hosts to sustain transmission.
 
@@ -121,7 +121,7 @@ Then something happens around 90-95%. The curve falls off a cliff. By 96% covera
 Pre-vaccine, the US saw roughly 3-4 million measles infections per year. Today, with coverage hovering in the low 90s, outbreaks still happen — and measles is always the first disease to reappear when coverage slips, precisely because its threshold is so high.
 :::
 
-This is the key nonlinearity. Going from 0% to 50% coverage does remarkably little. Going from 90% to 96% does almost everything.
+This is the key nonlinearity. Sub-threshold coverage reduces the absolute burden substantially — but the disease maintains sustained transmission all the way up to the cliff. Going from 90% to 96% is what eliminates circulation entirely.
 
 This creates a genuine problem for individual reasoning. If the population is at 94% coverage, your decision to skip vaccination barely changes your personal risk — most people around you are vaccinated. But if enough people reason this way, coverage drops below the threshold and everyone loses herd protection. The individually rational choice and the collectively rational choice point in different directions.
 
@@ -231,7 +231,7 @@ def compute_disease_burden(coverage, R0, efficacy, cfr, pop=1):
     if Re <= 1:
         return 0.0
     fraction_infected = 1 - 1 / Re
-    return fraction_infected * cfr
+    return fraction_infected * (1 - coverage * efficacy) * cfr
 
 def find_nash_equilibrium(R0, efficacy, cfr, adverse_rate, n_agents=5000,
                           n_iterations=80, seed=42):
