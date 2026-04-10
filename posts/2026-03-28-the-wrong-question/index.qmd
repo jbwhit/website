@@ -39,7 +39,7 @@ For highly contagious diseases, the relationship between coverage and disease bu
 The herd immunity threshold depends on two numbers: the basic reproduction number $R_0$ (how many people one infected person infects in a fully susceptible population) and vaccine efficacy $\varepsilon$. The threshold is $v_c = \frac{1}{\varepsilon}\left(1 - \frac{1}{R_0}\right)$.
 :::
 
-Let's make this concrete with measles — the most contagious common infectious disease we know. Measles has an $R_0$ around 15, and the two-dose MMR vaccine is about 97% effective. Plug those in, and the herd immunity threshold lands around 95% coverage.
+Let's make this concrete with measles — the most contagious common infectious disease we know. Measles has an $R_0$ around 15, and the two-dose MMR vaccine is about 97% effective. Plug those in, and the herd immunity threshold lands around 96% coverage.
 
 That number matters because it tells you where the cliff is.
 
@@ -79,7 +79,7 @@ v_threshold = (1 / efficacy) * (1 - 1 / R0)
 
 ```{python}
 #| label: fig-herd-immunity
-#| fig-cap: "The herd immunity curve for a measles-like disease. Disease burden stays high until coverage approaches ~95%, then drops sharply — small changes near the threshold produce dramatic effects."
+#| fig-cap: "The herd immunity curve for a measles-like disease. Disease burden stays high until coverage approaches ~96%, then drops sharply — small changes near the threshold produce dramatic effects."
 
 fig, ax = plt.subplots(figsize=(9, 5))
 
@@ -115,7 +115,7 @@ plt.show()
 
 Look at the shape. At 0% coverage you get roughly 930 infections per 1,000 people. Raise coverage to 50% and that drops to around 450 — a real reduction in absolute terms, but the disease is still circulating freely. Push to 80% and you're around 160. The curve bends, but sustained transmission continues.
 
-Then something happens around 90-95%. The curve falls off a cliff. By 96% coverage, infections drop to near zero — the disease can't find enough susceptible hosts to sustain transmission.
+Then something happens around 90-96%. The curve falls off a cliff. By 96% coverage, infections drop to near zero — the disease can't find enough susceptible hosts to sustain transmission.
 
 ::: {.column-margin}
 Pre-vaccine, the US saw roughly 3-4 million measles infections per year. Today, with coverage hovering in the low 90s, outbreaks still happen — and measles is always the first disease to reappear when coverage slips, precisely because its threshold is so high.
@@ -143,12 +143,12 @@ Change any of these and the problem shifts character. Four archetypes illustrate
 Data for measles and smallpox are sourced from published epidemiological literature (WHO, CDC, peer-reviewed estimates). The "Gray Threat" and "Black Swan Pandemic" are hypothetical constructions with **toy parameter values** chosen to illustrate the decision-theoretic landscape — they are not modeled on any specific real pathogen.
 :::
 
-**Measles-like** — $R_0 \approx 15$, CFR 0.1–0.3% in developed countries, vaccine efficacy ~97%, serious adverse events ~1 per million doses, herd threshold ~95%. This is the "strong mandate" case. The disease is ferociously contagious, the vaccine is extraordinarily effective and safe, and the threshold is so high that even small coverage gaps produce outbreaks. The math here is about as clear as it gets.
+**Measles-like** — $R_0 \approx 15$, CFR 0.1–0.3% in developed countries, vaccine efficacy ~97%, serious adverse events ~1 per million doses, herd threshold ~96%. This is the "strong mandate" case. The disease is ferociously contagious, the vaccine is extraordinarily effective and safe, and the threshold is so high that even small coverage gaps produce outbreaks. The math here is about as clear as it gets.
 
-**Smallpox-like** — $R_0 \approx 5\text{–}7$, CFR ~30% (variola major), vaccine efficacy ~95%, serious adverse events ~15 per million doses, herd threshold ~80–85%. Eradicated in 1980. The higher adverse event rate was tolerable because the disease killed nearly a third of those it infected. This is the historical proof of concept: coordinated global vaccination can eliminate a pathogen entirely. Nobody debates smallpox vaccination in retrospect.
+**Smallpox-like** — $R_0 \approx 5\text{–}7$, CFR ~30% (variola major), vaccine efficacy ~95%, serious adverse events ~15 per million doses, herd threshold ~84–90%. Eradicated in 1980. The higher adverse event rate was tolerable because the disease killed nearly a third of those it infected. This is the historical proof of concept: coordinated global vaccination can eliminate a pathogen entirely. Nobody debates smallpox vaccination in retrospect.
 
 ::: {.column-margin}
-The WHO declared smallpox eradicated in 1980 after a decade-long campaign that shifted from mass vaccination to "ring vaccination" — identifying cases, then vaccinating everyone in their contact network. The strategy worked because smallpox had no animal reservoir, produced visible symptoms, and conferred lifelong immunity. These are properties, not guarantees — no other disease has been eradicated since.
+The WHO declared smallpox eradicated in 1980 after a decade-long campaign that shifted from mass vaccination to "ring vaccination" — identifying cases, then vaccinating everyone in their contact network. The strategy worked because smallpox had no animal reservoir, produced visible symptoms, and conferred lifelong immunity. These are properties, not guarantees — no other human disease has been eradicated since.
 :::
 
 **"Gray Threat" (hypothetical, toy values)** — $R_0 \approx 4$, CFR ~2%, vaccine efficacy ~75%, serious adverse events ~100 per million (1 in 10,000), herd threshold $\approx$ 100% — essentially impossible to reach with an imperfect vaccine. This is the hard case. The disease is serious but not terrifying. The vaccine helps but isn't great, and carries non-trivial risk. Even full compliance might not achieve elimination. Now what?
@@ -211,7 +211,7 @@ Here's the strategic problem lurking inside Section 2's nonlinearity: vaccinatio
 
 The logic is seductive. If 94% of people around you are vaccinated against measles, your personal risk is already tiny. Why absorb even the minuscule cost of the vaccine when you can coast on everyone else's immunity for free?
 
-That reasoning is individually rational and collectively suicidal. If enough people follow it, coverage drops below the herd immunity threshold and everybody loses — including the free-riders. This is a tragedy of the commons with the nonlinear twist from Section 2: near the threshold, each defection has an outsized effect. Going from 95% to 94% coverage doesn't reduce herd protection by 1%. It can destroy it entirely.
+That reasoning is individually rational and collectively suicidal. If enough people follow it, coverage drops below the herd immunity threshold and everybody loses — including the free-riders. This is a tragedy of the commons with the nonlinear twist from Section 2: near the threshold, each defection has an outsized effect. Going from 96% to 95% coverage doesn't reduce herd protection by 1%. It can destroy it entirely.
 
 ::: {.column-margin}
 Game theorists call this a **public goods game with a threshold**. Below the threshold, defection is catastrophic. Above it, defection is tempting. The herd immunity threshold is the knife-edge where private and public incentives diverge most sharply.
@@ -338,7 +338,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-The pattern is striking. For measles, the Nash equilibrium settles well below the 95% threshold. Individual rationality says "the disease is rarely fatal, the vaccine costs me something, and most people are already vaccinated." Followed by enough agents, that reasoning produces coverage levels where outbreaks become inevitable. The free-rider tax is enormous precisely because the threshold is so high.
+The pattern is striking. For measles, the Nash equilibrium settles well below the 96% threshold. Individual rationality says "the disease is rarely fatal, the vaccine costs me something, and most people are already vaccinated." Followed by enough agents, that reasoning produces coverage levels where outbreaks become inevitable. The free-rider tax is enormous precisely because the threshold is so high.
 
 Smallpox tells a different story. When the disease kills 30% of those it infects, even selfish agents vaccinate. The perceived benefit stays high regardless of what everyone else does. Nash and social optimum nearly converge. You don't need to appeal to collective duty when survival instinct does the work.
 
@@ -384,7 +384,7 @@ The Rawlsian argument doesn't say "vaccinate because society demands it." It say
 
 But notice what the veil *doesn't* settle. It tells you the policy should protect the worst-off, but it doesn't tell you exactly how. Mandates? Incentives? School-entry requirements? The veil points toward a destination — high, reliable coverage with special protection for the vulnerable — but leaves the route open. And reasonable people can still disagree about the route even when they agree on the destination.
 
-Three lenses now: the nonlinear epidemiology, the strategic trap, and the Rawlsian case for protecting the worst-off. Each reveals something the others miss. But none handles the case where the parameters themselves are unknown.
+Four lenses now: expected value, the nonlinear epidemiology, the strategic trap, and the Rawlsian case for protecting the worst-off. Each reveals something the others miss. But none handles the case where the parameters themselves are unknown.
 
 ## When the Tail Wags the Dog
 
@@ -398,7 +398,7 @@ Cirillo and Taleb (2020, *Nature Physics*) analyzed epidemic fatality distributi
 
 Pandemics live in Extremistan. The Black Death, 1918 influenza, and COVID-19 aren't outliers from some well-behaved distribution — they *are* the distribution, with tail events containing most of the total impact. You can't optimize expected utility when the expectation doesn't exist.
 
-Taleb's response is the **Precautionary Principle** — but not the vague "better safe than sorry" version. His formalization is narrow. The PP applies only when a risk is: (1) systemic, (2) multiplicative, (3) potentially ruinous with no defined upper bound, and (4) fat-tailed. Novel pandemics check every box. Seasonal flu checks none. When someone says "we don't mandate flu shots, so why mandate this?" they're conflating Mediocristan with Extremistan.
+Taleb's response is the **Precautionary Principle** — but not the vague "better safe than sorry" version. His formalization is narrow. The PP applies only when a risk is: (1) systemic, (2) multiplicative, (3) potentially ruinous with no defined upper bound, and (4) fat-tailed. Novel pandemics check every box. Seasonal flu fails the fat-tail and unbounded-ruin criteria that actually trigger it. When someone says "we don't mandate flu shots, so why mandate this?" they're conflating Mediocristan with Extremistan.
 
 The key asymmetry: disease risk is potentially fat-tailed (no defined upper bound), while vaccine risk is thin-tailed (bounded, localized, well-characterized). A vaccine side effect doesn't replicate or cascade through hospital systems. It stays in Mediocristan even when the disease has moved into Extremistan. The PP *strongly favors* vaccination infrastructure — accept a known, bounded cost to clip an unknown, unbounded tail.
 
@@ -410,7 +410,7 @@ And pandemic risk is **correlated** — everyone gets sick together, hospitals o
 
 The policy upshot: maintaining vaccination infrastructure isn't about any single disease. It's about the entire distribution of possible future pandemics. Build the surge capacity *before* you need it — by the time you have precise estimates, the fat tail may have already arrived.
 
-Four lenses now. But all four share a hidden assumption: they evaluate outcomes by averaging across people at a single moment in time. What if the right way to evaluate outcomes is across *time* for a single person?
+Five lenses now. But all five share a hidden assumption: they evaluate outcomes across people at a single moment in time — whether averaging (expected value, game theory), focusing on the worst-off (Rawls), or guarding against ruin (Taleb). What if the right way to evaluate outcomes is across *time* for a single person?
 
 ## You Are Not the Average
 
