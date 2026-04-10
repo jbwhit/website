@@ -4,7 +4,7 @@ date: 2026-03-28
 author: Jonathan Whitmore
 draft: true
 categories: [ergodicity, game-theory, philosophy, policy, simulation]
-description: "The individual rights vs. collective obligations debate is a false dichotomy — here's the math that shows why."
+description: "The individual rights vs. collective obligations debate is a false dichotomy — here are simplified models that show why."
 jupyter: python3
 execute:
   echo: true
@@ -532,7 +532,7 @@ The right panel shows what actually happens. Those faint traces are individual t
 The divergence zone boundaries: ensemble says free-ride when $p < c/L$. Time-average says vaccinate when $p > \ln(1-c)/\ln(1-L)$. Jensen's inequality guarantees $\ln(1-c)/\ln(1-L) < c/L$ for all $L > 0$, so a disagreement zone always exists.
 :::
 
-The math is precise. For any disease severity $L > 0$ and vaccine cost $c > 0$, Jensen's inequality guarantees a range of infection probabilities where ensemble reasoning says "free-ride" but time-average reasoning says "vaccinate."
+The math illustrates the point precisely, even if the model is stylized. For any disease severity $L > 0$ and vaccine cost $c > 0$, Jensen's inequality guarantees a range of infection probabilities where ensemble reasoning says "free-ride" but time-average reasoning says "vaccinate."
 
 But the zone is often *narrow* — about 0.25 percentage points for the Gray Threat. The outright disagreement zone is real but slim. The real finding is about **magnitude**, not direction. Ensemble reasoning systematically underestimates the cost of free-riding because the "average free-rider outcome" is inflated by a lucky minority. Time-average reasoning strips that illusion away.
 
@@ -560,6 +560,8 @@ Let's see where they converge and where they don't. Below is a framework compari
 5. **Universal mandate** — nationwide requirement with fines or childcare exclusion (e.g., France's 11-vaccine mandate, upheld in *Vavřička v. Czech Republic*, 2021)
 :::
 
+The matrix below is my qualitative assessment — not a computed output. Each cell reflects where I believe the framework's logic points for that archetype, based on the analysis above. A different author applying these frameworks could reach different numbers, particularly for the Gray Threat and Black Swan columns where the frameworks genuinely disagree.
+
 ```{python}
 #| label: fig-framework-comparison
 #| fig-cap: "Different frameworks recommend different policy responses — and they disagree most where it matters most. The 'right' answer depends on which question you think you're asking."
@@ -575,7 +577,9 @@ framework_names = [
 ]
 archetype_names = ["Measles-\nlike", "Smallpox-\nlike", "Gray\nThreat", "Black\nSwan"]
 
-# Matrix of policy-ladder levels (interpretive, argued in the essay)
+# Matrix of policy-ladder levels — author's qualitative assessment based on the
+# preceding analysis. These are not computed from model outputs; they reflect
+# judgment about where each framework's logic points for each archetype.
 levels = np.array([
     [5, 5, 3, np.nan],   # EV: clear for known diseases, undefined for Black Swan
     [4, 4, 2, 3],        # Game theory: addresses free-rider gap, limited under uncertainty
