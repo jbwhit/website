@@ -44,7 +44,7 @@ quarto render
 
 - Blog posts go in `posts/YYYY-MM-DD-slug/index.qmd` (or `.ipynb` for notebook posts)
 - Posts need frontmatter: title, description, author, date, categories
-- Draft posts use `draft: true` in frontmatter — they render locally but are excluded from listings and RSS
+- Draft posts use `draft: true` in frontmatter — by default Quarto renders them as empty pages everywhere (even in `quarto preview`). To preview drafts locally, use the drafts profile: `QUARTO_PROFILE=drafts quarto preview` (defined in `_quarto-drafts.yml`). Never flip `draft: false` just to preview.
 - Quarto `aliases` in frontmatter provide redirects from old URLs (e.g., `/checklists.html` → `/projects/checklists/`)
 - Downloadable files (like checklist `.md` files) live alongside their pages but are excluded from rendering via `projects/**/*.qmd` glob in `_quarto.yml`
 
