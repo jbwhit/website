@@ -336,7 +336,7 @@ for i in range(len(names)):
         )
 
 ax.set_ylabel("Coverage (%)", fontsize=12)
-ax.set_title("The Free-Rider Tax", fontsize=14)
+ax.set_title("Voluntary Coverage vs. Social Optimum, by Disease", fontsize=14)
 ax.set_xticks(x)
 ax.set_xticklabels(names, fontsize=10.5)
 ax.set_ylim(0, 105)
