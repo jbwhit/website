@@ -31,8 +31,12 @@ website:
         href: blog.qmd
       - text: Projects
         menu:
-          - text: Checklists
-            href: projects/checklists/index.qmd
+          - text: The Last Moon
+            href: https://jbwhit.github.io/habitable-zone-black-holes/
+          - text: The Rediscovery of Neptune
+            href: https://jbwhit.github.io/discoverneptune/
+          - text: GPS in Reverse
+            href: https://jbwhit.github.io/clocks/
           - text: UCSD Physics Qualifying Exams
             href: projects/physics-quals/index.qmd
           - text: Talks

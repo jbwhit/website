@@ -26,7 +26,9 @@ Browse all posts on the [Blog](blog.qmd) page.
 
 ## Projects
 
-- [Checklists](projects/checklists/index.qmd) — Decision-making checklists for investing and causal inference
+- [The Last Moon](https://jbwhit.github.io/habitable-zone-black-holes/) — Surviving exomoons as tracers of planet-mass black holes
+- [The Rediscovery of Neptune](https://jbwhit.github.io/discoverneptune/) — An executable reconstruction of Le Verrier's 1846 prediction
+- [GPS in Reverse](https://jbwhit.github.io/clocks/) — Finding hidden masses with an array of ticking clocks
 - [UCSD Physics Qualifying Exams](projects/physics-quals/index.qmd) — Archive of physics PhD qualifying exams (1987–2019)
 - [Talks](projects/talks/index.qmd) — Conference talks, tutorials, and public lectures (2011–2019)
 - [Generative Art](https://www.jbwhitmoreart.com/) — Algorithmic explorations of motion, form, and color
