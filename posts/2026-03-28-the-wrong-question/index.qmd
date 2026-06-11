@@ -466,7 +466,7 @@ The Kelly criterion — the growth-rate optimal betting strategy — is the ergo
 
 This is **ergodicity economics** (Ole Peters). For multiplicative processes, the ensemble average (across many people at one moment) can diverge from the time average (one person across many moments). The process is *non-ergodic*.
 
-Now think about a free-rider's health as multiplicative. Each year: some probability of infection, and if infected, a compounding hit. The vaccinator pays a small certain cost but avoids the big hits. The ensemble view looks fine for free-riders — the mean is pulled up by lucky agents. But the *median* free-rider fares much worse, because multiplicative hits compound.
+Now think about a free-rider's health as multiplicative. Each year: some probability of infection, and if infected, a compounding hit. The vaccinator pays a small certain cost but avoids the big hits. The ensemble mean understates the damage to free-riders — it's propped up by a lucky minority who keep dodging infection — while the *median* free-rider fares much worse, because multiplicative hits compound.
 
 This is a different lens from Section 5. Game theory asked about strategic interaction at equilibrium. Ergodicity asks about **path-dependent welfare for a single agent over time**. Let's simulate it — Gray Threat parameters, the most interesting case.
 
