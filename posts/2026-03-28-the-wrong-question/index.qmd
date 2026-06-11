@@ -554,9 +554,9 @@ plt.tight_layout()
 plt.show()
 ```
 
-The left panel shows the ensemble view. Free-riders' mean health holds up, buoyed by lucky agents who dodged infection year after year. Expected-value reasoning says "free-riding pays."
+The left panel shows the ensemble view. At 70% coverage the infection probability runs near 47% a year, and over 40 years that compounds brutally: the free-riders' *mean* health collapses from 1.0 to about 0.02, while vaccinators glide down to roughly 0.82. So even expected-value reasoning favors vaccinating here — this isn't a regime where "free-riding pays." Don't read the mean as reassuring.
 
-The right panel shows what actually happens. Those faint traces are individual trajectories. The gap between mean and median is the signature of non-ergodicity: the distance between "what the group looks like" and "what you'll actually live through."
+The right panel shows what actually happens. Those faint traces are individual trajectories, and they fan out wildly. The signature of non-ergodicity is the gap between mean and median — the distance between "what the group looks like" and "what you'll actually live through." Even that battered mean of ~0.02 is propped up by a lucky minority who dodged the hits year after year; the typical (median) free-rider lands lower still, around 0.01, and most individual paths end up worse than the mean suggests.
 
 ::: {.column-margin}
 The divergence zone boundaries: ensemble says free-ride when $p < c/L$. Time-average says vaccinate when $p > \ln(1-c)/\ln(1-L)$. Jensen's inequality guarantees $\ln(1-c)/\ln(1-L) < c/L$ for all $L > 0$, so a disagreement zone always exists.
