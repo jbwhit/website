@@ -736,7 +736,7 @@ plt.show()
 
 Read the columns.
 
-For measles and smallpox, the frameworks mostly agree. The numbers cluster at 4 and 5. When the disease is highly contagious and the vaccine is safe and effective, every lens points toward strong coordinated action. Expected value says 3,000 to 1. Game theory says the free-rider gap is enormous. Rawls demands protection for the immunocompromised child. Ergodicity favors vaccination. The disagreement is about tactics, not direction.
+For measles and smallpox, the frameworks mostly agree. The numbers cluster at 4 and 5. When the disease is highly contagious and the vaccine is safe and effective, every lens points toward strong coordinated action. Expected value says 3,000 to 1. Game theory says voluntary coverage falls just short of the threshold once vaccination carries any perceived cost — a small shortfall, but decisive because of the nonlinearity. Rawls demands protection for the immunocompromised child. Ergodicity favors vaccination. The disagreement is about tactics, not direction.
 
 Now the Gray Threat column. The numbers scatter: 2, 2, 3, 3, 4. Expected value says vaccinate but the margin is thin. Game theory sees a moderate free-rider gap but notes the herd threshold is unreachable — so what are we mandating *toward*? Rawls still pushes high. Taleb shrugs — thin-tailed severity, the PP doesn't activate. Ergodicity lands in the middle. No consensus, because for this disease profile the frameworks are answering genuinely different questions with genuinely different answers.
 
