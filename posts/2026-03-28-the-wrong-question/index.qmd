@@ -229,62 +229,61 @@ The catch is the feedback loop. When coverage is high, the perceived benefit dro
 #| label: fig-free-rider
 #| fig-cap: "The free-rider trap: when individuals make privately rational vaccination decisions, the population settles at coverage levels below the social optimum. The gap varies dramatically across disease profiles."
 
-def compute_disease_burden(coverage, R0, efficacy, cfr, pop=1):
-    """Fraction of population experiencing serious harm at a given coverage level."""
+def personal_risk(coverage, R0, efficacy):
+    """Lifetime infection probability for an *unvaccinated* individual (endemic SIR).
+    Note: this is the individual's own risk, NOT population burden — it is not
+    scaled by the susceptible fraction."""
+    Re = R0 * (1 - coverage * efficacy)
+    return max(0.0, 1 - 1 / Re) if Re > 1 else 0.0
+
+def population_burden(coverage, R0, efficacy, cfr):
+    """Fraction of the whole population suffering serious harm (used for the
+    social optimum, where the susceptible-fraction scaling *is* correct)."""
     Re = R0 * (1 - coverage * efficacy)
     if Re <= 1:
         return 0.0
-    fraction_infected = 1 - 1 / Re
-    return fraction_infected * (1 - coverage * efficacy) * cfr
+    return (1 - 1 / Re) * (1 - coverage * efficacy) * cfr
 
-def find_nash_equilibrium(R0, efficacy, cfr, adverse_rate, n_agents=5000,
-                          n_iterations=80, seed=42):
-    """
-    Agent-based Nash equilibrium finder.
-    Each agent has a cost_sensitivity drawn from a distribution.
-    They vaccinate if perceived_benefit > cost_sensitivity * adverse_rate.
-    """
-    rng = np.random.default_rng(seed)
-    # Cost sensitivities: how much each agent weights vaccine cost vs. benefit
-    # Drawn from a log-normal so most agents are moderate, some are very cost-sensitive
-    cost_sensitivity = rng.lognormal(mean=0.0, sigma=0.8, size=n_agents)
+def find_nash_equilibrium(R0, efficacy, cfr, adverse_rate, m=1.0,
+                          sigma=0.8, n_iter=80):
+    """Voluntary-vaccination Nash equilibrium = the fixed point of the
+    (decreasing) best-response map, found by bisection so it cannot oscillate.
+    An agent vaccinates iff its private/perceived vaccine cost is below the
+    expected benefit: cost_sensitivity * m * adverse_rate < efficacy * cfr * risk.
+    m >= 1 scales the *private/perceived* vaccine cost above the objective
+    serious-adverse-event rate (inconvenience, mild side effects, distrust, fear)."""
+    from scipy.stats import lognorm
+    dist = lognorm(s=sigma, scale=1.0)
 
-    # Start at 50% coverage
-    vaccinated = rng.random(n_agents) < 0.5
+    def best_response(coverage):
+        benefit = efficacy * cfr * personal_risk(coverage, R0, efficacy)
+        return dist.cdf(benefit / (m * adverse_rate))
 
-    for _ in range(n_iterations):
-        coverage = vaccinated.mean()
-        # Personal risk if unvaccinated: disease burden at current coverage
-        burden = compute_disease_burden(coverage, R0, efficacy, cfr)
-        # Perceived benefit = risk reduction from vaccination
-        perceived_benefit = burden * efficacy
-        # Each agent compares perceived benefit to their personal cost threshold
-        threshold = cost_sensitivity * adverse_rate
-        vaccinated = perceived_benefit > threshold
-
-    return vaccinated.mean()
+    lo, hi = 0.0, 1.0
+    for _ in range(n_iter):
+        mid = (lo + hi) / 2
+        if best_response(mid) - mid > 0:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
 
 def find_social_optimum(R0, efficacy, cfr, adverse_rate, n_points=2000, sigma=0.8):
-    """Find coverage that minimizes total social cost (disease burden + vaccine adverse events).
-
-    Vaccine cost integrates the log-normal cost-sensitivity distribution up to the
-    coverage quantile, matching the agent-based model's cost structure.
-    """
+    """Coverage minimizing total social cost. The planner uses the *true*
+    adverse-event rate (no private-cost inflation)."""
     from scipy.stats import lognorm
-    dist = lognorm(s=sigma, scale=1.0)  # median=1, matching agent model
-
+    dist = lognorm(s=sigma, scale=1.0)
     coverages = np.linspace(0, 1, n_points)
-    total_costs = []
+    total = []
     for c in coverages:
-        disease_cost = compute_disease_burden(c, R0, efficacy, cfr)
+        disease_cost = population_burden(c, R0, efficacy, cfr)
         if c > 0:
-            avg_sensitivity = dist.expect(lambda x: x, lb=0, ub=dist.ppf(c)) / c
-            vaccine_cost = c * avg_sensitivity * adverse_rate
+            avg_sens = dist.expect(lambda x: x, lb=0, ub=dist.ppf(c)) / c
+            vaccine_cost = c * avg_sens * adverse_rate
         else:
             vaccine_cost = 0.0
-        total_costs.append(disease_cost + vaccine_cost)
-    total_costs = np.array(total_costs)
-    return coverages[np.argmin(total_costs)]
+        total.append(disease_cost + vaccine_cost)
+    return coverages[np.argmin(np.array(total))]
 
 # Archetype parameters: (name, R0, efficacy, CFR, adverse_rate_per_person)
 archetypes = [
