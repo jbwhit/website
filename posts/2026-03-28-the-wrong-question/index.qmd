@@ -221,9 +221,9 @@ Game theorists call this a **public goods game with a threshold**. Below the thr
 The game-theoretic structure of vaccination was formalized by Bauch and Earn (2004, *PNAS*), who showed that individual optimization generically produces coverage below the social optimum. Geoffard and Philipson (1997, *AER*) analyzed the economics of eradication. The model here is a simplified illustration of their core result — see those papers for the rigorous treatment.
 :::
 
-Let's build a simple agent-based model to see this across our four archetypes. We place $N = 5{,}000$ agents in a population. Each agent compares the perceived cost of vaccination (a "cost sensitivity" drawn from a distribution) against the perceived benefit, which depends on current disease burden — which depends on how many agents vaccinated.
+Let's build a simple agent-based model to see this across our four archetypes. We place agents in a population. Each agent weighs its own private/perceived cost of vaccination (a "cost sensitivity" drawn from a distribution) against the personal benefit of getting the shot — vaccine efficacy multiplied by the disease risk an *unvaccinated* person faces, which depends on how many agents vaccinated. Crucially, the relevant cost is not the objective rate of serious vaccine harm but the cost each person *perceives* — which folds in inconvenience, mild side effects, distrust, and fear alongside genuine risk.
 
-The catch is the feedback loop. When coverage is high, the perceived benefit drops (the disease seems rare), tempting more agents to defect, which lowers coverage. The model iterates until it reaches a **Nash equilibrium** — a coverage level where no agent wants to change their decision. We compare that to the **social optimum**: the coverage level that minimizes total harm.
+The catch is the feedback loop. When coverage is high, an unvaccinated person's risk drops (the disease seems rare), tempting more agents to skip the shot, which lowers coverage. The equilibrium is the **fixed point** where no agent wants to switch — a coverage level at which every agent's choice is a best response to everyone else's. We compare that **Nash equilibrium** to the **social optimum**: the coverage level that minimizes total harm.
 
 ```{python}
 #| label: fig-free-rider
@@ -374,17 +374,17 @@ plt.tight_layout()
 plt.show()
 ```
 
-The pattern is striking. For measles, the Nash equilibrium settles well below the 96% threshold. Individual rationality says "the disease is rarely fatal, the vaccine costs me something, and most people are already vaccinated." Followed by enough agents, that reasoning produces coverage levels where outbreaks become inevitable. The free-rider tax is enormous precisely because the threshold is so high.
+Start with the baseline. When the only cost of vaccination is the objective rate of serious harm, self-interest essentially reaches the social optimum for every archetype. Look at `fig-free-rider`: the Nash bars and the social-optimum bars nearly coincide across the board. The bare-rational free-rider gap is close to zero. The familiar "everyone defects and herd immunity collapses" story turns out to be an artifact of treating the vaccine as more costly than it objectively is.
 
-Smallpox tells a different story. When the disease kills 30% of those it infects, even selfish agents vaccinate. The perceived benefit stays high regardless of what everyone else does. Nash and social optimum nearly converge. You don't need to appeal to collective duty when survival instinct does the work.
+The gap is real, but it has to be paid for. It opens only as the **private/perceived cost** of vaccination climbs above the objective serious-adverse-event rate — inconvenience, mild side effects, distrust, fear. `fig-private-cost` traces that wedge: hold the disease fixed, raise the perceived cost, and watch the gap grow. How fast it grows depends entirely on the disease.
 
-The Gray Threat is where things get uncomfortable. The disease is serious but not terrifying, the vaccine is imperfect with non-trivial risk, and the herd threshold is unreachable. The Nash equilibrium undershoots the social optimum by a wide margin — this is where the gap between "what's rational for me" and "what's best for all of us" is hardest to close, and where the loudest policy disagreements live.
+For measles, the coverage gap stays small in percentage points even as perceived cost climbs. Measles is so contagious that an unvaccinated person's risk stays high until coverage is almost exactly at the threshold — so self-interest keeps pulling people toward the shot. But "almost at the threshold" is the cliff from the nonlinearity section. Any wedge of perceived cost pushes voluntary coverage *below* the threshold, and that flips measles from eliminated to endemic. The gap is small; the consequence is decisive.
+
+Smallpox is the easy case in the other direction. With a 30% fatality rate, the personal benefit swamps any plausible perceived cost — voluntary coverage tracks the optimum no matter how high you crank the wedge, and you needn't invoke collective duty when survival instinct does the work. The hard case is the middle. For moderate-contagion diseases like the Gray Threat, rising perceived cost opens a genuinely large gap, and the herd threshold is unreachable anyway, so the policy target is murky — what are we even coordinating *toward*? This is where the real disagreement lives.
 
 ::: {.column-margin}
 The Black Swan bars (hatched) use mid-range parameter estimates under deep uncertainty. The true Nash equilibrium is not computable when agents keep revising beliefs as data arrives — treat these as illustrative placeholders, not predictions.
 :::
-
-The Black Swan case is the most revealing: the free-rider calculation requires knowing the payoffs, and during a novel pandemic, nobody knows the payoffs. The Nash equilibrium becomes a moving target that shifts with every new data point.
 
 Expected-value reasoning misses the strategic structure; game theory reveals the free-rider trap but doesn't tell us how to escape it. Both take the agent's perspective — what should *I* do?
 
