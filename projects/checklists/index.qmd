@@ -10,6 +10,7 @@ toc-location: left
 page-layout: full
 title-block-banner: true
 listing:
+  id: listing-listing
   contents:
     - "investing.qmd"
     - "did.qmd"
