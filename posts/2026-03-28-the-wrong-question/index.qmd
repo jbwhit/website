@@ -347,6 +347,33 @@ plt.tight_layout()
 plt.show()
 ```
 
+```{python}
+#| label: fig-private-cost
+#| fig-cap: "Where the free-rider gap actually comes from. Under objective vaccine costs (left edge, m=1) voluntary coverage essentially reaches the social optimum for every disease. A gap opens only as the *private/perceived* cost of vaccination rises above the objective serious-adverse-event rate (m). For measles the coverage gap stays small in percentage points — but any m>1 puts coverage below the herd threshold, so the consequence (endemic vs. eliminated) is binary. For the moderate-contagion Gray Threat the gap grows steeply. For high-severity smallpox, self-interest alone holds coverage near the optimum regardless of m."
+
+ms = np.linspace(1, 100, 40)
+fig, ax = plt.subplots(figsize=(9, 5))
+colors = {"Measles-like": "#c9613a", "Smallpox-like": "#458588",
+          "Gray Threat": "#b16286", "Black Swan": "#7c6f64"}
+for name, R0, eff, cfr, adv in [("Measles-like", 15.0, 0.97, 0.002, 1e-6),
+                                ("Smallpox-like", 6.0, 0.95, 0.30, 15e-6),
+                                ("Gray Threat", 4.0, 0.75, 0.02, 1e-4),
+                                ("Black Swan", 4.0, 0.60, 0.05, 5e-5)]:
+    opt = find_social_optimum(R0, eff, cfr, adv) * 100
+    gaps = [opt - find_nash_equilibrium(R0, eff, cfr, adv, m=m) * 100 for m in ms]
+    ax.plot(ms, gaps, linewidth=2.2, label=name, color=colors[name])
+
+ax.set_xlabel("Private / perceived vaccine cost, relative to objective risk (m)", fontsize=12)
+ax.set_ylabel("Free-rider gap (social optimum − Nash, pp)", fontsize=12)
+ax.set_title("The Free-Rider Gap Is Driven by Perceived Cost, Not Bare Self-Interest", fontsize=13)
+ax.legend(fontsize=10, loc="upper left")
+ax.set_xlim(1, 100)
+ax.set_ylim(0, None)
+ax.spines[["top", "right"]].set_visible(False)
+plt.tight_layout()
+plt.show()
+```
+
 The pattern is striking. For measles, the Nash equilibrium settles well below the 96% threshold. Individual rationality says "the disease is rarely fatal, the vaccine costs me something, and most people are already vaccinated." Followed by enough agents, that reasoning produces coverage levels where outbreaks become inevitable. The free-rider tax is enormous precisely because the threshold is so high.
 
 Smallpox tells a different story. When the disease kills 30% of those it infects, even selfish agents vaccinate. The perceived benefit stays high regardless of what everyone else does. Nash and social optimum nearly converge. You don't need to appeal to collective duty when survival instinct does the work.
