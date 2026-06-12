@@ -38,7 +38,7 @@ toc: true
 - **2017-05-31** — [Insight Data Science](http://insightdatascience.com) — [Productive Jupyter Notebook Use](https://github.com/jbwhit/jupyter-tips-and-tricks)
   Insight Office, Palo Alto, CA, USA.
 
-- **2017-05-17** — PyCon — Tutorial: [Exploratory Data Analysis in Python](https://us.pycon.org/2017/schedule/presentation/170/) · [Repo](https://github.com/cmawer/pycon-2017-eda-tutorial)
+- **2017-05-17** — PyCon — Tutorial: [Exploratory Data Analysis in Python](https://us.pycon.org/2017/schedule/presentation/170/) · [Repo](https://github.com/jbwhit/2017-05-PyCon-EDA-Tutorial)
   9:00 a.m.–12:20 p.m., Room C123, Portland, OR, USA.
 
 {{< video https://www.youtube.com/embed/W5WE9Db2RLU >}}
