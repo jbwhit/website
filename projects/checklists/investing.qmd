@@ -7,7 +7,6 @@ aliases:
   - /checklists/investing.html
 toc: true
 toc-title: Checklist Sections
-toc-location: left
 format:
   html:
     code-fold: true

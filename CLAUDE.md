@@ -42,6 +42,12 @@ quarto render
 
 ## Content Conventions
 
+### Page archetypes & styling
+
+- **Landing pages** (home, blog, about, every `projects/*/index.qmd`): plain title block — never `title-block-banner` (renders in `$primary`, stacking a second blue band directly under the already-blue navbar); no `date` or `categories` (those signal "article" and render a dated byline); `page-layout: full` only on the home page (hero); body must not repeat the frontmatter `title` as a `#` heading.
+- **Article pages** (blog posts, individual checklists like `projects/checklists/investing.qmd`): keep `date` and `categories`; per-page `toc-title` is allowed.
+- **TOC rule (both archetypes):** global `toc: true` in `_quarto.yml` stays — TOC renders on the right for any page with headings. Never set `toc-location: left`; don't add per-page `toc: false`.
+
 - Blog posts go in `posts/YYYY-MM-DD-slug/index.qmd` (or `.ipynb` for notebook posts)
 - Posts need frontmatter: title, description, author, date, categories
 - Draft posts use `draft: true` in frontmatter — by default Quarto renders them as empty pages everywhere (even in `quarto preview`). To preview drafts locally, use the drafts profile: `QUARTO_PROFILE=drafts quarto preview` (defined in `_quarto-drafts.yml`). Never flip `draft: false` just to preview.
