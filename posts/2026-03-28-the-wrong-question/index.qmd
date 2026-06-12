@@ -579,7 +579,7 @@ All simulations above used single parameter values. How stable are the conclusio
 fig, axes = plt.subplots(1, 3, figsize=(13, 4.5))
 
 # --- Panel 1: Nash equilibrium vs. cost-sensitivity sigma (perceived cost m=20) ---
-# Uses the corrected fixed-point Nash solver. At m=1 the Nash sits exactly at the
+# Uses the corrected fixed-point Nash solver. At m=1 the Nash sits very close to the
 # threshold regardless of sigma; we show m=20 so the (mild) sensitivity is visible.
 sigmas = np.linspace(0.4, 1.2, 15)
 nash_by_sigma = [find_nash_equilibrium(15.0, 0.97, 0.002, 1e-6, m=20.0, sigma=s) * 100
