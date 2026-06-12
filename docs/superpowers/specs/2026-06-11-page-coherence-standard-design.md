@@ -1,6 +1,6 @@
 # Site-Wide Page Coherence Standard — Design
 
-**Status:** Approved design, pending spec review
+**Status:** Implemented 2026-06-12 (PR #12, squash-merged to main; Codex xhigh on the final diff: READY TO MERGE)
 **Date:** 2026-06-11
 **Author:** Jonathan Whitmore (with Claude)
 **Trigger:** The `projects/checklists/` index page renders a blue `title-block-banner` that no other page on the site uses — surfaced during a review of jonathanwhitmore.com.
