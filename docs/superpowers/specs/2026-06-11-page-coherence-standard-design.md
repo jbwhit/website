@@ -5,7 +5,7 @@
 **Author:** Jonathan Whitmore (with Claude)
 **Trigger:** The `projects/checklists/` index page renders a blue `title-block-banner` that no other page on the site uses — surfaced during a review of jonathanwhitmore.com.
 
-**Review provenance:** (to be appended — Codex xhigh review per the project Review & Approval Protocol)
+**Review provenance:** Codex xhigh, 2 rounds. Round 1: NOT SOUND — caught that `_quarto.yml` sets `toc: true` globally, so the original "no TOC on landing pages" rule was unsound and the audit's TOC column was wrong. Revised to keep the global TOC and treat left-placement as the only TOC inconsistency; added removal of the duplicate body title. Round 2: **SOUND ENOUGH TO IMPLEMENT** (two cosmetic wording nits, fixed inline).
 
 ---
 
@@ -29,7 +29,7 @@ Current state (TOC column verified against rendered `_site` HTML — `_quarto.ym
 |------|------|--------|-----------------|-----|
 | `index.qmd` (home) | landing | none | none | global default; not displayed (page-layout: full) |
 | `about.qmd` | landing | none | none | right, 1 item |
-| `blog.qmd` | landing | none | none | none (no headings) |
+| `blog.qmd` | landing | none | none | none rendered (year `##` headings come from the listing layout) |
 | `projects/talks/index.qmd` | landing | none | none | right, 9 items |
 | `projects/physics-quals/index.qmd` | landing | none | none | right, 3 items |
 | `projects/checklists/index.qmd` | landing | **banner** | **date + categories** | **left**, 3 items (page-layout: full) |
@@ -62,7 +62,7 @@ Keep Quarto's global `toc: true` default — a TOC renders on the **right** for 
 
 ## Changes required
 
-The audit confirms checklists is the sole outlier, so the changes are surgical — **three files, all in the checklists subtree.** Everything else is already compliant.
+The audit confirms checklists is the sole outlier, so the changes are surgical — **three files in the checklists subtree, plus a documentation edit to `CLAUDE.md`.** Everything else is already compliant.
 
 ### 1. `projects/checklists/index.qmd` → clean landing page
 Remove from frontmatter: `title-block-banner: true`, `date: 2024-07-04`, the `categories:` line, `toc: true`, `toc-location: left`, and `page-layout: full`.
