@@ -39,8 +39,6 @@ website:
             href: https://jbwhit.github.io/clocks/
           - text: UCSD Physics Qualifying Exams
             href: projects/physics-quals/index.qmd
-          - text: Talks
-            href: projects/talks/index.qmd
           - text: Lithuanian Practice
             href: https://lithuanian-practice.com/
       - text: Courses
