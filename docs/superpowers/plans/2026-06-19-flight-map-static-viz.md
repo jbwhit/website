@@ -8,7 +8,9 @@
 
 **Tech Stack:** Python 3.12 via uv (PEP 723 inline deps + `uv lock --script`), pytest, pyproj, shapely, matplotlib, the `antimeridian` package. Full design: `docs/superpowers/specs/2026-06-19-flight-map-static-viz-design.md`.
 
-**Review provenance:** Codex xhigh. Round 1 — NOT READY: (a) `prepare_land` used a non-existent `antimeridian.fix_geometry` (correct API is `fix_shape`); (b) Task 2 tests didn't exercise the land/antimeridian path; (c) the shapely longitude-rotation used a brittle `shapely.ops.transform` lambda (switched to shapely 2.x vectorized `shapely.transform`); (d) test invocations used unpinned deps/default Python (now pinned to the script headers + `--python 3.12`); (e) no real end-to-end seam test (added Atlantic SFO–CPH + local SAN–SFO cases); (f) graticule parallels exceeded the `[-58, 84]` trim. All folded into this revision.
+**Review provenance:** Codex xhigh (web search enabled for API checks).
+- *Round 1 — NOT READY:* (a) `prepare_land` used a non-existent `antimeridian.fix_geometry` (correct API is `fix_shape`); (b) Task 2 tests didn't exercise the land/antimeridian path; (c) the shapely longitude-rotation used a brittle `shapely.ops.transform` lambda (switched to shapely 2.x vectorized `shapely.transform`); (d) test invocations used unpinned deps/default Python (now pinned to the script headers + `--python 3.12`); (e) no real end-to-end seam test (added Atlantic SFO–CPH + local SAN–SFO cases); (f) graticule parallels exceeded the `[-58, 84]` trim.
+- *Round 2 — NOT READY:* (a) `antimeridian.fix_shape` v0.4.0 returns a GeoJSON **dict**, so `_prep` must wrap it via `shapely.geometry.shape(...)` before `.intersection`; (b) the seam-polygon test's `maxx < 180.0` was too strict (split output legitimately includes x=180) → `maxx <= 180.0`. Codex independently confirmed via web docs that `shapely.transform` usage is correct, that SFO–CPH crosses the rotated seam (~1.48× the half-width threshold → ≥2 segments), and that SAN–SFO does not. Both fixes folded in.
 
 ---
 
@@ -328,7 +330,8 @@ def test_prep_splits_seam_crossing_polygon_and_trims_lat():
     assert out.is_valid
     assert out.geom_type == "MultiPolygon"
     minx, miny, maxx, maxy = out.bounds
-    assert -180.0 <= minx and maxx < 180.0
+    # Split output legitimately includes seam coordinates at exactly +/-180.
+    assert -180.0 <= minx and maxx <= 180.0
     assert miny >= pl.LAT_MIN and maxy <= pl.LAT_MAX
 
 
@@ -404,7 +407,8 @@ def _rotate(geom):
 def _prep(geom):
     """Rotate into the lon_0 frame, antimeridian-cut, then trim polar latitudes."""
     rotated = _rotate(geom)
-    fixed = antimeridian.fix_shape(rotated)  # splits polygons crossing +/-180
+    # antimeridian v0.4.0 fix_shape returns a GeoJSON-style dict — wrap back to shapely.
+    fixed = shape(antimeridian.fix_shape(rotated))  # splits polygons crossing +/-180
     return fixed.intersection(box(-180, LAT_MIN, 180, LAT_MAX))
 
 
