@@ -165,3 +165,6 @@ checklink/cookies.txt
 .gemini/
 gha-creds-*.json
 .superpowers/
+
+# Raw personal flight log — contains booking PNRs / seats; do not commit to public repo
+data/flight-log.csv

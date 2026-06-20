@@ -1,0 +1,6 @@
+order,date_takeoff,flight_number,departing_airport,departure_time,arriving_airport,arrival_time,date_landing,seat,record_locator,notes
+1,2020-01-01,AA1,SAN,9:00:00,SFO,10:30:00,2020-01-01,12A,ABC123,work
+2,2020-01-05,AA2,SFO,18:00:00,SAN,19:30:00,2020-01-05,14C,ABC123,
+3,2020-02-01,AA3,SAN,9:00:00,SFO,10:30:00,2020-02-01,,,
+4,2020-03-01,LH7,FRA,8:00:00,TXL,9:00:00,2020-03-01,2A,,
+5,,,,,,,,,,
