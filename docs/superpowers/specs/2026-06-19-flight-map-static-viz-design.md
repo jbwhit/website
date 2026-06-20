@@ -122,7 +122,7 @@ Each script is a standalone `uv run` entry point with PEP 723 inline dependency 
 5. **Seam check:** a known Atlantic-crossing corridor (e.g. SFO–CPH) and a trans-Pacific one (e.g. LAX–MEL) both render as clean arcs, not horizontal smears across the map.
 6. **Land seam check:** no land polygon smears across the map; Antarctica is absent (latitude trim).
 7. Running render twice yields **byte-identical** SVG output (determinism).
-8. `git check-ignore data/flight-log.csv` confirms the raw log stays ignored; tracked artifacts are only `flights.geo.json`, the SVG, the three scripts, the overrides, and the two vendored GeoJSONs.
+8. `git check-ignore data/flight-log.csv` confirms the raw log stays ignored; tracked artifacts are only `flights.geo.json`, the SVG, the three scripts, their two `*.py.lock` lockfiles, the overrides, and the two vendored GeoJSONs.
 
 ## Out of scope (explicit)
 
