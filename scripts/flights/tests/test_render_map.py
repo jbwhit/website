@@ -34,12 +34,9 @@ def test_great_circle_endpoints_and_density():
     assert arc[-1] == pytest.approx([144.84, -37.67], abs=1e-6)
 
 
-import subprocess
-import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[3]
-SVG = REPO / "assets" / "images" / "flights" / "flights-map.svg"
 
 
 def test_render_produces_valid_svg(tmp_path):
