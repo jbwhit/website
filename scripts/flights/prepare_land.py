@@ -61,8 +61,17 @@ def _prep(geom):
 def main() -> None:
     with urllib.request.urlopen(NE_URL) as resp:  # noqa: S310 (trusted public data)
         fc = json.load(resp)
-    geoms = [_prep(shape(f["geometry"])) for f in fc["features"]]
-    geoms = [g for g in geoms if not g.is_empty]
+    geoms = []
+    for f in fc["features"]:
+        g = shape(f["geometry"])
+        # Drop features entirely below the trim (Antarctica). Its polar
+        # circumglobal ring otherwise mis-winds through antimeridian.fix_shape
+        # into a world-filling polygon that collapses the land union to a bbox.
+        if g.bounds[3] < LAT_MIN:
+            continue
+        prepped = _prep(g)
+        if not prepped.is_empty:
+            geoms.append(prepped)
 
     land = unary_union(geoms)
     boundaries = unary_union([g.boundary for g in geoms])

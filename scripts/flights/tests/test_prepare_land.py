@@ -40,3 +40,22 @@ def test_prep_trims_below_antarctica_cut():
 
     deep_south = Polygon([(10, -80), (20, -80), (20, -70), (10, -70)])
     assert pl._prep(deep_south).is_empty
+
+
+import json
+from pathlib import Path
+
+from shapely.geometry import shape as _shape
+
+
+def test_vendored_land_is_continents_not_bbox():
+    """Guard against the Antarctica winding-inversion bug that collapsed the
+    land union into a single bounding-box rectangle."""
+    path = Path(__file__).resolve().parents[1] / "ne-110m-land.geojson"
+    land = _shape(json.loads(path.read_text()))
+    assert land.geom_type == "MultiPolygon"
+    assert len(land.geoms) >= 50            # many continents/islands, not 1 rectangle
+    # The bbox rectangle would have area ~51120 (360*142); real land is far less.
+    assert land.area < 30000
+    # And no single polygon should be the full-width bbox.
+    assert max(p.bounds[2] - p.bounds[0] for p in land.geoms) < 359
