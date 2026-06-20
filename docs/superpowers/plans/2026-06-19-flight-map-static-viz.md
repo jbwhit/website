@@ -8,6 +8,8 @@
 
 **Tech Stack:** Python 3.12 via uv (PEP 723 inline deps + `uv lock --script`), pytest, pyproj, shapely, matplotlib, the `antimeridian` package. Full design: `docs/superpowers/specs/2026-06-19-flight-map-static-viz-design.md`.
 
+**Review provenance:** Codex xhigh. Round 1 — NOT READY: (a) `prepare_land` used a non-existent `antimeridian.fix_geometry` (correct API is `fix_shape`); (b) Task 2 tests didn't exercise the land/antimeridian path; (c) the shapely longitude-rotation used a brittle `shapely.ops.transform` lambda (switched to shapely 2.x vectorized `shapely.transform`); (d) test invocations used unpinned deps/default Python (now pinned to the script headers + `--python 3.12`); (e) no real end-to-end seam test (added Atlantic SFO–CPH + local SAN–SFO cases); (f) graticule parallels exceeded the `[-58, 84]` trim. All folded into this revision.
+
 ---
 
 ## File Structure
@@ -38,10 +40,12 @@ scripts/flights/
 - `LAT_MIN, LAT_MAX = -58, 84` (Antarctica/polar trim)
 - Palette B: `OCEAN="#1d2021" LAND="#32302f" BOUNDARY="#3c3836" GRATICULE="#262626" ARC="#83a598" DOT="#fe8019"`; `ALPHA_BASE=0.34`, `ARC_WIDTH=0.65`, `DOT_R=1.3`, `BOUNDARY_WIDTH=0.4`, `GRATICULE_WIDTH=0.4`.
 
-**Test runner:** tests import the script modules directly (the scripts guard `main()` behind `if __name__ == "__main__"`). `scripts/flights/conftest.py` (empty) makes pytest prepend `scripts/flights` to `sys.path`. Run with the deps the imported modules need:
-- prepare_data tests: `uv run --with pytest pytest scripts/flights/tests/test_prepare_data.py -v`
-- prepare_land tests: `uv run --with pytest --with shapely --with antimeridian pytest scripts/flights/tests/test_prepare_land.py -v`
-- render_map tests: `uv run --with pytest --with pyproj --with shapely --with matplotlib pytest scripts/flights/tests/test_render_map.py -v`
+**Test runner:** tests import the script modules directly (the scripts guard `main()` behind `if __name__ == "__main__"`). `scripts/flights/conftest.py` (empty) makes pytest prepend `scripts/flights` to `sys.path`. Run on Python 3.12 with deps **pinned to match the scripts' PEP 723 headers**, so the test environment matches the locked render environment as closely as `uv run` allows:
+- prepare_data tests: `uv run --python 3.12 --with pytest pytest scripts/flights/tests/test_prepare_data.py -v`
+- prepare_land tests: `uv run --python 3.12 --with pytest --with 'shapely==2.0.6' --with 'antimeridian==0.4.0' --with 'numpy>=1.26' pytest scripts/flights/tests/test_prepare_land.py -v`
+- render_map tests: `uv run --python 3.12 --with pytest --with 'pyproj==3.6.1' --with 'shapely==2.0.6' --with 'matplotlib==3.9.2' pytest scripts/flights/tests/test_render_map.py -v`
+
+The **authoritative** byte-determinism check is Task 5's `uv run --locked` subprocess diff (full pinned resolution); the in-process pytest determinism test below is a faster guard against timestamp/UUID nondeterminism, which is environment-independent.
 
 ---
 
@@ -141,7 +145,7 @@ def test_build_geojson_has_only_safe_keys():
 
 - [ ] **Step 4: Run tests to verify they fail**
 
-Run: `uv run --with pytest pytest scripts/flights/tests/test_prepare_data.py -v`
+Run: `uv run --python 3.12 --with pytest pytest scripts/flights/tests/test_prepare_data.py -v`
 Expected: FAIL with `ModuleNotFoundError: No module named 'prepare_data'`.
 
 - [ ] **Step 5: Implement prepare_data.py**
@@ -259,7 +263,7 @@ if __name__ == "__main__":
 
 - [ ] **Step 6: Run tests to verify they pass**
 
-Run: `uv run --with pytest pytest scripts/flights/tests/test_prepare_data.py -v`
+Run: `uv run --python 3.12 --with pytest pytest scripts/flights/tests/test_prepare_data.py -v`
 Expected: PASS (5 passed).
 
 - [ ] **Step 7: Generate the real flights.geo.json and sanity-check**
@@ -310,11 +314,35 @@ def test_wrap_lon_result_always_in_half_open_range():
     for lon in range(-180, 181, 7):
         r = pl.wrap_lon(float(lon), 150)
         assert -180.0 <= r < 180.0
+
+
+def test_prep_splits_seam_crossing_polygon_and_trims_lat():
+    # A box at original lon -40..-20 straddles the rotated seam (original -30 -> +/-180),
+    # so _prep must antimeridian-split it into a MultiPolygon. This exercises the real
+    # rotate -> fix_shape -> trim path (and would fail if the antimeridian API is wrong).
+    from shapely.geometry import Polygon
+
+    poly = Polygon([(-40, 10), (-20, 10), (-20, 30), (-40, 30)])
+    out = pl._prep(poly)
+    assert not out.is_empty
+    assert out.is_valid
+    assert out.geom_type == "MultiPolygon"
+    minx, miny, maxx, maxy = out.bounds
+    assert -180.0 <= minx and maxx < 180.0
+    assert miny >= pl.LAT_MIN and maxy <= pl.LAT_MAX
+
+
+def test_prep_trims_below_antarctica_cut():
+    # A polygon entirely below LAT_MIN should be trimmed away to empty.
+    from shapely.geometry import Polygon
+
+    deep_south = Polygon([(10, -80), (20, -80), (20, -70), (10, -70)])
+    assert pl._prep(deep_south).is_empty
 ```
 
 - [ ] **Step 2: Run tests to verify they fail**
 
-Run: `uv run --with pytest --with shapely --with antimeridian pytest scripts/flights/tests/test_prepare_land.py -v`
+Run: `uv run --python 3.12 --with pytest --with 'shapely==2.0.6' --with 'antimeridian==0.4.0' --with 'numpy>=1.26' pytest scripts/flights/tests/test_prepare_land.py -v`
 Expected: FAIL with `ModuleNotFoundError: No module named 'prepare_land'`.
 
 - [ ] **Step 3: Implement prepare_land.py**
@@ -323,7 +351,7 @@ Expected: FAIL with `ModuleNotFoundError: No module named 'prepare_land'`.
 ```python
 # /// script
 # requires-python = "==3.12.*"
-# dependencies = ["shapely==2.0.6", "antimeridian==0.4.0"]
+# dependencies = ["shapely==2.0.6", "antimeridian==0.4.0", "numpy>=1.26"]
 # ///
 """One-time, local: build pre-rotated, antimeridian-cut, Antarctica-trimmed
 land + boundary GeoJSONs for lon_0=150, vendored next to render_map.py.
@@ -337,9 +365,11 @@ import urllib.request
 from pathlib import Path
 
 import antimeridian
+import numpy as np  # noqa: F401 (used implicitly via shapely.transform arrays)
 from shapely import box
+from shapely import transform as shapely_transform
 from shapely.geometry import mapping, shape
-from shapely.ops import transform, unary_union
+from shapely.ops import unary_union
 
 LON0 = 150
 LAT_MIN, LAT_MAX = -58, 84
@@ -359,13 +389,22 @@ def wrap_lon(lon: float, lon0: int) -> float:
 
 
 def _rotate(geom):
-    return transform(lambda xs, ys, z=None: ([wrap_lon(x, LON0) for x in xs], list(ys)), geom)
+    """Shift every longitude by -LON0 using shapely 2.x vectorized transform.
+
+    The callback receives an (N, 2) array of [lon, lat] and returns the same shape.
+    """
+    def _shift(coords):
+        out = coords.copy()
+        out[:, 0] = (coords[:, 0] - LON0 + 180.0) % 360.0 - 180.0
+        return out
+
+    return shapely_transform(geom, _shift)
 
 
 def _prep(geom):
     """Rotate into the lon_0 frame, antimeridian-cut, then trim polar latitudes."""
     rotated = _rotate(geom)
-    fixed = antimeridian.fix_geometry(rotated)  # splits polygons crossing +/-180
+    fixed = antimeridian.fix_shape(rotated)  # splits polygons crossing +/-180
     return fixed.intersection(box(-180, LAT_MIN, 180, LAT_MAX))
 
 
@@ -389,7 +428,7 @@ if __name__ == "__main__":
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `uv run --with pytest --with shapely --with antimeridian pytest scripts/flights/tests/test_prepare_land.py -v`
+Run: `uv run --python 3.12 --with pytest --with 'shapely==2.0.6' --with 'antimeridian==0.4.0' --with 'numpy>=1.26' pytest scripts/flights/tests/test_prepare_land.py -v`
 Expected: PASS.
 
 - [ ] **Step 5: Generate the vendored GeoJSONs**
@@ -457,7 +496,7 @@ def test_great_circle_endpoints_and_density():
 
 - [ ] **Step 2: Run tests to verify they fail**
 
-Run: `uv run --with pytest --with pyproj --with shapely --with matplotlib pytest scripts/flights/tests/test_render_map.py -v`
+Run: `uv run --python 3.12 --with pytest --with 'pyproj==3.6.1' --with 'shapely==2.0.6' --with 'matplotlib==3.9.2' pytest scripts/flights/tests/test_render_map.py -v`
 Expected: FAIL with `ModuleNotFoundError: No module named 'render_map'`.
 
 - [ ] **Step 3: Implement render_map.py helpers (with a stub main)**
@@ -525,7 +564,7 @@ def main() -> None:  # pragma: no cover (covered by Task 4 integration test)
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `uv run --with pytest --with pyproj --with shapely --with matplotlib pytest scripts/flights/tests/test_render_map.py -v`
+Run: `uv run --python 3.12 --with pytest --with 'pyproj==3.6.1' --with 'shapely==2.0.6' --with 'matplotlib==3.9.2' pytest scripts/flights/tests/test_render_map.py -v`
 Expected: PASS (5 passed).
 
 - [ ] **Step 5: Commit**
@@ -570,11 +609,36 @@ def test_render_is_byte_deterministic(tmp_path):
     rm.render(REPO / "data" / "flights.geo.json", a)
     rm.render(REPO / "data" / "flights.geo.json", b)
     assert a.read_bytes() == b.read_bytes()
+
+
+def _max_jump():
+    minx, _ = rm._project(-179.999, 0)
+    maxx, _ = rm._project(179.999, 0)
+    return (maxx - minx) * 0.5
+
+
+def test_atlantic_route_splits_with_no_internal_seam_jump():
+    # SFO -> CPH crosses the rotated seam; it must split into >=2 segments, and
+    # every returned segment must be internally smooth (no x-jump > max_jump).
+    arc = rm.great_circle([-122.37, 37.62], [12.57, 55.62], n=48)
+    xy = [rm._project(rm.wrap_lon(lon, rm.LON0), lat) for lon, lat in arc]
+    segs = rm.split_on_seam(xy, _max_jump())
+    assert len(segs) >= 2
+    for seg in segs:
+        for (x0, _), (x1, _) in zip(seg, seg[1:]):
+            assert abs(x1 - x0) <= _max_jump()
+
+
+def test_local_route_not_split():
+    # SAN -> SFO stays well clear of the seam -> single segment.
+    arc = rm.great_circle([-117.19, 32.73], [-122.37, 37.62], n=48)
+    xy = [rm._project(rm.wrap_lon(lon, rm.LON0), lat) for lon, lat in arc]
+    assert len(rm.split_on_seam(xy, _max_jump())) == 1
 ```
 
 - [ ] **Step 2: Run tests to verify they fail**
 
-Run: `uv run --with pytest --with pyproj --with shapely --with matplotlib pytest scripts/flights/tests/test_render_map.py -v`
+Run: `uv run --python 3.12 --with pytest --with 'pyproj==3.6.1' --with 'shapely==2.0.6' --with 'matplotlib==3.9.2' pytest scripts/flights/tests/test_render_map.py -v`
 Expected: FAIL (`render` not defined / `NotImplementedError`).
 
 - [ ] **Step 3: Implement `render` and `main`**
@@ -646,8 +710,8 @@ def render(data_path: Path, out_path: Path) -> None:
     grat = []
     for lon in range(-180, 180, 30):
         grat.append([_project(lon, lat) for lat in range(LAT_MIN, LAT_MAX + 1, 5)])
-    for lat in range(-60, 91, 30):
-        grat.append([_project(lon, lat) for lon in range(-180, 181, 5)])
+    for lat in range(-45, 76, 15):  # parallels kept within the trimmed [LAT_MIN, LAT_MAX] band
+        grat.append([_project(lon, lat) for lon in range(-180, 180, 5)])
     ax.add_collection(LineCollection(grat, colors=GRATICULE, linewidths=GRATICULE_WIDTH, zorder=0))
 
     # Compute seam threshold from the projected map width.
@@ -691,7 +755,7 @@ if __name__ == "__main__":
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `uv run --with pytest --with pyproj --with shapely --with matplotlib pytest scripts/flights/tests/test_render_map.py -v`
+Run: `uv run --python 3.12 --with pytest --with 'pyproj==3.6.1' --with 'shapely==2.0.6' --with 'matplotlib==3.9.2' pytest scripts/flights/tests/test_render_map.py -v`
 Expected: PASS (all tests). If the determinism test fails, check that no `id="..."`/date varies between runs and that `svg.hashsalt` is set before `savefig`.
 
 - [ ] **Step 5: Render the committed SVG**
@@ -756,7 +820,7 @@ Expected: raw log path printed (ignored); `shape OK`; grep count `0`; `git statu
 
 - [ ] **Step 4: Run the full test suite**
 
-Run: `uv run --with pytest --with pyproj --with shapely --with antimeridian --with matplotlib pytest scripts/flights/tests/ -v`
+Run: `uv run --python 3.12 --with pytest --with 'pyproj==3.6.1' --with 'shapely==2.0.6' --with 'antimeridian==0.4.0' --with 'matplotlib==3.9.2' --with 'numpy>=1.26' pytest scripts/flights/tests/ -v`
 Expected: all tests pass.
 
 - [ ] **Step 5: Commit**
