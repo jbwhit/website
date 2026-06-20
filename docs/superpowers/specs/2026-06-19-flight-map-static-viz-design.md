@@ -5,7 +5,9 @@
 **Author:** Jonathan Whitmore (with Claude)
 **Trigger:** The 2014 blog post "One chapter closes; a new chapter opens" embedded a D3 flight map hosted on bl.ocks.org (now shut down). Rather than restore the dead post, Jonathan wants to *modernize that kind of visualization* as a standalone, durable artifact driven by his full flight log.
 
-**Review provenance:** Codex xhigh, round 1 — NOT SOUND: caught (a) the antimeridian seam for `+lon_0=150` is at −30° (mid-Atlantic), not ±180°, and must be handled for land as well as arcs; (b) ordered legs publish chronology even without date fields; (c) the vendored "land" layer can't yield country boundaries; (d) SVG determinism requires pinned deps + stripped metadata + sorted JSON. Verified against the data: 346 flights / 69 airports is correct (the 444 figure includes 98 trailing blank rows); real Atlantic-crossing legs (SFO–CPH, SFO–AMS, SFO–ZRH) confirm the −30° seam matters. All findings folded into this revision.
+**Review provenance:** Codex xhigh, 2+ rounds.
+- *Round 1 — NOT SOUND:* (a) the antimeridian seam for `+lon_0=150` is at −30° (mid-Atlantic), not ±180°, and must be handled for land as well as arcs; (b) ordered legs publish chronology even without date fields; (c) the vendored "land" layer can't yield country boundaries; (d) SVG determinism requires pinned deps + stripped metadata + sorted JSON. Verified against the data: 346 flights / 69 airports is correct (the 444 figure includes 98 trailing blank rows); real Atlantic-crossing legs (SFO–CPH, SFO–AMS, SFO–ZRH) confirm the −30° seam matters.
+- *Round 2 — NOT SOUND:* (a) render-detail/file-layout contradiction that double-rotated the pre-rotated land; (b) determinism needs full-resolution locking (`uv lock --script`) + `requires-python`, not just direct pins; (c) graticule must be built in the rotated frame or it re-introduces a seam jump. Privacy contract and the `α_eff = 1−(1−α_base)^count` compositing confirmed sound. All folded into this revision.
 
 ---
 
@@ -59,9 +61,11 @@ scripts/flights/
   prepare_data.py            # Stage 1: CSV -> flights.geo.json    (stdlib + urllib fetch)
   render_map.py              # Stage 2: flights.geo.json -> SVG     (pyproj, shapely, matplotlib)
   prepare_land.py            # one-time, local: NE admin-0 -> rotated, antimeridian-cut, Antarctica-trimmed land + boundaries
+  render_map.py.lock         # uv lock --script (full pinned resolution, committed)
+  prepare_land.py.lock       # uv lock --script (committed)
   airport_overrides.json     # manual coords for codes OurAirports lacks
-  ne-110m-land.geojson       # vendored land fill   — pre-cut for lon_0=150 (committed)
-  ne-110m-boundaries.geojson # vendored country borders — pre-cut for lon_0=150 (committed)
+  ne-110m-land.geojson       # vendored land fill   — pre-cut & pre-rotated for lon_0=150 (committed)
+  ne-110m-boundaries.geojson # vendored country borders — pre-cut & pre-rotated for lon_0=150 (committed)
 ```
 
 Each script is a standalone `uv run` entry point with PEP 723 inline dependency metadata, so `uv run scripts/flights/<script>.py` self-installs deps. No shared package, no `__init__.py`.
@@ -88,8 +92,10 @@ Each script is a standalone `uv run` entry point with PEP 723 inline dependency 
 ## Render details
 
 - **Projection / centering:** the Pacific centre (`lon_0=150`) is achieved by **rotating longitudes** (`lon' = wrap(lon − 150)` into [−180, 180)) and then projecting with `+proj=natearth +lon_0=0` via `pyproj.Transformer`. This moves the map seam to the standard ±180° antimeridian, which is where land was pre-cut (`prepare_land.py`) and where arc-splitting is checked — keeping render-time seam logic uniform and correct. (Note: with this centring the seam sits at original longitude −30°, mid-Atlantic — which Jonathan's Atlantic legs such as SFO–CPH cross, so seam handling is mandatory, not cosmetic.)
-- **Land + boundaries:** read the two vendored pre-cut GeoJSONs with stdlib `json`, build `shapely` geometries, rotate+project, draw with matplotlib — land as filled paths, boundaries as thin lines. They are already seam-cut and Antarctica-trimmed, so no render-time polygon surgery. (No `geopandas` dependency — keeps the stack small.)
-- **Great-circle arcs (corridors):** for each `route`, densify the endpoint pair with `pyproj.Geod(ellps="WGS84").npts(...)` (~48 points), rotate+project, and draw as a thin semi-transparent polyline. **Antimeridian split:** break the polyline wherever consecutive projected-x values jump by more than half the map width (a generic seam-crossing test), emitting separate sub-paths so a seam-crossing arc never smears horizontally.
+- **What gets rotated, and what doesn't (avoid double-rotation):** the vendored land/boundary GeoJSONs are **already in rotated-longitude space** (`prepare_land.py` baked the `−lon_0` rotation in). So at render time they are **only projected**, never rotated again. By contrast, flight coordinates and the graticule are in true longitudes and **are** rotated (`−lon_0`) before projecting. Mixing these up shifts the whole map — keep the two paths distinct.
+- **Land + boundaries:** read the two vendored pre-cut GeoJSONs with stdlib `json`, build `shapely` geometries, **project only** (no rotation), draw with matplotlib — land as filled paths, boundaries as thin lines. Already seam-cut and Antarctica-trimmed, so no render-time polygon surgery. (No `geopandas` dependency — keeps the stack small.)
+- **Graticule:** generate meridians/parallels directly in the **rotated** frame (longitudes spanning [−180, 180) around the centre) so no line straddles the seam; project and draw. (Equivalently, apply the same projected-x discontinuity split as arcs.) Do not feed original-longitude graticule lines through the rotation, or a seam jump reappears.
+- **Great-circle arcs (corridors):** for each `route`, densify the endpoint pair with `pyproj.Geod(ellps="WGS84").npts(...)` (~48 points), rotate (`−lon_0`) then project, and draw as a thin semi-transparent polyline. **Antimeridian split:** break the polyline wherever consecutive projected-x values jump by more than half the map width (a generic seam-crossing test), emitting separate sub-paths so a seam-crossing arc never smears horizontally.
 - **Intensity from counts (deterministic, order-free):** the approved preview's glow came from N identical arcs stacking. Reproduce it exactly by drawing each corridor **once** with composited alpha `α_eff = 1 − (1 − α_base)^count` (`α_base ≈ 0.34`). This is mathematically identical to overlaying `count` strokes but is deterministic and needs no leg ordering.
 - **Palette (B — Dark/Gruvbox), exact values from the approved preview:**
   | Element | Color | Notes |
@@ -101,7 +107,11 @@ Each script is a standalone `uv run` entry point with PEP 723 inline dependency 
   | arcs | `#83a598` | `α_base` ≈ 0.34 (composited by count), ~0.65 width, round caps |
   | airport dots | `#fe8019` | r ≈ 1.3 |
 - **Canvas:** single SVG, ~1.6:1 aspect, no axes/ticks/margins, dark background filling the frame.
-- **Determinism:** render must be byte-stable across runs given fixed inputs. Required measures: **pin exact dependency versions** in the PEP 723 metadata (`pyproj`, `shapely`, `matplotlib`); set `mpl.rcParams["svg.hashsalt"]` to a fixed string, `svg.fonttype = "none"`, and pass `metadata={"Date": None}` to `savefig` so no timestamp is embedded; iterate `airports`/`routes` in the file's already-sorted order. Re-rendering unchanged inputs must produce a byte-identical SVG.
+- **Determinism:** render must be byte-stable across runs given fixed inputs. Required measures:
+  - **Lock the full dependency resolution, not just direct pins.** Pin direct deps and `requires-python` in the PEP 723 metadata, and commit a per-script lockfile via `uv lock --script scripts/flights/render_map.py` (and likewise for `prepare_land.py`); run with `uv run --locked`. Direct-only pins leave transitive deps and the Python version floating, which can perturb SVG bytes.
+  - **Matplotlib:** set `mpl.rcParams["svg.hashsalt"]` to a fixed string, `svg.fonttype = "none"`, and pass `metadata={"Date": None}` to `savefig` so no timestamp/UUID is embedded.
+  - **Ordering:** iterate `airports`/`routes` in the file's already-sorted order.
+  - Re-rendering unchanged inputs must produce a **byte-identical** SVG (verification #7).
 
 ## Verification
 
