@@ -25,7 +25,7 @@ OVERRIDES_JSON = Path(__file__).with_name("airport_overrides.json")
 def parse_log(csv_path: Path) -> list[tuple[str, str]]:
     """Return [(dep, arr), ...] for every row with both airports, in file order."""
     legs: list[tuple[str, str]] = []
-    with open(csv_path, newline="") as f:
+    with open(csv_path, newline="", encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
             dep = (row.get("departing_airport") or "").strip()
             arr = (row.get("arriving_airport") or "").strip()
@@ -69,7 +69,7 @@ def resolve_coords(
     if missing:
         sys.exit(
             f"ERROR: no coordinates for {sorted(missing)}. "
-            f"Add them to {OVERRIDES_JSON.name} and re-run."
+            f"Add them to {OVERRIDES_JSON} and re-run."
         )
     return resolved
 
@@ -80,7 +80,7 @@ def build_routes(legs: list[tuple[str, str]]) -> list[list]:
     for dep, arr in legs:
         key = tuple(sorted((dep, arr)))
         counts[key] = counts.get(key, 0) + 1
-    return [[a, b, counts[(a, b)]] for (a, b) in sorted(counts)]
+    return [[a, b, n] for (a, b), n in sorted(counts.items())]
 
 
 def build_geojson(
