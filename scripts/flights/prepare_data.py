@@ -18,19 +18,36 @@ from pathlib import Path
 OURAIRPORTS_URL = "https://davidmegginson.github.io/ourairports-data/airports.csv"
 REPO_ROOT = Path(__file__).resolve().parents[2]
 LOG_CSV = REPO_ROOT / "data" / "flight-log.csv"
-OUT_JSON = REPO_ROOT / "data" / "flights.geo.json"
 OVERRIDES_JSON = Path(__file__).with_name("airport_overrides.json")
 
+# Safe datasets to emit. Each value is a date cutoff (ISO "YYYY-MM-DD") or None
+# for the full history. Cutoffs let a dated post show only the flights it could
+# have shown at the time — dates are read from the private log but never published.
+SNAPSHOTS: dict[Path, str | None] = {
+    REPO_ROOT / "data" / "flights.geo.json": None,
+    REPO_ROOT / "data" / "flights.geo.2014.json": "2014-08-01",
+}
 
-def parse_log(csv_path: Path) -> list[tuple[str, str]]:
-    """Return [(dep, arr), ...] for every row with both airports, in file order."""
+
+def parse_log(csv_path: Path, cutoff: str | None = None) -> list[tuple[str, str]]:
+    """Return [(dep, arr), ...] for every row with both airports, in file order.
+
+    If `cutoff` (an ISO "YYYY-MM-DD" string) is given, include only flights whose
+    `date_takeoff` is on or before it; rows without a usable date are excluded.
+    ISO dates sort lexicographically, so a plain string compare is correct.
+    """
     legs: list[tuple[str, str]] = []
     with open(csv_path, newline="", encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
             dep = (row.get("departing_airport") or "").strip()
             arr = (row.get("arriving_airport") or "").strip()
-            if dep and arr:
-                legs.append((dep, arr))
+            if not (dep and arr):
+                continue
+            if cutoff is not None:
+                date = (row.get("date_takeoff") or "").strip()
+                if not date or date > cutoff:
+                    continue
+            legs.append((dep, arr))
     return legs
 
 
@@ -94,13 +111,19 @@ def build_geojson(
 
 
 def main() -> None:
-    legs = parse_log(LOG_CSV)
-    codes = {c for leg in legs for c in leg}
     overrides = json.loads(OVERRIDES_JSON.read_text())
-    coords = resolve_coords(codes, fetch_ourairports(), overrides)
-    geo = build_geojson(legs, coords)
-    OUT_JSON.write_text(json.dumps(geo, indent=2, sort_keys=True) + "\n")
-    print(f"Wrote {OUT_JSON} ({len(geo['airports'])} airports, {len(geo['routes'])} routes)")
+    fetched = fetch_ourairports()
+    for out_path, cutoff in SNAPSHOTS.items():
+        legs = parse_log(LOG_CSV, cutoff)
+        codes = {c for leg in legs for c in leg}
+        coords = resolve_coords(codes, fetched, overrides)
+        geo = build_geojson(legs, coords)
+        out_path.write_text(json.dumps(geo, indent=2, sort_keys=True) + "\n")
+        label = "full history" if cutoff is None else f"through {cutoff}"
+        print(
+            f"Wrote {out_path.name} [{label}] "
+            f"({len(geo['airports'])} airports, {len(geo['routes'])} routes)"
+        )
 
 
 if __name__ == "__main__":

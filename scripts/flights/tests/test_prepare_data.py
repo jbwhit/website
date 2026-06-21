@@ -20,6 +20,12 @@ def test_parse_log_skips_blank_rows_and_keeps_order():
     assert legs == [("SAN", "SFO"), ("SFO", "SAN"), ("SAN", "SFO"), ("FRA", "TXL")]
 
 
+def test_parse_log_cutoff_filters_by_date():
+    # Fixture dates: rows 1,2 are 2020-01; rows 3,4 are 2020-02 / 2020-03.
+    legs = prepare_data.parse_log(FIXTURE, cutoff="2020-01-31")
+    assert legs == [("SAN", "SFO"), ("SFO", "SAN")]
+
+
 def test_resolve_coords_applies_overrides():
     codes = {"SAN", "SFO", "FRA", "TXL"}
     resolved = prepare_data.resolve_coords(codes, COORDS, OVERRIDES)

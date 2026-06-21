@@ -148,10 +148,21 @@ def render(data_path: Path, out_path: Path) -> None:
     plt.close(fig)
 
 
+# Each safe dataset -> its committed SVG. The 2014 snapshot backs the restored
+# 2014 post; the full history backs the 2026 post.
+SNAPSHOTS = {
+    "flights.geo.json": "flights-map.svg",
+    "flights.geo.2014.json": "flights-map-2014.svg",
+}
+
+
 def main() -> None:
-    out = HERE.parents[1] / "assets" / "images" / "flights" / "flights-map.svg"
-    render(HERE.parents[1] / "data" / "flights.geo.json", out)
-    print(f"Wrote {out}")
+    data_dir = HERE.parents[1] / "data"
+    out_dir = HERE.parents[1] / "assets" / "images" / "flights"
+    for data_name, svg_name in SNAPSHOTS.items():
+        out = out_dir / svg_name
+        render(data_dir / data_name, out)
+        print(f"Wrote {out}")
 
 
 if __name__ == "__main__":
