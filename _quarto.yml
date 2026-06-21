@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - assets/images/flights/flights-map.svg
+    - assets/images/flights/flights-map-2014.svg
   render:
     - "*.qmd"
     - "*.ipynb"
