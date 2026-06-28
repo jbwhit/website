@@ -7,6 +7,7 @@ land + boundary GeoJSONs for lon_0=150, vendored next to render_map.py.
 
     uv run scripts/flights/prepare_land.py
 """
+
 from __future__ import annotations
 
 import json
@@ -42,6 +43,7 @@ def _rotate(geom):
 
     The callback receives an (N, 2) array of [lon, lat] and returns the same shape.
     """
+
     def _shift(coords):
         out = coords.copy()
         out[:, 0] = (coords[:, 0] - LON0 + 180.0) % 360.0 - 180.0

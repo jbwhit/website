@@ -1,6 +1,10 @@
+from pathlib import Path
+
 import pytest
 
 import render_map as rm
+
+REPO = Path(__file__).resolve().parents[3]
 
 
 def test_wrap_lon_matches_rotation_convention():
@@ -11,7 +15,7 @@ def test_wrap_lon_matches_rotation_convention():
 def test_alpha_eff_compositing():
     assert rm.alpha_eff(0.34, 1) == pytest.approx(0.34)
     # Two stacked strokes: 1 - (1-0.34)^2
-    assert rm.alpha_eff(0.34, 2) == pytest.approx(1 - 0.66 ** 2)
+    assert rm.alpha_eff(0.34, 2) == pytest.approx(1 - 0.66**2)
     assert rm.alpha_eff(0.34, 10) < 1.0
 
 
@@ -32,11 +36,6 @@ def test_great_circle_endpoints_and_density():
     assert len(arc) == 48
     assert arc[0] == pytest.approx([-122.37, 37.62], abs=1e-6)
     assert arc[-1] == pytest.approx([144.84, -37.67], abs=1e-6)
-
-
-from pathlib import Path
-
-REPO = Path(__file__).resolve().parents[3]
 
 
 def test_render_produces_valid_svg(tmp_path):

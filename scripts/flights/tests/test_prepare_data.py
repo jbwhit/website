@@ -51,7 +51,9 @@ def test_build_routes_is_undirected_sorted_and_counted():
 
 def test_build_geojson_has_only_safe_keys():
     legs = prepare_data.parse_log(FIXTURE)
-    coords = prepare_data.resolve_coords({c for leg in legs for c in leg}, COORDS, OVERRIDES)
+    coords = prepare_data.resolve_coords(
+        {c for leg in legs for c in leg}, COORDS, OVERRIDES
+    )
     geo = prepare_data.build_geojson(legs, coords)
     assert set(geo.keys()) == {"airports", "routes"}
     blob = json.dumps(geo)

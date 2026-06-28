@@ -7,6 +7,7 @@
 Run locally (touches the private log):
     uv run scripts/flights/prepare_data.py
 """
+
 from __future__ import annotations
 
 import csv
@@ -100,9 +101,7 @@ def build_routes(legs: list[tuple[str, str]]) -> list[list]:
     return [[a, b, n] for (a, b), n in sorted(counts.items())]
 
 
-def build_geojson(
-    legs: list[tuple[str, str]], coords: dict[str, list[float]]
-) -> dict:
+def build_geojson(legs: list[tuple[str, str]], coords: dict[str, list[float]]) -> dict:
     """Assemble the safe public geometry: sorted airports + undirected routes."""
     return {
         "airports": dict(sorted(coords.items())),
