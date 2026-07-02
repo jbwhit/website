@@ -1,25 +1,25 @@
 ---
 title: "The Flight Map, Redrawn"
-date: 2026-06-28
+date: 2026-06-20
 author: Jonathan Whitmore
 draft: true
-description: "Twelve years ago I made a D3 map of every flight from my Australia postdoc on the last night in the country. The visualization died when bl.ocks.org shut down. Here it is rebuilt."
+description: "Twelve years ago, the week before I left Australia, I made a D3 map of every flight from my postdoc. The visualization died when bl.ocks.org shut down. Here it is rebuilt."
 image: /assets/images/flights/flights-map.svg
 categories: [personal, data-visualization, data-science]
 ---
 
 Twelve years ago, the week before I left Australia, I couldn't sleep. So I [made a little D3 map](../2014-08-01-a-chapter-closes-a-chapter-opens/) of every flight I'd taken during my astrophysics postdoc — Dallas to Los Angeles to Melbourne, and everywhere that came after.
 
-That map is gone now. It lived on bl.ocks.org, a little service for sharing D3 sketches, and when bl.ocks shut down it took the visualization with it. The old post still exists, but where the map used to be there's a dead embed.
+That map is gone now. It lived on bl.ocks.org, a little service for sharing D3 sketches, and when bl.ocks shut down it took the visualization with it. The old post still exists, but for years, where the map used to be, there was a dead embed.
 
 ::: {.column-margin}
-bl.ocks.org rendered visualizations straight from GitHub gists. The service went away but my gist survived.
+bl.ocks.org rendered visualizations straight from GitHub gists. The service went away but [my gist survived](https://gist.github.com/jbwhit/05f41642412c4622a85d).
 :::
 
 I finally got around to fixing it. And since I was starting from scratch anyway, I pulled in my logbook of every flight I have a record of back to 2005.
 
 ::: {.column-page}
-![Every flight I have a record of, 2005–2026. The map is Pacific-centered; arc opacity stacks, so the routes I've flown most often glow brightest.](/assets/images/flights/flights-map.svg)
+![Every flight, 2005–2026. The map is Pacific-centered; arc opacity stacks, so the routes I've flown most often glow brightest.](/assets/images/flights/flights-map.svg)
 :::
 
 There's most of my adult life in that tangle. The bright knot on the right is home base drifting around the United States — Dallas, where I grew up; San Diego for grad school; and the dense little triangle of the Bay Area commute I could now draw from memory. The long arcs sweeping down across the Pacific are the Australia years. The threads reaching to Chile and Hawaii are observing runs — nights at the VLT in the Atacama and Keck on Mauna Kea, which at the time felt like the most exotic commute imaginable.
@@ -34,8 +34,9 @@ Seeing it all at once does something the individual trips never did. Each flight
 
 A note for anyone tempted to build one of these.
 
-The 2014 version died for a reason worth remembering: it leaned on someone else's server. This time I made a single static SVG (with help from Claude). 
-It's generated from my flight log by a [small Python program](https://github.com/jbwhit/website/tree/main/scripts/flights). As long as the page renders, the map renders.
+The 2014 version died for a reason worth remembering: it leaned on someone else's server. This time I made a single static SVG (with help from Claude). It's generated from my flight log by a [small Python program](https://github.com/jbwhit/website/tree/main/scripts/flights). As long as the page renders, the map renders.
 
 The other thing I was careful about: a flight log is more sensitive than it looks. The only data that ships is the part that draws the picture: the airports, and how many times I've flown each route. No dates, no booking details, nothing that says where I'll be next Tuesday.
+
+The 2014 post signed off with "Ok future, let's see where we go from here." Twelve years later, here's the answer, drawn to scale.
 
