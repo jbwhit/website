@@ -10,6 +10,23 @@ I also make [generative art](https://www.jbwhitmoreart.com/) — algorithmic exp
 
 This site is where I write about topics I find interesting, share projects and tools I've built, and occasionally misuse machine learning for fun and profit.
 
+## Erdős number
+
+My [Erdős number](https://en.wikipedia.org/wiki/Erd%C5%91s_number) is **at most 4**, and every link in the chain is a refereed research publication:
+
+1. **Paul Erdős → G. Jogesh Babu**: Babu, Erdős & Ramachandra, "An asymptotic formula in additive number theory," [*Acta Arithmetica* **28** (1975/76) 405–412](https://users.renyi.hu/~p_erdos/1975-03.pdf) — the first of their three joint papers.
+2. **Babu → Eric D. Feigelson**: Isobe, Feigelson, Akritas & Babu, "Linear regression in astronomy," [*The Astrophysical Journal* **364** (1990) 104](https://doi.org/10.1086/169390).
+3. **Feigelson → Joe P. Ninan**: Kanodia et al., "A Hot Mars-sized Exoplanet Transiting an M Dwarf," [*The Astronomical Journal* **163** (2022) 3](https://doi.org/10.3847/1538-3881/ac3088).
+4. **Ninan → me**: The Astropy Collaboration, "The Astropy Project: Building an Open-science Project and Status of the v2.0 Core Package," [*The Astronomical Journal* **156** (2018) 123](https://doi.org/10.3847/1538-3881/aabc4f).
+
+::: {.column-margin}
+Computed July 2026 by crawling my full two-hop co-authorship neighborhood (~66,000 people via OpenAlex) against the [Erdős Number Project's](https://sites.google.com/oakland.edu/grossman/home/the-erdoes-number-project) official lists. Erdős numbers are upper bounds — a shorter path may always turn up.
+:::
+
+An argument for **3** exists: three of my Astropy co-authors wrote an Astro2020 white paper directly with Babu — ["Algorithms and Statistical Models for Scientific Discovery in the Petabyte Era"](https://arxiv.org/abs/1911.02479) — but a decadal-survey white paper isn't refereed research, so I claim the conservative 4.
+
+My favorite detail: the whole chain hinges on G. Jogesh Babu, who co-authored number theory with Erdős in the 1970s and then went on to co-found astrostatistics — the same person bridges pure mathematics and astronomy.
+
 ## Links
 
 - [Art Portfolio](https://www.jbwhitmoreart.com/)
