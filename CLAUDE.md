@@ -12,13 +12,36 @@ Commit early and often, and push to GitHub after each logical chunk of work.
 
 ## Build & Development Commands
 
-```bash
-# Preview site locally (live reload)
-quarto preview
+**Freeze is on, so most work needs no Python.** `execute: freeze: auto` is set in `_quarto.yml`
+and `_freeze/` is committed, so `quarto preview` / `quarto render` reuse frozen computational
+output — a jupyter post (`.ipynb` / `.qmd` with code cells) re-executes only when its **own**
+source changes. Writing or editing markdown posts (the common case) needs no Python at all:
 
-# Render full site (output goes to _site/)
-quarto render
+```bash
+quarto preview                        # live preview; reuses _freeze/, no Python needed
+QUARTO_PROFILE=drafts quarto preview  # same, including draft posts
+quarto render                         # full render to _site/
 ```
+
+**You only need Python when you edit or add a computational (jupyter) post** — it must
+re-execute, and Quarto's jupyter engine otherwise grabs the system `python3` (no jupyter) and
+dies with `ModuleNotFound: yaml`. Deps live in `requirements.txt`, installed into a **uv-managed
+`.venv`** (Python 3.13, matching CI); the `Makefile` points Quarto at it via **`QUARTO_PYTHON`**:
+
+```bash
+make setup      # uv venv (Python 3.13) + install requirements.txt  (one-time / after dep changes)
+make preview    # live preview incl. drafts, using the venv python
+make render     # full render, using the venv python
+```
+
+- After a computational post re-executes, **commit the updated `_freeze/`** so CI and other
+  clones reuse it (don't re-ignore `_freeze/`).
+- An explicit single-file `quarto render posts/…/index.qmd` always re-executes *that* file
+  (freeze is bypassed for an explicit target), so it needs the venv only if that post has code.
+- `uv run quarto …` does **not** work (no `pyproject.toml` → uv builds an ephemeral env missing
+  the deps); use the Makefile / `QUARTO_PYTHON`.
+- `quarto preview` serves at `http://localhost:<port>/` and opens your browser; a post appears in
+  the full-site build only once its branch is on `main` (or when run from that post's worktree).
 
 ## Architecture
 

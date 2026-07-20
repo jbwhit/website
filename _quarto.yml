@@ -9,6 +9,12 @@ project:
     - "projects/**/*.qmd"
     - "!strategy/"
 
+execute:
+  # Reuse frozen computational output; a post re-executes only when its own source
+  # changes. Frozen results live in _freeze/ (committed). Keeps preview/CI from
+  # re-running every notebook, and lets markdown-only previews skip Python.
+  freeze: auto
+
 website:
   title: "Jonathan Whitmore"
   description: "Personal website and blog"

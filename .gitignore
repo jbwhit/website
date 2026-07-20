@@ -1,7 +1,7 @@
 _docs/
 _proc/
 _site/
-_freeze/
+# _freeze/ is committed (Quarto freeze: auto) so preview/CI reuse computational output
 
 *.bak
 .gitattributes
