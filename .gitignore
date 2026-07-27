@@ -168,3 +168,6 @@ gha-creds-*.json
 
 # Raw personal flight log — contains booking PNRs / seats; do not commit to public repo
 data/flight-log.csv
+
+# Private local operational runbook — keep out of the public repo
+/runbook.md
