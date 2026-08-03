@@ -75,6 +75,21 @@ make render     # full render, using the venv python
 - **Article pages** (blog posts, individual checklists like `projects/checklists/investing.qmd`): keep `date` and `categories`; per-page `toc-title` is allowed.
 - **TOC rule (both archetypes):** global `toc: true` in `_quarto.yml` stays — TOC renders on the right for any page with headings. Never set `toc-location: left`; don't add per-page `toc: false`.
 
+### Margin layout (Tufte-style)
+
+`_quarto.yml` sets `reference-location: margin`, `cap-location: margin`, and
+`grid: margin-width: 300px`, so footnotes and figure/table captions render as sidenotes in
+the right margin (collapsing inline below ~992px). Arbitrary margin content uses
+`::: {.column-margin}` divs; wide figures use `::: {.column-page}`.
+
+- **Figures wider than the ~799px body column can't have margin captions** — Quarto promotes
+  them to a page-spanning layout and the caption lands on top of the plot. A matplotlib
+  `figsize=(9, …)` renders at 854px and trips this; ≲8in is fine. The two computational posts
+  (`2010-11-26-monty-hall…`, `2026-03-28-the-wrong-question`) opt out with `cap-location: bottom`
+  in their frontmatter.
+- The document-level key is **`cap-location`**, not `fig-cap-location` — the latter is valid only
+  as a cell option (`#| fig-cap-location:`) and **fails silently** in frontmatter.
+
 ### Posts & files
 
 - Blog posts go in `posts/YYYY-MM-DD-slug/index.qmd` (or `.ipynb` for notebook posts)
@@ -91,10 +106,41 @@ Push to `main` triggers `.github/workflows/publish.yml`:
 
 GitHub Pages source must be set to "GitHub Actions" (not "Deploy from a branch").
 
-After pushing, verify the deploy succeeded:
+After pushing, verify the deploy succeeded — `gh run watch` needs an explicit run ID, or it
+just prints its help text and exits 0:
 ```bash
-gh run watch --exit-status
+gh run watch "$(gh run list --branch main --limit 1 --json databaseId --jq '.[0].databaseId')" \
+  --exit-status --compact
 ```
+
+## Verifying layout changes visually
+
+Theme/layout changes (SCSS, `styles.css`, grid widths, caption placement) must be checked in a
+browser, not just reasoned about. Render, serve `_site/`, and drive headless Chromium with
+[`shot-scraper`](https://shot-scraper.datasette.io/) via `uvx` — no install step, no venv:
+
+```bash
+QUARTO_PROFILE=drafts make render                       # drafts profile: exercises draft posts too
+uv run python -m http.server 8813 --directory _site &   # serve; kill when done
+uvx shot-scraper install                                # one-time: fetches headless Chromium
+
+uvx shot-scraper shot http://localhost:8813/posts/<slug>/ -o out.png --width 1440 --height 2400
+uvx shot-scraper shot http://localhost:8813/posts/<slug>/ -o fig.png --selector "#fig-<label>"
+uvx shot-scraper multi shots.yml                        # batch; supports per-shot `javascript:`
+```
+
+- **Check both themes**: dark mode needs `javascript: "document.querySelector('.quarto-color-scheme-toggle')?.click()"`.
+- **Check three widths**: 1440px (margin visible), ~1024px (margin squeezed), ~820px (margin collapses inline).
+- **Measure, don't squint.** Downscaled full-page screenshots are unreliable for a few pixels of
+  clipping or overflow. Get the geometry instead:
+  ```bash
+  uvx shot-scraper javascript http://localhost:8813/posts/<slug>/ \
+    "(() => { const i = document.querySelector('.figure-img'), r = i.getBoundingClientRect();
+       return {w: r.width, max: getComputedStyle(i).maxWidth}; })()" --width 1440
+  ```
+- **Confirm a suspected regression against production before fixing it** — run the same
+  measurement against `https://jonathanwhitmore.com/…`. Several layout quirks here predate any
+  given change.
 
 ## Theming
 
