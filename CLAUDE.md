@@ -89,6 +89,14 @@ the right margin (collapsing inline below ~992px). Arbitrary margin content uses
   in their frontmatter.
 - The document-level key is **`cap-location`**, not `fig-cap-location` — the latter is valid only
   as a cell option (`#| fig-cap-location:`) and **fails silently** in frontmatter.
+- Margin notes need no extra styling — Quarto already renders them smaller and muted (14px grey
+  vs 15.3px body). Don't add SCSS for this.
+- **Don't adopt a third-party Tufte extension.** Surveyed Aug 2026: `fredguth/tufte-quarto`
+  (stale ~2022, breaks on Quarto ≥1.4), `skriptum/quarto-pressmark` (all-in-one theme, fights a
+  custom dual light/dark SCSS setup), `christopherkenny/tufte` (Typst/PDF only). Quarto absorbed
+  the Tufte layout features into core, so the built-ins above are the maintained path. Current
+  reference is <https://quarto.org/docs/authoring/article-layout.html> (the quarto-gallery Tufte
+  page is a frozen ~2023 demo).
 
 ### Posts & files
 
