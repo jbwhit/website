@@ -85,6 +85,9 @@ format:
       dark: gruvbox-dark
     css: styles.css
     toc: true
+    # Tufte-style sidenotes: footnotes render in the right margin next to their
+    # reference mark (collapsing to tap-to-expand on narrow screens)
+    reference-location: margin
     code-fold: true
     code-copy: true
     link-external-newwindow: true
