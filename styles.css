@@ -17,6 +17,13 @@ div.description {
   margin-top: 1rem;
 }
 
+/* Figure images scale to their column instead of overflowing it — matplotlib
+   figures wider than the body column were spilling past the right edge */
+figure img.figure-img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Listing thumbnails — image-left layout and consistent crop */
 .quarto-post.image-right {
   flex-direction: row; /* override Quarto's row-reverse to put thumbnail on left */

@@ -88,6 +88,11 @@ format:
     # Tufte-style sidenotes: footnotes render in the right margin next to their
     # reference mark (collapsing to tap-to-expand on narrow screens)
     reference-location: margin
+    # Figure/table captions in the margin, and a wider margin column so
+    # sidenotes and captions read as text rather than a thin ribbon
+    cap-location: margin
+    grid:
+      margin-width: 300px
     code-fold: true
     code-copy: true
     link-external-newwindow: true

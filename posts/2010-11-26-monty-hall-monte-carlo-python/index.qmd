@@ -6,6 +6,9 @@ author: Jonathan Whitmore
 draft: false
 categories: [probability, python]
 description: "A Monte Carlo simulation of the Monty Hall bet — ten million rounds of switching vs. staying, with Python code you can run yourself."
+# Figures here are 9in wide and overflow the body column into the margin,
+# so the site-wide cap-location: margin would collide captions with the plots
+cap-location: bottom
 execute:
   echo: true
   cache: true

@@ -6,6 +6,9 @@ draft: true
 categories: [ergodicity, game-theory, philosophy, policy, simulation]
 description: "The individual rights vs. collective obligations debate is a false dichotomy — here are simplified models that show why."
 jupyter: python3
+# Figures here are 9in wide and overflow the body column into the margin,
+# so the site-wide cap-location: margin would collide captions with the plots
+cap-location: bottom
 execute:
   echo: true
   cache: true
